@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>icons/44298757-c475-4d62-8415-e4d92b1b761b-removebg-preview.png</file>
+        <file>icons/chahed_bhima-removebg-preview.png</file>
+    </qresource>
+</RCC>

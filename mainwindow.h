@@ -5,7 +5,6 @@
 #include <QWidget>  // For the popup widget
 #include <QPushButton>  // For the button
 #include <QLabel>  // For the label inside the popup widget
-#include "equipements.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -38,23 +37,12 @@ private slots:
     void on_btnequiprmrnt_clicked();
     void on_btnequiprmrnt2_clicked();
     void on_btnequiprmrnt3_clicked();
+
     void on_btnuser_clicked();
-
-public:
-    void updateTableView();
-
-private:
-    //Ui::MainWindow *ui;
-    QWidget *popupWidget;  // The popup widget
-
-private slots:
-    void on_btnequipementAjouter_clicked();  // Slot for adding equipment
-    void afficherEquipements();  // Function to display data in the table
 
 private:
     Ui::MainWindow *ui;
-    Equipement equipement;  // Equipement object
-
+    QWidget *popupWidget;  // The popup widget
 };
 
 #endif // MAINWINDOW_H

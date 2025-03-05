@@ -22,8 +22,9 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
-#include <QtWidgets/QTableView>
+#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
+#include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -32,7 +33,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QWidget *centralwidget;
+    QWidget *centralWidget;
     QWidget *widget_2;
     QPushButton *pushButton_14;
     QWidget *layoutWidget;
@@ -45,12 +46,10 @@ public:
     QPushButton *btnrendezv;
     QLabel *label_2;
     QLabel *label_8;
-    QWidget *layoutWidget1;
+    QWidget *layoutWidget_2;
     QVBoxLayout *verticalLayout;
     QPushButton *exit;
     QPushButton *btnrendezv_2;
-    QWidget *widget_4;
-    QPushButton *btnuser;
     QStackedWidget *sqs;
     QWidget *medecin;
     QLabel *label_3;
@@ -66,7 +65,7 @@ public:
     QPushButton *pushButton_6;
     QPushButton *pushButton_7;
     QGroupBox *groupBox_5;
-    QWidget *layoutWidget_2;
+    QWidget *layoutWidget_3;
     QVBoxLayout *verticalLayout_4;
     QLabel *label_90;
     QLineEdit *lineEdit_21;
@@ -83,7 +82,7 @@ public:
     QPushButton *pushButton_128;
     QPushButton *btnmedecin3;
     QPushButton *btnmedecin2;
-    QWidget *layoutWidget_3;
+    QWidget *layoutWidget_4;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_16;
     QComboBox *comboBox_4;
@@ -114,7 +113,7 @@ public:
     QPushButton *pushButton_9;
     QPushButton *pushButton_10;
     QGroupBox *groupBox_6;
-    QWidget *layoutWidget_4;
+    QWidget *layoutWidget_5;
     QVBoxLayout *verticalLayout_5;
     QLabel *label_95;
     QLineEdit *lineEdit_28;
@@ -137,7 +136,7 @@ public:
     QPushButton *pushButton_130;
     QPushButton *btnpatient3;
     QPushButton *btnpatient2;
-    QWidget *layoutWidget_5;
+    QWidget *layoutWidget_6;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_29;
     QComboBox *comboBox_5;
@@ -159,7 +158,7 @@ public:
     QWidget *Labo;
     QLabel *label_5;
     QGroupBox *groupBox_4;
-    QWidget *layoutWidget2;
+    QWidget *layoutWidget_7;
     QVBoxLayout *verticalLayout_3;
     QLabel *label_86;
     QLineEdit *lineEdit_19;
@@ -180,7 +179,7 @@ public:
     QPushButton *btnlabo2;
     QPushButton *btnlabo3;
     QPushButton *btnlabo4;
-    QWidget *layoutWidget3;
+    QWidget *layoutWidget_8;
     QHBoxLayout *horizontalLayout;
     QLabel *label_10;
     QComboBox *comboBox;
@@ -200,7 +199,7 @@ public:
     QPushButton *pushButton_16;
     QPushButton *pushButton_17;
     QGroupBox *groupBox_8;
-    QWidget *layoutWidget_8;
+    QWidget *layoutWidget_9;
     QVBoxLayout *verticalLayout_7;
     QLabel *label_109;
     QLineEdit *lineEdit_40;
@@ -217,7 +216,7 @@ public:
     QPushButton *pushButton_135;
     QPushButton *btnmedecin3_2;
     QPushButton *btnmedecin2_2;
-    QWidget *layoutWidget_9;
+    QWidget *layoutWidget_10;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_52;
     QComboBox *comboBox_8;
@@ -248,7 +247,7 @@ public:
     QPushButton *pushButton_19;
     QPushButton *pushButton_20;
     QGroupBox *groupBox_9;
-    QWidget *layoutWidget_10;
+    QWidget *layoutWidget_11;
     QVBoxLayout *verticalLayout_8;
     QLabel *label_113;
     QLineEdit *lineEdit_45;
@@ -271,7 +270,7 @@ public:
     QPushButton *pushButton_137;
     QPushButton *btnpatient3_2;
     QPushButton *btnpatient2_2;
-    QWidget *layoutWidget_11;
+    QWidget *layoutWidget_12;
     QHBoxLayout *horizontalLayout_6;
     QLabel *label_63;
     QComboBox *comboBox_10;
@@ -297,7 +296,7 @@ public:
     QPushButton *pushButton_22;
     QPushButton *pushButton_23;
     QGroupBox *groupBox_10;
-    QWidget *layoutWidget_12;
+    QWidget *layoutWidget_13;
     QVBoxLayout *verticalLayout_9;
     QLabel *label_120;
     QLineEdit *lineEdit_51;
@@ -305,14 +304,17 @@ public:
     QComboBox *comboBox_11;
     QLabel *label_122;
     QComboBox *comboBox_13;
-    QHBoxLayout *horizontalLayout_4;
-    QPushButton *btnequipementAjouter;
-    QTableView *tableauEquipements;
+    QLabel *label_124;
+    QDateEdit *dateEdit_8;
+    QPushButton *pushButton_121;
+    QTableWidget *tableau4;
     QLineEdit *lineEdit_54;
+    QPushButton *pushButton_139;
+    QPushButton *pushButton_140;
     QPushButton *btnequiprmrnt4;
     QPushButton *btnequiprmrnt2;
     QPushButton *btnequiprmrnt3;
-    QWidget *layoutWidget_13;
+    QWidget *layoutWidget_14;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_72;
     QComboBox *comboBox_12;
@@ -865,20 +867,21 @@ public:
     QLabel *label_365;
     QWidget *page_16;
     QLabel *label_366;
+    QWidget *widget_4;
+    QPushButton *btnuser;
+    QToolBar *mainToolBar;
+    QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->setEnabled(true);
-        MainWindow->resize(1286, 740);
-        MainWindow->setMinimumSize(QSize(0, 0));
-        MainWindow->setMaximumSize(QSize(16777215, 16777215));
-        centralwidget = new QWidget(MainWindow);
-        centralwidget->setObjectName("centralwidget");
-        widget_2 = new QWidget(centralwidget);
+        MainWindow->resize(1283, 773);
+        centralWidget = new QWidget(MainWindow);
+        centralWidget->setObjectName("centralWidget");
+        widget_2 = new QWidget(centralWidget);
         widget_2->setObjectName("widget_2");
-        widget_2->setGeometry(QRect(0, 0, 191, 741));
+        widget_2->setGeometry(QRect(0, 0, 191, 761));
         widget_2->setStyleSheet(QString::fromUtf8("QWidget {\n"
 "    background-color: #2a2a2a;\n"
 "    border-right: 2px solid #2a2a2a;\n"
@@ -982,6 +985,7 @@ public:
         layoutWidget->setGeometry(QRect(10, 90, 171, 441));
         verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setSpacing(0);
+        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         btnmedecin = new QPushButton(layoutWidget);
@@ -1215,20 +1219,22 @@ public:
         label_2 = new QLabel(widget_2);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(0, 0, 81, 71));
-        label_2->setPixmap(QPixmap(QString::fromUtf8(":/icons/chahed_bhima-removebg-preview.png")));
+        label_2->setPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/icons/chahed_bhima-removebg-preview.png")));
         label_2->setScaledContents(true);
         label_8 = new QLabel(widget_2);
         label_8->setObjectName("label_8");
         label_8->setGeometry(QRect(80, 20, 111, 41));
-        label_8->setPixmap(QPixmap(QString::fromUtf8(":/icons/44298757-c475-4d62-8415-e4d92b1b761b-removebg-preview.png")));
+        label_8->setPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/icons/44298757-c475-4d62-8415-e4d92b1b761b-removebg-preview.png")));
         label_8->setScaledContents(true);
-        layoutWidget1 = new QWidget(widget_2);
-        layoutWidget1->setObjectName("layoutWidget1");
-        layoutWidget1->setGeometry(QRect(10, 620, 181, 121));
-        verticalLayout = new QVBoxLayout(layoutWidget1);
+        layoutWidget_2 = new QWidget(widget_2);
+        layoutWidget_2->setObjectName("layoutWidget_2");
+        layoutWidget_2->setGeometry(QRect(10, 620, 181, 121));
+        verticalLayout = new QVBoxLayout(layoutWidget_2);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        exit = new QPushButton(layoutWidget1);
+        exit = new QPushButton(layoutWidget_2);
         exit->setObjectName("exit");
         exit->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #2a2a2a;\n"
@@ -1264,7 +1270,7 @@ public:
 
         verticalLayout->addWidget(exit, 0, Qt::AlignmentFlag::AlignLeft);
 
-        btnrendezv_2 = new QPushButton(layoutWidget1);
+        btnrendezv_2 = new QPushButton(layoutWidget_2);
         btnrendezv_2->setObjectName("btnrendezv_2");
         btnrendezv_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #2a2a2a;\n"
@@ -1300,108 +1306,14 @@ public:
 
         verticalLayout->addWidget(btnrendezv_2, 0, Qt::AlignmentFlag::AlignLeft);
 
-        widget_4 = new QWidget(centralwidget);
-        widget_4->setObjectName("widget_4");
-        widget_4->setGeometry(QRect(180, 0, 1121, 71));
-        widget_4->setStyleSheet(QString::fromUtf8("QWidget {\n"
-"    background-color: #2a2a2a;\n"
-"    border-right: 2px solid #3a3a3a;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"    background-color: #3a3a3a;\n"
-"    color: #ffffff;\n"
-"    border: none;\n"
-"    padding: 10px;\n"
-"    margin: 5px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #4a4a4a;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #666666;\n"
-"}\n"
-"\n"
-"QListWidget {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: none;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QListWidget::item {\n"
-"    padding: 8px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QListWidget::item:selected {\n"
-"    background-color: #4a4a4a;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background: #2a2a2a;\n"
-"    width: 8px;\n"
-"    margin: 0px 0px 0px 0px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical {\n"
-"    background: #555555;\n"
-"    border-radius: 10px;\n"
-"}\n"
-""
-                        "\n"
-"QScrollBar::handle:vertical:hover {\n"
-"    background: #777777;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
-"    border: none;\n"
-"    background: none;\n"
-"}\n"
-""));
-        btnuser = new QPushButton(widget_4);
-        btnuser->setObjectName("btnuser");
-        btnuser->setGeometry(QRect(950, 0, 151, 61));
-        btnuser->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        btnuser->setIcon(icon6);
-        btnuser->setCheckable(true);
-        btnuser->setAutoExclusive(true);
-        sqs = new QStackedWidget(centralwidget);
+        pushButton_14->raise();
+        layoutWidget->raise();
+        label_2->raise();
+        layoutWidget_2->raise();
+        label_8->raise();
+        sqs = new QStackedWidget(centralWidget);
         sqs->setObjectName("sqs");
-        sqs->setGeometry(QRect(190, 70, 1101, 671));
+        sqs->setGeometry(QRect(190, 70, 1101, 691));
         sqs->setStyleSheet(QString::fromUtf8("background-color: rgb(234, 251, 255);\n"
 ""));
         medecin = new QWidget();
@@ -1623,13 +1535,15 @@ public:
 "    border-radius: 5px;\n"
 "    font-weight: bold;\n"
 "}"));
-        layoutWidget_2 = new QWidget(groupBox_5);
-        layoutWidget_2->setObjectName("layoutWidget_2");
-        layoutWidget_2->setGeometry(QRect(10, 40, 271, 601));
-        verticalLayout_4 = new QVBoxLayout(layoutWidget_2);
+        layoutWidget_3 = new QWidget(groupBox_5);
+        layoutWidget_3->setObjectName("layoutWidget_3");
+        layoutWidget_3->setGeometry(QRect(10, 40, 271, 601));
+        verticalLayout_4 = new QVBoxLayout(layoutWidget_3);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
         verticalLayout_4->setObjectName("verticalLayout_4");
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-        label_90 = new QLabel(layoutWidget_2);
+        label_90 = new QLabel(layoutWidget_3);
         label_90->setObjectName("label_90");
         label_90->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -1638,7 +1552,7 @@ public:
 
         verticalLayout_4->addWidget(label_90);
 
-        lineEdit_21 = new QLineEdit(layoutWidget_2);
+        lineEdit_21 = new QLineEdit(layoutWidget_3);
         lineEdit_21->setObjectName("lineEdit_21");
         lineEdit_21->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -1654,7 +1568,7 @@ public:
 
         verticalLayout_4->addWidget(lineEdit_21);
 
-        label_92 = new QLabel(layoutWidget_2);
+        label_92 = new QLabel(layoutWidget_3);
         label_92->setObjectName("label_92");
         label_92->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -1663,7 +1577,7 @@ public:
 
         verticalLayout_4->addWidget(label_92);
 
-        lineEdit_23 = new QLineEdit(layoutWidget_2);
+        lineEdit_23 = new QLineEdit(layoutWidget_3);
         lineEdit_23->setObjectName("lineEdit_23");
         lineEdit_23->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -1679,7 +1593,7 @@ public:
 
         verticalLayout_4->addWidget(lineEdit_23);
 
-        label_93 = new QLabel(layoutWidget_2);
+        label_93 = new QLabel(layoutWidget_3);
         label_93->setObjectName("label_93");
         label_93->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -1688,7 +1602,7 @@ public:
 
         verticalLayout_4->addWidget(label_93);
 
-        lineEdit_25 = new QLineEdit(layoutWidget_2);
+        lineEdit_25 = new QLineEdit(layoutWidget_3);
         lineEdit_25->setObjectName("lineEdit_25");
         lineEdit_25->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -1704,7 +1618,7 @@ public:
 
         verticalLayout_4->addWidget(lineEdit_25);
 
-        label_94 = new QLabel(layoutWidget_2);
+        label_94 = new QLabel(layoutWidget_3);
         label_94->setObjectName("label_94");
         label_94->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -1713,7 +1627,7 @@ public:
 
         verticalLayout_4->addWidget(label_94);
 
-        lineEdit_27 = new QLineEdit(layoutWidget_2);
+        lineEdit_27 = new QLineEdit(layoutWidget_3);
         lineEdit_27->setObjectName("lineEdit_27");
         lineEdit_27->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -1729,7 +1643,7 @@ public:
 
         verticalLayout_4->addWidget(lineEdit_27);
 
-        pushButton_116 = new QPushButton(layoutWidget_2);
+        pushButton_116 = new QPushButton(layoutWidget_3);
         pushButton_116->setObjectName("pushButton_116");
         pushButton_116->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: rgb(173, 216, 230);\n"
@@ -1966,14 +1880,15 @@ public:
         btnmedecin2->setIcon(icon6);
         btnmedecin2->setCheckable(true);
         btnmedecin2->setAutoExclusive(true);
-        layoutWidget_3 = new QWidget(Labo_2);
-        layoutWidget_3->setObjectName("layoutWidget_3");
-        layoutWidget_3->setGeometry(QRect(537, 90, 391, 57));
-        horizontalLayout_2 = new QHBoxLayout(layoutWidget_3);
+        layoutWidget_4 = new QWidget(Labo_2);
+        layoutWidget_4->setObjectName("layoutWidget_4");
+        layoutWidget_4->setGeometry(QRect(537, 90, 391, 57));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget_4);
         horizontalLayout_2->setSpacing(7);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label_16 = new QLabel(layoutWidget_3);
+        label_16 = new QLabel(layoutWidget_4);
         label_16->setObjectName("label_16");
         label_16->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
 "    padding: 10px;\n"
@@ -1984,7 +1899,7 @@ public:
 
         horizontalLayout_2->addWidget(label_16, 0, Qt::AlignmentFlag::AlignRight);
 
-        comboBox_4 = new QComboBox(layoutWidget_3);
+        comboBox_4 = new QComboBox(layoutWidget_4);
         comboBox_4->addItem(QString());
         comboBox_4->addItem(QString());
         comboBox_4->addItem(QString());
@@ -2293,13 +2208,15 @@ public:
 "    border-radius: 5px;\n"
 "    font-weight: bold;\n"
 "}"));
-        layoutWidget_4 = new QWidget(groupBox_6);
-        layoutWidget_4->setObjectName("layoutWidget_4");
-        layoutWidget_4->setGeometry(QRect(10, 30, 271, 641));
-        verticalLayout_5 = new QVBoxLayout(layoutWidget_4);
+        layoutWidget_5 = new QWidget(groupBox_6);
+        layoutWidget_5->setObjectName("layoutWidget_5");
+        layoutWidget_5->setGeometry(QRect(10, 30, 271, 641));
+        verticalLayout_5 = new QVBoxLayout(layoutWidget_5);
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
         verticalLayout_5->setObjectName("verticalLayout_5");
         verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        label_95 = new QLabel(layoutWidget_4);
+        label_95 = new QLabel(layoutWidget_5);
         label_95->setObjectName("label_95");
         label_95->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -2308,7 +2225,7 @@ public:
 
         verticalLayout_5->addWidget(label_95);
 
-        lineEdit_28 = new QLineEdit(layoutWidget_4);
+        lineEdit_28 = new QLineEdit(layoutWidget_5);
         lineEdit_28->setObjectName("lineEdit_28");
         lineEdit_28->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -2324,7 +2241,7 @@ public:
 
         verticalLayout_5->addWidget(lineEdit_28);
 
-        label_96 = new QLabel(layoutWidget_4);
+        label_96 = new QLabel(layoutWidget_5);
         label_96->setObjectName("label_96");
         label_96->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -2333,7 +2250,7 @@ public:
 
         verticalLayout_5->addWidget(label_96);
 
-        lineEdit_29 = new QLineEdit(layoutWidget_4);
+        lineEdit_29 = new QLineEdit(layoutWidget_5);
         lineEdit_29->setObjectName("lineEdit_29");
         lineEdit_29->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -2349,7 +2266,7 @@ public:
 
         verticalLayout_5->addWidget(lineEdit_29);
 
-        label_97 = new QLabel(layoutWidget_4);
+        label_97 = new QLabel(layoutWidget_5);
         label_97->setObjectName("label_97");
         label_97->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -2358,7 +2275,7 @@ public:
 
         verticalLayout_5->addWidget(label_97);
 
-        dateEdit_5 = new QDateEdit(layoutWidget_4);
+        dateEdit_5 = new QDateEdit(layoutWidget_5);
         dateEdit_5->setObjectName("dateEdit_5");
         dateEdit_5->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -2375,7 +2292,7 @@ public:
 
         verticalLayout_5->addWidget(dateEdit_5);
 
-        label_98 = new QLabel(layoutWidget_4);
+        label_98 = new QLabel(layoutWidget_5);
         label_98->setObjectName("label_98");
         label_98->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -2384,7 +2301,7 @@ public:
 
         verticalLayout_5->addWidget(label_98);
 
-        comboBox_3 = new QComboBox(layoutWidget_4);
+        comboBox_3 = new QComboBox(layoutWidget_5);
         comboBox_3->addItem(QString());
         comboBox_3->addItem(QString());
         comboBox_3->setObjectName("comboBox_3");
@@ -2403,7 +2320,7 @@ public:
 
         verticalLayout_5->addWidget(comboBox_3);
 
-        label_99 = new QLabel(layoutWidget_4);
+        label_99 = new QLabel(layoutWidget_5);
         label_99->setObjectName("label_99");
         label_99->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -2412,7 +2329,7 @@ public:
 
         verticalLayout_5->addWidget(label_99);
 
-        lineEdit_33 = new QLineEdit(layoutWidget_4);
+        lineEdit_33 = new QLineEdit(layoutWidget_5);
         lineEdit_33->setObjectName("lineEdit_33");
         lineEdit_33->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -2428,7 +2345,7 @@ public:
 
         verticalLayout_5->addWidget(lineEdit_33);
 
-        label_100 = new QLabel(layoutWidget_4);
+        label_100 = new QLabel(layoutWidget_5);
         label_100->setObjectName("label_100");
         label_100->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -2437,7 +2354,7 @@ public:
 
         verticalLayout_5->addWidget(label_100);
 
-        lineEdit_34 = new QLineEdit(layoutWidget_4);
+        lineEdit_34 = new QLineEdit(layoutWidget_5);
         lineEdit_34->setObjectName("lineEdit_34");
         lineEdit_34->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -2453,7 +2370,7 @@ public:
 
         verticalLayout_5->addWidget(lineEdit_34);
 
-        label_101 = new QLabel(layoutWidget_4);
+        label_101 = new QLabel(layoutWidget_5);
         label_101->setObjectName("label_101");
         label_101->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -2462,7 +2379,7 @@ public:
 
         verticalLayout_5->addWidget(label_101);
 
-        lineEdit_35 = new QLineEdit(layoutWidget_4);
+        lineEdit_35 = new QLineEdit(layoutWidget_5);
         lineEdit_35->setObjectName("lineEdit_35");
         lineEdit_35->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -2478,7 +2395,7 @@ public:
 
         verticalLayout_5->addWidget(lineEdit_35);
 
-        pushButton_117 = new QPushButton(layoutWidget_4);
+        pushButton_117 = new QPushButton(layoutWidget_5);
         pushButton_117->setObjectName("pushButton_117");
         pushButton_117->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: rgb(173, 216, 230);\n"
@@ -2719,14 +2636,15 @@ public:
         btnpatient2->setIcon(icon6);
         btnpatient2->setCheckable(true);
         btnpatient2->setAutoExclusive(true);
-        layoutWidget_5 = new QWidget(Labo_3);
-        layoutWidget_5->setObjectName("layoutWidget_5");
-        layoutWidget_5->setGeometry(QRect(537, 90, 391, 57));
-        horizontalLayout_3 = new QHBoxLayout(layoutWidget_5);
+        layoutWidget_6 = new QWidget(Labo_3);
+        layoutWidget_6->setObjectName("layoutWidget_6");
+        layoutWidget_6->setGeometry(QRect(537, 90, 391, 57));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget_6);
         horizontalLayout_3->setSpacing(7);
+        horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_3->setObjectName("horizontalLayout_3");
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        label_29 = new QLabel(layoutWidget_5);
+        label_29 = new QLabel(layoutWidget_6);
         label_29->setObjectName("label_29");
         label_29->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
 "    padding: 10px;\n"
@@ -2737,7 +2655,7 @@ public:
 
         horizontalLayout_3->addWidget(label_29, 0, Qt::AlignmentFlag::AlignRight);
 
-        comboBox_5 = new QComboBox(layoutWidget_5);
+        comboBox_5 = new QComboBox(layoutWidget_6);
         comboBox_5->addItem(QString());
         comboBox_5->addItem(QString());
         comboBox_5->setObjectName("comboBox_5");
@@ -2892,13 +2810,15 @@ public:
 "    border-radius: 5px;\n"
 "    font-weight: bold;\n"
 "}"));
-        layoutWidget2 = new QWidget(groupBox_4);
-        layoutWidget2->setObjectName("layoutWidget2");
-        layoutWidget2->setGeometry(QRect(10, 40, 271, 481));
-        verticalLayout_3 = new QVBoxLayout(layoutWidget2);
+        layoutWidget_7 = new QWidget(groupBox_4);
+        layoutWidget_7->setObjectName("layoutWidget_7");
+        layoutWidget_7->setGeometry(QRect(10, 40, 271, 481));
+        verticalLayout_3 = new QVBoxLayout(layoutWidget_7);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        label_86 = new QLabel(layoutWidget2);
+        label_86 = new QLabel(layoutWidget_7);
         label_86->setObjectName("label_86");
         label_86->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -2907,7 +2827,7 @@ public:
 
         verticalLayout_3->addWidget(label_86);
 
-        lineEdit_19 = new QLineEdit(layoutWidget2);
+        lineEdit_19 = new QLineEdit(layoutWidget_7);
         lineEdit_19->setObjectName("lineEdit_19");
         lineEdit_19->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -2923,7 +2843,7 @@ public:
 
         verticalLayout_3->addWidget(lineEdit_19);
 
-        label_87 = new QLabel(layoutWidget2);
+        label_87 = new QLabel(layoutWidget_7);
         label_87->setObjectName("label_87");
         label_87->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -2932,7 +2852,7 @@ public:
 
         verticalLayout_3->addWidget(label_87);
 
-        lineEdit_20 = new QLineEdit(layoutWidget2);
+        lineEdit_20 = new QLineEdit(layoutWidget_7);
         lineEdit_20->setObjectName("lineEdit_20");
         lineEdit_20->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -2948,7 +2868,7 @@ public:
 
         verticalLayout_3->addWidget(lineEdit_20);
 
-        label_88 = new QLabel(layoutWidget2);
+        label_88 = new QLabel(layoutWidget_7);
         label_88->setObjectName("label_88");
         label_88->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -2957,7 +2877,7 @@ public:
 
         verticalLayout_3->addWidget(label_88);
 
-        comboBox_2 = new QComboBox(layoutWidget2);
+        comboBox_2 = new QComboBox(layoutWidget_7);
         comboBox_2->addItem(QString());
         comboBox_2->addItem(QString());
         comboBox_2->setObjectName("comboBox_2");
@@ -2976,7 +2896,7 @@ public:
 
         verticalLayout_3->addWidget(comboBox_2);
 
-        label_91 = new QLabel(layoutWidget2);
+        label_91 = new QLabel(layoutWidget_7);
         label_91->setObjectName("label_91");
         label_91->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -2985,7 +2905,7 @@ public:
 
         verticalLayout_3->addWidget(label_91);
 
-        lineEdit_22 = new QLineEdit(layoutWidget2);
+        lineEdit_22 = new QLineEdit(layoutWidget_7);
         lineEdit_22->setObjectName("lineEdit_22");
         lineEdit_22->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -3001,7 +2921,7 @@ public:
 
         verticalLayout_3->addWidget(lineEdit_22);
 
-        label_89 = new QLabel(layoutWidget2);
+        label_89 = new QLabel(layoutWidget_7);
         label_89->setObjectName("label_89");
         label_89->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -3010,7 +2930,7 @@ public:
 
         verticalLayout_3->addWidget(label_89);
 
-        dateEdit_4 = new QDateEdit(layoutWidget2);
+        dateEdit_4 = new QDateEdit(layoutWidget_7);
         dateEdit_4->setObjectName("dateEdit_4");
         dateEdit_4->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -3027,7 +2947,7 @@ public:
 
         verticalLayout_3->addWidget(dateEdit_4);
 
-        pushButton_115 = new QPushButton(layoutWidget2);
+        pushButton_115 = new QPushButton(layoutWidget_7);
         pushButton_115->setObjectName("pushButton_115");
         pushButton_115->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: rgb(173, 216, 230);\n"
@@ -3334,14 +3254,15 @@ public:
         btnlabo4->setIcon(icon6);
         btnlabo4->setCheckable(true);
         btnlabo4->setAutoExclusive(true);
-        layoutWidget3 = new QWidget(Labo);
-        layoutWidget3->setObjectName("layoutWidget3");
-        layoutWidget3->setGeometry(QRect(537, 90, 391, 57));
-        horizontalLayout = new QHBoxLayout(layoutWidget3);
+        layoutWidget_8 = new QWidget(Labo);
+        layoutWidget_8->setObjectName("layoutWidget_8");
+        layoutWidget_8->setGeometry(QRect(537, 90, 391, 57));
+        horizontalLayout = new QHBoxLayout(layoutWidget_8);
         horizontalLayout->setSpacing(7);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label_10 = new QLabel(layoutWidget3);
+        label_10 = new QLabel(layoutWidget_8);
         label_10->setObjectName("label_10");
         label_10->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
 "    padding: 10px;\n"
@@ -3352,7 +3273,7 @@ public:
 
         horizontalLayout->addWidget(label_10, 0, Qt::AlignmentFlag::AlignRight);
 
-        comboBox = new QComboBox(layoutWidget3);
+        comboBox = new QComboBox(layoutWidget_8);
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->setObjectName("comboBox");
@@ -3598,13 +3519,15 @@ public:
 "    border-radius: 5px;\n"
 "    font-weight: bold;\n"
 "}"));
-        layoutWidget_8 = new QWidget(groupBox_8);
-        layoutWidget_8->setObjectName("layoutWidget_8");
-        layoutWidget_8->setGeometry(QRect(10, 40, 271, 481));
-        verticalLayout_7 = new QVBoxLayout(layoutWidget_8);
+        layoutWidget_9 = new QWidget(groupBox_8);
+        layoutWidget_9->setObjectName("layoutWidget_9");
+        layoutWidget_9->setGeometry(QRect(10, 40, 271, 481));
+        verticalLayout_7 = new QVBoxLayout(layoutWidget_9);
+        verticalLayout_7->setSpacing(6);
+        verticalLayout_7->setContentsMargins(11, 11, 11, 11);
         verticalLayout_7->setObjectName("verticalLayout_7");
         verticalLayout_7->setContentsMargins(0, 0, 0, 0);
-        label_109 = new QLabel(layoutWidget_8);
+        label_109 = new QLabel(layoutWidget_9);
         label_109->setObjectName("label_109");
         label_109->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -3613,7 +3536,7 @@ public:
 
         verticalLayout_7->addWidget(label_109);
 
-        lineEdit_40 = new QLineEdit(layoutWidget_8);
+        lineEdit_40 = new QLineEdit(layoutWidget_9);
         lineEdit_40->setObjectName("lineEdit_40");
         lineEdit_40->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -3629,7 +3552,7 @@ public:
 
         verticalLayout_7->addWidget(lineEdit_40);
 
-        label_110 = new QLabel(layoutWidget_8);
+        label_110 = new QLabel(layoutWidget_9);
         label_110->setObjectName("label_110");
         label_110->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -3638,7 +3561,7 @@ public:
 
         verticalLayout_7->addWidget(label_110);
 
-        lineEdit_41 = new QLineEdit(layoutWidget_8);
+        lineEdit_41 = new QLineEdit(layoutWidget_9);
         lineEdit_41->setObjectName("lineEdit_41");
         lineEdit_41->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -3654,7 +3577,7 @@ public:
 
         verticalLayout_7->addWidget(lineEdit_41);
 
-        label_111 = new QLabel(layoutWidget_8);
+        label_111 = new QLabel(layoutWidget_9);
         label_111->setObjectName("label_111");
         label_111->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -3663,7 +3586,7 @@ public:
 
         verticalLayout_7->addWidget(label_111);
 
-        lineEdit_42 = new QLineEdit(layoutWidget_8);
+        lineEdit_42 = new QLineEdit(layoutWidget_9);
         lineEdit_42->setObjectName("lineEdit_42");
         lineEdit_42->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -3679,7 +3602,7 @@ public:
 
         verticalLayout_7->addWidget(lineEdit_42);
 
-        label_112 = new QLabel(layoutWidget_8);
+        label_112 = new QLabel(layoutWidget_9);
         label_112->setObjectName("label_112");
         label_112->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -3688,7 +3611,7 @@ public:
 
         verticalLayout_7->addWidget(label_112);
 
-        lineEdit_43 = new QLineEdit(layoutWidget_8);
+        lineEdit_43 = new QLineEdit(layoutWidget_9);
         lineEdit_43->setObjectName("lineEdit_43");
         lineEdit_43->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -3704,7 +3627,7 @@ public:
 
         verticalLayout_7->addWidget(lineEdit_43);
 
-        pushButton_119 = new QPushButton(layoutWidget_8);
+        pushButton_119 = new QPushButton(layoutWidget_9);
         pushButton_119->setObjectName("pushButton_119");
         pushButton_119->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: rgb(173, 216, 230);\n"
@@ -3941,14 +3864,15 @@ public:
         btnmedecin2_2->setIcon(icon6);
         btnmedecin2_2->setCheckable(true);
         btnmedecin2_2->setAutoExclusive(true);
-        layoutWidget_9 = new QWidget(Labo_5);
-        layoutWidget_9->setObjectName("layoutWidget_9");
-        layoutWidget_9->setGeometry(QRect(537, 90, 391, 57));
-        horizontalLayout_5 = new QHBoxLayout(layoutWidget_9);
+        layoutWidget_10 = new QWidget(Labo_5);
+        layoutWidget_10->setObjectName("layoutWidget_10");
+        layoutWidget_10->setGeometry(QRect(537, 90, 391, 57));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget_10);
         horizontalLayout_5->setSpacing(7);
+        horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_5->setObjectName("horizontalLayout_5");
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
-        label_52 = new QLabel(layoutWidget_9);
+        label_52 = new QLabel(layoutWidget_10);
         label_52->setObjectName("label_52");
         label_52->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
 "    padding: 10px;\n"
@@ -3959,7 +3883,7 @@ public:
 
         horizontalLayout_5->addWidget(label_52, 0, Qt::AlignmentFlag::AlignRight);
 
-        comboBox_8 = new QComboBox(layoutWidget_9);
+        comboBox_8 = new QComboBox(layoutWidget_10);
         comboBox_8->addItem(QString());
         comboBox_8->addItem(QString());
         comboBox_8->addItem(QString());
@@ -4268,13 +4192,15 @@ public:
 "    border-radius: 5px;\n"
 "    font-weight: bold;\n"
 "}"));
-        layoutWidget_10 = new QWidget(groupBox_9);
-        layoutWidget_10->setObjectName("layoutWidget_10");
-        layoutWidget_10->setGeometry(QRect(10, 30, 271, 641));
-        verticalLayout_8 = new QVBoxLayout(layoutWidget_10);
+        layoutWidget_11 = new QWidget(groupBox_9);
+        layoutWidget_11->setObjectName("layoutWidget_11");
+        layoutWidget_11->setGeometry(QRect(10, 30, 271, 641));
+        verticalLayout_8 = new QVBoxLayout(layoutWidget_11);
+        verticalLayout_8->setSpacing(6);
+        verticalLayout_8->setContentsMargins(11, 11, 11, 11);
         verticalLayout_8->setObjectName("verticalLayout_8");
         verticalLayout_8->setContentsMargins(0, 0, 0, 0);
-        label_113 = new QLabel(layoutWidget_10);
+        label_113 = new QLabel(layoutWidget_11);
         label_113->setObjectName("label_113");
         label_113->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -4283,7 +4209,7 @@ public:
 
         verticalLayout_8->addWidget(label_113);
 
-        lineEdit_45 = new QLineEdit(layoutWidget_10);
+        lineEdit_45 = new QLineEdit(layoutWidget_11);
         lineEdit_45->setObjectName("lineEdit_45");
         lineEdit_45->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -4299,7 +4225,7 @@ public:
 
         verticalLayout_8->addWidget(lineEdit_45);
 
-        label_114 = new QLabel(layoutWidget_10);
+        label_114 = new QLabel(layoutWidget_11);
         label_114->setObjectName("label_114");
         label_114->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -4308,7 +4234,7 @@ public:
 
         verticalLayout_8->addWidget(label_114);
 
-        lineEdit_46 = new QLineEdit(layoutWidget_10);
+        lineEdit_46 = new QLineEdit(layoutWidget_11);
         lineEdit_46->setObjectName("lineEdit_46");
         lineEdit_46->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -4324,7 +4250,7 @@ public:
 
         verticalLayout_8->addWidget(lineEdit_46);
 
-        label_115 = new QLabel(layoutWidget_10);
+        label_115 = new QLabel(layoutWidget_11);
         label_115->setObjectName("label_115");
         label_115->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -4333,7 +4259,7 @@ public:
 
         verticalLayout_8->addWidget(label_115);
 
-        dateEdit_7 = new QDateEdit(layoutWidget_10);
+        dateEdit_7 = new QDateEdit(layoutWidget_11);
         dateEdit_7->setObjectName("dateEdit_7");
         dateEdit_7->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -4350,7 +4276,7 @@ public:
 
         verticalLayout_8->addWidget(dateEdit_7);
 
-        label_116 = new QLabel(layoutWidget_10);
+        label_116 = new QLabel(layoutWidget_11);
         label_116->setObjectName("label_116");
         label_116->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -4359,7 +4285,7 @@ public:
 
         verticalLayout_8->addWidget(label_116);
 
-        comboBox_9 = new QComboBox(layoutWidget_10);
+        comboBox_9 = new QComboBox(layoutWidget_11);
         comboBox_9->addItem(QString());
         comboBox_9->addItem(QString());
         comboBox_9->setObjectName("comboBox_9");
@@ -4378,7 +4304,7 @@ public:
 
         verticalLayout_8->addWidget(comboBox_9);
 
-        label_117 = new QLabel(layoutWidget_10);
+        label_117 = new QLabel(layoutWidget_11);
         label_117->setObjectName("label_117");
         label_117->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -4387,7 +4313,7 @@ public:
 
         verticalLayout_8->addWidget(label_117);
 
-        lineEdit_47 = new QLineEdit(layoutWidget_10);
+        lineEdit_47 = new QLineEdit(layoutWidget_11);
         lineEdit_47->setObjectName("lineEdit_47");
         lineEdit_47->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -4403,7 +4329,7 @@ public:
 
         verticalLayout_8->addWidget(lineEdit_47);
 
-        label_118 = new QLabel(layoutWidget_10);
+        label_118 = new QLabel(layoutWidget_11);
         label_118->setObjectName("label_118");
         label_118->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -4412,7 +4338,7 @@ public:
 
         verticalLayout_8->addWidget(label_118);
 
-        lineEdit_48 = new QLineEdit(layoutWidget_10);
+        lineEdit_48 = new QLineEdit(layoutWidget_11);
         lineEdit_48->setObjectName("lineEdit_48");
         lineEdit_48->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -4428,7 +4354,7 @@ public:
 
         verticalLayout_8->addWidget(lineEdit_48);
 
-        label_119 = new QLabel(layoutWidget_10);
+        label_119 = new QLabel(layoutWidget_11);
         label_119->setObjectName("label_119");
         label_119->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -4437,7 +4363,7 @@ public:
 
         verticalLayout_8->addWidget(label_119);
 
-        lineEdit_49 = new QLineEdit(layoutWidget_10);
+        lineEdit_49 = new QLineEdit(layoutWidget_11);
         lineEdit_49->setObjectName("lineEdit_49");
         lineEdit_49->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -4453,7 +4379,7 @@ public:
 
         verticalLayout_8->addWidget(lineEdit_49);
 
-        pushButton_120 = new QPushButton(layoutWidget_10);
+        pushButton_120 = new QPushButton(layoutWidget_11);
         pushButton_120->setObjectName("pushButton_120");
         pushButton_120->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: rgb(173, 216, 230);\n"
@@ -4694,14 +4620,15 @@ public:
         btnpatient2_2->setIcon(icon6);
         btnpatient2_2->setCheckable(true);
         btnpatient2_2->setAutoExclusive(true);
-        layoutWidget_11 = new QWidget(Labo_6);
-        layoutWidget_11->setObjectName("layoutWidget_11");
-        layoutWidget_11->setGeometry(QRect(537, 90, 391, 57));
-        horizontalLayout_6 = new QHBoxLayout(layoutWidget_11);
+        layoutWidget_12 = new QWidget(Labo_6);
+        layoutWidget_12->setObjectName("layoutWidget_12");
+        layoutWidget_12->setGeometry(QRect(537, 90, 391, 57));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget_12);
         horizontalLayout_6->setSpacing(7);
+        horizontalLayout_6->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_6->setObjectName("horizontalLayout_6");
         horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
-        label_63 = new QLabel(layoutWidget_11);
+        label_63 = new QLabel(layoutWidget_12);
         label_63->setObjectName("label_63");
         label_63->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
 "    padding: 10px;\n"
@@ -4712,7 +4639,7 @@ public:
 
         horizontalLayout_6->addWidget(label_63, 0, Qt::AlignmentFlag::AlignRight);
 
-        comboBox_10 = new QComboBox(layoutWidget_11);
+        comboBox_10 = new QComboBox(layoutWidget_12);
         comboBox_10->addItem(QString());
         comboBox_10->addItem(QString());
         comboBox_10->setObjectName("comboBox_10");
@@ -5028,13 +4955,15 @@ public:
 "    border-radius: 5px;\n"
 "    font-weight: bold;\n"
 "}"));
-        layoutWidget_12 = new QWidget(groupBox_10);
-        layoutWidget_12->setObjectName("layoutWidget_12");
-        layoutWidget_12->setGeometry(QRect(10, 40, 271, 481));
-        verticalLayout_9 = new QVBoxLayout(layoutWidget_12);
+        layoutWidget_13 = new QWidget(groupBox_10);
+        layoutWidget_13->setObjectName("layoutWidget_13");
+        layoutWidget_13->setGeometry(QRect(10, 40, 271, 481));
+        verticalLayout_9 = new QVBoxLayout(layoutWidget_13);
+        verticalLayout_9->setSpacing(6);
+        verticalLayout_9->setContentsMargins(11, 11, 11, 11);
         verticalLayout_9->setObjectName("verticalLayout_9");
         verticalLayout_9->setContentsMargins(0, 0, 0, 0);
-        label_120 = new QLabel(layoutWidget_12);
+        label_120 = new QLabel(layoutWidget_13);
         label_120->setObjectName("label_120");
         label_120->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -5043,7 +4972,7 @@ public:
 
         verticalLayout_9->addWidget(label_120);
 
-        lineEdit_51 = new QLineEdit(layoutWidget_12);
+        lineEdit_51 = new QLineEdit(layoutWidget_13);
         lineEdit_51->setObjectName("lineEdit_51");
         lineEdit_51->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -5059,7 +4988,7 @@ public:
 
         verticalLayout_9->addWidget(lineEdit_51);
 
-        label_121 = new QLabel(layoutWidget_12);
+        label_121 = new QLabel(layoutWidget_13);
         label_121->setObjectName("label_121");
         label_121->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -5068,7 +4997,7 @@ public:
 
         verticalLayout_9->addWidget(label_121);
 
-        comboBox_11 = new QComboBox(layoutWidget_12);
+        comboBox_11 = new QComboBox(layoutWidget_13);
         comboBox_11->addItem(QString());
         comboBox_11->addItem(QString());
         comboBox_11->addItem(QString());
@@ -5089,7 +5018,7 @@ public:
 
         verticalLayout_9->addWidget(comboBox_11);
 
-        label_122 = new QLabel(layoutWidget_12);
+        label_122 = new QLabel(layoutWidget_13);
         label_122->setObjectName("label_122");
         label_122->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
@@ -5098,7 +5027,7 @@ public:
 
         verticalLayout_9->addWidget(label_122);
 
-        comboBox_13 = new QComboBox(layoutWidget_12);
+        comboBox_13 = new QComboBox(layoutWidget_13);
         comboBox_13->addItem(QString());
         comboBox_13->addItem(QString());
         comboBox_13->setObjectName("comboBox_13");
@@ -5117,11 +5046,35 @@ public:
 
         verticalLayout_9->addWidget(comboBox_13);
 
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName("horizontalLayout_4");
-        btnequipementAjouter = new QPushButton(layoutWidget_12);
-        btnequipementAjouter->setObjectName("btnequipementAjouter");
-        btnequipementAjouter->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        label_124 = new QLabel(layoutWidget_13);
+        label_124->setObjectName("label_124");
+        label_124->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_9->addWidget(label_124);
+
+        dateEdit_8 = new QDateEdit(layoutWidget_13);
+        dateEdit_8->setObjectName("dateEdit_8");
+        dateEdit_8->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"\n"
+""));
+
+        verticalLayout_9->addWidget(dateEdit_8);
+
+        pushButton_121 = new QPushButton(layoutWidget_13);
+        pushButton_121->setObjectName("pushButton_121");
+        pushButton_121->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: rgb(173, 216, 230);\n"
 "    color: #ffffff;\n"
 "    border: 2px solid rgb(173, 216, 230);\n"
@@ -5150,19 +5103,30 @@ public:
 "}\n"
 ""));
 
-        horizontalLayout_4->addWidget(btnequipementAjouter);
+        verticalLayout_9->addWidget(pushButton_121);
 
-
-        verticalLayout_9->addLayout(horizontalLayout_4);
-
-        tableauEquipements = new QTableView(Labo_7);
-        tableauEquipements->setObjectName("tableauEquipements");
-        tableauEquipements->setGeometry(QRect(310, 150, 781, 511));
-        tableauEquipements->setMinimumSize(QSize(781, 0));
-        tableauEquipements->setMaximumSize(QSize(781, 511));
-        tableauEquipements->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
-        tableauEquipements->setAutoFillBackground(false);
-        tableauEquipements->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
+        tableau4 = new QTableWidget(Labo_7);
+        if (tableau4->columnCount() < 5)
+            tableau4->setColumnCount(5);
+        QTableWidgetItem *__qtablewidgetitem30 = new QTableWidgetItem();
+        tableau4->setHorizontalHeaderItem(0, __qtablewidgetitem30);
+        QTableWidgetItem *__qtablewidgetitem31 = new QTableWidgetItem();
+        tableau4->setHorizontalHeaderItem(1, __qtablewidgetitem31);
+        QTableWidgetItem *__qtablewidgetitem32 = new QTableWidgetItem();
+        tableau4->setHorizontalHeaderItem(2, __qtablewidgetitem32);
+        QTableWidgetItem *__qtablewidgetitem33 = new QTableWidgetItem();
+        tableau4->setHorizontalHeaderItem(3, __qtablewidgetitem33);
+        QTableWidgetItem *__qtablewidgetitem34 = new QTableWidgetItem();
+        tableau4->setHorizontalHeaderItem(4, __qtablewidgetitem34);
+        if (tableau4->rowCount() < 1)
+            tableau4->setRowCount(1);
+        tableau4->setObjectName("tableau4");
+        tableau4->setGeometry(QRect(310, 150, 781, 511));
+        tableau4->setMinimumSize(QSize(781, 0));
+        tableau4->setMaximumSize(QSize(781, 511));
+        tableau4->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        tableau4->setAutoFillBackground(false);
+        tableau4->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
 "    background-color: rgb(234, 251, 255);\n"
 "    border: 2px solid #2a2a2a;\n"
 "    border-radius: 8px;\n"
@@ -5197,9 +5161,9 @@ public:
 "    background-color: rgb(200, 240, 250);\n"
 "}\n"
 ""));
-        tableauEquipements->setLineWidth(144);
-        tableauEquipements->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
-        tableauEquipements->verticalHeader()->setCascadingSectionResizes(true);
+        tableau4->setLineWidth(144);
+        tableau4->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
+        tableau4->horizontalHeader()->setStretchLastSection(true);
         lineEdit_54 = new QLineEdit(Labo_7);
         lineEdit_54->setObjectName("lineEdit_54");
         lineEdit_54->setGeometry(QRect(310, 100, 151, 51));
@@ -5214,6 +5178,68 @@ public:
 "        selection-background-color: #cce5ff; /* Light blue selection */\n"
 "\n"
 "text : search\n"
+""));
+        pushButton_139 = new QPushButton(Labo_7);
+        pushButton_139->setObjectName("pushButton_139");
+        pushButton_139->setGeometry(QRect(980, 220, 111, 61));
+        pushButton_139->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        pushButton_140 = new QPushButton(Labo_7);
+        pushButton_140->setObjectName("pushButton_140");
+        pushButton_140->setGeometry(QRect(980, 270, 111, 61));
+        pushButton_140->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
 ""));
         btnequiprmrnt4 = new QPushButton(Labo_7);
         btnequiprmrnt4->setObjectName("btnequiprmrnt4");
@@ -5317,14 +5343,15 @@ public:
         btnequiprmrnt3->setIcon(icon6);
         btnequiprmrnt3->setCheckable(true);
         btnequiprmrnt3->setAutoExclusive(true);
-        layoutWidget_13 = new QWidget(Labo_7);
-        layoutWidget_13->setObjectName("layoutWidget_13");
-        layoutWidget_13->setGeometry(QRect(537, 90, 391, 57));
-        horizontalLayout_7 = new QHBoxLayout(layoutWidget_13);
+        layoutWidget_14 = new QWidget(Labo_7);
+        layoutWidget_14->setObjectName("layoutWidget_14");
+        layoutWidget_14->setGeometry(QRect(537, 90, 391, 57));
+        horizontalLayout_7 = new QHBoxLayout(layoutWidget_14);
         horizontalLayout_7->setSpacing(7);
+        horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_7->setObjectName("horizontalLayout_7");
         horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
-        label_72 = new QLabel(layoutWidget_13);
+        label_72 = new QLabel(layoutWidget_14);
         label_72->setObjectName("label_72");
         label_72->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
 "    padding: 10px;\n"
@@ -5335,7 +5362,7 @@ public:
 
         horizontalLayout_7->addWidget(label_72, 0, Qt::AlignmentFlag::AlignRight);
 
-        comboBox_12 = new QComboBox(layoutWidget_13);
+        comboBox_12 = new QComboBox(layoutWidget_14);
         comboBox_12->addItem(QString());
         comboBox_12->addItem(QString());
         comboBox_12->addItem(QString());
@@ -5459,7 +5486,7 @@ public:
         Vacc->setObjectName("Vacc");
         stackedWidget_10 = new QStackedWidget(Vacc);
         stackedWidget_10->setObjectName("stackedWidget_10");
-        stackedWidget_10->setGeometry(QRect(0, 0, 1101, 671));
+        stackedWidget_10->setGeometry(QRect(0, 0, 1091, 671));
         stackedWidget_10->setStyleSheet(QString::fromUtf8("background-color: rgb(234, 251, 255);\n"
 ""));
         medecin_14 = new QWidget();
@@ -5654,20 +5681,20 @@ public:
         tableau5 = new QTableWidget(Labo_14);
         if (tableau5->columnCount() < 7)
             tableau5->setColumnCount(7);
-        QTableWidgetItem *__qtablewidgetitem30 = new QTableWidgetItem();
-        tableau5->setHorizontalHeaderItem(0, __qtablewidgetitem30);
-        QTableWidgetItem *__qtablewidgetitem31 = new QTableWidgetItem();
-        tableau5->setHorizontalHeaderItem(1, __qtablewidgetitem31);
-        QTableWidgetItem *__qtablewidgetitem32 = new QTableWidgetItem();
-        tableau5->setHorizontalHeaderItem(2, __qtablewidgetitem32);
-        QTableWidgetItem *__qtablewidgetitem33 = new QTableWidgetItem();
-        tableau5->setHorizontalHeaderItem(3, __qtablewidgetitem33);
-        QTableWidgetItem *__qtablewidgetitem34 = new QTableWidgetItem();
-        tableau5->setHorizontalHeaderItem(4, __qtablewidgetitem34);
         QTableWidgetItem *__qtablewidgetitem35 = new QTableWidgetItem();
-        tableau5->setHorizontalHeaderItem(5, __qtablewidgetitem35);
+        tableau5->setHorizontalHeaderItem(0, __qtablewidgetitem35);
         QTableWidgetItem *__qtablewidgetitem36 = new QTableWidgetItem();
-        tableau5->setHorizontalHeaderItem(6, __qtablewidgetitem36);
+        tableau5->setHorizontalHeaderItem(1, __qtablewidgetitem36);
+        QTableWidgetItem *__qtablewidgetitem37 = new QTableWidgetItem();
+        tableau5->setHorizontalHeaderItem(2, __qtablewidgetitem37);
+        QTableWidgetItem *__qtablewidgetitem38 = new QTableWidgetItem();
+        tableau5->setHorizontalHeaderItem(3, __qtablewidgetitem38);
+        QTableWidgetItem *__qtablewidgetitem39 = new QTableWidgetItem();
+        tableau5->setHorizontalHeaderItem(4, __qtablewidgetitem39);
+        QTableWidgetItem *__qtablewidgetitem40 = new QTableWidgetItem();
+        tableau5->setHorizontalHeaderItem(5, __qtablewidgetitem40);
+        QTableWidgetItem *__qtablewidgetitem41 = new QTableWidgetItem();
+        tableau5->setHorizontalHeaderItem(6, __qtablewidgetitem41);
         if (tableau5->rowCount() < 1)
             tableau5->setRowCount(1);
         tableau5->setObjectName("tableau5");
@@ -5864,6 +5891,7 @@ public:
         layoutWidget_27->setGeometry(QRect(537, 90, 391, 57));
         horizontalLayout_14 = new QHBoxLayout(layoutWidget_27);
         horizontalLayout_14->setSpacing(7);
+        horizontalLayout_14->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_14->setObjectName("horizontalLayout_14");
         horizontalLayout_14->setContentsMargins(0, 0, 0, 0);
         label_231 = new QLabel(layoutWidget_27);
@@ -5950,6 +5978,8 @@ public:
         layoutWidget_26->setObjectName("layoutWidget_26");
         layoutWidget_26->setGeometry(QRect(10, 30, 271, 611));
         verticalLayout_16 = new QVBoxLayout(layoutWidget_26);
+        verticalLayout_16->setSpacing(6);
+        verticalLayout_16->setContentsMargins(11, 11, 11, 11);
         verticalLayout_16->setObjectName("verticalLayout_16");
         verticalLayout_16->setContentsMargins(0, 0, 0, 0);
         label_224 = new QLabel(layoutWidget_26);
@@ -6467,6 +6497,8 @@ public:
         layoutWidget_29->setObjectName("layoutWidget_29");
         layoutWidget_29->setGeometry(QRect(10, 40, 271, 481));
         verticalLayout_18 = new QVBoxLayout(layoutWidget_29);
+        verticalLayout_18->setSpacing(6);
+        verticalLayout_18->setContentsMargins(11, 11, 11, 11);
         verticalLayout_18->setObjectName("verticalLayout_18");
         verticalLayout_18->setContentsMargins(0, 0, 0, 0);
         label_251 = new QLabel(layoutWidget_29);
@@ -6605,16 +6637,16 @@ public:
         tableau2_6 = new QTableWidget(Labo_15);
         if (tableau2_6->columnCount() < 5)
             tableau2_6->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem37 = new QTableWidgetItem();
-        tableau2_6->setHorizontalHeaderItem(0, __qtablewidgetitem37);
-        QTableWidgetItem *__qtablewidgetitem38 = new QTableWidgetItem();
-        tableau2_6->setHorizontalHeaderItem(1, __qtablewidgetitem38);
-        QTableWidgetItem *__qtablewidgetitem39 = new QTableWidgetItem();
-        tableau2_6->setHorizontalHeaderItem(2, __qtablewidgetitem39);
-        QTableWidgetItem *__qtablewidgetitem40 = new QTableWidgetItem();
-        tableau2_6->setHorizontalHeaderItem(3, __qtablewidgetitem40);
-        QTableWidgetItem *__qtablewidgetitem41 = new QTableWidgetItem();
-        tableau2_6->setHorizontalHeaderItem(4, __qtablewidgetitem41);
+        QTableWidgetItem *__qtablewidgetitem42 = new QTableWidgetItem();
+        tableau2_6->setHorizontalHeaderItem(0, __qtablewidgetitem42);
+        QTableWidgetItem *__qtablewidgetitem43 = new QTableWidgetItem();
+        tableau2_6->setHorizontalHeaderItem(1, __qtablewidgetitem43);
+        QTableWidgetItem *__qtablewidgetitem44 = new QTableWidgetItem();
+        tableau2_6->setHorizontalHeaderItem(2, __qtablewidgetitem44);
+        QTableWidgetItem *__qtablewidgetitem45 = new QTableWidgetItem();
+        tableau2_6->setHorizontalHeaderItem(3, __qtablewidgetitem45);
+        QTableWidgetItem *__qtablewidgetitem46 = new QTableWidgetItem();
+        tableau2_6->setHorizontalHeaderItem(4, __qtablewidgetitem46);
         if (tableau2_6->rowCount() < 1)
             tableau2_6->setRowCount(1);
         tableau2_6->setObjectName("tableau2_6");
@@ -6811,6 +6843,7 @@ public:
         layoutWidget_30->setGeometry(QRect(537, 90, 391, 57));
         horizontalLayout_15 = new QHBoxLayout(layoutWidget_30);
         horizontalLayout_15->setSpacing(7);
+        horizontalLayout_15->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_15->setObjectName("horizontalLayout_15");
         horizontalLayout_15->setContentsMargins(0, 0, 0, 0);
         label_255 = new QLabel(layoutWidget_30);
@@ -7137,6 +7170,8 @@ public:
         layoutWidget_31->setObjectName("layoutWidget_31");
         layoutWidget_31->setGeometry(QRect(10, 30, 271, 641));
         verticalLayout_19 = new QVBoxLayout(layoutWidget_31);
+        verticalLayout_19->setSpacing(6);
+        verticalLayout_19->setContentsMargins(11, 11, 11, 11);
         verticalLayout_19->setObjectName("verticalLayout_19");
         verticalLayout_19->setContentsMargins(0, 0, 0, 0);
         label_266 = new QLabel(layoutWidget_31);
@@ -7354,20 +7389,20 @@ public:
         tableau3_5 = new QTableWidget(Labo_16);
         if (tableau3_5->columnCount() < 7)
             tableau3_5->setColumnCount(7);
-        QTableWidgetItem *__qtablewidgetitem42 = new QTableWidgetItem();
-        tableau3_5->setHorizontalHeaderItem(0, __qtablewidgetitem42);
-        QTableWidgetItem *__qtablewidgetitem43 = new QTableWidgetItem();
-        tableau3_5->setHorizontalHeaderItem(1, __qtablewidgetitem43);
-        QTableWidgetItem *__qtablewidgetitem44 = new QTableWidgetItem();
-        tableau3_5->setHorizontalHeaderItem(2, __qtablewidgetitem44);
-        QTableWidgetItem *__qtablewidgetitem45 = new QTableWidgetItem();
-        tableau3_5->setHorizontalHeaderItem(3, __qtablewidgetitem45);
-        QTableWidgetItem *__qtablewidgetitem46 = new QTableWidgetItem();
-        tableau3_5->setHorizontalHeaderItem(4, __qtablewidgetitem46);
         QTableWidgetItem *__qtablewidgetitem47 = new QTableWidgetItem();
-        tableau3_5->setHorizontalHeaderItem(5, __qtablewidgetitem47);
+        tableau3_5->setHorizontalHeaderItem(0, __qtablewidgetitem47);
         QTableWidgetItem *__qtablewidgetitem48 = new QTableWidgetItem();
-        tableau3_5->setHorizontalHeaderItem(6, __qtablewidgetitem48);
+        tableau3_5->setHorizontalHeaderItem(1, __qtablewidgetitem48);
+        QTableWidgetItem *__qtablewidgetitem49 = new QTableWidgetItem();
+        tableau3_5->setHorizontalHeaderItem(2, __qtablewidgetitem49);
+        QTableWidgetItem *__qtablewidgetitem50 = new QTableWidgetItem();
+        tableau3_5->setHorizontalHeaderItem(3, __qtablewidgetitem50);
+        QTableWidgetItem *__qtablewidgetitem51 = new QTableWidgetItem();
+        tableau3_5->setHorizontalHeaderItem(4, __qtablewidgetitem51);
+        QTableWidgetItem *__qtablewidgetitem52 = new QTableWidgetItem();
+        tableau3_5->setHorizontalHeaderItem(5, __qtablewidgetitem52);
+        QTableWidgetItem *__qtablewidgetitem53 = new QTableWidgetItem();
+        tableau3_5->setHorizontalHeaderItem(6, __qtablewidgetitem53);
         if (tableau3_5->rowCount() < 1)
             tableau3_5->setRowCount(1);
         tableau3_5->setObjectName("tableau3_5");
@@ -7564,6 +7599,7 @@ public:
         layoutWidget_32->setGeometry(QRect(537, 90, 391, 57));
         horizontalLayout_16 = new QHBoxLayout(layoutWidget_32);
         horizontalLayout_16->setSpacing(7);
+        horizontalLayout_16->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_16->setObjectName("horizontalLayout_16");
         horizontalLayout_16->setContentsMargins(0, 0, 0, 0);
         label_273 = new QLabel(layoutWidget_32);
@@ -7897,6 +7933,8 @@ public:
         layoutWidget_33->setObjectName("layoutWidget_33");
         layoutWidget_33->setGeometry(QRect(10, 40, 271, 481));
         verticalLayout_20 = new QVBoxLayout(layoutWidget_33);
+        verticalLayout_20->setSpacing(6);
+        verticalLayout_20->setContentsMargins(11, 11, 11, 11);
         verticalLayout_20->setObjectName("verticalLayout_20");
         verticalLayout_20->setContentsMargins(0, 0, 0, 0);
         label_282 = new QLabel(layoutWidget_33);
@@ -8064,18 +8102,18 @@ public:
         tableau_3 = new QTableWidget(Labo_17);
         if (tableau_3->columnCount() < 6)
             tableau_3->setColumnCount(6);
-        QTableWidgetItem *__qtablewidgetitem49 = new QTableWidgetItem();
-        tableau_3->setHorizontalHeaderItem(0, __qtablewidgetitem49);
-        QTableWidgetItem *__qtablewidgetitem50 = new QTableWidgetItem();
-        tableau_3->setHorizontalHeaderItem(1, __qtablewidgetitem50);
-        QTableWidgetItem *__qtablewidgetitem51 = new QTableWidgetItem();
-        tableau_3->setHorizontalHeaderItem(2, __qtablewidgetitem51);
-        QTableWidgetItem *__qtablewidgetitem52 = new QTableWidgetItem();
-        tableau_3->setHorizontalHeaderItem(3, __qtablewidgetitem52);
-        QTableWidgetItem *__qtablewidgetitem53 = new QTableWidgetItem();
-        tableau_3->setHorizontalHeaderItem(4, __qtablewidgetitem53);
         QTableWidgetItem *__qtablewidgetitem54 = new QTableWidgetItem();
-        tableau_3->setHorizontalHeaderItem(5, __qtablewidgetitem54);
+        tableau_3->setHorizontalHeaderItem(0, __qtablewidgetitem54);
+        QTableWidgetItem *__qtablewidgetitem55 = new QTableWidgetItem();
+        tableau_3->setHorizontalHeaderItem(1, __qtablewidgetitem55);
+        QTableWidgetItem *__qtablewidgetitem56 = new QTableWidgetItem();
+        tableau_3->setHorizontalHeaderItem(2, __qtablewidgetitem56);
+        QTableWidgetItem *__qtablewidgetitem57 = new QTableWidgetItem();
+        tableau_3->setHorizontalHeaderItem(3, __qtablewidgetitem57);
+        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
+        tableau_3->setHorizontalHeaderItem(4, __qtablewidgetitem58);
+        QTableWidgetItem *__qtablewidgetitem59 = new QTableWidgetItem();
+        tableau_3->setHorizontalHeaderItem(5, __qtablewidgetitem59);
         if (tableau_3->rowCount() < 1)
             tableau_3->setRowCount(1);
         tableau_3->setObjectName("tableau_3");
@@ -8340,6 +8378,7 @@ public:
         layoutWidget_34->setGeometry(QRect(537, 90, 391, 57));
         horizontalLayout_17 = new QHBoxLayout(layoutWidget_34);
         horizontalLayout_17->setSpacing(7);
+        horizontalLayout_17->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_17->setObjectName("horizontalLayout_17");
         horizontalLayout_17->setContentsMargins(0, 0, 0, 0);
         label_287 = new QLabel(layoutWidget_34);
@@ -8575,20 +8614,20 @@ public:
         tableau5_2 = new QTableWidget(Labo_21);
         if (tableau5_2->columnCount() < 7)
             tableau5_2->setColumnCount(7);
-        QTableWidgetItem *__qtablewidgetitem55 = new QTableWidgetItem();
-        tableau5_2->setHorizontalHeaderItem(0, __qtablewidgetitem55);
-        QTableWidgetItem *__qtablewidgetitem56 = new QTableWidgetItem();
-        tableau5_2->setHorizontalHeaderItem(1, __qtablewidgetitem56);
-        QTableWidgetItem *__qtablewidgetitem57 = new QTableWidgetItem();
-        tableau5_2->setHorizontalHeaderItem(2, __qtablewidgetitem57);
-        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
-        tableau5_2->setHorizontalHeaderItem(3, __qtablewidgetitem58);
-        QTableWidgetItem *__qtablewidgetitem59 = new QTableWidgetItem();
-        tableau5_2->setHorizontalHeaderItem(4, __qtablewidgetitem59);
         QTableWidgetItem *__qtablewidgetitem60 = new QTableWidgetItem();
-        tableau5_2->setHorizontalHeaderItem(5, __qtablewidgetitem60);
+        tableau5_2->setHorizontalHeaderItem(0, __qtablewidgetitem60);
         QTableWidgetItem *__qtablewidgetitem61 = new QTableWidgetItem();
-        tableau5_2->setHorizontalHeaderItem(6, __qtablewidgetitem61);
+        tableau5_2->setHorizontalHeaderItem(1, __qtablewidgetitem61);
+        QTableWidgetItem *__qtablewidgetitem62 = new QTableWidgetItem();
+        tableau5_2->setHorizontalHeaderItem(2, __qtablewidgetitem62);
+        QTableWidgetItem *__qtablewidgetitem63 = new QTableWidgetItem();
+        tableau5_2->setHorizontalHeaderItem(3, __qtablewidgetitem63);
+        QTableWidgetItem *__qtablewidgetitem64 = new QTableWidgetItem();
+        tableau5_2->setHorizontalHeaderItem(4, __qtablewidgetitem64);
+        QTableWidgetItem *__qtablewidgetitem65 = new QTableWidgetItem();
+        tableau5_2->setHorizontalHeaderItem(5, __qtablewidgetitem65);
+        QTableWidgetItem *__qtablewidgetitem66 = new QTableWidgetItem();
+        tableau5_2->setHorizontalHeaderItem(6, __qtablewidgetitem66);
         if (tableau5_2->rowCount() < 1)
             tableau5_2->setRowCount(1);
         tableau5_2->setObjectName("tableau5_2");
@@ -8785,6 +8824,7 @@ public:
         layoutWidget_41->setGeometry(QRect(537, 90, 391, 57));
         horizontalLayout_21 = new QHBoxLayout(layoutWidget_41);
         horizontalLayout_21->setSpacing(7);
+        horizontalLayout_21->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_21->setObjectName("horizontalLayout_21");
         horizontalLayout_21->setContentsMargins(0, 0, 0, 0);
         label_340 = new QLabel(layoutWidget_41);
@@ -8871,6 +8911,8 @@ public:
         layoutWidget_42->setObjectName("layoutWidget_42");
         layoutWidget_42->setGeometry(QRect(10, 30, 271, 611));
         verticalLayout_24 = new QVBoxLayout(layoutWidget_42);
+        verticalLayout_24->setSpacing(6);
+        verticalLayout_24->setContentsMargins(11, 11, 11, 11);
         verticalLayout_24->setObjectName("verticalLayout_24");
         verticalLayout_24->setContentsMargins(0, 0, 0, 0);
         label_341 = new QLabel(layoutWidget_42);
@@ -9512,6 +9554,8 @@ public:
         layoutWidget_35->setObjectName("layoutWidget_35");
         layoutWidget_35->setGeometry(QRect(10, 40, 271, 481));
         verticalLayout_21 = new QVBoxLayout(layoutWidget_35);
+        verticalLayout_21->setSpacing(6);
+        verticalLayout_21->setContentsMargins(11, 11, 11, 11);
         verticalLayout_21->setObjectName("verticalLayout_21");
         verticalLayout_21->setContentsMargins(0, 0, 0, 0);
         label_292 = new QLabel(layoutWidget_35);
@@ -9650,16 +9694,16 @@ public:
         tableau2_7 = new QTableWidget(Labo_18);
         if (tableau2_7->columnCount() < 5)
             tableau2_7->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem62 = new QTableWidgetItem();
-        tableau2_7->setHorizontalHeaderItem(0, __qtablewidgetitem62);
-        QTableWidgetItem *__qtablewidgetitem63 = new QTableWidgetItem();
-        tableau2_7->setHorizontalHeaderItem(1, __qtablewidgetitem63);
-        QTableWidgetItem *__qtablewidgetitem64 = new QTableWidgetItem();
-        tableau2_7->setHorizontalHeaderItem(2, __qtablewidgetitem64);
-        QTableWidgetItem *__qtablewidgetitem65 = new QTableWidgetItem();
-        tableau2_7->setHorizontalHeaderItem(3, __qtablewidgetitem65);
-        QTableWidgetItem *__qtablewidgetitem66 = new QTableWidgetItem();
-        tableau2_7->setHorizontalHeaderItem(4, __qtablewidgetitem66);
+        QTableWidgetItem *__qtablewidgetitem67 = new QTableWidgetItem();
+        tableau2_7->setHorizontalHeaderItem(0, __qtablewidgetitem67);
+        QTableWidgetItem *__qtablewidgetitem68 = new QTableWidgetItem();
+        tableau2_7->setHorizontalHeaderItem(1, __qtablewidgetitem68);
+        QTableWidgetItem *__qtablewidgetitem69 = new QTableWidgetItem();
+        tableau2_7->setHorizontalHeaderItem(2, __qtablewidgetitem69);
+        QTableWidgetItem *__qtablewidgetitem70 = new QTableWidgetItem();
+        tableau2_7->setHorizontalHeaderItem(3, __qtablewidgetitem70);
+        QTableWidgetItem *__qtablewidgetitem71 = new QTableWidgetItem();
+        tableau2_7->setHorizontalHeaderItem(4, __qtablewidgetitem71);
         if (tableau2_7->rowCount() < 1)
             tableau2_7->setRowCount(1);
         tableau2_7->setObjectName("tableau2_7");
@@ -9856,6 +9900,7 @@ public:
         layoutWidget_36->setGeometry(QRect(537, 90, 391, 57));
         horizontalLayout_18 = new QHBoxLayout(layoutWidget_36);
         horizontalLayout_18->setSpacing(7);
+        horizontalLayout_18->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_18->setObjectName("horizontalLayout_18");
         horizontalLayout_18->setContentsMargins(0, 0, 0, 0);
         label_296 = new QLabel(layoutWidget_36);
@@ -10182,6 +10227,8 @@ public:
         layoutWidget_37->setObjectName("layoutWidget_37");
         layoutWidget_37->setGeometry(QRect(10, 30, 271, 641));
         verticalLayout_22 = new QVBoxLayout(layoutWidget_37);
+        verticalLayout_22->setSpacing(6);
+        verticalLayout_22->setContentsMargins(11, 11, 11, 11);
         verticalLayout_22->setObjectName("verticalLayout_22");
         verticalLayout_22->setContentsMargins(0, 0, 0, 0);
         label_307 = new QLabel(layoutWidget_37);
@@ -10399,20 +10446,20 @@ public:
         tableau3_6 = new QTableWidget(Labo_19);
         if (tableau3_6->columnCount() < 7)
             tableau3_6->setColumnCount(7);
-        QTableWidgetItem *__qtablewidgetitem67 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(0, __qtablewidgetitem67);
-        QTableWidgetItem *__qtablewidgetitem68 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(1, __qtablewidgetitem68);
-        QTableWidgetItem *__qtablewidgetitem69 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(2, __qtablewidgetitem69);
-        QTableWidgetItem *__qtablewidgetitem70 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(3, __qtablewidgetitem70);
-        QTableWidgetItem *__qtablewidgetitem71 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(4, __qtablewidgetitem71);
         QTableWidgetItem *__qtablewidgetitem72 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(5, __qtablewidgetitem72);
+        tableau3_6->setHorizontalHeaderItem(0, __qtablewidgetitem72);
         QTableWidgetItem *__qtablewidgetitem73 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(6, __qtablewidgetitem73);
+        tableau3_6->setHorizontalHeaderItem(1, __qtablewidgetitem73);
+        QTableWidgetItem *__qtablewidgetitem74 = new QTableWidgetItem();
+        tableau3_6->setHorizontalHeaderItem(2, __qtablewidgetitem74);
+        QTableWidgetItem *__qtablewidgetitem75 = new QTableWidgetItem();
+        tableau3_6->setHorizontalHeaderItem(3, __qtablewidgetitem75);
+        QTableWidgetItem *__qtablewidgetitem76 = new QTableWidgetItem();
+        tableau3_6->setHorizontalHeaderItem(4, __qtablewidgetitem76);
+        QTableWidgetItem *__qtablewidgetitem77 = new QTableWidgetItem();
+        tableau3_6->setHorizontalHeaderItem(5, __qtablewidgetitem77);
+        QTableWidgetItem *__qtablewidgetitem78 = new QTableWidgetItem();
+        tableau3_6->setHorizontalHeaderItem(6, __qtablewidgetitem78);
         if (tableau3_6->rowCount() < 1)
             tableau3_6->setRowCount(1);
         tableau3_6->setObjectName("tableau3_6");
@@ -10609,6 +10656,7 @@ public:
         layoutWidget_38->setGeometry(QRect(537, 90, 391, 57));
         horizontalLayout_19 = new QHBoxLayout(layoutWidget_38);
         horizontalLayout_19->setSpacing(7);
+        horizontalLayout_19->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_19->setObjectName("horizontalLayout_19");
         horizontalLayout_19->setContentsMargins(0, 0, 0, 0);
         label_314 = new QLabel(layoutWidget_38);
@@ -10942,6 +10990,8 @@ public:
         layoutWidget_39->setObjectName("layoutWidget_39");
         layoutWidget_39->setGeometry(QRect(10, 40, 271, 481));
         verticalLayout_23 = new QVBoxLayout(layoutWidget_39);
+        verticalLayout_23->setSpacing(6);
+        verticalLayout_23->setContentsMargins(11, 11, 11, 11);
         verticalLayout_23->setObjectName("verticalLayout_23");
         verticalLayout_23->setContentsMargins(0, 0, 0, 0);
         label_323 = new QLabel(layoutWidget_39);
@@ -11085,16 +11135,16 @@ public:
         tableau6 = new QTableWidget(Labo_20);
         if (tableau6->columnCount() < 5)
             tableau6->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem74 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(0, __qtablewidgetitem74);
-        QTableWidgetItem *__qtablewidgetitem75 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(1, __qtablewidgetitem75);
-        QTableWidgetItem *__qtablewidgetitem76 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(2, __qtablewidgetitem76);
-        QTableWidgetItem *__qtablewidgetitem77 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(3, __qtablewidgetitem77);
-        QTableWidgetItem *__qtablewidgetitem78 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(4, __qtablewidgetitem78);
+        QTableWidgetItem *__qtablewidgetitem79 = new QTableWidgetItem();
+        tableau6->setHorizontalHeaderItem(0, __qtablewidgetitem79);
+        QTableWidgetItem *__qtablewidgetitem80 = new QTableWidgetItem();
+        tableau6->setHorizontalHeaderItem(1, __qtablewidgetitem80);
+        QTableWidgetItem *__qtablewidgetitem81 = new QTableWidgetItem();
+        tableau6->setHorizontalHeaderItem(2, __qtablewidgetitem81);
+        QTableWidgetItem *__qtablewidgetitem82 = new QTableWidgetItem();
+        tableau6->setHorizontalHeaderItem(3, __qtablewidgetitem82);
+        QTableWidgetItem *__qtablewidgetitem83 = new QTableWidgetItem();
+        tableau6->setHorizontalHeaderItem(4, __qtablewidgetitem83);
         if (tableau6->rowCount() < 1)
             tableau6->setRowCount(1);
         tableau6->setObjectName("tableau6");
@@ -11325,6 +11375,7 @@ public:
         layoutWidget_40->setGeometry(QRect(537, 90, 391, 57));
         horizontalLayout_20 = new QHBoxLayout(layoutWidget_40);
         horizontalLayout_20->setSpacing(7);
+        horizontalLayout_20->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_20->setObjectName("horizontalLayout_20");
         horizontalLayout_20->setContentsMargins(0, 0, 0, 0);
         label_327 = new QLabel(layoutWidget_40);
@@ -11890,6 +11941,8 @@ public:
         layoutWidget_145->setObjectName("layoutWidget_145");
         layoutWidget_145->setGeometry(QRect(10, 220, 101, 351));
         verticalLayout_88 = new QVBoxLayout(layoutWidget_145);
+        verticalLayout_88->setSpacing(6);
+        verticalLayout_88->setContentsMargins(11, 11, 11, 11);
         verticalLayout_88->setObjectName("verticalLayout_88");
         verticalLayout_88->setContentsMargins(0, 0, 0, 0);
         label_1242 = new QLabel(layoutWidget_145);
@@ -11941,6 +11994,8 @@ public:
         verticalLayoutWidget_9->setObjectName("verticalLayoutWidget_9");
         verticalLayoutWidget_9->setGeometry(QRect(110, 220, 141, 351));
         verticalLayout_89 = new QVBoxLayout(verticalLayoutWidget_9);
+        verticalLayout_89->setSpacing(6);
+        verticalLayout_89->setContentsMargins(11, 11, 11, 11);
         verticalLayout_89->setObjectName("verticalLayout_89");
         verticalLayout_89->setContentsMargins(0, 0, 0, 0);
         label_1247 = new QLabel(verticalLayoutWidget_9);
@@ -11992,6 +12047,8 @@ public:
         verticalLayoutWidget_10->setObjectName("verticalLayoutWidget_10");
         verticalLayoutWidget_10->setGeometry(QRect(9, 40, 241, 181));
         verticalLayout_90 = new QVBoxLayout(verticalLayoutWidget_10);
+        verticalLayout_90->setSpacing(6);
+        verticalLayout_90->setContentsMargins(11, 11, 11, 11);
         verticalLayout_90->setObjectName("verticalLayout_90");
         verticalLayout_90->setContentsMargins(0, 0, 0, 0);
         label = new QLabel(verticalLayoutWidget_10);
@@ -12022,6 +12079,8 @@ public:
         layoutWidget_146->setObjectName("layoutWidget_146");
         layoutWidget_146->setGeometry(QRect(10, 30, 361, 481));
         verticalLayout_91 = new QVBoxLayout(layoutWidget_146);
+        verticalLayout_91->setSpacing(6);
+        verticalLayout_91->setContentsMargins(11, 11, 11, 11);
         verticalLayout_91->setObjectName("verticalLayout_91");
         verticalLayout_91->setContentsMargins(0, 0, 0, 0);
         label_1252 = new QLabel(layoutWidget_146);
@@ -12073,6 +12132,8 @@ public:
         verticalLayoutWidget_11->setObjectName("verticalLayoutWidget_11");
         verticalLayoutWidget_11->setGeometry(QRect(370, 30, 371, 481));
         verticalLayout_92 = new QVBoxLayout(verticalLayoutWidget_11);
+        verticalLayout_92->setSpacing(6);
+        verticalLayout_92->setContentsMargins(11, 11, 11, 11);
         verticalLayout_92->setObjectName("verticalLayout_92");
         verticalLayout_92->setContentsMargins(0, 0, 0, 0);
         lineEdit_350 = new QLineEdit(verticalLayoutWidget_11);
@@ -12159,6 +12220,8 @@ public:
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
         verticalLayoutWidget->setGeometry(QRect(10, 510, 361, 61));
         verticalLayout_75 = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout_75->setSpacing(6);
+        verticalLayout_75->setContentsMargins(11, 11, 11, 11);
         verticalLayout_75->setObjectName("verticalLayout_75");
         verticalLayout_75->setContentsMargins(0, 0, 0, 0);
         pushButton_464 = new QPushButton(verticalLayoutWidget);
@@ -12198,6 +12261,8 @@ public:
         verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
         verticalLayoutWidget_2->setGeometry(QRect(370, 510, 371, 61));
         verticalLayout_77 = new QVBoxLayout(verticalLayoutWidget_2);
+        verticalLayout_77->setSpacing(6);
+        verticalLayout_77->setContentsMargins(11, 11, 11, 11);
         verticalLayout_77->setObjectName("verticalLayout_77");
         verticalLayout_77->setContentsMargins(0, 0, 0, 0);
         pushButton_466 = new QPushButton(verticalLayoutWidget_2);
@@ -12516,14 +12581,119 @@ public:
 "\n"
 ""));
         sqs->addWidget(page_16);
-        MainWindow->setCentralWidget(centralwidget);
+        widget_4 = new QWidget(centralWidget);
+        widget_4->setObjectName("widget_4");
+        widget_4->setGeometry(QRect(180, 0, 1121, 71));
+        widget_4->setStyleSheet(QString::fromUtf8("QWidget {\n"
+"    background-color: #2a2a2a;\n"
+"    border-right: 2px solid #3a3a3a;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color: #3a3a3a;\n"
+"    color: #ffffff;\n"
+"    border: none;\n"
+"    padding: 10px;\n"
+"    margin: 5px;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #4a4a4a;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #666666;\n"
+"}\n"
+"\n"
+"QListWidget {\n"
+"    background-color: #2a2a2a;\n"
+"    color: #ffffff;\n"
+"    border: none;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QListWidget::item {\n"
+"    padding: 8px;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QListWidget::item:selected {\n"
+"    background-color: #4a4a4a;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background: #2a2a2a;\n"
+"    width: 8px;\n"
+"    margin: 0px 0px 0px 0px;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #555555;\n"
+"    border-radius: 10px;\n"
+"}\n"
+""
+                        "\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: #777777;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
+"    border: none;\n"
+"    background: none;\n"
+"}\n"
+""));
+        btnuser = new QPushButton(widget_4);
+        btnuser->setObjectName("btnuser");
+        btnuser->setGeometry(QRect(950, 0, 151, 61));
+        btnuser->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        btnuser->setIcon(icon6);
+        btnuser->setCheckable(true);
+        btnuser->setAutoExclusive(true);
+        MainWindow->setCentralWidget(centralWidget);
         widget_4->raise();
         widget_2->raise();
         sqs->raise();
+        mainToolBar = new QToolBar(MainWindow);
+        mainToolBar->setObjectName("mainToolBar");
+        MainWindow->addToolBar(Qt::ToolBarArea::TopToolBarArea, mainToolBar);
+        statusBar = new QStatusBar(MainWindow);
+        statusBar->setObjectName("statusBar");
+        MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
 
-        sqs->setCurrentIndex(3);
+        sqs->setCurrentIndex(4);
         stackedWidget_2->setCurrentIndex(2);
         stackedWidget_3->setCurrentIndex(2);
         statmedcin->setCurrentIndex(2);
@@ -12546,7 +12716,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Gestion des Clients", nullptr));
         pushButton_14->setText(QString());
         btnmedecin->setText(QCoreApplication::translate("MainWindow", "\360\237\221\250\360\237\217\273\342\200\215\342\232\225\357\270\217   M\303\251decins", nullptr));
         btnpatient->setText(QCoreApplication::translate("MainWindow", "\360\237\221\250\360\237\217\273\342\200\215\360\237\222\274   Patients", nullptr));
@@ -12558,7 +12728,6 @@ public:
         label_8->setText(QString());
         exit->setText(QCoreApplication::translate("MainWindow", "\360\237\221\213\360\237\217\273   Sortie", nullptr));
         btnrendezv_2->setText(QCoreApplication::translate("MainWindow", "\360\237\224\222   Se d\303\251connecter", nullptr));
-        btnuser->setText(QCoreApplication::translate("MainWindow", "\360\237\221\250\360\237\217\273\342\200\215\360\237\222\273   Utilisateur", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "medecin", nullptr));
         label_13->setText(QCoreApplication::translate("MainWindow", "medecin", nullptr));
         label_14->setText(QCoreApplication::translate("MainWindow", "patient", nullptr));
@@ -12787,10 +12956,23 @@ public:
 
         label_122->setText(QCoreApplication::translate("MainWindow", "Statut :", nullptr));
         comboBox_13->setItemText(0, QCoreApplication::translate("MainWindow", "Actif", nullptr));
-        comboBox_13->setItemText(1, QCoreApplication::translate("MainWindow", "Inactif", nullptr));
+        comboBox_13->setItemText(1, QCoreApplication::translate("MainWindow", "inactif", nullptr));
 
-        btnequipementAjouter->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
+        label_124->setText(QCoreApplication::translate("MainWindow", "Date de maintenance :", nullptr));
+        pushButton_121->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
+        QTableWidgetItem *___qtablewidgetitem30 = tableau4->horizontalHeaderItem(0);
+        ___qtablewidgetitem30->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
+        QTableWidgetItem *___qtablewidgetitem31 = tableau4->horizontalHeaderItem(1);
+        ___qtablewidgetitem31->setText(QCoreApplication::translate("MainWindow", "Type", nullptr));
+        QTableWidgetItem *___qtablewidgetitem32 = tableau4->horizontalHeaderItem(2);
+        ___qtablewidgetitem32->setText(QCoreApplication::translate("MainWindow", "Statut", nullptr));
+        QTableWidgetItem *___qtablewidgetitem33 = tableau4->horizontalHeaderItem(3);
+        ___qtablewidgetitem33->setText(QCoreApplication::translate("MainWindow", "Date Maintenance", nullptr));
+        QTableWidgetItem *___qtablewidgetitem34 = tableau4->horizontalHeaderItem(4);
+        ___qtablewidgetitem34->setText(QCoreApplication::translate("MainWindow", "Action", nullptr));
         lineEdit_54->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
+        pushButton_139->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
+        pushButton_140->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
         btnequiprmrnt4->setText(QCoreApplication::translate("MainWindow", "\360\237\223\221   Rapports PDF", nullptr));
         btnequiprmrnt2->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
         btnequiprmrnt3->setText(QCoreApplication::translate("MainWindow", "Performance     \360\237\217\206", nullptr));
@@ -12814,20 +12996,20 @@ public:
         pushButton_42->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
         pushButton_43->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
         pushButton_44->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        QTableWidgetItem *___qtablewidgetitem30 = tableau5->horizontalHeaderItem(0);
-        ___qtablewidgetitem30->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem31 = tableau5->horizontalHeaderItem(1);
-        ___qtablewidgetitem31->setText(QCoreApplication::translate("MainWindow", "Type", nullptr));
-        QTableWidgetItem *___qtablewidgetitem32 = tableau5->horizontalHeaderItem(2);
-        ___qtablewidgetitem32->setText(QCoreApplication::translate("MainWindow", "Fabricant", nullptr));
-        QTableWidgetItem *___qtablewidgetitem33 = tableau5->horizontalHeaderItem(3);
-        ___qtablewidgetitem33->setText(QCoreApplication::translate("MainWindow", "Date Fabrication", nullptr));
-        QTableWidgetItem *___qtablewidgetitem34 = tableau5->horizontalHeaderItem(4);
-        ___qtablewidgetitem34->setText(QCoreApplication::translate("MainWindow", "Date Expiration", nullptr));
-        QTableWidgetItem *___qtablewidgetitem35 = tableau5->horizontalHeaderItem(5);
-        ___qtablewidgetitem35->setText(QCoreApplication::translate("MainWindow", "Temperature", nullptr));
-        QTableWidgetItem *___qtablewidgetitem36 = tableau5->horizontalHeaderItem(6);
-        ___qtablewidgetitem36->setText(QCoreApplication::translate("MainWindow", "Pays Origine", nullptr));
+        QTableWidgetItem *___qtablewidgetitem35 = tableau5->horizontalHeaderItem(0);
+        ___qtablewidgetitem35->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
+        QTableWidgetItem *___qtablewidgetitem36 = tableau5->horizontalHeaderItem(1);
+        ___qtablewidgetitem36->setText(QCoreApplication::translate("MainWindow", "Type", nullptr));
+        QTableWidgetItem *___qtablewidgetitem37 = tableau5->horizontalHeaderItem(2);
+        ___qtablewidgetitem37->setText(QCoreApplication::translate("MainWindow", "Fabricant", nullptr));
+        QTableWidgetItem *___qtablewidgetitem38 = tableau5->horizontalHeaderItem(3);
+        ___qtablewidgetitem38->setText(QCoreApplication::translate("MainWindow", "Date Fabrication", nullptr));
+        QTableWidgetItem *___qtablewidgetitem39 = tableau5->horizontalHeaderItem(4);
+        ___qtablewidgetitem39->setText(QCoreApplication::translate("MainWindow", "Date Expiration", nullptr));
+        QTableWidgetItem *___qtablewidgetitem40 = tableau5->horizontalHeaderItem(5);
+        ___qtablewidgetitem40->setText(QCoreApplication::translate("MainWindow", "Temperature", nullptr));
+        QTableWidgetItem *___qtablewidgetitem41 = tableau5->horizontalHeaderItem(6);
+        ___qtablewidgetitem41->setText(QCoreApplication::translate("MainWindow", "Pays Origine", nullptr));
         lineEdit_86->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
         pushButton_159->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
         pushButton_160->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
@@ -12870,16 +13052,16 @@ public:
         label_253->setText(QCoreApplication::translate("MainWindow", "Specialit\303\251 :", nullptr));
         label_254->setText(QCoreApplication::translate("MainWindow", "Contact :", nullptr));
         pushButton_163->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem37 = tableau2_6->horizontalHeaderItem(0);
-        ___qtablewidgetitem37->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem38 = tableau2_6->horizontalHeaderItem(1);
-        ___qtablewidgetitem38->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem39 = tableau2_6->horizontalHeaderItem(2);
-        ___qtablewidgetitem39->setText(QCoreApplication::translate("MainWindow", "Specialit\303\251", nullptr));
-        QTableWidgetItem *___qtablewidgetitem40 = tableau2_6->horizontalHeaderItem(3);
-        ___qtablewidgetitem40->setText(QCoreApplication::translate("MainWindow", "Contact", nullptr));
-        QTableWidgetItem *___qtablewidgetitem41 = tableau2_6->horizontalHeaderItem(4);
-        ___qtablewidgetitem41->setText(QCoreApplication::translate("MainWindow", "Action", nullptr));
+        QTableWidgetItem *___qtablewidgetitem42 = tableau2_6->horizontalHeaderItem(0);
+        ___qtablewidgetitem42->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
+        QTableWidgetItem *___qtablewidgetitem43 = tableau2_6->horizontalHeaderItem(1);
+        ___qtablewidgetitem43->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom", nullptr));
+        QTableWidgetItem *___qtablewidgetitem44 = tableau2_6->horizontalHeaderItem(2);
+        ___qtablewidgetitem44->setText(QCoreApplication::translate("MainWindow", "Specialit\303\251", nullptr));
+        QTableWidgetItem *___qtablewidgetitem45 = tableau2_6->horizontalHeaderItem(3);
+        ___qtablewidgetitem45->setText(QCoreApplication::translate("MainWindow", "Contact", nullptr));
+        QTableWidgetItem *___qtablewidgetitem46 = tableau2_6->horizontalHeaderItem(4);
+        ___qtablewidgetitem46->setText(QCoreApplication::translate("MainWindow", "Action", nullptr));
         lineEdit_95->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
         pushButton_164->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
         pushButton_165->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
@@ -12916,20 +13098,20 @@ public:
         label_271->setText(QCoreApplication::translate("MainWindow", "Adresse :", nullptr));
         label_272->setText(QCoreApplication::translate("MainWindow", "Group sanguin :", nullptr));
         pushButton_166->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem42 = tableau3_5->horizontalHeaderItem(0);
-        ___qtablewidgetitem42->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem43 = tableau3_5->horizontalHeaderItem(1);
-        ___qtablewidgetitem43->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem44 = tableau3_5->horizontalHeaderItem(2);
-        ___qtablewidgetitem44->setText(QCoreApplication::translate("MainWindow", "Date Naissance", nullptr));
-        QTableWidgetItem *___qtablewidgetitem45 = tableau3_5->horizontalHeaderItem(3);
-        ___qtablewidgetitem45->setText(QCoreApplication::translate("MainWindow", "Genre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem46 = tableau3_5->horizontalHeaderItem(4);
-        ___qtablewidgetitem46->setText(QCoreApplication::translate("MainWindow", "Mail", nullptr));
-        QTableWidgetItem *___qtablewidgetitem47 = tableau3_5->horizontalHeaderItem(5);
-        ___qtablewidgetitem47->setText(QCoreApplication::translate("MainWindow", "Adresse", nullptr));
-        QTableWidgetItem *___qtablewidgetitem48 = tableau3_5->horizontalHeaderItem(6);
-        ___qtablewidgetitem48->setText(QCoreApplication::translate("MainWindow", "Group Sanguin", nullptr));
+        QTableWidgetItem *___qtablewidgetitem47 = tableau3_5->horizontalHeaderItem(0);
+        ___qtablewidgetitem47->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
+        QTableWidgetItem *___qtablewidgetitem48 = tableau3_5->horizontalHeaderItem(1);
+        ___qtablewidgetitem48->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom", nullptr));
+        QTableWidgetItem *___qtablewidgetitem49 = tableau3_5->horizontalHeaderItem(2);
+        ___qtablewidgetitem49->setText(QCoreApplication::translate("MainWindow", "Date Naissance", nullptr));
+        QTableWidgetItem *___qtablewidgetitem50 = tableau3_5->horizontalHeaderItem(3);
+        ___qtablewidgetitem50->setText(QCoreApplication::translate("MainWindow", "Genre", nullptr));
+        QTableWidgetItem *___qtablewidgetitem51 = tableau3_5->horizontalHeaderItem(4);
+        ___qtablewidgetitem51->setText(QCoreApplication::translate("MainWindow", "Mail", nullptr));
+        QTableWidgetItem *___qtablewidgetitem52 = tableau3_5->horizontalHeaderItem(5);
+        ___qtablewidgetitem52->setText(QCoreApplication::translate("MainWindow", "Adresse", nullptr));
+        QTableWidgetItem *___qtablewidgetitem53 = tableau3_5->horizontalHeaderItem(6);
+        ___qtablewidgetitem53->setText(QCoreApplication::translate("MainWindow", "Group Sanguin", nullptr));
         lineEdit_101->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
         pushButton_167->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
         pushButton_168->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
@@ -12961,18 +13143,18 @@ public:
         label_285->setText(QCoreApplication::translate("MainWindow", "Contact :", nullptr));
         label_286->setText(QCoreApplication::translate("MainWindow", "Date de maintenance :", nullptr));
         pushButton_170->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem49 = tableau_3->horizontalHeaderItem(0);
-        ___qtablewidgetitem49->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem50 = tableau_3->horizontalHeaderItem(1);
-        ___qtablewidgetitem50->setText(QCoreApplication::translate("MainWindow", "Localisation", nullptr));
-        QTableWidgetItem *___qtablewidgetitem51 = tableau_3->horizontalHeaderItem(2);
-        ___qtablewidgetitem51->setText(QCoreApplication::translate("MainWindow", "Statut", nullptr));
-        QTableWidgetItem *___qtablewidgetitem52 = tableau_3->horizontalHeaderItem(3);
-        ___qtablewidgetitem52->setText(QCoreApplication::translate("MainWindow", "Contact", nullptr));
-        QTableWidgetItem *___qtablewidgetitem53 = tableau_3->horizontalHeaderItem(4);
-        ___qtablewidgetitem53->setText(QCoreApplication::translate("MainWindow", "Date Maintenance", nullptr));
-        QTableWidgetItem *___qtablewidgetitem54 = tableau_3->horizontalHeaderItem(5);
-        ___qtablewidgetitem54->setText(QCoreApplication::translate("MainWindow", "Action", nullptr));
+        QTableWidgetItem *___qtablewidgetitem54 = tableau_3->horizontalHeaderItem(0);
+        ___qtablewidgetitem54->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
+        QTableWidgetItem *___qtablewidgetitem55 = tableau_3->horizontalHeaderItem(1);
+        ___qtablewidgetitem55->setText(QCoreApplication::translate("MainWindow", "Localisation", nullptr));
+        QTableWidgetItem *___qtablewidgetitem56 = tableau_3->horizontalHeaderItem(2);
+        ___qtablewidgetitem56->setText(QCoreApplication::translate("MainWindow", "Statut", nullptr));
+        QTableWidgetItem *___qtablewidgetitem57 = tableau_3->horizontalHeaderItem(3);
+        ___qtablewidgetitem57->setText(QCoreApplication::translate("MainWindow", "Contact", nullptr));
+        QTableWidgetItem *___qtablewidgetitem58 = tableau_3->horizontalHeaderItem(4);
+        ___qtablewidgetitem58->setText(QCoreApplication::translate("MainWindow", "Date Maintenance", nullptr));
+        QTableWidgetItem *___qtablewidgetitem59 = tableau_3->horizontalHeaderItem(5);
+        ___qtablewidgetitem59->setText(QCoreApplication::translate("MainWindow", "Action", nullptr));
         lineEdit_105->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
         pushButton_171->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
         pushButton_172->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
@@ -12990,20 +13172,20 @@ public:
         pushButton_63->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
         pushButton_64->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
         pushButton_65->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        QTableWidgetItem *___qtablewidgetitem55 = tableau5_2->horizontalHeaderItem(0);
-        ___qtablewidgetitem55->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem56 = tableau5_2->horizontalHeaderItem(1);
-        ___qtablewidgetitem56->setText(QCoreApplication::translate("MainWindow", "Type", nullptr));
-        QTableWidgetItem *___qtablewidgetitem57 = tableau5_2->horizontalHeaderItem(2);
-        ___qtablewidgetitem57->setText(QCoreApplication::translate("MainWindow", "Fabricant", nullptr));
-        QTableWidgetItem *___qtablewidgetitem58 = tableau5_2->horizontalHeaderItem(3);
-        ___qtablewidgetitem58->setText(QCoreApplication::translate("MainWindow", "Date Fabrication", nullptr));
-        QTableWidgetItem *___qtablewidgetitem59 = tableau5_2->horizontalHeaderItem(4);
-        ___qtablewidgetitem59->setText(QCoreApplication::translate("MainWindow", "Date Expiration", nullptr));
-        QTableWidgetItem *___qtablewidgetitem60 = tableau5_2->horizontalHeaderItem(5);
-        ___qtablewidgetitem60->setText(QCoreApplication::translate("MainWindow", "Temperature", nullptr));
-        QTableWidgetItem *___qtablewidgetitem61 = tableau5_2->horizontalHeaderItem(6);
-        ___qtablewidgetitem61->setText(QCoreApplication::translate("MainWindow", "Pays Origine", nullptr));
+        QTableWidgetItem *___qtablewidgetitem60 = tableau5_2->horizontalHeaderItem(0);
+        ___qtablewidgetitem60->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
+        QTableWidgetItem *___qtablewidgetitem61 = tableau5_2->horizontalHeaderItem(1);
+        ___qtablewidgetitem61->setText(QCoreApplication::translate("MainWindow", "Type", nullptr));
+        QTableWidgetItem *___qtablewidgetitem62 = tableau5_2->horizontalHeaderItem(2);
+        ___qtablewidgetitem62->setText(QCoreApplication::translate("MainWindow", "Fabricant", nullptr));
+        QTableWidgetItem *___qtablewidgetitem63 = tableau5_2->horizontalHeaderItem(3);
+        ___qtablewidgetitem63->setText(QCoreApplication::translate("MainWindow", "Date Fabrication", nullptr));
+        QTableWidgetItem *___qtablewidgetitem64 = tableau5_2->horizontalHeaderItem(4);
+        ___qtablewidgetitem64->setText(QCoreApplication::translate("MainWindow", "Date Expiration", nullptr));
+        QTableWidgetItem *___qtablewidgetitem65 = tableau5_2->horizontalHeaderItem(5);
+        ___qtablewidgetitem65->setText(QCoreApplication::translate("MainWindow", "Temperature", nullptr));
+        QTableWidgetItem *___qtablewidgetitem66 = tableau5_2->horizontalHeaderItem(6);
+        ___qtablewidgetitem66->setText(QCoreApplication::translate("MainWindow", "Pays Origine", nullptr));
         lineEdit_119->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
         pushButton_183->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
         pushButton_184->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
@@ -13056,16 +13238,16 @@ public:
         label_294->setText(QCoreApplication::translate("MainWindow", "Specialit\303\251 :", nullptr));
         label_295->setText(QCoreApplication::translate("MainWindow", "Contact :", nullptr));
         pushButton_173->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem62 = tableau2_7->horizontalHeaderItem(0);
-        ___qtablewidgetitem62->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem63 = tableau2_7->horizontalHeaderItem(1);
-        ___qtablewidgetitem63->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem64 = tableau2_7->horizontalHeaderItem(2);
-        ___qtablewidgetitem64->setText(QCoreApplication::translate("MainWindow", "Specialit\303\251", nullptr));
-        QTableWidgetItem *___qtablewidgetitem65 = tableau2_7->horizontalHeaderItem(3);
-        ___qtablewidgetitem65->setText(QCoreApplication::translate("MainWindow", "Contact", nullptr));
-        QTableWidgetItem *___qtablewidgetitem66 = tableau2_7->horizontalHeaderItem(4);
-        ___qtablewidgetitem66->setText(QCoreApplication::translate("MainWindow", "Action", nullptr));
+        QTableWidgetItem *___qtablewidgetitem67 = tableau2_7->horizontalHeaderItem(0);
+        ___qtablewidgetitem67->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
+        QTableWidgetItem *___qtablewidgetitem68 = tableau2_7->horizontalHeaderItem(1);
+        ___qtablewidgetitem68->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom", nullptr));
+        QTableWidgetItem *___qtablewidgetitem69 = tableau2_7->horizontalHeaderItem(2);
+        ___qtablewidgetitem69->setText(QCoreApplication::translate("MainWindow", "Specialit\303\251", nullptr));
+        QTableWidgetItem *___qtablewidgetitem70 = tableau2_7->horizontalHeaderItem(3);
+        ___qtablewidgetitem70->setText(QCoreApplication::translate("MainWindow", "Contact", nullptr));
+        QTableWidgetItem *___qtablewidgetitem71 = tableau2_7->horizontalHeaderItem(4);
+        ___qtablewidgetitem71->setText(QCoreApplication::translate("MainWindow", "Action", nullptr));
         lineEdit_110->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
         pushButton_174->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
         pushButton_175->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
@@ -13102,20 +13284,20 @@ public:
         label_312->setText(QCoreApplication::translate("MainWindow", "Adresse :", nullptr));
         label_313->setText(QCoreApplication::translate("MainWindow", "Group sanguin :", nullptr));
         pushButton_176->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem67 = tableau3_6->horizontalHeaderItem(0);
-        ___qtablewidgetitem67->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem68 = tableau3_6->horizontalHeaderItem(1);
-        ___qtablewidgetitem68->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem69 = tableau3_6->horizontalHeaderItem(2);
-        ___qtablewidgetitem69->setText(QCoreApplication::translate("MainWindow", "Date Naissance", nullptr));
-        QTableWidgetItem *___qtablewidgetitem70 = tableau3_6->horizontalHeaderItem(3);
-        ___qtablewidgetitem70->setText(QCoreApplication::translate("MainWindow", "Genre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem71 = tableau3_6->horizontalHeaderItem(4);
-        ___qtablewidgetitem71->setText(QCoreApplication::translate("MainWindow", "Mail", nullptr));
-        QTableWidgetItem *___qtablewidgetitem72 = tableau3_6->horizontalHeaderItem(5);
-        ___qtablewidgetitem72->setText(QCoreApplication::translate("MainWindow", "Adresse", nullptr));
-        QTableWidgetItem *___qtablewidgetitem73 = tableau3_6->horizontalHeaderItem(6);
-        ___qtablewidgetitem73->setText(QCoreApplication::translate("MainWindow", "Group Sanguin", nullptr));
+        QTableWidgetItem *___qtablewidgetitem72 = tableau3_6->horizontalHeaderItem(0);
+        ___qtablewidgetitem72->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
+        QTableWidgetItem *___qtablewidgetitem73 = tableau3_6->horizontalHeaderItem(1);
+        ___qtablewidgetitem73->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom", nullptr));
+        QTableWidgetItem *___qtablewidgetitem74 = tableau3_6->horizontalHeaderItem(2);
+        ___qtablewidgetitem74->setText(QCoreApplication::translate("MainWindow", "Date Naissance", nullptr));
+        QTableWidgetItem *___qtablewidgetitem75 = tableau3_6->horizontalHeaderItem(3);
+        ___qtablewidgetitem75->setText(QCoreApplication::translate("MainWindow", "Genre", nullptr));
+        QTableWidgetItem *___qtablewidgetitem76 = tableau3_6->horizontalHeaderItem(4);
+        ___qtablewidgetitem76->setText(QCoreApplication::translate("MainWindow", "Mail", nullptr));
+        QTableWidgetItem *___qtablewidgetitem77 = tableau3_6->horizontalHeaderItem(5);
+        ___qtablewidgetitem77->setText(QCoreApplication::translate("MainWindow", "Adresse", nullptr));
+        QTableWidgetItem *___qtablewidgetitem78 = tableau3_6->horizontalHeaderItem(6);
+        ___qtablewidgetitem78->setText(QCoreApplication::translate("MainWindow", "Group Sanguin", nullptr));
         lineEdit_116->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
         pushButton_177->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
         pushButton_178->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
@@ -13146,16 +13328,16 @@ public:
         comboBox_37->setItemText(1, QCoreApplication::translate("MainWindow", "Occup\303\251e", nullptr));
 
         pushButton_180->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem74 = tableau6->horizontalHeaderItem(0);
-        ___qtablewidgetitem74->setText(QCoreApplication::translate("MainWindow", "Date Rendez-vous", nullptr));
-        QTableWidgetItem *___qtablewidgetitem75 = tableau6->horizontalHeaderItem(1);
-        ___qtablewidgetitem75->setText(QCoreApplication::translate("MainWindow", "Heure Rendez-vous", nullptr));
-        QTableWidgetItem *___qtablewidgetitem76 = tableau6->horizontalHeaderItem(2);
-        ___qtablewidgetitem76->setText(QCoreApplication::translate("MainWindow", "Priorit\303\251", nullptr));
-        QTableWidgetItem *___qtablewidgetitem77 = tableau6->horizontalHeaderItem(3);
-        ___qtablewidgetitem77->setText(QCoreApplication::translate("MainWindow", "Statut", nullptr));
-        QTableWidgetItem *___qtablewidgetitem78 = tableau6->horizontalHeaderItem(4);
-        ___qtablewidgetitem78->setText(QCoreApplication::translate("MainWindow", "Action", nullptr));
+        QTableWidgetItem *___qtablewidgetitem79 = tableau6->horizontalHeaderItem(0);
+        ___qtablewidgetitem79->setText(QCoreApplication::translate("MainWindow", "Date Rendez-vous", nullptr));
+        QTableWidgetItem *___qtablewidgetitem80 = tableau6->horizontalHeaderItem(1);
+        ___qtablewidgetitem80->setText(QCoreApplication::translate("MainWindow", "Heure Rendez-vous", nullptr));
+        QTableWidgetItem *___qtablewidgetitem81 = tableau6->horizontalHeaderItem(2);
+        ___qtablewidgetitem81->setText(QCoreApplication::translate("MainWindow", "Priorit\303\251", nullptr));
+        QTableWidgetItem *___qtablewidgetitem82 = tableau6->horizontalHeaderItem(3);
+        ___qtablewidgetitem82->setText(QCoreApplication::translate("MainWindow", "Statut", nullptr));
+        QTableWidgetItem *___qtablewidgetitem83 = tableau6->horizontalHeaderItem(4);
+        ___qtablewidgetitem83->setText(QCoreApplication::translate("MainWindow", "Action", nullptr));
         lineEdit_118->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
         pushButton_181->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
         pushButton_182->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
@@ -13231,6 +13413,7 @@ public:
         label_246->setText(QCoreApplication::translate("MainWindow", "Statistique :    (vaccins)", nullptr));
         label_365->setText(QCoreApplication::translate("MainWindow", "Statistique :    (rendezvous)", nullptr));
         label_366->setText(QCoreApplication::translate("MainWindow", "Calendrier :    (rendezvous)", nullptr));
+        btnuser->setText(QCoreApplication::translate("MainWindow", "\360\237\221\250\360\237\217\273\342\200\215\360\237\222\273   Utilisateur", nullptr));
     } // retranslateUi
 
 };

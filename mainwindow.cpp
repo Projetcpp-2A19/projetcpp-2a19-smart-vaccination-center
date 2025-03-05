@@ -4,27 +4,26 @@
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QWidget>
-#include <QDateTime>
-#include <QMessageBox>
-#include <QDebug>
-#include <QSqlError>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);  // Setup UI from Qt Designer
+
     connect(ui->exit, &QPushButton::clicked, this, &MainWindow::close);
 
     ui->tableau->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableau2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableau3->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->tableauEquipements->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableau4->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableau5->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableau6->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
 }
 
-MainWindow::~MainWindow(){
+MainWindow::~MainWindow()
+{
     delete ui;
 }
 
@@ -113,55 +112,7 @@ void MainWindow::on_btnrendezv3_clicked()
     ui->sqs->setCurrentIndex(16);
 }
 
-void MainWindow::updateTableView() //aff
-{
-    ui->tableauEquipements->setModel(equipement.afficher());
-}
 
-void MainWindow::on_btnequipementAjouter_clicked(){
-    // Générer un ID unique (MAX(id_eqp) + 1)
-    QSqlQuery query;
-    query.prepare("SELECT MAX(id_eqp) FROM EQUIPEMENTS");
-    query.exec();
 
-    int id = 1;  // Valeur par défaut si la table est vide
-    if (query.next()) {
-        id = query.value(0).toInt() + 1;  // Incrémentation du dernier ID
-    }
 
-    // Récupérer les valeurs de l'UI
-    QString nom = ui->lineEdit_51->text();
-    QString type = ui->comboBox_11->currentText();
-    QString statut = ui->comboBox_13->currentText();
-
-    // Obtenir la date actuelle (type QDate)
-    QDate dateMaintenance = QDate::currentDate();
-
-    // Check if 'nom' is empty
-    if (nom.isEmpty()) {
-        // Show an error message if empty
-        QMessageBox::warning(this, "Erreur", "Le nom ne peut pas être vide !");
-    }
-    else{
-        // Créer l'objet Equipement
-        Equipement equip(id, nom, type, statut, dateMaintenance);
-
-        // Ajouter dans la base de données
-        if (equip.ajouter()) {
-            QMessageBox::information(this, "Succès", "Equipement ajouté avec succès !");
-            afficherEquipements();  // Refresh table after adding
-        } else {
-            QMessageBox::critical(this, "Erreur", "L'ajout de l'équipement a échoué !");
-        }
-    }
-    /*if (!query.exec()) {
-        qDebug() << "Database Error: " << query.lastError().text();
-        QMessageBox::critical(nullptr, "Database Error", "Error: " + query.lastError().text());
-    }*/
-}
-
-void MainWindow::afficherEquipements(){
-    QSqlQueryModel* model = equipement.afficher();
-    ui->tableauEquipements->setModel(model);  // Assign model to QTableView
-}
 
