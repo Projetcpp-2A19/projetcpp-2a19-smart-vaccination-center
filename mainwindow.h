@@ -1,0 +1,60 @@
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
+#include <QMainWindow>
+#include <QWidget>  // For the popup widget
+#include <QPushButton>  // For the button
+#include <QLabel>  // For the label inside the popup widget
+#include "equipements.h"
+
+QT_BEGIN_NAMESPACE
+namespace Ui {
+class MainWindow;
+}
+QT_END_NAMESPACE
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
+
+private slots:
+    void on_btnmedecin_clicked();  // Slot to handle btnmedecin click
+    void on_btnmedecin2_clicked();
+    void on_btnpatient_clicked();
+    void on_btnpatient2_clicked();
+    void on_btnvaccins_clicked();
+    void on_btnvaccins2_clicked();
+    void on_btnlabo_clicked();
+    void on_btnlabo2_clicked();
+    void on_btnlabo3_clicked();
+    void on_btnlabo4_clicked();
+    void on_btnrendezv_clicked();
+    void on_btnrendezv2_clicked();
+    void on_btnrendezv3_clicked();
+    void on_btnequiprmrnt_clicked();
+    void on_btnequiprmrnt2_clicked();
+    void on_btnequiprmrnt3_clicked();
+    void on_btnuser_clicked();
+
+public:
+    void updateTableView();
+
+private:
+    //Ui::MainWindow *ui;
+    QWidget *popupWidget;  // The popup widget
+
+private slots:
+    void on_btnequipementAjouter_clicked();  // Slot for adding equipment
+    void afficherEquipements();  // Function to display data in the table
+
+private:
+    Ui::MainWindow *ui;
+    Equipement equipement;  // Equipement object
+
+};
+
+#endif // MAINWINDOW_H
