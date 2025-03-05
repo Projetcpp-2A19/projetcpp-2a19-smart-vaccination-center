@@ -1,0 +1,51 @@
+#ifndef PATIENT_H
+#define PATIENT_H
+
+#include <QString>
+#include <QDate>
+#include <QSqlQuery>
+#include <QTableWidget>
+#include <QSqlQueryModel>
+
+class Patient
+{
+public:
+    // Constructeurs
+    Patient();
+    Patient(int id, QString nom, QString prenom, QDate dateNaissance, QString email,
+            QString genre, QString adresse, QString groupSanguin);
+
+    // Getters & Setters
+    int getId() const;
+    void setId(int id);
+    QString getNom() const;
+    void setNom(const QString &nom);
+    QString getPrenom() const;
+    void setPrenom(const QString &prenom);
+    QDate getDateNaissance() const;
+    void setDateNaissance(const QDate &dateNaissance);
+    QString getEmail() const;
+    void setEmail(const QString &email);
+    QString getGenre() const;
+    void setGenre(const QString &genre);
+    QString getAdresse() const;
+    void setAdresse(const QString &adresse);
+    QString getGroupSanguin() const;
+    void setGroupSanguin(const QString &groupSanguin);
+
+    // CRUD Operations
+    bool ajouter();
+    void afficher(QTableWidget* tableWidget);
+
+private:
+    int id;
+    QString nom;
+    QString prenom;
+    QDate dateNaissance;
+    QString email;
+    QString genre;
+    QString adresse;
+    QString groupSanguin;
+};
+
+#endif // PATIENT_H

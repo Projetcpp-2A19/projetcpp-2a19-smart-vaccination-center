@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/2a45218d-5797-44e8-91e0-6ff25d4750e2.jpg</file>
+        <file>icons/2c1e1daf-2d12-4852-b501-32de6e89d393.jpg</file>
+        <file>icons/44298757-c475-4d62-8415-e4d92b1b761b.jpg</file>
+        <file>icons/44298757-c475-4d62-8415-e4d92b1b761b-removebg-preview.png</file>
+        <file>icons/assign_15597699.png</file>
+        <file>icons/calendar_7155182.png</file>
+        <file>icons/chahed bhima.png</file>
+        <file>icons/chahed_bhima-removebg-preview.png</file>
+        <file>icons/close_4942745.png</file>
+        <file>icons/down_17150923.png</file>
+        <file>icons/find_17252880.png</file>
+        <file>icons/home_6609657.png</file>
+        <file>icons/inject_7369584.png</file>
+        <file>icons/medical_14816722.png</file>
+        <file>icons/microscope_4131002.png</file>
+        <file>icons/microscope_10864084.png</file>
+        <file>icons/more_12194453.png</file>
+        <file>icons/pin_6218489.png</file>
+    </qresource>
+</RCC>
