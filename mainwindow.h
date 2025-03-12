@@ -42,7 +42,8 @@ private slots:
     void on_btnuser_clicked();
     void ajouterMedecin(); // Slot pour gérer l'ajout d'un médecin
     void afficherMedecins(); // Fonction pour afficher les médecins dans tableau2
-    void on_pushButtonsupp_clicked();
+    void on_pushButton_mod_clicked();
+    void on_b_supp_clicked();
 private:
     Ui::MainWindow *ui;
     QWidget *popupWidget;  // The popup widget

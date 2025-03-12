@@ -1265,7 +1265,44 @@ QPushButton:disabled {
 </string>
             </property>
             <property name="text">
-             <string>Soumettre</string>
+             <string>Ajouter</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_mod">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: rgb(173, 216, 230);
+    color: #ffffff;
+    border: 2px solid rgb(173, 216, 230);
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Modifier</string>
             </property>
            </widget>
           </item>
@@ -1479,9 +1516,58 @@ text : search
           <x>330</x>
           <y>170</y>
           <width>731</width>
-          <height>431</height>
+          <height>361</height>
          </rect>
         </property>
+       </widget>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>550</y>
+          <width>191</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Suppression</string>
+        </property>
+        <widget class="QLabel" name="label_4">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>30</y>
+           <width>21</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="suppID">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>30</y>
+           <width>81</width>
+           <height>26</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="b_supp">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>60</y>
+           <width>93</width>
+           <height>29</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Supprimer</string>
+         </property>
+        </widget>
        </widget>
       </widget>
       <widget class="QWidget" name="equibment_2">
