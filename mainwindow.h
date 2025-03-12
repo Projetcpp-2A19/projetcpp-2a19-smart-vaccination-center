@@ -41,12 +41,28 @@ private slots:
     void on_pushButton_180_clicked();
 
     void on_btnuser_clicked();
+    void on_btnsupp_clicked(); //btn supp
+
+    void on_btnmodif_clicked();
+    void on_btncmodif_clicked();
+
+    void on_btnrendezv4_clicked();
 
     //void afficherRdv();
+private:
+    int currentId;       // ID du rendez-vous sélectionné
+    QDate originalDate;  // Date du rendez-vous avant modification
+    QDate originalHeure; // Heure du rendez-vous avant modification
+    QString originalPriorite; // Priorité du rendez-vous avant modification
+    QString originalStatus;   // Statut du rendez-vous avant modification
+    int originalIdPat;   // ID du patient lié au rendez-vous
+
+    bool modificationInProgress = false; // Indicateur de modification en cours
 
 private:
     Ui::MainWindow *ui;
     QWidget *popupWidget;  // The popup widget
+    void updateTableView();
 protected:
     void mousePressEvent(QMouseEvent *event) override;  // Detect clicks outside the popup
 };

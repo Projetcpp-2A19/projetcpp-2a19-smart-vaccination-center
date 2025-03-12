@@ -45,17 +45,40 @@ bool RendezVous::ajouter() {
 QSqlQueryModel* RendezVous::afficher() {
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery("SELECT * FROM RENDEZ_VOUS");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("date_rdv"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("heure_rdv"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("priorite_rdv"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("status"));
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_rdv"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("date_rdv"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("heure_rdv"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("priorite_rdv"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("status"));
     return model;
 }
 
 // Méthode pour supprimer un rendez-vous en fonction de son ID
 bool RendezVous::supprimer(int id) {
     QSqlQuery query;
-    query.prepare("DELETE FROM rendezvous WHERE id_rdv = :id");
+    query.prepare("DELETE FROM RENDEZ_VOUS WHERE id_rdv = :id");
     query.bindValue(":id", id);
+
+    if (!query.exec()) {
+        qDebug() << "Erreur SQL lors de la suppression :" << query.lastError().text();
+        return false;
+    }
+
+    return true;
+}
+
+
+// Modifier un rendez vous
+bool RendezVous::modifier(int id) {
+    QSqlQuery query;
+    query.prepare("UPDATE RENDEZ_VOUS SET id_rdv=:id, date_rdv=TO_DATE(:date, 'YYYY-MM-DD'), heure_rdv=TO_DATE(:heure, 'YYYY-MM-DD'), priorite_rdv=:priorite, status=:status, id_pat=:id_pat  WHERE id_rdv=:id");
+    query.bindValue(":id", id_rdv);
+    query.bindValue(":date", date_rdv.toString("yyyy-MM-dd"));
+    query.bindValue(":heure", heure_rdv.toString("yyyy-MM-dd"));
+    query.bindValue(":priorite", priorite_rdv);
+    query.bindValue(":status", status);
+    query.bindValue(":id_pat", id_pat);
+
     return query.exec();
 }
+

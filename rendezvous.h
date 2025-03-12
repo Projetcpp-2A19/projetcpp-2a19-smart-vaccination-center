@@ -40,7 +40,8 @@ public:
     // CRUD
     bool ajouter();
     QSqlQueryModel * afficher();
-    bool supprimer(int);
+    bool supprimer(int id);
+    bool modifier(int id);
 };
 
 #endif // RENDEZVOUS_H
