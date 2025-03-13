@@ -4,6 +4,9 @@
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QWidget>
+#include "Vaccin.h"
+#include <QMessageBox>
+#include <QDate>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -18,8 +21,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableau3->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableau4->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableau5->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->tableau6->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-
+    ui->tableau5->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableau5->setModel(vac.afficher());
 }
 
 MainWindow::~MainWindow()
@@ -115,4 +118,149 @@ void MainWindow::on_btnrendezv3_clicked()
 
 
 
+
+
+
+
+
+void MainWindow::on_submit_clicked()
+{
+    QDate currentDate = QDate::currentDate();
+    ui->d2->setDate(QDate::currentDate());
+
+    QString nom = ui->nom->text();
+    QString type = ui->type->currentText();
+    QString fabricant = ui->fab->text();
+    QDate dateFabrication = ui->d1->date();
+    QDate dateExpiration = ui->d2->date();
+    double temperature = ui->temp->text().toDouble();
+    QString paysOrigine = ui->pays->text();
+    int stock = ui->stock->text().toInt();
+
+
+    if (nom.isEmpty()) {
+        QMessageBox::critical(this, "Erreur", "Le nom ne peut pas être vide !");
+    } else if (type.isEmpty()) {
+        QMessageBox::critical(this, "Erreur", "Le type ne peut pas être vide !");
+    } else if (fabricant.isEmpty()) {
+        QMessageBox::critical(this, "Erreur", "Le fabricant ne peut pas être vide !");
+    } else if (dateFabrication > dateExpiration) {
+        QMessageBox::critical(this, "Erreur", "La date d'expiration doit être après la date de fabrication !");
+    } else if (temperature < -100 || temperature > 100) {
+        QMessageBox::critical(this, "Erreur", "Température invalide !");
+        ui->temp->clear();
+    } else if (paysOrigine.isEmpty()) {
+        QMessageBox::critical(this, "Erreur", "Le pays d'origine ne peut pas être vide !");
+    } else if (stock < 0) {
+        QMessageBox::critical(this, "Erreur", "Le stock ne peut pas être négatif !");
+        ui->stock->clear();
+    } else {
+        Vaccin V (0, nom, type, fabricant, dateFabrication, dateExpiration, temperature, paysOrigine, stock);
+        bool test = V.ajouter();
+
+        if (test) {
+            ui->tableau5->setModel(V.afficher());
+            QMessageBox::information(nullptr, QObject::tr("Succès"),
+                                     QObject::tr("Ajout effectué.\nClick Cancel pour fermer."), QMessageBox::Cancel);
+            ui->nom->clear();
+            ui->fab->clear();
+            ui->d1->clear();
+            ui->d2->clear();
+            ui->temp->clear();
+            ui->pays->clear();
+            ui->stock->clear();
+        } else {
+            QMessageBox::critical(nullptr, QObject::tr("Échec"),
+                                  QObject::tr("Ajout non effectué.\nClick Cancel pour fermer."), QMessageBox::Cancel);
+        }
+    }
+
+
+}
+
+
+void MainWindow::on_del_clicked()
+{
+    // Récupérer l'ID sélectionné
+    QModelIndex index = ui->tableau5->selectionModel()->currentIndex();
+    if (!index.isValid()) {
+        QMessageBox::warning(this, tr("Suppression"), tr("Veuillez sélectionner un élément à supprimer."));
+        return;
+    }
+
+    int id = ui->tableau5->model()->data(ui->tableau5->model()->index(index.row(), 0)).toInt();  // Supposons que l'ID est en 1ère colonne
+
+    // Confirmation
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, tr("Suppression"), tr("Voulez-vous vraiment supprimer cet élément ?"),
+                                  QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
+        Vaccin r;
+        if (r.supprimer(id)) {
+            QMessageBox::information(this, tr("Suppression"), tr("Suppression réussie."));
+            ui->tableau5->setModel(vac.afficher());
+
+
+        } else {
+            QMessageBox::critical(this, tr("Erreur"), tr("Échec de la suppression."));
+        }
+    }
+
+}
+
+
+void MainWindow::on_pushButton_159_clicked()
+{
+    if(mod==0){
+        // Récupérer l'ID sélectionné
+        QModelIndex index = ui->tableau5->selectionModel()->currentIndex();
+        if (!index.isValid()) {
+            QMessageBox::warning(this, tr("Modifier"), tr("Veuillez sélectionner un élément à Modifier."));
+            return;
+        }
+
+        int id = ui->tableau5->model()->data(ui->tableau5->model()->index(index.row(), 0)).toInt();  // Supposons que l'ID est en 1ère colonne
+        Vaccin v=vac.getVaccinById(id);
+        ui->id->setText(QString::number(v.getId()));
+        ui->nom->setText(v.getNom());
+        ui->type->setCurrentText(v.getType());
+        ui->fab->setText(v.getFabricant());
+        ui->d1->setDate(v.getDateFabrication());
+        ui->d2->setDate(v.getDateExpiration());
+        ui->temp->setText(QString::number(v.getTemperature()));
+        ui->pays->setText(v.getPaysOrigine());
+        ui->stock->setText(QString::number(v.getStock()));
+        mod=1;
+    }
+    else{
+        int id = ui->id->text().toInt();
+        QString nom = ui->nom->text();
+        QString type = ui->type->currentText();
+        QString fabricant = ui->fab->text();
+        QDate dateFabrication = ui->d1->date();
+        QDate dateExpiration = ui->d2->date();
+        double temperature = ui->temp->text().toDouble();
+        QString paysOrigine = ui->pays->text();
+        int stock = ui->stock->text().toInt();
+        bool test = vac.modifier(id,nom,type,fabricant,dateFabrication,dateExpiration,temperature,paysOrigine,stock);
+        if (test) {
+            ui->tableau5->setModel(vac.afficher());
+            QMessageBox::information(nullptr, QObject::tr("Succès"),
+                                     QObject::tr("Modification effectué.\nClick Cancel pour fermer."), QMessageBox::Cancel);
+            ui->nom->clear();
+            ui->fab->clear();
+            ui->d1->clear();
+            ui->d2->clear();
+            ui->temp->clear();
+            ui->pays->clear();
+            ui->stock->clear();
+            ui->id->clear();
+            mod=0;
+        } else {
+            mod=0;
+            QMessageBox::critical(nullptr, QObject::tr("Échec"),
+                                  QObject::tr("Modification non effectué.\nClick Cancel pour fermer."), QMessageBox::Cancel);
+        }
+    }
+}
 

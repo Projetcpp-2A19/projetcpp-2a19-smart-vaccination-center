@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1283</width>
-    <height>773</height>
+    <width>1290</width>
+    <height>839</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>0</x>
       <y>0</y>
       <width>191</width>
-      <height>761</height>
+      <height>801</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -592,7 +592,7 @@ QPushButton:disabled {
       <x>190</x>
       <y>70</y>
       <width>1101</width>
-      <height>691</height>
+      <height>731</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -3583,7 +3583,7 @@ text : search
 </string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="medecin_5">
        <widget class="QLabel" name="label_7">
@@ -4641,7 +4641,7 @@ background-color: rgb(234, 251, 255);
 </string>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>4</number>
         </property>
         <widget class="QWidget" name="medecin_7">
          <widget class="QLabel" name="label_60">
@@ -6900,7 +6900,7 @@ background-color: rgb(234, 251, 255);
         <x>0</x>
         <y>0</y>
         <width>1091</width>
-        <height>671</height>
+        <height>731</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -7178,13 +7178,13 @@ QPushButton:disabled {
          </property>
         </widget>
        </widget>
-       <widget class="QTableWidget" name="tableau5">
+       <widget class="QTableView" name="tableau5">
         <property name="geometry">
          <rect>
           <x>310</x>
           <y>150</y>
           <width>781</width>
-          <height>511</height>
+          <height>571</height>
          </rect>
         </property>
         <property name="minimumSize">
@@ -7196,7 +7196,7 @@ QPushButton:disabled {
         <property name="maximumSize">
          <size>
           <width>781</width>
-          <height>511</height>
+          <height>600</height>
          </size>
         </property>
         <property name="layoutDirection">
@@ -7206,13 +7206,14 @@ QPushButton:disabled {
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">QTableWidget {
+         <string notr="true">QTableView {
     background-color: rgb(234, 251, 255);
     border: 2px solid #2a2a2a;
     border-radius: 8px;
     gridline-color: #2a2a2a;
     selection-background-color: #2a2a2a;
     selection-color: white;
+	padding: 5px;
 }
 
 QHeaderView::section {
@@ -7223,24 +7224,28 @@ QHeaderView::section {
     font-weight: bold;
 }
 
-QTableWidget QTableCornerButton::section {
+QTableView QTableCornerButton::section {
     background-color: #2a2a2a;
     border: 1px solid #2a2a2a;
+    border-top-left-radius: 8px;
 }
 
-QTableWidget::item {
+QTableView::item {
     padding: 5px;
+    border-radius: 4px;
 }
 
-QTableWidget::item:selected {
-    background-color: #2a2a2a;
-    color: white;
+QTableView::item:selected {
+    background-color: rgb(173, 216, 230);
+    color: #ffffff;
+    border: 2px solid rgb(173, 216, 230);
+    border-radius: 4px;
 }
 
-QTableWidget::item:hover {
-    background-color: rgb(200, 240, 250);
-}
-</string>
+QTableView::item:hover {
+    background-color: rgb(220, 78, 78);
+    border-radius: 4px;
+}</string>
         </property>
         <property name="lineWidth">
          <number>144</number>
@@ -7248,158 +7253,9 @@ QTableWidget::item:hover {
         <property name="sizeAdjustPolicy">
          <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
         </property>
-        <attribute name="horizontalHeaderStretchLastSection">
+        <attribute name="verticalHeaderCascadingSectionResizes">
          <bool>true</bool>
         </attribute>
-        <row/>
-        <column>
-         <property name="text">
-          <string>Nom</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Type</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Fabricant</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Date Fabrication</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Date Expiration</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Temperature</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Pays Origine</string>
-         </property>
-        </column>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_86">
-        <property name="geometry">
-         <rect>
-          <x>310</x>
-          <y>100</y>
-          <width>151</width>
-          <height>51</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
-        border-radius: 6px;
-        padding: 5px 8px;
- color: #2a2a2a  ;
-    padding: 10px;
-    margin: 6px;
-    font-size: 13px;
-    font-weight: bold;
-        selection-background-color: #cce5ff; /* Light blue selection */
-
-text : search
-</string>
-        </property>
-        <property name="text">
-         <string>Recherche</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_159">
-        <property name="geometry">
-         <rect>
-          <x>980</x>
-          <y>220</y>
-          <width>111</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-    background-color: rgb(173, 216, 230);
-    color: #ffffff;
-    border: 2px solid rgb(173, 216, 230);
-    padding: 10px;
-    margin: 6px;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-}
-
-QPushButton:hover {
-    background-color: #606060;
-    border-color: #777777;
-}
-
-QPushButton:pressed {
-    background-color: #787878;
-    border-color: #909090;
-}
-
-QPushButton:disabled {
-    background-color: #353535;
-    color: #ffffff;
-    border-color: #444444;
-}
-</string>
-        </property>
-        <property name="text">
-         <string>Modifier</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_160">
-        <property name="geometry">
-         <rect>
-          <x>980</x>
-          <y>270</y>
-          <width>111</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-    background-color: rgb(173, 216, 230);
-    color: #ffffff;
-    border: 2px solid rgb(173, 216, 230);
-    padding: 10px;
-    margin: 6px;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-}
-
-QPushButton:hover {
-    background-color: #606060;
-    border-color: #777777;
-}
-
-QPushButton:pressed {
-    background-color: #787878;
-    border-color: #909090;
-}
-
-QPushButton:disabled {
-    background-color: #353535;
-    color: #ffffff;
-    border-color: #444444;
-}
-</string>
-        </property>
-        <property name="text">
-         <string>Supprimer</string>
-        </property>
        </widget>
        <widget class="QPushButton" name="btnvaccins3">
         <property name="geometry">
@@ -7510,17 +7366,112 @@ QPushButton:disabled {
        <widget class="QWidget" name="layoutWidget_27">
         <property name="geometry">
          <rect>
-          <x>537</x>
+          <x>310</x>
           <y>90</y>
-          <width>391</width>
-          <height>57</height>
+          <width>631</width>
+          <height>58</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_14">
          <property name="spacing">
           <number>7</number>
          </property>
-         <item alignment="Qt::AlignmentFlag::AlignRight">
+         <item>
+          <widget class="QLineEdit" name="lineEdit_86">
+           <property name="styleSheet">
+            <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+ color: #2a2a2a  ;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+text : search
+</string>
+           </property>
+           <property name="text">
+            <string>Recherche</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_159">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    background-color: rgb(173, 216, 230);
+    color: #ffffff;
+    border: 2px solid rgb(173, 216, 230);
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Modifier</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="del">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    background-color: rgb(173, 216, 230);
+    color: #ffffff;
+    border: 2px solid rgb(173, 216, 230);
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Supprimer</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QLabel" name="label_231">
            <property name="styleSheet">
             <string notr="true"> color: #2a2a2a  ;
@@ -7568,8 +7519,8 @@ text : search
        <widget class="QPushButton" name="pushButton_161">
         <property name="geometry">
          <rect>
-          <x>980</x>
-          <y>320</y>
+          <x>820</x>
+          <y>10</y>
           <width>111</width>
           <height>61</height>
          </rect>
@@ -7614,7 +7565,7 @@ QPushButton:disabled {
           <x>10</x>
           <y>10</y>
           <width>291</width>
-          <height>651</height>
+          <height>711</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -7644,7 +7595,7 @@ QGroupBox::title {
            <x>10</x>
            <y>30</y>
            <width>271</width>
-           <height>611</height>
+           <height>680</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -7662,7 +7613,7 @@ QGroupBox::title {
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_81">
+           <widget class="QLineEdit" name="nom">
             <property name="styleSheet">
              <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
         border-radius: 6px;
@@ -7692,7 +7643,7 @@ QGroupBox::title {
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox_28">
+           <widget class="QComboBox" name="type">
             <property name="styleSheet">
              <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
         border-radius: 6px;
@@ -7733,7 +7684,7 @@ text : search
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_91">
+           <widget class="QLineEdit" name="fab">
             <property name="styleSheet">
              <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
         border-radius: 6px;
@@ -7763,7 +7714,7 @@ text : search
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="dateEdit_13">
+           <widget class="QDateEdit" name="d1">
             <property name="styleSheet">
              <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
         border-radius: 6px;
@@ -7794,7 +7745,7 @@ text : search
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="dateEdit_15">
+           <widget class="QDateEdit" name="d2">
             <property name="styleSheet">
              <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
         border-radius: 6px;
@@ -7825,7 +7776,7 @@ text : search
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_84">
+           <widget class="QLineEdit" name="temp">
             <property name="styleSheet">
              <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
         border-radius: 6px;
@@ -7855,7 +7806,7 @@ text : search
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_85">
+           <widget class="QLineEdit" name="pays">
             <property name="styleSheet">
              <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
         border-radius: 6px;
@@ -7872,7 +7823,37 @@ text : search
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_158">
+           <widget class="QLabel" name="label_239">
+            <property name="styleSheet">
+             <string notr="true">font-size: 14px;
+        font-weight: bold;
+        color: #333; /* Dark gray text */
+        background: transparent;</string>
+            </property>
+            <property name="text">
+             <string>Stock</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="stock">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+         color: #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="submit">
             <property name="styleSheet">
              <string notr="true">QPushButton {
     background-color: rgb(173, 216, 230);
@@ -17723,6 +17704,32 @@ QPushButton:disabled {
      </property>
      <property name="autoExclusive">
       <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="id">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>730</x>
+       <y>10</y>
+       <width>101</width>
+       <height>55</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+         color: #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+</string>
      </property>
     </widget>
    </widget>

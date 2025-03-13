@@ -5,6 +5,7 @@
 #include <QWidget>  // For the popup widget
 #include <QPushButton>  // For the button
 #include <QLabel>  // For the label inside the popup widget
+#include "Vaccin.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -40,9 +41,18 @@ private slots:
 
     void on_btnuser_clicked();
 
+
+    void on_submit_clicked();
+
+    void on_del_clicked();
+
+    void on_pushButton_159_clicked();
+
 private:
     Ui::MainWindow *ui;
     QWidget *popupWidget;  // The popup widget
+    Vaccin vac;
+    int mod=0;
 };
 
 #endif // MAINWINDOW_H
