@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1286</width>
+    <width>1289</width>
     <height>740</height>
    </rect>
   </property>
@@ -5691,92 +5691,6 @@ text : search
            <string>Recherche</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_136">
-          <property name="geometry">
-           <rect>
-            <x>980</x>
-            <y>220</y>
-            <width>111</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-    background-color: rgb(173, 216, 230);
-    color: #ffffff;
-    border: 2px solid rgb(173, 216, 230);
-    padding: 10px;
-    margin: 6px;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-}
-
-QPushButton:hover {
-    background-color: #606060;
-    border-color: #777777;
-}
-
-QPushButton:pressed {
-    background-color: #787878;
-    border-color: #909090;
-}
-
-QPushButton:disabled {
-    background-color: #353535;
-    color: #ffffff;
-    border-color: #444444;
-}
-</string>
-          </property>
-          <property name="text">
-           <string>Modifier</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="pushButton_137">
-          <property name="geometry">
-           <rect>
-            <x>980</x>
-            <y>270</y>
-            <width>111</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-    background-color: rgb(173, 216, 230);
-    color: #ffffff;
-    border: 2px solid rgb(173, 216, 230);
-    padding: 10px;
-    margin: 6px;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-}
-
-QPushButton:hover {
-    background-color: #606060;
-    border-color: #777777;
-}
-
-QPushButton:pressed {
-    background-color: #787878;
-    border-color: #909090;
-}
-
-QPushButton:disabled {
-    background-color: #353535;
-    color: #ffffff;
-    border-color: #444444;
-}
-</string>
-          </property>
-          <property name="text">
-           <string>Supprimer</string>
-          </property>
-         </widget>
          <widget class="QPushButton" name="btnpatient3_2">
           <property name="geometry">
            <rect>
@@ -5940,49 +5854,6 @@ text : search
             </widget>
            </item>
           </layout>
-         </widget>
-         <widget class="QPushButton" name="pushButton_138">
-          <property name="geometry">
-           <rect>
-            <x>980</x>
-            <y>320</y>
-            <width>111</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-    background-color: rgb(173, 216, 230);
-    color: #ffffff;
-    border: 2px solid rgb(173, 216, 230);
-    padding: 10px;
-    margin: 6px;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-}
-
-QPushButton:hover {
-    background-color: #606060;
-    border-color: #777777;
-}
-
-QPushButton:pressed {
-    background-color: #787878;
-    border-color: #909090;
-}
-
-QPushButton:disabled {
-    background-color: #353535;
-    color: #ffffff;
-    border-color: #444444;
-}
-</string>
-          </property>
-          <property name="text">
-           <string>Email</string>
-          </property>
          </widget>
         </widget>
         <widget class="QWidget" name="equibment_6">

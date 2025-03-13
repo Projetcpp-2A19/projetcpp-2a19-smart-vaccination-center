@@ -36,6 +36,8 @@ public:
     // CRUD Operations
     bool ajouter();
     void afficher(QTableWidget* tableWidget);
+    bool supprimerPatient(int row);
+    bool modifierPatient(int id, const QString& nom, const QString& prenom, const QDate& dateNaiss, const QString& email, const QString& genre, const QString& adresse, const QString& groupeSanguin);
 
 private:
     int id;

@@ -270,15 +270,12 @@ public:
     QPushButton *btnajouterpatient;
     QTableWidget *tableau3_2;
     QLineEdit *lineEdit_50;
-    QPushButton *pushButton_136;
-    QPushButton *pushButton_137;
     QPushButton *btnpatient3_2;
     QPushButton *btnpatient2_2;
     QWidget *layoutWidget_11;
     QHBoxLayout *horizontalLayout_6;
     QLabel *label_63;
     QComboBox *comboBox_10;
-    QPushButton *pushButton_138;
     QWidget *equibment_6;
     QLabel *label_64;
     QWidget *Vacc_6;
@@ -877,7 +874,7 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->setEnabled(true);
-        MainWindow->resize(1286, 740);
+        MainWindow->resize(1289, 740);
         MainWindow->setMinimumSize(QSize(0, 0));
         MainWindow->setMaximumSize(QSize(16777215, 16777215));
         centralwidget = new QWidget(MainWindow);
@@ -4731,68 +4728,6 @@ public:
 "\n"
 "text : search\n"
 ""));
-        pushButton_136 = new QPushButton(Labo_6);
-        pushButton_136->setObjectName("pushButton_136");
-        pushButton_136->setGeometry(QRect(980, 220, 111, 61));
-        pushButton_136->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: rgb(173, 216, 230);\n"
-"    color: #ffffff;\n"
-"    border: 2px solid rgb(173, 216, 230);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        pushButton_137 = new QPushButton(Labo_6);
-        pushButton_137->setObjectName("pushButton_137");
-        pushButton_137->setGeometry(QRect(980, 270, 111, 61));
-        pushButton_137->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: rgb(173, 216, 230);\n"
-"    color: #ffffff;\n"
-"    border: 2px solid rgb(173, 216, 230);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
         btnpatient3_2 = new QPushButton(Labo_6);
         btnpatient3_2->setObjectName("btnpatient3_2");
         btnpatient3_2->setGeometry(QRect(930, 10, 181, 61));
@@ -4898,37 +4833,6 @@ public:
 
         horizontalLayout_6->addWidget(comboBox_10);
 
-        pushButton_138 = new QPushButton(Labo_6);
-        pushButton_138->setObjectName("pushButton_138");
-        pushButton_138->setGeometry(QRect(980, 320, 111, 61));
-        pushButton_138->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: rgb(173, 216, 230);\n"
-"    color: #ffffff;\n"
-"    border: 2px solid rgb(173, 216, 230);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
         stackedWidget_5->addWidget(Labo_6);
         equibment_6 = new QWidget();
         equibment_6->setObjectName("equibment_6");
@@ -13024,15 +12928,12 @@ public:
         QTableWidgetItem *___qtablewidgetitem29 = tableau3_2->horizontalHeaderItem(6);
         ___qtablewidgetitem29->setText(QCoreApplication::translate("MainWindow", "Group Sanguin", nullptr));
         lineEdit_50->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
-        pushButton_136->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
-        pushButton_137->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
         btnpatient3_2->setText(QCoreApplication::translate("MainWindow", "\360\237\223\221   Rapports PDF", nullptr));
         btnpatient2_2->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
         label_63->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
         comboBox_10->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
         comboBox_10->setItemText(1, QCoreApplication::translate("MainWindow", "Group Sanguin", nullptr));
 
-        pushButton_138->setText(QCoreApplication::translate("MainWindow", "Email", nullptr));
         label_64->setText(QCoreApplication::translate("MainWindow", "equibment", nullptr));
         label_65->setText(QCoreApplication::translate("MainWindow", "VACCINS", nullptr));
         label_66->setText(QCoreApplication::translate("MainWindow", "rendez vous", nullptr));

@@ -20,6 +20,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void supprimerPatient(int id);
+    void modifierPatient(int id);
 
 private slots:
     void on_btnmedecin_clicked();  // Slot to handle btnmedecin click
@@ -38,10 +40,10 @@ private slots:
     void on_btnequiprmrnt_clicked();
     void on_btnequiprmrnt2_clicked();
     void on_btnequiprmrnt3_clicked();
-
     void on_btnuser_clicked();
     void on_btnajouterpatient_clicked();
 private:
+    int currentPatientId = -1;
     Ui::MainWindow *ui;
     QWidget *popupWidget;  // The popup widget
 protected:

@@ -1,7 +1,10 @@
 #include "patient.h"
 #include <QSqlError>
 #include <QDebug>
-
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QMessageBox>
+#include "mainwindow.h"
 // Constructeurs
 Patient::Patient() {}
 
@@ -50,8 +53,19 @@ bool Patient::ajouter()
 // Afficher les patients dans un QTableWidget
 void Patient::afficher(QTableWidget* tableWidget)
 {
-    tableWidget->setRowCount(0); // Vider le tableau avant de le remplir
-    QSqlQuery query("SELECT * FROM PATIENTS ORDER BY ID_PAT");
+    if (!tableWidget) return; // Éviter un crash si tableWidget est null
+
+    tableWidget->clearContents();
+    tableWidget->setRowCount(0);
+    tableWidget->setColumnCount(9);
+    tableWidget->setHorizontalHeaderLabels({"ID", "Nom", "Prénom", "Date Naissance", "Email", "Genre", "Adresse", "Groupe Sanguin", "Actions"});
+
+    QSqlQuery query;
+    query.exec("SELECT * FROM PATIENTS ORDER BY ID_PAT");
+    if (!query.exec("SELECT * FROM PATIENTS ORDER BY ID_PAT")) {
+        QMessageBox::critical(nullptr, "Erreur SQL", "Impossible de récupérer les patients !");
+        return;
+    }
 
     int row = 0;
     while (query.next()) {
@@ -64,6 +78,108 @@ void Patient::afficher(QTableWidget* tableWidget)
         tableWidget->setItem(row, 5, new QTableWidgetItem(query.value("GENRE").toString()));
         tableWidget->setItem(row, 6, new QTableWidgetItem(query.value("ADRESSE").toString()));
         tableWidget->setItem(row, 7, new QTableWidgetItem(query.value("GROUPSANGUIN").toString()));
+
+        // Création des boutons
+        QWidget* widget = new QWidget();
+        QPushButton* btnModifier = new QPushButton("✏ Modifier");
+        QPushButton* btnSupprimer = new QPushButton("🗑 Supprimer");
+
+        // Réduire la taille des boutons
+        btnModifier->setFixedSize(80, 25);
+        btnSupprimer->setFixedSize(80, 25);
+
+        // Appliquer un style
+        QString buttonStyle = R"(
+            QPushButton {
+                background-color: rgb(173, 216, 230);
+                color: #ffffff;
+                border: 2px solid rgb(173, 216, 230);
+                padding: 5px;
+                margin: 3px;
+                border-radius: 8px;
+                font-size: 12px;
+                font-weight: bold;
+                transition: all 0.3s ease-in-out;
+            }
+            QPushButton:hover {
+                background-color: #606060;
+                border-color: #777777;
+            }
+            QPushButton:pressed {
+                background-color: #787878;
+                border-color: #909090;
+            }
+        )";
+
+        btnModifier->setStyleSheet(buttonStyle);
+        btnSupprimer->setStyleSheet(buttonStyle);
+
+        // Récupérer l'ID du patient
+        int patientID = query.value("ID_PAT").toInt();
+        qDebug()<<patientID;
+        btnModifier->setProperty("id", patientID);
+        btnSupprimer->setProperty("id", patientID);
+
+        // Récupérer la fenêtre principale pour connecter les signaux
+        QObject* parentWidget = tableWidget->window();
+        MainWindow* mainWindow = qobject_cast<MainWindow*>(parentWidget);
+        if (mainWindow) {
+            // Connexion du bouton Modifier
+            QObject::connect(btnModifier, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
+                mainWindow->modifierPatient(patientID);
+            });
+
+            // Connexion du bouton Supprimer
+            QObject::connect(btnSupprimer, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
+                mainWindow->supprimerPatient(patientID);
+            });
+        }
+
+        // Mise en page des boutons
+        QHBoxLayout* layout = new QHBoxLayout();
+        layout->addWidget(btnModifier);
+        layout->addWidget(btnSupprimer);
+        layout->setContentsMargins(3, 1, 3, 1);
+        layout->setAlignment(Qt::AlignCenter);
+        widget->setLayout(layout);
+
+        tableWidget->setCellWidget(row, 8, widget);
         row++;
+    }
+
+    tableWidget->resizeColumnsToContents();
+}
+bool Patient::supprimerPatient(int id)
+{
+    QSqlQuery query;
+    query.prepare("DELETE FROM PATIENTS WHERE ID_PAT = :id");
+    query.bindValue(":id", id);
+
+    if (query.exec()) {
+        return true; // Suppression réussie
+    } else {
+        QMessageBox::critical(nullptr, "Erreur de suppression", "Impossible de supprimer le patient !");
+        return false; // Échec
+    }
+}
+bool Patient::modifierPatient(int id, const QString& nom, const QString& prenom, const QDate& dateNaiss, const QString& email, const QString& genre, const QString& adresse, const QString& groupeSanguin)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE PATIENTS SET NOM_PAT = :nom, PRENOM_PAT = :prenom, DATENAIS_PAT = :dateNaiss, EMAIL = :email, GENRE = :genre, ADRESSE = :adresse, GROUPSANGUIN = :groupeSanguin WHERE ID_PAT = :id");
+
+    query.bindValue(":nom", nom);
+    query.bindValue(":prenom", prenom);
+    query.bindValue(":dateNaiss", dateNaiss);
+    query.bindValue(":email", email);
+    query.bindValue(":genre", genre);
+    query.bindValue(":adresse", adresse);
+    query.bindValue(":groupeSanguin", groupeSanguin);
+    query.bindValue(":id", id);
+
+    if (query.exec()) {
+        return true; // Modification réussie
+    } else {
+        QMessageBox::critical(nullptr, "Erreur de modification", "Impossible de modifier le patient !");
+        return false; // Échec
     }
 }
