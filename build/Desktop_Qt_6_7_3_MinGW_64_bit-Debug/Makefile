@@ -83,6 +83,10 @@ Makefile: ../../vaxnestv2.pro C:/Qt/6.7.3/mingw_64/mkspecs/win32-g++/qmake.conf 
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_ext_freetype.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_ext_libjpeg.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_ext_libpng.pri \
+		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_charts.pri \
+		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_charts_private.pri \
+		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_chartsqml.pri \
+		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_chartsqml_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_concurrent.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_concurrent_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_core.pri \
@@ -248,7 +252,10 @@ Makefile: ../../vaxnestv2.pro C:/Qt/6.7.3/mingw_64/mkspecs/win32-g++/qmake.conf 
 		C:/Qt/6.7.3/mingw_64/mkspecs/features/yacc.prf \
 		C:/Qt/6.7.3/mingw_64/mkspecs/features/lex.prf \
 		../../vaxnestv2.pro \
+		C:/Qt/6.7.3/mingw_64/lib/Qt6Charts.prl \
+		C:/Qt/6.7.3/mingw_64/lib/Qt6OpenGLWidgets.prl \
 		C:/Qt/6.7.3/mingw_64/lib/Qt6Widgets.prl \
+		C:/Qt/6.7.3/mingw_64/lib/Qt6OpenGL.prl \
 		C:/Qt/6.7.3/mingw_64/lib/Qt6Gui.prl \
 		C:/Qt/6.7.3/mingw_64/lib/Qt6Sql.prl \
 		C:/Qt/6.7.3/mingw_64/lib/Qt6Core.prl \
@@ -269,6 +276,10 @@ C:/Qt/6.7.3/mingw_64/mkspecs/qconfig.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_ext_freetype.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_ext_libjpeg.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_ext_libpng.pri:
+C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_charts.pri:
+C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_charts_private.pri:
+C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_chartsqml.pri:
+C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_chartsqml_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_concurrent.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_concurrent_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_core.pri:
@@ -434,7 +445,10 @@ C:/Qt/6.7.3/mingw_64/mkspecs/features/exceptions.prf:
 C:/Qt/6.7.3/mingw_64/mkspecs/features/yacc.prf:
 C:/Qt/6.7.3/mingw_64/mkspecs/features/lex.prf:
 ../../vaxnestv2.pro:
+C:/Qt/6.7.3/mingw_64/lib/Qt6Charts.prl:
+C:/Qt/6.7.3/mingw_64/lib/Qt6OpenGLWidgets.prl:
 C:/Qt/6.7.3/mingw_64/lib/Qt6Widgets.prl:
+C:/Qt/6.7.3/mingw_64/lib/Qt6OpenGL.prl:
 C:/Qt/6.7.3/mingw_64/lib/Qt6Gui.prl:
 C:/Qt/6.7.3/mingw_64/lib/Qt6Sql.prl:
 C:/Qt/6.7.3/mingw_64/lib/Qt6Core.prl:

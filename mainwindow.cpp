@@ -10,17 +10,31 @@
 #include <ctime>    // Pour time()
 #include <QRegularExpression>
 #include <QRegularExpressionValidator>
-#include <QMessageBox>
 #include <ctime>
+#include <QPainter>
+#include <QPdfWriter>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QDesktopServices>
+#include <QUrl>
+#include <QDir>
+#include <QChart>
+#include <QLineSeries>
+#include <QPieSeries>
+#include <QChartView>
 
-
+#include <QPropertyAnimation>
+#include <QGraphicsOpacityEffect>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);  // Setup UI from Qt Designer
+    connect(ui->tri, &QPushButton::clicked, this, &MainWindow::on_btn_tri_clicked);
+    connect(ui->listpatient, &QPushButton::clicked, this, &MainWindow::on_listpatient_clicked);
 
     connect(ui->exit, &QPushButton::clicked, this, &MainWindow::close);
+    connect(ui->recherche, &QPushButton::clicked, this, &MainWindow::on_btn_recherche_clicked);
 
     // Reference the existing popupWidget from the UI (it should be named popupWidget in the designer)
     popupWidget = ui->popupWidget;
@@ -47,6 +61,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableau4->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableau5->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableau6->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);*/
+    QGraphicsOpacityEffect *effect = new QGraphicsOpacityEffect(this);
+    ui->listpatient->setGraphicsEffect(effect);
+
+    QPropertyAnimation *animation = new QPropertyAnimation(effect, "opacity");
+    animation->setDuration(1000);      // 1 seconde
+    animation->setStartValue(0.0);     // Transparent
+    animation->setEndValue(1.0);       // Opaque
+    animation->start(QAbstractAnimation::DeleteWhenStopped);
 
 }
 
@@ -70,9 +92,9 @@ void MainWindow::on_btnajouterpatient_clicked()
     QString email = ui->lineEdit_47->text().trimmed();
     QString genre = ui->comboBox_9->currentText();
     QString adresse = ui->lineEdit_48->text().trimmed();
-    QString groupeSanguin = ui->lineEdit_49->text().trimmed();
+    QString groupeSanguin =ui->comboBox_6->currentText();
 
-    // 🔹 Vérification : Champs vides
+
     if (nom.isEmpty() || prenom.isEmpty() || email.isEmpty() || adresse.isEmpty() || groupeSanguin.isEmpty()) {
         QMessageBox::warning(this, "Champ vide", "Tous les champs doivent être remplis !");
         return;
@@ -85,17 +107,15 @@ void MainWindow::on_btnajouterpatient_clicked()
         return;
     }
 
-    // 🔹 Vérification : Email (format `*@*.com`)
     QRegularExpression regexEmail("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.com$");
     if (!regexEmail.match(email).hasMatch()) {
         QMessageBox::warning(this, "Email invalide", "L'email doit être sous la forme exemple@domaine.com !");
         return;
     }
 
-    Patient patient;
+    Patient patient(id,nom,prenom,dateNaiss,email,genre,adresse,groupeSanguin);
 
     if (currentPatientId == -1) {
-        // 🔹 Ajout d'un nouveau patient
         if (patient.ajouter()) {
             QMessageBox::information(this, "Succès", "Patient ajouté avec succès !");
         } else {
@@ -112,10 +132,11 @@ void MainWindow::on_btnajouterpatient_clicked()
         // Réinitialisation après modification
         currentPatientId = -1;
         ui->btnajouterpatient->setText("Ajouter");
-        ui->btnajouterpatient->setStyleSheet("background-color: blue; color: white; font-weight: bold; border-radius: 10px; padding: 8px;");
+        ui->btnajouterpatient->setStyleSheet("QPushButton {background-color: rgb(173, 216, 230); color: #ffffff;border: 2px solid rgb(173, 216, 230);padding: 10px;margin: 6px; border-radius: 12px;font-size: 15px;font-weight: bold;transition: all 0.3s ease-in-out;}QPushButton:hover {background-color: #606060;border-color: #777777;}QPushButton:pressed { background-color: #787878;border-color: #909090;}QPushButton:disabled {background-color: #353535;color: #ffffff;border-color: #444444;}");
     }
 
     patient.afficher(ui->tableau3_2); // Rafraîchir la liste des patients
+    ui->rapportettable->setCurrentWidget(ui->page_5);
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event) {
@@ -149,7 +170,7 @@ void MainWindow::modifierPatient(int id)
         ui->lineEdit_47->setText(query.value("EMAIL").toString());
         ui->comboBox_9->setCurrentText(query.value("GENRE").toString());
         ui->lineEdit_48->setText(query.value("ADRESSE").toString());
-        ui->lineEdit_49->setText(query.value("GROUPSANGUIN").toString());
+        ui->comboBox_6->setCurrentText(query.value("GROUPSANGUIN").toString());
 
         // Changer le texte du bouton "Ajouter" en "Modifier"
         ui->btnajouterpatient->setText("Modifier");
@@ -157,6 +178,176 @@ void MainWindow::modifierPatient(int id)
     } else {
         QMessageBox::critical(this, "Erreur","Impossible de récupérer les informations du patient." + QString::number(currentPatientId));
     }
+}
+void MainWindow::on_btn_recherche_clicked()
+{
+    QString rechercheNom = ui->lineEdit_50->text().trimmed();  // Supprime les espaces inutiles
+
+    Patient patient;
+    patient.afficherSpecifique(ui->tableau3_2, rechercheNom);  // Appel de la nouvelle fonction
+}
+void MainWindow::on_btn_tri_clicked()
+{
+    Patient patient;
+    patient.afficherTrieParAnneeNaissance(ui->tableau3_2);  // Appelle la nouvelle fonction
+}
+void MainWindow::genererRapportPDF()
+{
+    QString filePath = QDir::homePath() + "/Desktop/c++/vaxnestv2/rapport_patient.pdf";
+    QPdfWriter pdfWriter(filePath);
+    pdfWriter.setPageSize(QPageSize(QPageSize::A4));
+    pdfWriter.setResolution(300);
+    QPainter painter(&pdfWriter);
+
+    // Marges
+    const int marginLeft = 40;
+    const int marginTop = 50;
+    const int pageWidth = pdfWriter.width() - 2 * marginLeft;
+
+    // Logo et titre
+    QPixmap logo("/mnt/data/44298757-c475-4d62-8415-e4d92b1b761b-removebg-preview.png");
+    painter.drawPixmap(marginLeft, marginTop, 80, 80, logo);
+    painter.setFont(QFont("Arial", 20, QFont::Bold));
+    painter.setPen(Qt::darkBlue);
+    painter.drawText(marginLeft + 100, marginTop + 40, "VaxNest - Rapport des Patients");
+
+    // Ligne séparatrice
+    painter.setPen(QPen(Qt::black, 2));
+    painter.drawLine(marginLeft, marginTop + 100, marginLeft + pageWidth, marginTop + 100);
+
+    // Titre tableau
+    painter.setFont(QFont("Arial", 14, QFont::Bold));
+    painter.drawText(marginLeft, marginTop + 130, "Liste des Patients");
+
+    // Coordonnées du tableau
+    int y = marginTop + 160;
+    int rowHeight = 45;
+
+    // Largeur totale à diviser
+    QVector<int> columnWidths = {
+        int(pageWidth * 0.08),  // ID
+        int(pageWidth * 0.20),  // Nom
+        int(pageWidth * 0.20),  // Prénom
+        int(pageWidth * 0.20),  // Date naissance
+        int(pageWidth * 0.32)   // Email
+    };
+
+    QStringList headers = {"ID", "Nom", "Prénom", "Date Naissance", "Email"};
+
+    // En-tête stylée
+    painter.setFont(QFont("Arial", 11, QFont::Bold));
+    painter.setPen(Qt::white);
+    painter.setBrush(QColor("#2E86C1"));  // Bleu foncé
+    int x = marginLeft;
+    for (int i = 0; i < headers.size(); ++i) {
+        painter.drawRect(x, y, columnWidths[i], rowHeight);
+        painter.drawText(x + 10, y + 30, headers[i]);
+        x += columnWidths[i];
+    }
+    y += rowHeight;
+
+    // Récupération des patients
+    QSqlQuery query;
+    if (!query.exec("SELECT ID_PAT, NOM_PAT, PRENOM_PAT, TO_CHAR(DATENAIS_PAT, 'YYYY-MM-DD'), EMAIL FROM PATIENTS ORDER BY ID_PAT")) {
+        QMessageBox::critical(this, "Erreur SQL", "Impossible de récupérer les patients: " + query.lastError().text());
+        return;
+    }
+
+    // Dessiner les lignes
+    painter.setFont(QFont("Arial", 10));
+    bool isAlternate = false;
+    while (query.next()) {
+        x = marginLeft;
+        painter.setPen(Qt::black);
+        painter.setBrush(isAlternate ? QColor("#f5f6fa") : Qt::white);  // Gris clair
+        isAlternate = !isAlternate;
+
+        for (int i = 0; i < headers.size(); ++i) {
+            painter.drawRect(x, y, columnWidths[i], rowHeight);
+            painter.drawText(x + 10, y + 28, query.value(i).toString());
+            x += columnWidths[i];
+        }
+
+        y += rowHeight;
+
+        // Saut de page si dépassement
+        if (y > pdfWriter.height() - 100) {
+            pdfWriter.newPage();
+            y = marginTop;
+        }
+    }
+
+    painter.end();
+    QMessageBox::information(this, "Succès", "Le rapport PDF a été généré avec succès !");
+}
+
+
+// Code du bouton pour générer le rapport
+void MainWindow::on_btnpatient3_2_clicked()
+{
+    genererRapportPDF();
+}
+void MainWindow::afficherStatistiques()
+{
+    // Récupérer les données d'âge des patients
+    QSqlQuery queryAge;
+    if (!queryAge.exec("SELECT DATENAIS_PAT FROM PATIENTS")) {
+        QMessageBox::critical(this, "Erreur SQL", "Impossible de récupérer les âges: " + queryAge.lastError().text());
+        return;
+    }
+
+    QLineSeries *ageSeries = new QLineSeries();
+    QDate currentDate = QDate::currentDate();
+    int index = 0;
+    while (queryAge.next()) {
+        QDate birthDate = queryAge.value(0).toDate();
+        int age = birthDate.daysTo(currentDate) / 365; // Calcul de l'âge
+        ageSeries->append(index++, age);
+    }
+
+     QChart *ageChart = new QChart();
+    ageChart->addSeries(ageSeries);
+    ageChart->setTitle("Courbe d'âge des patients");
+    ageChart->createDefaultAxes();
+    QChartView *ageChartView = new QChartView(ageChart);
+    ageChartView->setRenderHint(QPainter::Antialiasing);
+
+    // Récupérer les données des groupes sanguins
+    QSqlQuery queryBlood;
+    if (!queryBlood.exec("SELECT GROUPSANGUIN, COUNT(*) FROM PATIENTS GROUP BY GROUPSANGUIN")) {
+        QMessageBox::critical(this, "Erreur SQL", "Impossible de récupérer les groupes sanguins: " + queryBlood.lastError().text());
+        return;
+    }
+
+    QPieSeries *bloodSeries = new QPieSeries();
+    while (queryBlood.next()) {
+        bloodSeries->append(queryBlood.value(0).toString(), queryBlood.value(1).toInt());
+    }
+
+    QChart *bloodChart = new QChart();
+    bloodChart->addSeries(bloodSeries);
+    bloodChart->setTitle("Répartition des groupes sanguins");
+    QChartView *bloodChartView = new QChartView(bloodChart);
+    bloodChartView->setRenderHint(QPainter::Antialiasing);
+
+    // Ajouter les graphiques à la page_6 du stackedWidget
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->addWidget(ageChartView);
+    layout->addWidget(bloodChartView);
+    ui->page_6->setLayout(layout);
+}
+
+// Code du bouton pour afficher les statistiques
+void MainWindow::on_btnpatient2_2_clicked()
+{
+    afficherStatistiques();
+    ui->rapportettable->setCurrentWidget(ui->page_6);
+}
+void MainWindow::on_listpatient_clicked()
+{
+    Patient p;
+    p.afficher(ui->tableau3_2);  // Charge les patients dans le tableau
+    ui->rapportettable->setCurrentWidget(ui->page_5);
 }
 void MainWindow::on_btnmedecin_clicked()
 {

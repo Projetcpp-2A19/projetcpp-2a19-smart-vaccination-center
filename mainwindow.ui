@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>1289</width>
-    <height>740</height>
+    <height>761</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -35,7 +35,7 @@
       <x>0</x>
       <y>0</y>
       <width>191</width>
-      <height>741</height>
+      <height>761</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -728,7 +728,7 @@ QPushButton:disabled {
       <x>190</x>
       <y>70</y>
       <width>1101</width>
-      <height>671</height>
+      <height>701</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -826,7 +826,7 @@ QPushButton:disabled {
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -1715,7 +1715,7 @@ text : search
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -1740,7 +1740,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -1765,7 +1765,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -1851,7 +1851,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -2885,7 +2885,7 @@ QPushButton:disabled {
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -2910,7 +2910,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -2935,7 +2935,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -2965,7 +2965,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
       </property>
@@ -4014,7 +4014,7 @@ text : search
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -4903,7 +4903,7 @@ text : search
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -4928,7 +4928,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -4953,7 +4953,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -4974,7 +4974,7 @@ background-color: rgb(234, 251, 255);
           <x>0</x>
           <y>0</y>
           <width>1101</width>
-          <height>671</height>
+          <height>691</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -5024,29 +5024,6 @@ background-color: rgb(234, 251, 255);
          <property name="styleSheet">
           <string notr="true">color : black;</string>
          </property>
-         <widget class="QLabel" name="label_62">
-          <property name="geometry">
-           <rect>
-            <x>350</x>
-            <y>30</y>
-            <width>341</width>
-            <height>71</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"> color: rgb(220, 78, 78);
-    padding: 10px;
-    margin: 6px;
-    font-size: 30px;
-    font-weight: bold;
-background-color: rgb(234, 251, 255); 
-
-</string>
-          </property>
-          <property name="text">
-           <string>Liste des patients</string>
-          </property>
-         </widget>
          <widget class="QWidget" name="popupWidget_6" native="true">
           <property name="geometry">
            <rect>
@@ -5256,9 +5233,9 @@ QPushButton:disabled {
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>10</y>
+            <y>0</y>
             <width>291</width>
-            <height>651</height>
+            <height>671</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -5498,7 +5475,7 @@ text : search
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_49">
+             <widget class="QComboBox" name="comboBox_6">
               <property name="styleSheet">
                <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
         border-radius: 6px;
@@ -5510,8 +5487,39 @@ text : search
     font-weight: bold;
         selection-background-color: #cce5ff; /* Light blue selection */
 
+text : search
 </string>
               </property>
+              <item>
+               <property name="text">
+                <string>A+</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>A-</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>B+</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>B-</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>O+</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>O-</string>
+               </property>
+              </item>
              </widget>
             </item>
             <item>
@@ -5553,116 +5561,6 @@ QPushButton:disabled {
             </item>
            </layout>
           </widget>
-         </widget>
-         <widget class="QTableWidget" name="tableau3_2">
-          <property name="geometry">
-           <rect>
-            <x>310</x>
-            <y>150</y>
-            <width>781</width>
-            <height>511</height>
-           </rect>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>781</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>781</width>
-            <height>511</height>
-           </size>
-          </property>
-          <property name="layoutDirection">
-           <enum>Qt::LayoutDirection::LeftToRight</enum>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QTableWidget {
-    background-color: rgb(234, 251, 255);
-    border: 2px solid #2a2a2a;
-    border-radius: 8px;
-    gridline-color: #2a2a2a;
-    selection-background-color: #2a2a2a;
-    selection-color: white;
-}
-
-QHeaderView::section {
-    background-color: #2a2a2a;
-    color: white;
-    padding: 5px;
-    border: 1px solid #2a2a2a;
-    font-weight: bold;
-}
-
-QTableWidget QTableCornerButton::section {
-    background-color: #2a2a2a;
-    border: 1px solid #2a2a2a;
-}
-
-QTableWidget::item {
-    padding: 5px;
-}
-
-QTableWidget::item:selected {
-    background-color: #2a2a2a;
-    color: white;
-}
-
-QTableWidget::item:hover {
-    background-color: rgb(200, 240, 250);
-}
-</string>
-          </property>
-          <property name="lineWidth">
-           <number>144</number>
-          </property>
-          <property name="sizeAdjustPolicy">
-           <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
-          </property>
-          <attribute name="horizontalHeaderStretchLastSection">
-           <bool>true</bool>
-          </attribute>
-          <row/>
-          <column>
-           <property name="text">
-            <string>Nom</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Prénom</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Date Naissance</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Genre</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Mail</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Adresse</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Group Sanguin</string>
-           </property>
-          </column>
          </widget>
          <widget class="QLineEdit" name="lineEdit_50">
           <property name="geometry">
@@ -5803,14 +5701,14 @@ QPushButton:disabled {
             <x>537</x>
             <y>90</y>
             <width>391</width>
-            <height>57</height>
+            <height>58</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_6">
            <property name="spacing">
             <number>7</number>
            </property>
-           <item alignment="Qt::AlignmentFlag::AlignRight">
+           <item>
             <widget class="QLabel" name="label_63">
              <property name="styleSheet">
               <string notr="true"> color: #2a2a2a  ;
@@ -5853,7 +5751,274 @@ text : search
              </item>
             </widget>
            </item>
+           <item>
+            <widget class="QPushButton" name="tri">
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    background-color: #2a2a2a   ;
+    color: #ffffff;
+    border: 2px solid #2a2a2a   ;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="resources.qrc">
+               <normaloff>:/icons/find_17252880.png</normaloff>:/icons/find_17252880.png</iconset>
+             </property>
+            </widget>
+           </item>
           </layout>
+         </widget>
+         <widget class="QPushButton" name="recherche">
+          <property name="geometry">
+           <rect>
+            <x>450</x>
+            <y>100</y>
+            <width>71</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: #2a2a2a   ;
+    color: #ffffff;
+    border: 2px solid #2a2a2a   ;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/icons/find_17252880.png</normaloff>:/icons/find_17252880.png</iconset>
+          </property>
+         </widget>
+         <widget class="QStackedWidget" name="rapportettable">
+          <property name="geometry">
+           <rect>
+            <x>310</x>
+            <y>160</y>
+            <width>781</width>
+            <height>501</height>
+           </rect>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="page_5">
+           <widget class="QTableWidget" name="tableau3_2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>10</y>
+              <width>781</width>
+              <height>481</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>781</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>781</width>
+              <height>511</height>
+             </size>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LayoutDirection::LeftToRight</enum>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QTableWidget {
+    background-color: rgb(234, 251, 255);
+    border: 2px solid #2a2a2a;
+    border-radius: 8px;
+    gridline-color: #2a2a2a;
+    selection-background-color: #2a2a2a;
+    selection-color: white;
+}
+
+QHeaderView::section {
+    background-color: #2a2a2a;
+    color: white;
+    padding: 5px;
+    border: 1px solid #2a2a2a;
+    font-weight: bold;
+}
+
+QTableWidget QTableCornerButton::section {
+    background-color: #2a2a2a;
+    border: 1px solid #2a2a2a;
+}
+
+QTableWidget::item {
+    padding: 5px;
+}
+
+QTableWidget::item:selected {
+    background-color: #2a2a2a;
+    color: white;
+}
+
+QTableWidget::item:hover {
+    background-color: rgb(200, 240, 250);
+}
+</string>
+            </property>
+            <property name="lineWidth">
+             <number>144</number>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+            </property>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
+            <row/>
+            <column>
+             <property name="text">
+              <string>Nom</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Prénom</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Date Naissance</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Genre</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Mail</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Adresse</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Group Sanguin</string>
+             </property>
+            </column>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_6"/>
+         </widget>
+         <widget class="QPushButton" name="listpatient">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>10</y>
+            <width>181</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: #2a2a2a   ;
+    color: #ffffff;
+    border: 2px solid #2a2a2a   ;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+          </property>
+          <property name="text">
+           <string>liste des patients</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/icons/more_12194453.png</normaloff>:/icons/more_12194453.png</iconset>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="autoExclusive">
+           <bool>true</bool>
+          </property>
          </widget>
         </widget>
         <widget class="QWidget" name="equibment_6">
@@ -5944,7 +6109,7 @@ text : search
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -5969,7 +6134,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -5994,7 +6159,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -6024,7 +6189,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -6994,7 +7159,7 @@ text : search
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -7019,7 +7184,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -7044,7 +7209,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -7069,7 +7234,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -7094,7 +7259,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -7177,7 +7342,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -8212,7 +8377,7 @@ QPushButton:disabled {
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -8237,7 +8402,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -8262,7 +8427,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -8378,7 +8543,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -9267,7 +9432,7 @@ text : search
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -9292,7 +9457,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -9317,7 +9482,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -9403,7 +9568,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -10437,7 +10602,7 @@ QPushButton:disabled {
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -10462,7 +10627,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -10487,7 +10652,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -10517,7 +10682,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -11534,7 +11699,7 @@ text : search
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -12569,7 +12734,7 @@ QPushButton:disabled {
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -12594,7 +12759,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -12619,7 +12784,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -12682,7 +12847,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -12707,7 +12872,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -12732,7 +12897,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -12757,7 +12922,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -12782,7 +12947,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -12807,7 +12972,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -12832,7 +12997,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -12857,7 +13022,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -12881,7 +13046,7 @@ background-color: rgb(234, 251, 255);
 </string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="medecin_18">
        <widget class="QLabel" name="label_288">
@@ -12971,7 +13136,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -13860,7 +14025,7 @@ text : search
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -13885,7 +14050,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -13910,7 +14075,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -13996,7 +14161,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -15030,7 +15195,7 @@ QPushButton:disabled {
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -15055,7 +15220,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -15080,7 +15245,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -15110,7 +15275,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -16098,7 +16263,7 @@ QPushButton:disabled {
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -16123,7 +16288,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -16148,7 +16313,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -16173,7 +16338,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -16198,7 +16363,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -16542,7 +16707,7 @@ QPushButton:disabled {
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -17351,7 +17516,7 @@ QPushButton:disabled {
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -17376,7 +17541,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -17401,7 +17566,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
           </property>
@@ -17500,7 +17665,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -17525,7 +17690,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -17550,7 +17715,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
         </property>
@@ -17577,7 +17742,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
       </property>
@@ -17602,7 +17767,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
       </property>
@@ -17627,7 +17792,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
       </property>
@@ -17652,7 +17817,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
       </property>
@@ -17677,7 +17842,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
       </property>
@@ -17702,7 +17867,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
       </property>
@@ -17727,7 +17892,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
       </property>
@@ -17752,7 +17917,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
       </property>
@@ -17777,7 +17942,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
       </property>
@@ -17802,7 +17967,7 @@ background-color: rgb(234, 251, 255);
     margin: 6px;
     font-size: 30px;
     font-weight: bold;
-background-color: rgb(234, 251, 255); 
+background-color: rgb(234, 251, 255);
 
 </string>
       </property>

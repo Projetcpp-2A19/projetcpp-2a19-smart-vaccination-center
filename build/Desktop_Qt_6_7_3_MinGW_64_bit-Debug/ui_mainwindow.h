@@ -245,7 +245,6 @@ public:
     QWidget *Patient_7;
     QLabel *label_61;
     QWidget *Labo_6;
-    QLabel *label_62;
     QWidget *popupWidget_6;
     QPushButton *pushButton_18;
     QPushButton *pushButton_19;
@@ -266,9 +265,8 @@ public:
     QLabel *label_118;
     QLineEdit *lineEdit_48;
     QLabel *label_119;
-    QLineEdit *lineEdit_49;
+    QComboBox *comboBox_6;
     QPushButton *btnajouterpatient;
-    QTableWidget *tableau3_2;
     QLineEdit *lineEdit_50;
     QPushButton *btnpatient3_2;
     QPushButton *btnpatient2_2;
@@ -276,6 +274,13 @@ public:
     QHBoxLayout *horizontalLayout_6;
     QLabel *label_63;
     QComboBox *comboBox_10;
+    QPushButton *tri;
+    QPushButton *recherche;
+    QStackedWidget *rapportettable;
+    QWidget *page_5;
+    QTableWidget *tableau3_2;
+    QWidget *page_6;
+    QPushButton *listpatient;
     QWidget *equibment_6;
     QLabel *label_64;
     QWidget *Vacc_6;
@@ -874,14 +879,14 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->setEnabled(true);
-        MainWindow->resize(1289, 740);
+        MainWindow->resize(1289, 761);
         MainWindow->setMinimumSize(QSize(0, 0));
         MainWindow->setMaximumSize(QSize(16777215, 16777215));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         widget_2 = new QWidget(centralwidget);
         widget_2->setObjectName("widget_2");
-        widget_2->setGeometry(QRect(0, 0, 191, 741));
+        widget_2->setGeometry(QRect(0, 0, 191, 761));
         widget_2->setStyleSheet(QString::fromUtf8("QWidget {\n"
 "    background-color: #2a2a2a;\n"
 "    border-right: 2px solid #2a2a2a;\n"
@@ -1404,7 +1409,7 @@ public:
         btnuser->setAutoExclusive(true);
         sqs = new QStackedWidget(centralwidget);
         sqs->setObjectName("sqs");
-        sqs->setGeometry(QRect(190, 70, 1101, 671));
+        sqs->setGeometry(QRect(190, 70, 1101, 701));
         sqs->setStyleSheet(QString::fromUtf8("background-color: rgb(234, 251, 255);\n"
 ""));
         medecin = new QWidget();
@@ -1443,7 +1448,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget_2 = new QWidget(Labo_2);
@@ -2047,7 +2052,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_2->addWidget(statlabo_2);
@@ -2061,7 +2066,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_2->addWidget(chatbotlabo_2);
@@ -2075,7 +2080,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_2->addWidget(journallabo_2);
@@ -2113,7 +2118,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget_3 = new QWidget(Labo_3);
@@ -2829,7 +2834,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_3->addWidget(statlabo_3);
@@ -2843,7 +2848,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_3->addWidget(chatbotlabo_3);
@@ -2857,7 +2862,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_3->addWidget(journallabo_3);
@@ -2873,7 +2878,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget = new QWidget(Labo);
@@ -3579,7 +3584,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget_5 = new QWidget(Labo_5);
@@ -4183,7 +4188,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_4->addWidget(statlabo_5);
@@ -4197,7 +4202,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_4->addWidget(chatbotlabo_5);
@@ -4211,7 +4216,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_4->addWidget(journallabo_5);
@@ -4221,7 +4226,7 @@ public:
         Patient_6->setStyleSheet(QString::fromUtf8("color : black;"));
         stackedWidget_5 = new QStackedWidget(Patient_6);
         stackedWidget_5->setObjectName("stackedWidget_5");
-        stackedWidget_5->setGeometry(QRect(0, 0, 1101, 671));
+        stackedWidget_5->setGeometry(QRect(0, 0, 1101, 691));
         stackedWidget_5->setStyleSheet(QString::fromUtf8("background-color: rgb(234, 251, 255);\n"
 ""));
         medecin_7 = new QWidget();
@@ -4241,17 +4246,6 @@ public:
         Labo_6 = new QWidget();
         Labo_6->setObjectName("Labo_6");
         Labo_6->setStyleSheet(QString::fromUtf8("color : black;"));
-        label_62 = new QLabel(Labo_6);
-        label_62->setObjectName("label_62");
-        label_62->setGeometry(QRect(350, 30, 341, 71));
-        label_62->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 30px;\n"
-"    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
-"\n"
-""));
         popupWidget_6 = new QWidget(Labo_6);
         popupWidget_6->setObjectName("popupWidget_6");
         popupWidget_6->setGeometry(QRect(1140, 650, 51, 81));
@@ -4415,7 +4409,7 @@ public:
 ""));
         groupBox_9 = new QGroupBox(Labo_6);
         groupBox_9->setObjectName("groupBox_9");
-        groupBox_9->setGeometry(QRect(10, 10, 291, 651));
+        groupBox_9->setGeometry(QRect(10, 0, 291, 671));
         groupBox_9->setStyleSheet(QString::fromUtf8("QGroupBox {\n"
 "    background-color: rgb(234, 251, 255);  /* Light blue background */\n"
 "    border: 2px solid #2a2a2a ;  /* Dark gray border */\n"
@@ -4601,9 +4595,15 @@ public:
 
         verticalLayout_8->addWidget(label_119);
 
-        lineEdit_49 = new QLineEdit(layoutWidget_10);
-        lineEdit_49->setObjectName("lineEdit_49");
-        lineEdit_49->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+        comboBox_6 = new QComboBox(layoutWidget_10);
+        comboBox_6->addItem(QString());
+        comboBox_6->addItem(QString());
+        comboBox_6->addItem(QString());
+        comboBox_6->addItem(QString());
+        comboBox_6->addItem(QString());
+        comboBox_6->addItem(QString());
+        comboBox_6->setObjectName("comboBox_6");
+        comboBox_6->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
 "        padding: 5px 8px;\n"
 "         color: #2a2a2a;\n"
@@ -4613,9 +4613,10 @@ public:
 "    font-weight: bold;\n"
 "        selection-background-color: #cce5ff; /* Light blue selection */\n"
 "\n"
+"text : search\n"
 ""));
 
-        verticalLayout_8->addWidget(lineEdit_49);
+        verticalLayout_8->addWidget(comboBox_6);
 
         btnajouterpatient = new QPushButton(layoutWidget_10);
         btnajouterpatient->setObjectName("btnajouterpatient");
@@ -4650,69 +4651,6 @@ public:
 
         verticalLayout_8->addWidget(btnajouterpatient);
 
-        tableau3_2 = new QTableWidget(Labo_6);
-        if (tableau3_2->columnCount() < 7)
-            tableau3_2->setColumnCount(7);
-        QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
-        tableau3_2->setHorizontalHeaderItem(0, __qtablewidgetitem23);
-        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
-        tableau3_2->setHorizontalHeaderItem(1, __qtablewidgetitem24);
-        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
-        tableau3_2->setHorizontalHeaderItem(2, __qtablewidgetitem25);
-        QTableWidgetItem *__qtablewidgetitem26 = new QTableWidgetItem();
-        tableau3_2->setHorizontalHeaderItem(3, __qtablewidgetitem26);
-        QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
-        tableau3_2->setHorizontalHeaderItem(4, __qtablewidgetitem27);
-        QTableWidgetItem *__qtablewidgetitem28 = new QTableWidgetItem();
-        tableau3_2->setHorizontalHeaderItem(5, __qtablewidgetitem28);
-        QTableWidgetItem *__qtablewidgetitem29 = new QTableWidgetItem();
-        tableau3_2->setHorizontalHeaderItem(6, __qtablewidgetitem29);
-        if (tableau3_2->rowCount() < 1)
-            tableau3_2->setRowCount(1);
-        tableau3_2->setObjectName("tableau3_2");
-        tableau3_2->setGeometry(QRect(310, 150, 781, 511));
-        tableau3_2->setMinimumSize(QSize(781, 0));
-        tableau3_2->setMaximumSize(QSize(781, 511));
-        tableau3_2->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
-        tableau3_2->setAutoFillBackground(false);
-        tableau3_2->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
-"    background-color: rgb(234, 251, 255);\n"
-"    border: 2px solid #2a2a2a;\n"
-"    border-radius: 8px;\n"
-"    gridline-color: #2a2a2a;\n"
-"    selection-background-color: #2a2a2a;\n"
-"    selection-color: white;\n"
-"}\n"
-"\n"
-"QHeaderView::section {\n"
-"    background-color: #2a2a2a;\n"
-"    color: white;\n"
-"    padding: 5px;\n"
-"    border: 1px solid #2a2a2a;\n"
-"    font-weight: bold;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section {\n"
-"    background-color: #2a2a2a;\n"
-"    border: 1px solid #2a2a2a;\n"
-"}\n"
-"\n"
-"QTableWidget::item {\n"
-"    padding: 5px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:selected {\n"
-"    background-color: #2a2a2a;\n"
-"    color: white;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    background-color: rgb(200, 240, 250);\n"
-"}\n"
-""));
-        tableau3_2->setLineWidth(144);
-        tableau3_2->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
-        tableau3_2->horizontalHeader()->setStretchLastSection(true);
         lineEdit_50 = new QLineEdit(Labo_6);
         lineEdit_50->setObjectName("lineEdit_50");
         lineEdit_50->setGeometry(QRect(310, 100, 151, 51));
@@ -4798,7 +4736,7 @@ public:
         btnpatient2_2->setAutoExclusive(true);
         layoutWidget_11 = new QWidget(Labo_6);
         layoutWidget_11->setObjectName("layoutWidget_11");
-        layoutWidget_11->setGeometry(QRect(537, 90, 391, 57));
+        layoutWidget_11->setGeometry(QRect(537, 90, 391, 58));
         horizontalLayout_6 = new QHBoxLayout(layoutWidget_11);
         horizontalLayout_6->setSpacing(7);
         horizontalLayout_6->setObjectName("horizontalLayout_6");
@@ -4812,7 +4750,7 @@ public:
 "    font-weight: bold;\n"
 " "));
 
-        horizontalLayout_6->addWidget(label_63, 0, Qt::AlignmentFlag::AlignRight);
+        horizontalLayout_6->addWidget(label_63);
 
         comboBox_10 = new QComboBox(layoutWidget_11);
         comboBox_10->addItem(QString());
@@ -4833,6 +4771,182 @@ public:
 
         horizontalLayout_6->addWidget(comboBox_10);
 
+        tri = new QPushButton(layoutWidget_11);
+        tri->setObjectName("tri");
+        tri->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a   ;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a   ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/icons/find_17252880.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        tri->setIcon(icon7);
+
+        horizontalLayout_6->addWidget(tri);
+
+        recherche = new QPushButton(Labo_6);
+        recherche->setObjectName("recherche");
+        recherche->setGeometry(QRect(450, 100, 71, 51));
+        recherche->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a   ;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a   ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        recherche->setIcon(icon7);
+        rapportettable = new QStackedWidget(Labo_6);
+        rapportettable->setObjectName("rapportettable");
+        rapportettable->setGeometry(QRect(310, 160, 781, 501));
+        page_5 = new QWidget();
+        page_5->setObjectName("page_5");
+        tableau3_2 = new QTableWidget(page_5);
+        if (tableau3_2->columnCount() < 7)
+            tableau3_2->setColumnCount(7);
+        QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
+        tableau3_2->setHorizontalHeaderItem(0, __qtablewidgetitem23);
+        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
+        tableau3_2->setHorizontalHeaderItem(1, __qtablewidgetitem24);
+        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
+        tableau3_2->setHorizontalHeaderItem(2, __qtablewidgetitem25);
+        QTableWidgetItem *__qtablewidgetitem26 = new QTableWidgetItem();
+        tableau3_2->setHorizontalHeaderItem(3, __qtablewidgetitem26);
+        QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
+        tableau3_2->setHorizontalHeaderItem(4, __qtablewidgetitem27);
+        QTableWidgetItem *__qtablewidgetitem28 = new QTableWidgetItem();
+        tableau3_2->setHorizontalHeaderItem(5, __qtablewidgetitem28);
+        QTableWidgetItem *__qtablewidgetitem29 = new QTableWidgetItem();
+        tableau3_2->setHorizontalHeaderItem(6, __qtablewidgetitem29);
+        if (tableau3_2->rowCount() < 1)
+            tableau3_2->setRowCount(1);
+        tableau3_2->setObjectName("tableau3_2");
+        tableau3_2->setGeometry(QRect(0, 10, 781, 481));
+        tableau3_2->setMinimumSize(QSize(781, 0));
+        tableau3_2->setMaximumSize(QSize(781, 511));
+        tableau3_2->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        tableau3_2->setAutoFillBackground(false);
+        tableau3_2->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
+"    background-color: rgb(234, 251, 255);\n"
+"    border: 2px solid #2a2a2a;\n"
+"    border-radius: 8px;\n"
+"    gridline-color: #2a2a2a;\n"
+"    selection-background-color: #2a2a2a;\n"
+"    selection-color: white;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #2a2a2a;\n"
+"    color: white;\n"
+"    padding: 5px;\n"
+"    border: 1px solid #2a2a2a;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section {\n"
+"    background-color: #2a2a2a;\n"
+"    border: 1px solid #2a2a2a;\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:selected {\n"
+"    background-color: #2a2a2a;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    background-color: rgb(200, 240, 250);\n"
+"}\n"
+""));
+        tableau3_2->setLineWidth(144);
+        tableau3_2->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
+        tableau3_2->horizontalHeader()->setStretchLastSection(true);
+        rapportettable->addWidget(page_5);
+        page_6 = new QWidget();
+        page_6->setObjectName("page_6");
+        rapportettable->addWidget(page_6);
+        listpatient = new QPushButton(Labo_6);
+        listpatient->setObjectName("listpatient");
+        listpatient->setGeometry(QRect(520, 10, 181, 61));
+        listpatient->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a   ;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a   ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8(":/icons/more_12194453.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        listpatient->setIcon(icon8);
+        listpatient->setCheckable(true);
+        listpatient->setAutoExclusive(true);
         stackedWidget_5->addWidget(Labo_6);
         equibment_6 = new QWidget();
         equibment_6->setObjectName("equibment_6");
@@ -4872,7 +4986,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_5->addWidget(statlabo_6);
@@ -4886,7 +5000,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_5->addWidget(chatbotlabo_6);
@@ -4900,7 +5014,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_5->addWidget(journallabo_6);
@@ -4916,7 +5030,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget_7 = new QWidget(Labo_7);
@@ -5562,7 +5676,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         statmedcin->addWidget(statlabo_7);
@@ -5576,7 +5690,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         statmedcin->addWidget(chatbotlabo_7);
@@ -5590,7 +5704,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         statmedcin->addWidget(journallabo_7);
@@ -5604,7 +5718,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         statmedcin->addWidget(statmedcin_3);
@@ -5618,7 +5732,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         statmedcin->addWidget(page_2);
@@ -5655,7 +5769,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget_14 = new QWidget(Labo_14);
@@ -6372,7 +6486,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_10->addWidget(statlabo_14);
@@ -6386,7 +6500,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_10->addWidget(chatbotlabo_14);
@@ -6400,7 +6514,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_10->addWidget(journallabo_14);
@@ -6448,7 +6562,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget_15 = new QWidget(Labo_15);
@@ -7052,7 +7166,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_11->addWidget(statlabo_15);
@@ -7066,7 +7180,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_11->addWidget(chatbotlabo_15);
@@ -7080,7 +7194,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_11->addWidget(journallabo_15);
@@ -7118,7 +7232,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget_16 = new QWidget(Labo_16);
@@ -7834,7 +7948,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_12->addWidget(statlabo_16);
@@ -7848,7 +7962,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_12->addWidget(chatbotlabo_16);
@@ -7862,7 +7976,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_12->addWidget(journallabo_16);
@@ -7878,7 +7992,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget_17 = new QWidget(Labo_17);
@@ -8576,7 +8690,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget_21 = new QWidget(Labo_21);
@@ -9293,7 +9407,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_15->addWidget(statlabo_20);
@@ -9307,7 +9421,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_15->addWidget(chatbotlabo_20);
@@ -9321,7 +9435,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_15->addWidget(journallabo_20);
@@ -9350,7 +9464,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs_2->addWidget(statlabo_21);
@@ -9364,7 +9478,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs_2->addWidget(chatbotlabo_21);
@@ -9378,7 +9492,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs_2->addWidget(journallabo_21);
@@ -9392,7 +9506,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs_2->addWidget(statmedcin_9);
@@ -9406,7 +9520,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs_2->addWidget(page_11);
@@ -9420,7 +9534,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs_2->addWidget(page_12);
@@ -9434,7 +9548,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs_2->addWidget(page_13);
@@ -9448,7 +9562,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs_2->addWidget(page_14);
@@ -9493,7 +9607,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget_18 = new QWidget(Labo_18);
@@ -10097,7 +10211,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_13->addWidget(statlabo_17);
@@ -10111,7 +10225,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_13->addWidget(chatbotlabo_17);
@@ -10125,7 +10239,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_13->addWidget(journallabo_17);
@@ -10163,7 +10277,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget_19 = new QWidget(Labo_19);
@@ -10879,7 +10993,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_14->addWidget(statlabo_18);
@@ -10893,7 +11007,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_14->addWidget(chatbotlabo_18);
@@ -10907,7 +11021,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         stackedWidget_14->addWidget(journallabo_18);
@@ -10923,7 +11037,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget_20 = new QWidget(Labo_20);
@@ -11595,7 +11709,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         statmedcin_7->addWidget(statlabo_19);
@@ -11609,7 +11723,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         statmedcin_7->addWidget(chatbotlabo_19);
@@ -11623,7 +11737,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         statmedcin_7->addWidget(journallabo_19);
@@ -11637,7 +11751,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         statmedcin_7->addWidget(statmedcin_8);
@@ -11651,7 +11765,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         statmedcin_7->addWidget(page_10);
@@ -11871,7 +11985,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         popupWidget_73 = new QWidget(Labo_73);
@@ -12440,7 +12554,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         qsqsdqqqqqqqqqqq_2->addWidget(statlabo_73);
@@ -12454,7 +12568,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         qsqsdqqqqqqqqqqq_2->addWidget(chatbotlabo_73);
@@ -12468,7 +12582,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         qsqsdqqqqqqqqqqq_2->addWidget(journallabo_73);
@@ -12511,7 +12625,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         qsqsdqqqqqqqqqqq->addWidget(statlabo_70);
@@ -12525,7 +12639,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         qsqsdqqqqqqqqqqq->addWidget(chatbotlabo_70);
@@ -12539,7 +12653,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         qsqsdqqqqqqqqqqq->addWidget(journallabo_70);
@@ -12554,7 +12668,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs->addWidget(statlabo);
@@ -12568,7 +12682,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs->addWidget(chatbotlabo);
@@ -12582,7 +12696,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs->addWidget(journallabo);
@@ -12596,7 +12710,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs->addWidget(statmedcin_2);
@@ -12610,7 +12724,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs->addWidget(page);
@@ -12624,7 +12738,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs->addWidget(page_3);
@@ -12638,7 +12752,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs->addWidget(page_4);
@@ -12652,7 +12766,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs->addWidget(page_9);
@@ -12666,7 +12780,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs->addWidget(page_15);
@@ -12680,7 +12794,7 @@ public:
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
 "    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
+"background-color: rgb(234, 251, 255);\n"
 "\n"
 ""));
         sqs->addWidget(page_16);
@@ -12697,12 +12811,13 @@ public:
         statmedcin->setCurrentIndex(1);
         stackedWidget_4->setCurrentIndex(2);
         stackedWidget_5->setCurrentIndex(2);
+        rapportettable->setCurrentIndex(0);
         stackedWidget_10->setCurrentIndex(2);
         sqs_2->setCurrentIndex(3);
         stackedWidget_11->setCurrentIndex(2);
         stackedWidget_12->setCurrentIndex(2);
         stackedWidget_15->setCurrentIndex(2);
-        statmedcin_7->setCurrentIndex(2);
+        statmedcin_7->setCurrentIndex(1);
         stackedWidget_13->setCurrentIndex(2);
         stackedWidget_14->setCurrentIndex(2);
         qsqsdqqqqqqqqqqq->setCurrentIndex(8);
@@ -12897,7 +13012,6 @@ public:
         label_59->setText(QCoreApplication::translate("MainWindow", "Journal :    (laboratoire)", nullptr));
         label_60->setText(QCoreApplication::translate("MainWindow", "medecin", nullptr));
         label_61->setText(QCoreApplication::translate("MainWindow", "patient", nullptr));
-        label_62->setText(QCoreApplication::translate("MainWindow", "Liste des patients", nullptr));
         pushButton_18->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
         pushButton_19->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
         pushButton_20->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
@@ -12912,7 +13026,23 @@ public:
         label_117->setText(QCoreApplication::translate("MainWindow", "Mail :", nullptr));
         label_118->setText(QCoreApplication::translate("MainWindow", "Adresse :", nullptr));
         label_119->setText(QCoreApplication::translate("MainWindow", "Group sanguin :", nullptr));
+        comboBox_6->setItemText(0, QCoreApplication::translate("MainWindow", "A+", nullptr));
+        comboBox_6->setItemText(1, QCoreApplication::translate("MainWindow", "A-", nullptr));
+        comboBox_6->setItemText(2, QCoreApplication::translate("MainWindow", "B+", nullptr));
+        comboBox_6->setItemText(3, QCoreApplication::translate("MainWindow", "B-", nullptr));
+        comboBox_6->setItemText(4, QCoreApplication::translate("MainWindow", "O+", nullptr));
+        comboBox_6->setItemText(5, QCoreApplication::translate("MainWindow", "O-", nullptr));
+
         btnajouterpatient->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
+        lineEdit_50->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
+        btnpatient3_2->setText(QCoreApplication::translate("MainWindow", "\360\237\223\221   Rapports PDF", nullptr));
+        btnpatient2_2->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
+        label_63->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
+        comboBox_10->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
+        comboBox_10->setItemText(1, QCoreApplication::translate("MainWindow", "Group Sanguin", nullptr));
+
+        tri->setText(QString());
+        recherche->setText(QString());
         QTableWidgetItem *___qtablewidgetitem23 = tableau3_2->horizontalHeaderItem(0);
         ___qtablewidgetitem23->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
         QTableWidgetItem *___qtablewidgetitem24 = tableau3_2->horizontalHeaderItem(1);
@@ -12927,13 +13057,7 @@ public:
         ___qtablewidgetitem28->setText(QCoreApplication::translate("MainWindow", "Adresse", nullptr));
         QTableWidgetItem *___qtablewidgetitem29 = tableau3_2->horizontalHeaderItem(6);
         ___qtablewidgetitem29->setText(QCoreApplication::translate("MainWindow", "Group Sanguin", nullptr));
-        lineEdit_50->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
-        btnpatient3_2->setText(QCoreApplication::translate("MainWindow", "\360\237\223\221   Rapports PDF", nullptr));
-        btnpatient2_2->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
-        label_63->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
-        comboBox_10->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
-        comboBox_10->setItemText(1, QCoreApplication::translate("MainWindow", "Group Sanguin", nullptr));
-
+        listpatient->setText(QCoreApplication::translate("MainWindow", "liste des patients", nullptr));
         label_64->setText(QCoreApplication::translate("MainWindow", "equibment", nullptr));
         label_65->setText(QCoreApplication::translate("MainWindow", "VACCINS", nullptr));
         label_66->setText(QCoreApplication::translate("MainWindow", "rendez vous", nullptr));
