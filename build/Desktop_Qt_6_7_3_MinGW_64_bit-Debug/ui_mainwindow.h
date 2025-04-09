@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCalendarWidget>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QGroupBox>
@@ -22,7 +23,9 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QTableWidget>
+#include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -723,19 +726,25 @@ public:
     QGroupBox *groupBox_23;
     QWidget *layoutWidget_39;
     QVBoxLayout *verticalLayout_23;
+    QLabel *label_4;
+    QLineEdit *lineEditID;
     QLabel *label_323;
     QDateEdit *dateEdit_22;
     QLabel *label_324;
-    QDateEdit *dateEdit_19;
+    QTimeEdit *dateEdit_19;
     QLabel *label_326;
-    QLineEdit *lineEdit_124;
+    QComboBox *comboBox_41;
     QLabel *label_325;
     QComboBox *comboBox_37;
+    QLabel *label_6;
+    QLineEdit *lineEdit;
+    QHBoxLayout *horizontalLayout_8;
     QPushButton *pushButton_180;
-    QTableWidget *tableau6;
+    QPushButton *btncmodif;
+    QTableView *tableau6;
     QLineEdit *lineEdit_118;
-    QPushButton *pushButton_181;
-    QPushButton *pushButton_182;
+    QPushButton *btnmodif;
+    QPushButton *btnsupp;
     QPushButton *btnrendezv4;
     QPushButton *btnrendezv2;
     QPushButton *btnrendezv3;
@@ -867,10 +876,15 @@ public:
     QLabel *label_83;
     QWidget *page_9;
     QLabel *label_246;
-    QWidget *page_15;
+    QWidget *stat_rdv;
     QLabel *label_365;
-    QWidget *page_16;
+    QWidget *verticalLayoutWidget_3;
+    QVBoxLayout *verticalLayout_6;
+    QWidget *chartContainer_rdv;
+    QWidget *calendrier_rdv;
     QLabel *label_366;
+    QCalendarWidget *calendarWidget;
+    QTableWidget *tableWidget;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -2301,7 +2315,7 @@ public:
 "}"));
         layoutWidget_4 = new QWidget(groupBox_6);
         layoutWidget_4->setObjectName("layoutWidget_4");
-        layoutWidget_4->setGeometry(QRect(10, 30, 271, 641));
+        layoutWidget_4->setGeometry(QRect(10, 30, 271, 674));
         verticalLayout_5 = new QVBoxLayout(layoutWidget_4);
         verticalLayout_5->setObjectName("verticalLayout_5");
         verticalLayout_5->setContentsMargins(0, 0, 0, 0);
@@ -3061,7 +3075,7 @@ public:
 "}"));
         layoutWidget2 = new QWidget(groupBox_4);
         layoutWidget2->setObjectName("layoutWidget2");
-        layoutWidget2->setGeometry(QRect(10, 40, 271, 481));
+        layoutWidget2->setGeometry(QRect(10, 40, 271, 498));
         verticalLayout_3 = new QVBoxLayout(layoutWidget2);
         verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -4437,7 +4451,7 @@ public:
 "}"));
         layoutWidget_10 = new QWidget(groupBox_9);
         layoutWidget_10->setObjectName("layoutWidget_10");
-        layoutWidget_10->setGeometry(QRect(10, 30, 271, 641));
+        layoutWidget_10->setGeometry(QRect(10, 30, 271, 674));
         verticalLayout_8 = new QVBoxLayout(layoutWidget_10);
         verticalLayout_8->setObjectName("verticalLayout_8");
         verticalLayout_8->setContentsMargins(0, 0, 0, 0);
@@ -6212,7 +6226,7 @@ public:
 "}"));
         layoutWidget_26 = new QWidget(groupBox_18);
         layoutWidget_26->setObjectName("layoutWidget_26");
-        layoutWidget_26->setGeometry(QRect(10, 30, 271, 611));
+        layoutWidget_26->setGeometry(QRect(10, 30, 271, 674));
         verticalLayout_16 = new QVBoxLayout(layoutWidget_26);
         verticalLayout_16->setObjectName("verticalLayout_16");
         verticalLayout_16->setContentsMargins(0, 0, 0, 0);
@@ -7399,7 +7413,7 @@ public:
 "}"));
         layoutWidget_31 = new QWidget(groupBox_19);
         layoutWidget_31->setObjectName("layoutWidget_31");
-        layoutWidget_31->setGeometry(QRect(10, 30, 271, 641));
+        layoutWidget_31->setGeometry(QRect(10, 30, 271, 674));
         verticalLayout_19 = new QVBoxLayout(layoutWidget_31);
         verticalLayout_19->setObjectName("verticalLayout_19");
         verticalLayout_19->setContentsMargins(0, 0, 0, 0);
@@ -8159,7 +8173,7 @@ public:
 "}"));
         layoutWidget_33 = new QWidget(groupBox_20);
         layoutWidget_33->setObjectName("layoutWidget_33");
-        layoutWidget_33->setGeometry(QRect(10, 40, 271, 481));
+        layoutWidget_33->setGeometry(QRect(10, 40, 271, 498));
         verticalLayout_20 = new QVBoxLayout(layoutWidget_33);
         verticalLayout_20->setObjectName("verticalLayout_20");
         verticalLayout_20->setContentsMargins(0, 0, 0, 0);
@@ -9133,7 +9147,7 @@ public:
 "}"));
         layoutWidget_42 = new QWidget(groupBox_24);
         layoutWidget_42->setObjectName("layoutWidget_42");
-        layoutWidget_42->setGeometry(QRect(10, 30, 271, 611));
+        layoutWidget_42->setGeometry(QRect(10, 30, 271, 674));
         verticalLayout_24 = new QVBoxLayout(layoutWidget_42);
         verticalLayout_24->setObjectName("verticalLayout_24");
         verticalLayout_24->setContentsMargins(0, 0, 0, 0);
@@ -10444,7 +10458,7 @@ public:
 "}"));
         layoutWidget_37 = new QWidget(groupBox_22);
         layoutWidget_37->setObjectName("layoutWidget_37");
-        layoutWidget_37->setGeometry(QRect(10, 30, 271, 641));
+        layoutWidget_37->setGeometry(QRect(10, 30, 271, 674));
         verticalLayout_22 = new QVBoxLayout(layoutWidget_37);
         verticalLayout_22->setObjectName("verticalLayout_22");
         verticalLayout_22->setContentsMargins(0, 0, 0, 0);
@@ -11185,7 +11199,7 @@ public:
 ""));
         groupBox_23 = new QGroupBox(Labo_20);
         groupBox_23->setObjectName("groupBox_23");
-        groupBox_23->setGeometry(QRect(10, 130, 291, 531));
+        groupBox_23->setGeometry(QRect(10, 70, 291, 591));
         groupBox_23->setStyleSheet(QString::fromUtf8("QGroupBox {\n"
 "    background-color: rgb(234, 251, 255);  /* Light blue background */\n"
 "    border: 2px solid #2a2a2a ;  /* Dark gray border */\n"
@@ -11204,10 +11218,35 @@ public:
 "}"));
         layoutWidget_39 = new QWidget(groupBox_23);
         layoutWidget_39->setObjectName("layoutWidget_39");
-        layoutWidget_39->setGeometry(QRect(10, 40, 271, 481));
+        layoutWidget_39->setGeometry(QRect(10, 30, 271, 588));
         verticalLayout_23 = new QVBoxLayout(layoutWidget_39);
         verticalLayout_23->setObjectName("verticalLayout_23");
         verticalLayout_23->setContentsMargins(0, 0, 0, 0);
+        label_4 = new QLabel(layoutWidget_39);
+        label_4->setObjectName("label_4");
+        label_4->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_23->addWidget(label_4);
+
+        lineEditID = new QLineEdit(layoutWidget_39);
+        lineEditID->setObjectName("lineEditID");
+        lineEditID->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+""));
+
+        verticalLayout_23->addWidget(lineEditID);
+
         label_323 = new QLabel(layoutWidget_39);
         label_323->setObjectName("label_323");
         label_323->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
@@ -11243,7 +11282,7 @@ public:
 
         verticalLayout_23->addWidget(label_324);
 
-        dateEdit_19 = new QDateEdit(layoutWidget_39);
+        dateEdit_19 = new QTimeEdit(layoutWidget_39);
         dateEdit_19->setObjectName("dateEdit_19");
         dateEdit_19->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -11269,9 +11308,12 @@ public:
 
         verticalLayout_23->addWidget(label_326);
 
-        lineEdit_124 = new QLineEdit(layoutWidget_39);
-        lineEdit_124->setObjectName("lineEdit_124");
-        lineEdit_124->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+        comboBox_41 = new QComboBox(layoutWidget_39);
+        comboBox_41->addItem(QString());
+        comboBox_41->addItem(QString());
+        comboBox_41->addItem(QString());
+        comboBox_41->setObjectName("comboBox_41");
+        comboBox_41->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
 "        padding: 5px 8px;\n"
 "         color: #2a2a2a;\n"
@@ -11281,9 +11323,10 @@ public:
 "    font-weight: bold;\n"
 "        selection-background-color: #cce5ff; /* Light blue selection */\n"
 "\n"
+"text : search\n"
 ""));
 
-        verticalLayout_23->addWidget(lineEdit_124);
+        verticalLayout_23->addWidget(comboBox_41);
 
         label_325 = new QLabel(layoutWidget_39);
         label_325->setObjectName("label_325");
@@ -11313,6 +11356,33 @@ public:
 
         verticalLayout_23->addWidget(comboBox_37);
 
+        label_6 = new QLabel(layoutWidget_39);
+        label_6->setObjectName("label_6");
+        label_6->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_23->addWidget(label_6);
+
+        lineEdit = new QLineEdit(layoutWidget_39);
+        lineEdit->setObjectName("lineEdit");
+        lineEdit->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+""));
+
+        verticalLayout_23->addWidget(lineEdit);
+
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setObjectName("horizontalLayout_8");
         pushButton_180 = new QPushButton(layoutWidget_39);
         pushButton_180->setObjectName("pushButton_180");
         pushButton_180->setStyleSheet(QString::fromUtf8("QPushButton {\n"
@@ -11344,86 +11414,11 @@ public:
 "}\n"
 ""));
 
-        verticalLayout_23->addWidget(pushButton_180);
+        horizontalLayout_8->addWidget(pushButton_180);
 
-        tableau6 = new QTableWidget(Labo_20);
-        if (tableau6->columnCount() < 5)
-            tableau6->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem79 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(0, __qtablewidgetitem79);
-        QTableWidgetItem *__qtablewidgetitem80 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(1, __qtablewidgetitem80);
-        QTableWidgetItem *__qtablewidgetitem81 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(2, __qtablewidgetitem81);
-        QTableWidgetItem *__qtablewidgetitem82 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(3, __qtablewidgetitem82);
-        QTableWidgetItem *__qtablewidgetitem83 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(4, __qtablewidgetitem83);
-        if (tableau6->rowCount() < 1)
-            tableau6->setRowCount(1);
-        tableau6->setObjectName("tableau6");
-        tableau6->setGeometry(QRect(310, 150, 781, 511));
-        tableau6->setMinimumSize(QSize(781, 0));
-        tableau6->setMaximumSize(QSize(781, 511));
-        tableau6->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
-        tableau6->setAutoFillBackground(false);
-        tableau6->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
-"    background-color: rgb(234, 251, 255);\n"
-"    border: 2px solid #2a2a2a;\n"
-"    border-radius: 8px;\n"
-"    gridline-color: #2a2a2a;\n"
-"    selection-background-color: #2a2a2a;\n"
-"    selection-color: white;\n"
-"}\n"
-"\n"
-"QHeaderView::section {\n"
-"    background-color: #2a2a2a;\n"
-"    color: white;\n"
-"    padding: 5px;\n"
-"    border: 1px solid #2a2a2a;\n"
-"    font-weight: bold;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section {\n"
-"    background-color: #2a2a2a;\n"
-"    border: 1px solid #2a2a2a;\n"
-"}\n"
-"\n"
-"QTableWidget::item {\n"
-"    padding: 5px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:selected {\n"
-"    background-color: #2a2a2a;\n"
-"    color: white;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    background-color: rgb(200, 240, 250);\n"
-"}\n"
-""));
-        tableau6->setLineWidth(144);
-        tableau6->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
-        tableau6->horizontalHeader()->setStretchLastSection(true);
-        lineEdit_118 = new QLineEdit(Labo_20);
-        lineEdit_118->setObjectName("lineEdit_118");
-        lineEdit_118->setGeometry(QRect(310, 100, 151, 51));
-        lineEdit_118->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-" color: #2a2a2a  ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-"text : search\n"
-""));
-        pushButton_181 = new QPushButton(Labo_20);
-        pushButton_181->setObjectName("pushButton_181");
-        pushButton_181->setGeometry(QRect(980, 220, 111, 61));
-        pushButton_181->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        btncmodif = new QPushButton(layoutWidget_39);
+        btncmodif->setObjectName("btncmodif");
+        btncmodif->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: rgb(173, 216, 230);\n"
 "    color: #ffffff;\n"
 "    border: 2px solid rgb(173, 216, 230);\n"
@@ -11451,10 +11446,112 @@ public:
 "    border-color: #444444;\n"
 "}\n"
 ""));
-        pushButton_182 = new QPushButton(Labo_20);
-        pushButton_182->setObjectName("pushButton_182");
-        pushButton_182->setGeometry(QRect(980, 270, 111, 61));
-        pushButton_182->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+
+        horizontalLayout_8->addWidget(btncmodif);
+
+
+        verticalLayout_23->addLayout(horizontalLayout_8);
+
+        tableau6 = new QTableView(Labo_20);
+        tableau6->setObjectName("tableau6");
+        tableau6->setGeometry(QRect(320, 170, 781, 491));
+        tableau6->setMinimumSize(QSize(781, 0));
+        tableau6->setMaximumSize(QSize(781, 511));
+        tableau6->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        tableau6->setAutoFillBackground(false);
+        tableau6->setStyleSheet(QString::fromUtf8("QTableView {\n"
+"    background-color: rgb(234, 251, 255);\n"
+"    border: 2px solid #2a2a2a;\n"
+"    border-radius: 8px;\n"
+"    gridline-color: #2a2a2a;\n"
+"    selection-background-color: #2a2a2a;\n"
+"    selection-color: white;\n"
+"	padding: 5px;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #2a2a2a;\n"
+"    color: white;\n"
+"    padding: 5px;\n"
+"    border: 1px solid #2a2a2a;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QTableView QTableCornerButton::section {\n"
+"    background-color: #2a2a2a;\n"
+"    border: 1px solid #2a2a2a;\n"
+"    border-top-left-radius: 8px;\n"
+"}\n"
+"\n"
+"QTableView::item {\n"
+"    padding: 5px;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QTableView::item:selected {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QTableView::item:hover {\n"
+"    background-color: rgb(220, 78, 78);\n"
+"    border-radius: 4px;\n"
+"}"));
+        tableau6->setLineWidth(144);
+        tableau6->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
+        tableau6->verticalHeader()->setCascadingSectionResizes(true);
+        lineEdit_118 = new QLineEdit(Labo_20);
+        lineEdit_118->setObjectName("lineEdit_118");
+        lineEdit_118->setGeometry(QRect(310, 100, 151, 51));
+        lineEdit_118->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+" color: #2a2a2a  ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"text : search\n"
+""));
+        btnmodif = new QPushButton(Labo_20);
+        btnmodif->setObjectName("btnmodif");
+        btnmodif->setGeometry(QRect(470, 90, 111, 61));
+        btnmodif->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        btnsupp = new QPushButton(Labo_20);
+        btnsupp->setObjectName("btnsupp");
+        btnsupp->setGeometry(QRect(590, 90, 111, 61));
+        btnsupp->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: rgb(173, 216, 230);\n"
 "    color: #ffffff;\n"
 "    border: 2px solid rgb(173, 216, 230);\n"
@@ -11484,7 +11581,7 @@ public:
 ""));
         btnrendezv4 = new QPushButton(Labo_20);
         btnrendezv4->setObjectName("btnrendezv4");
-        btnrendezv4->setGeometry(QRect(930, 10, 181, 61));
+        btnrendezv4->setGeometry(QRect(930, 0, 181, 61));
         btnrendezv4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #2a2a2a   ;\n"
 "    color: #ffffff;\n"
@@ -11518,7 +11615,7 @@ public:
         btnrendezv4->setAutoExclusive(true);
         btnrendezv2 = new QPushButton(Labo_20);
         btnrendezv2->setObjectName("btnrendezv2");
-        btnrendezv2->setGeometry(QRect(930, 60, 181, 61));
+        btnrendezv2->setGeometry(QRect(930, 50, 181, 61));
         btnrendezv2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #2a2a2a   ;\n"
 "    color: #ffffff;\n"
@@ -11586,7 +11683,7 @@ public:
         btnrendezv3->setAutoExclusive(true);
         layoutWidget_40 = new QWidget(Labo_20);
         layoutWidget_40->setObjectName("layoutWidget_40");
-        layoutWidget_40->setGeometry(QRect(537, 90, 391, 57));
+        layoutWidget_40->setGeometry(QRect(720, 106, 291, 61));
         horizontalLayout_20 = new QHBoxLayout(layoutWidget_40);
         horizontalLayout_20->setSpacing(7);
         horizontalLayout_20->setObjectName("horizontalLayout_20");
@@ -11603,6 +11700,7 @@ public:
         horizontalLayout_20->addWidget(label_327, 0, Qt::AlignmentFlag::AlignRight);
 
         comboBox_38 = new QComboBox(layoutWidget_40);
+        comboBox_38->addItem(QString());
         comboBox_38->addItem(QString());
         comboBox_38->addItem(QString());
         comboBox_38->setObjectName("comboBox_38");
@@ -11623,7 +11721,7 @@ public:
 
         pushButton_187 = new QPushButton(Labo_20);
         pushButton_187->setObjectName("pushButton_187");
-        pushButton_187->setGeometry(QRect(980, 320, 111, 61));
+        pushButton_187->setGeometry(QRect(760, 20, 111, 61));
         pushButton_187->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: rgb(173, 216, 230);\n"
 "    color: #ffffff;\n"
@@ -12752,9 +12850,9 @@ public:
 "\n"
 ""));
         sqs->addWidget(page_9);
-        page_15 = new QWidget();
-        page_15->setObjectName("page_15");
-        label_365 = new QLabel(page_15);
+        stat_rdv = new QWidget();
+        stat_rdv->setObjectName("stat_rdv");
+        label_365 = new QLabel(stat_rdv);
         label_365->setObjectName("label_365");
         label_365->setGeometry(QRect(0, 0, 461, 71));
         label_365->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
@@ -12765,10 +12863,21 @@ public:
 "background-color: rgb(234, 251, 255); \n"
 "\n"
 ""));
-        sqs->addWidget(page_15);
-        page_16 = new QWidget();
-        page_16->setObjectName("page_16");
-        label_366 = new QLabel(page_16);
+        verticalLayoutWidget_3 = new QWidget(stat_rdv);
+        verticalLayoutWidget_3->setObjectName("verticalLayoutWidget_3");
+        verticalLayoutWidget_3->setGeometry(QRect(90, 120, 861, 411));
+        verticalLayout_6 = new QVBoxLayout(verticalLayoutWidget_3);
+        verticalLayout_6->setObjectName("verticalLayout_6");
+        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
+        chartContainer_rdv = new QWidget(verticalLayoutWidget_3);
+        chartContainer_rdv->setObjectName("chartContainer_rdv");
+
+        verticalLayout_6->addWidget(chartContainer_rdv);
+
+        sqs->addWidget(stat_rdv);
+        calendrier_rdv = new QWidget();
+        calendrier_rdv->setObjectName("calendrier_rdv");
+        label_366 = new QLabel(calendrier_rdv);
         label_366->setObjectName("label_366");
         label_366->setGeometry(QRect(0, 0, 461, 71));
         label_366->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
@@ -12779,7 +12888,77 @@ public:
 "background-color: rgb(234, 251, 255); \n"
 "\n"
 ""));
-        sqs->addWidget(page_16);
+        calendarWidget = new QCalendarWidget(calendrier_rdv);
+        calendarWidget->setObjectName("calendarWidget");
+        calendarWidget->setGeometry(QRect(120, 170, 441, 301));
+        calendarWidget->setStyleSheet(QString::fromUtf8("QCalendarWidget QAbstractItemView {\n"
+"                background-color: white;\n"
+"                /*selection-background-color: white;  Fond jaune pour le jour s\303\251lectionn\303\251 */\n"
+"				selection-background-color: rgb(236, 236, 236);\n"
+"                selection-color: black; /* Texte noir pour le jour s\303\251lectionn\303\251 */\n"
+"            }\n"
+"            QCalendarWidget QWidget#qt_calendar_navigationbar {\n"
+"                background-color: #333; /* Fond sombre pour la barre de navigation */\n"
+"                color: white; /* Texte blanc */\n"
+"                border-radius: 5px;\n"
+"            }\n"
+"            QCalendarWidget QToolButton {\n"
+"                color: white;\n"
+"                background-color: #444; /* Boutons de navigation fonc\303\251s */\n"
+"                border-radius: 3px;\n"
+"                padding: 5px;\n"
+"            }\n"
+"            QCalendarWidget QToolButton:hover {\n"
+"                background-color: #555;\n"
+"            }\n"
+"            QCa"
+                        "lendarWidget QTableView {\n"
+"                alternate-background-color: #f0f0f0; /* Alternance de couleurs */\n"
+"            }"));
+        tableWidget = new QTableWidget(calendrier_rdv);
+        tableWidget->setObjectName("tableWidget");
+        tableWidget->setGeometry(QRect(80, 80, 731, 81));
+        tableWidget->setStyleSheet(QString::fromUtf8("QTableView {\n"
+"    background-color: rgb(234, 251, 255);\n"
+"    border: 2px solid #2a2a2a;\n"
+"    border-radius: 8px;\n"
+"    gridline-color: #2a2a2a;\n"
+"    selection-background-color: #2a2a2a;\n"
+"    selection-color: white;\n"
+"	padding: 5px;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #2a2a2a;\n"
+"    color: white;\n"
+"    padding: 5px;\n"
+"    border: 1px solid #2a2a2a;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QTableView QTableCornerButton::section {\n"
+"    background-color: #2a2a2a;\n"
+"    border: 1px solid #2a2a2a;\n"
+"    border-top-left-radius: 8px;\n"
+"}\n"
+"\n"
+"QTableView::item {\n"
+"    padding: 5px;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QTableView::item:selected {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QTableView::item:hover {\n"
+"    background-color: rgb(220, 78, 78);\n"
+"    border-radius: 4px;\n"
+"}"));
+        sqs->addWidget(calendrier_rdv);
         MainWindow->setCentralWidget(centralwidget);
         widget_4->raise();
         widget_2->raise();
@@ -12789,7 +12968,7 @@ public:
 
         sqs->setCurrentIndex(5);
         stackedWidget_2->setCurrentIndex(5);
-        stackedWidget_3->setCurrentIndex(2);
+        stackedWidget_3->setCurrentIndex(6);
         statmedcin->setCurrentIndex(2);
         stackedWidget_4->setCurrentIndex(2);
         stackedWidget_5->setCurrentIndex(2);
@@ -13418,33 +13597,31 @@ public:
         pushButton_61->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
         pushButton_62->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
         groupBox_23->setTitle(QCoreApplication::translate("MainWindow", "Ajouter / Modifier", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
         label_323->setText(QCoreApplication::translate("MainWindow", "Date de rendez-vous :", nullptr));
         label_324->setText(QCoreApplication::translate("MainWindow", "Heure de rendez-vous :", nullptr));
         label_326->setText(QCoreApplication::translate("MainWindow", "Priorit\303\251 :", nullptr));
-        label_325->setText(QCoreApplication::translate("MainWindow", "Statut :", nullptr));
-        comboBox_37->setItemText(0, QCoreApplication::translate("MainWindow", "Libre", nullptr));
-        comboBox_37->setItemText(1, QCoreApplication::translate("MainWindow", "Occup\303\251e", nullptr));
+        comboBox_41->setItemText(0, QCoreApplication::translate("MainWindow", "Normal", nullptr));
+        comboBox_41->setItemText(1, QCoreApplication::translate("MainWindow", "Moyenne", nullptr));
+        comboBox_41->setItemText(2, QCoreApplication::translate("MainWindow", "Urgente", nullptr));
 
+        label_325->setText(QCoreApplication::translate("MainWindow", "Statut :", nullptr));
+        comboBox_37->setItemText(0, QCoreApplication::translate("MainWindow", "Programmer", nullptr));
+        comboBox_37->setItemText(1, QCoreApplication::translate("MainWindow", "Annuler", nullptr));
+
+        label_6->setText(QCoreApplication::translate("MainWindow", "Patient", nullptr));
         pushButton_180->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem79 = tableau6->horizontalHeaderItem(0);
-        ___qtablewidgetitem79->setText(QCoreApplication::translate("MainWindow", "Date Rendez-vous", nullptr));
-        QTableWidgetItem *___qtablewidgetitem80 = tableau6->horizontalHeaderItem(1);
-        ___qtablewidgetitem80->setText(QCoreApplication::translate("MainWindow", "Heure Rendez-vous", nullptr));
-        QTableWidgetItem *___qtablewidgetitem81 = tableau6->horizontalHeaderItem(2);
-        ___qtablewidgetitem81->setText(QCoreApplication::translate("MainWindow", "Priorit\303\251", nullptr));
-        QTableWidgetItem *___qtablewidgetitem82 = tableau6->horizontalHeaderItem(3);
-        ___qtablewidgetitem82->setText(QCoreApplication::translate("MainWindow", "Statut", nullptr));
-        QTableWidgetItem *___qtablewidgetitem83 = tableau6->horizontalHeaderItem(4);
-        ___qtablewidgetitem83->setText(QCoreApplication::translate("MainWindow", "Action", nullptr));
-        lineEdit_118->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
-        pushButton_181->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
-        pushButton_182->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
+        btncmodif->setText(QCoreApplication::translate("MainWindow", "Confirmer", nullptr));
+        lineEdit_118->setText(QString());
+        btnmodif->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
+        btnsupp->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
         btnrendezv4->setText(QCoreApplication::translate("MainWindow", "\360\237\223\221   Rapports PDF", nullptr));
         btnrendezv2->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
         btnrendezv3->setText(QCoreApplication::translate("MainWindow", "Calendrier         \360\237\227\223", nullptr));
         label_327->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
         comboBox_38->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
-        comboBox_38->setItemText(1, QCoreApplication::translate("MainWindow", "Date de rendez-vous", nullptr));
+        comboBox_38->setItemText(1, QCoreApplication::translate("MainWindow", "Priorite", nullptr));
+        comboBox_38->setItemText(2, QCoreApplication::translate("MainWindow", "Date de rendez-vous", nullptr));
 
         pushButton_187->setText(QCoreApplication::translate("MainWindow", "Sms", nullptr));
         label_328->setText(QCoreApplication::translate("MainWindow", "equibment", nullptr));

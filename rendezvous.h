@@ -6,12 +6,13 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+#include <QMap>
 
 class RendezVous {
 private:
     int id_rdv;
     QDate date_rdv;
-    QDate heure_rdv;
+    QTime heure_rdv;
     QString priorite_rdv;
     QString status;
     int id_pat;
@@ -19,12 +20,12 @@ private:
 public:
     // Constructeurs
     RendezVous();
-    RendezVous(int id, QDate date, QDate heure, QString priorite, QString stat, int idp);
+    RendezVous(int id, QDate date, QTime heure, QString priorite, QString stat, int idp);
 
     // Accesseurs (getters)
     int getIdRdv() const;
     QDate getDateRdv() const;
-    QDate getHeureRdv() const;
+    QTime getHeureRdv() const;
     QString getPrioriteRdv() const;
     QString getStatus() const;
     int getIdpat() const;
@@ -32,7 +33,7 @@ public:
     // Mutateurs (setters)
     void setIdRdv(int id);
     void setDateRdv(QDate date);
-    void setHeureRdv(QDate heure);
+    void setHeureRdv(QTime heure);
     void setPrioriteRdv(QString priorite);
     void setStatus(QString stat);
     void setIdpat(int idp);
@@ -42,6 +43,10 @@ public:
     QSqlQueryModel * afficher();
     bool supprimer(int id);
     bool modifier(int id);
+
+    // Metiers
+    QSqlQueryModel* rechercher(QString searchTerm);
+    QMap<QString, int> getStatistiquesParDate();
 };
 
 #endif // RENDEZVOUS_H
