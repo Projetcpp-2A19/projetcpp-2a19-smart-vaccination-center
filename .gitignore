@@ -1,0 +1,11 @@
+# Dossiers de compilation Qt
+build/
+
+# Fichiers binaires
+*.exe
+*.o
+*.obj
+*.dll
+*.so
+*.a
+*.log
