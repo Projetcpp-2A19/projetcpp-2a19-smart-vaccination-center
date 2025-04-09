@@ -76,9 +76,15 @@ bool Vaccin::modifier(int id, QString nom, QString type, QString fabricant, QDat
     return query.exec();
 }
 
-QSqlQueryModel* Vaccin::afficher() {
-    QSqlQueryModel* model = new QSqlQueryModel();
-    model->setQuery("SELECT * FROM VACCINS");
+QSqlQueryModel* Vaccin::afficher(const QString &orderBy)
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+
+    // Use the orderBy parameter in the SQL query
+    QString queryString = QString("SELECT * FROM VACCINS ORDER BY %1").arg(orderBy);
+
+    model->setQuery(queryString);
+
     return model;
 }
 Vaccin Vaccin::getVaccinById(int id)
@@ -119,5 +125,15 @@ bool Vaccin::checkIfIdExists(int id)
         return false;
     }
 }
+QSqlQueryModel* Vaccin::searchByName(const QString &name) {
+    QSqlQueryModel *model = new QSqlQueryModel();
 
+    // SQL query to search by name
+    QString queryString = QString("SELECT * FROM VACCINS WHERE nom_vac LIKE '%%1%' ORDER BY ID_VAC").arg(name);
+
+    // Execute the query
+    model->setQuery(queryString);
+
+    return model;
+}
 

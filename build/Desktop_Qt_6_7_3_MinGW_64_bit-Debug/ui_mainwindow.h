@@ -345,21 +345,17 @@ public:
     QLabel *label_222;
     QWidget *Labo_14;
     QLabel *label_223;
-    QWidget *popupWidget_14;
-    QPushButton *pushButton_42;
-    QPushButton *pushButton_43;
-    QPushButton *pushButton_44;
     QTableView *tableau5;
-    QPushButton *btnvaccins3;
+    QPushButton *pdfButton;
     QPushButton *btnvaccins2;
     QWidget *layoutWidget_27;
     QHBoxLayout *horizontalLayout_14;
-    QLineEdit *lineEdit_86;
+    QLineEdit *searchLineEdit;
     QPushButton *pushButton_159;
     QPushButton *del;
+    QPushButton *emailButton;
     QLabel *label_231;
-    QComboBox *comboBox_26;
-    QPushButton *pushButton_161;
+    QComboBox *sortComboBox;
     QGroupBox *groupBox_18;
     QWidget *layoutWidget_26;
     QVBoxLayout *verticalLayout_16;
@@ -380,7 +376,6 @@ public:
     QLabel *label_239;
     QLineEdit *stock;
     QPushButton *submit;
-    QLineEdit *id;
     QWidget *equibment_14;
     QLabel *label_232;
     QWidget *Vacc_14;
@@ -873,14 +868,15 @@ public:
     QLabel *label_366;
     QWidget *widget_4;
     QPushButton *btnuser;
-    QToolBar *mainToolBar;
+    QLineEdit *id;
     QStatusBar *statusBar;
+    QToolBar *mainToolBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1290, 839);
+        MainWindow->resize(1416, 836);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName("centralWidget");
         widget_2 = new QWidget(centralWidget);
@@ -1232,7 +1228,7 @@ public:
         label_8->setScaledContents(true);
         layoutWidget_2 = new QWidget(widget_2);
         layoutWidget_2->setObjectName("layoutWidget_2");
-        layoutWidget_2->setGeometry(QRect(10, 620, 181, 121));
+        layoutWidget_2->setGeometry(QRect(0, 670, 181, 121));
         verticalLayout = new QVBoxLayout(layoutWidget_2);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
@@ -1317,7 +1313,7 @@ public:
         label_8->raise();
         sqs = new QStackedWidget(centralWidget);
         sqs->setObjectName("sqs");
-        sqs->setGeometry(QRect(190, 70, 1101, 731));
+        sqs->setGeometry(QRect(190, 70, 1301, 731));
         sqs->setStyleSheet(QString::fromUtf8("background-color: rgb(234, 251, 255);\n"
 ""));
         medecin = new QWidget();
@@ -5490,7 +5486,7 @@ public:
         Vacc->setObjectName("Vacc");
         stackedWidget_10 = new QStackedWidget(Vacc);
         stackedWidget_10->setObjectName("stackedWidget_10");
-        stackedWidget_10->setGeometry(QRect(0, 0, 1091, 731));
+        stackedWidget_10->setGeometry(QRect(0, 0, 1281, 731));
         stackedWidget_10->setStyleSheet(QString::fromUtf8("background-color: rgb(234, 251, 255);\n"
 ""));
         medecin_14 = new QWidget();
@@ -5512,7 +5508,7 @@ public:
         Labo_14->setStyleSheet(QString::fromUtf8("color : black;"));
         label_223 = new QLabel(Labo_14);
         label_223->setObjectName("label_223");
-        label_223->setGeometry(QRect(350, 10, 341, 71));
+        label_223->setGeometry(QRect(550, 10, 341, 71));
         label_223->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
 "    padding: 10px;\n"
 "    margin: 6px;\n"
@@ -5521,172 +5517,11 @@ public:
 "background-color: rgb(234, 251, 255); \n"
 "\n"
 ""));
-        popupWidget_14 = new QWidget(Labo_14);
-        popupWidget_14->setObjectName("popupWidget_14");
-        popupWidget_14->setGeometry(QRect(1140, 650, 51, 81));
-        popupWidget_14->setStyleSheet(QString::fromUtf8("QWidget {\n"
-"    background-color: #2a2a2a;\n"
-"    border-right: 2px solid #3a3a3a;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"    background-color: #3a3a3a;\n"
-"    color: #ffffff;\n"
-"    border: none;\n"
-"    padding: 10px;\n"
-"    margin: 5px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #4a4a4a;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #666666;\n"
-"}\n"
-"\n"
-"QListWidget {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: none;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QListWidget::item {\n"
-"    padding: 8px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QListWidget::item:selected {\n"
-"    background-color: #4a4a4a;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background: #2a2a2a;\n"
-"    width: 8px;\n"
-"    margin: 0px 0px 0px 0px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical {\n"
-"    background: #555555;\n"
-"    border-radius: 10px;\n"
-"}\n"
-""
-                        "\n"
-"QScrollBar::handle:vertical:hover {\n"
-"    background: #777777;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
-"    border: none;\n"
-"    background: none;\n"
-"}\n"
-""));
-        pushButton_42 = new QPushButton(popupWidget_14);
-        pushButton_42->setObjectName("pushButton_42");
-        pushButton_42->setGeometry(QRect(30, 70, 111, 51));
-        pushButton_42->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 11px;\n"
-"    font-weight: bold;\n"
-"    text-transform: uppercase;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        pushButton_43 = new QPushButton(popupWidget_14);
-        pushButton_43->setObjectName("pushButton_43");
-        pushButton_43->setGeometry(QRect(20, 0, 131, 61));
-        pushButton_43->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 11px;\n"
-"    font-weight: bold;\n"
-"    text-transform: uppercase;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        pushButton_44 = new QPushButton(popupWidget_14);
-        pushButton_44->setObjectName("pushButton_44");
-        pushButton_44->setGeometry(QRect(20, 30, 131, 61));
-        pushButton_44->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 11px;\n"
-"    font-weight: bold;\n"
-"    text-transform: uppercase;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
         tableau5 = new QTableView(Labo_14);
         tableau5->setObjectName("tableau5");
-        tableau5->setGeometry(QRect(310, 150, 781, 571));
+        tableau5->setGeometry(QRect(310, 150, 911, 571));
         tableau5->setMinimumSize(QSize(781, 0));
-        tableau5->setMaximumSize(QSize(781, 600));
+        tableau5->setMaximumSize(QSize(1500, 600));
         tableau5->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
         tableau5->setAutoFillBackground(false);
         tableau5->setStyleSheet(QString::fromUtf8("QTableView {\n"
@@ -5732,10 +5567,10 @@ public:
         tableau5->setLineWidth(144);
         tableau5->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
         tableau5->verticalHeader()->setCascadingSectionResizes(true);
-        btnvaccins3 = new QPushButton(Labo_14);
-        btnvaccins3->setObjectName("btnvaccins3");
-        btnvaccins3->setGeometry(QRect(930, 10, 181, 61));
-        btnvaccins3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        pdfButton = new QPushButton(Labo_14);
+        pdfButton->setObjectName("pdfButton");
+        pdfButton->setGeometry(QRect(1060, 10, 181, 61));
+        pdfButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #2a2a2a   ;\n"
 "    color: #ffffff;\n"
 "    border: 2px solid #2a2a2a   ;\n"
@@ -5763,12 +5598,12 @@ public:
 "    border-color: #444444;\n"
 "}\n"
 ""));
-        btnvaccins3->setIcon(icon6);
-        btnvaccins3->setCheckable(true);
-        btnvaccins3->setAutoExclusive(true);
+        pdfButton->setIcon(icon6);
+        pdfButton->setCheckable(true);
+        pdfButton->setAutoExclusive(true);
         btnvaccins2 = new QPushButton(Labo_14);
         btnvaccins2->setObjectName("btnvaccins2");
-        btnvaccins2->setGeometry(QRect(930, 60, 181, 61));
+        btnvaccins2->setGeometry(QRect(1060, 60, 181, 61));
         btnvaccins2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #2a2a2a   ;\n"
 "    color: #ffffff;\n"
@@ -5802,15 +5637,15 @@ public:
         btnvaccins2->setAutoExclusive(true);
         layoutWidget_27 = new QWidget(Labo_14);
         layoutWidget_27->setObjectName("layoutWidget_27");
-        layoutWidget_27->setGeometry(QRect(310, 90, 631, 58));
+        layoutWidget_27->setGeometry(QRect(310, 90, 751, 58));
         horizontalLayout_14 = new QHBoxLayout(layoutWidget_27);
         horizontalLayout_14->setSpacing(7);
         horizontalLayout_14->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_14->setObjectName("horizontalLayout_14");
         horizontalLayout_14->setContentsMargins(0, 0, 0, 0);
-        lineEdit_86 = new QLineEdit(layoutWidget_27);
-        lineEdit_86->setObjectName("lineEdit_86");
-        lineEdit_86->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+        searchLineEdit = new QLineEdit(layoutWidget_27);
+        searchLineEdit->setObjectName("searchLineEdit");
+        searchLineEdit->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
 "        padding: 5px 8px;\n"
 " color: #2a2a2a  ;\n"
@@ -5823,7 +5658,7 @@ public:
 "text : search\n"
 ""));
 
-        horizontalLayout_14->addWidget(lineEdit_86);
+        horizontalLayout_14->addWidget(searchLineEdit);
 
         pushButton_159 = new QPushButton(layoutWidget_27);
         pushButton_159->setObjectName("pushButton_159");
@@ -5891,40 +5726,9 @@ public:
 
         horizontalLayout_14->addWidget(del);
 
-        label_231 = new QLabel(layoutWidget_27);
-        label_231->setObjectName("label_231");
-        label_231->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-" "));
-
-        horizontalLayout_14->addWidget(label_231);
-
-        comboBox_26 = new QComboBox(layoutWidget_27);
-        comboBox_26->addItem(QString());
-        comboBox_26->addItem(QString());
-        comboBox_26->setObjectName("comboBox_26");
-        comboBox_26->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-" color: #2a2a2a  ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-"text : search\n"
-""));
-
-        horizontalLayout_14->addWidget(comboBox_26);
-
-        pushButton_161 = new QPushButton(Labo_14);
-        pushButton_161->setObjectName("pushButton_161");
-        pushButton_161->setGeometry(QRect(820, 10, 111, 61));
-        pushButton_161->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        emailButton = new QPushButton(layoutWidget_27);
+        emailButton->setObjectName("emailButton");
+        emailButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: rgb(173, 216, 230);\n"
 "    color: #ffffff;\n"
 "    border: 2px solid rgb(173, 216, 230);\n"
@@ -5952,6 +5756,39 @@ public:
 "    border-color: #444444;\n"
 "}\n"
 ""));
+
+        horizontalLayout_14->addWidget(emailButton);
+
+        label_231 = new QLabel(layoutWidget_27);
+        label_231->setObjectName("label_231");
+        label_231->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+" "));
+
+        horizontalLayout_14->addWidget(label_231);
+
+        sortComboBox = new QComboBox(layoutWidget_27);
+        sortComboBox->addItem(QString());
+        sortComboBox->addItem(QString());
+        sortComboBox->setObjectName("sortComboBox");
+        sortComboBox->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+" color: #2a2a2a  ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"text : search\n"
+""));
+
+        horizontalLayout_14->addWidget(sortComboBox);
+
         groupBox_18 = new QGroupBox(Labo_14);
         groupBox_18->setObjectName("groupBox_18");
         groupBox_18->setGeometry(QRect(10, 10, 291, 711));
@@ -6014,6 +5851,8 @@ public:
         verticalLayout_16->addWidget(label_225);
 
         type = new QComboBox(layoutWidget_26);
+        type->addItem(QString());
+        type->addItem(QString());
         type->addItem(QString());
         type->addItem(QString());
         type->setObjectName("type");
@@ -6217,21 +6056,6 @@ public:
 
         verticalLayout_16->addWidget(submit);
 
-        id = new QLineEdit(Labo_14);
-        id->setObjectName("id");
-        id->setEnabled(false);
-        id->setGeometry(QRect(690, 20, 101, 55));
-        id->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-"         color: #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-""));
         stackedWidget_10->addWidget(Labo_14);
         equibment_14 = new QWidget();
         equibment_14->setObjectName("equibment_14");
@@ -12620,7 +12444,7 @@ public:
         sqs->addWidget(page_16);
         widget_4 = new QWidget(centralWidget);
         widget_4->setObjectName("widget_4");
-        widget_4->setGeometry(QRect(180, 0, 1121, 71));
+        widget_4->setGeometry(QRect(180, 0, 1241, 71));
         widget_4->setStyleSheet(QString::fromUtf8("QWidget {\n"
 "    background-color: #2a2a2a;\n"
 "    border-right: 2px solid #3a3a3a;\n"
@@ -12685,7 +12509,7 @@ public:
 ""));
         btnuser = new QPushButton(widget_4);
         btnuser->setObjectName("btnuser");
-        btnuser->setGeometry(QRect(950, 0, 151, 61));
+        btnuser->setGeometry(QRect(1080, 0, 151, 61));
         btnuser->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #2a2a2a;\n"
 "    color: #ffffff;\n"
@@ -12717,16 +12541,31 @@ public:
         btnuser->setIcon(icon6);
         btnuser->setCheckable(true);
         btnuser->setAutoExclusive(true);
+        id = new QLineEdit(widget_4);
+        id->setObjectName("id");
+        id->setEnabled(false);
+        id->setGeometry(QRect(730, 10, 101, 55));
+        id->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+""));
         MainWindow->setCentralWidget(centralWidget);
         widget_4->raise();
         widget_2->raise();
         sqs->raise();
-        mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName("mainToolBar");
-        MainWindow->addToolBar(Qt::ToolBarArea::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName("statusBar");
         MainWindow->setStatusBar(statusBar);
+        mainToolBar = new QToolBar(MainWindow);
+        mainToolBar->setObjectName("mainToolBar");
+        MainWindow->addToolBar(Qt::ToolBarArea::TopToolBarArea, mainToolBar);
 
         retranslateUi(MainWindow);
 
@@ -12753,7 +12592,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Gestion des Clients", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "VAX NEST", nullptr));
         pushButton_14->setText(QString());
         btnmedecin->setText(QCoreApplication::translate("MainWindow", "\360\237\221\250\360\237\217\273\342\200\215\342\232\225\357\270\217   M\303\251decins", nullptr));
         btnpatient->setText(QCoreApplication::translate("MainWindow", "\360\237\221\250\360\237\217\273\342\200\215\360\237\222\274   Patients", nullptr));
@@ -13030,24 +12869,24 @@ public:
         label_221->setText(QCoreApplication::translate("MainWindow", "medecin", nullptr));
         label_222->setText(QCoreApplication::translate("MainWindow", "patient", nullptr));
         label_223->setText(QCoreApplication::translate("MainWindow", "Liste des vaccins", nullptr));
-        pushButton_42->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        pushButton_43->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        pushButton_44->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        btnvaccins3->setText(QCoreApplication::translate("MainWindow", "\360\237\223\221   Rapports PDF", nullptr));
+        pdfButton->setText(QCoreApplication::translate("MainWindow", "\360\237\223\221   Rapports PDF", nullptr));
         btnvaccins2->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
-        lineEdit_86->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
+        searchLineEdit->setText(QString());
+        searchLineEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
         pushButton_159->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
         del->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
+        emailButton->setText(QCoreApplication::translate("MainWindow", "Email", nullptr));
         label_231->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
-        comboBox_26->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
-        comboBox_26->setItemText(1, QCoreApplication::translate("MainWindow", "Date de fabrication", nullptr));
+        sortComboBox->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
+        sortComboBox->setItemText(1, QCoreApplication::translate("MainWindow", "Date de fabrication", nullptr));
 
-        pushButton_161->setText(QCoreApplication::translate("MainWindow", "Email", nullptr));
         groupBox_18->setTitle(QCoreApplication::translate("MainWindow", "Ajouter / Modifier", nullptr));
         label_224->setText(QCoreApplication::translate("MainWindow", "Nom :", nullptr));
         label_225->setText(QCoreApplication::translate("MainWindow", "Type :", nullptr));
         type->setItemText(0, QCoreApplication::translate("MainWindow", "ARNm", nullptr));
-        type->setItemText(1, QCoreApplication::translate("MainWindow", "Virus inactiv\303\251", nullptr));
+        type->setItemText(1, QCoreApplication::translate("MainWindow", "Virus Inactive", nullptr));
+        type->setItemText(2, QCoreApplication::translate("MainWindow", "Vecteur Viral", nullptr));
+        type->setItemText(3, QCoreApplication::translate("MainWindow", "Proteine Sous-Unite", nullptr));
 
         label_226->setText(QCoreApplication::translate("MainWindow", "Fabricant :", nullptr));
         label_227->setText(QCoreApplication::translate("MainWindow", "Date de fabrication :", nullptr));

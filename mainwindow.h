@@ -5,7 +5,14 @@
 #include <QWidget>  // For the popup widget
 #include <QPushButton>  // For the button
 #include <QLabel>  // For the label inside the popup widget
+#include <QPdfWriter>
+#include <QPainter>
+#include <QFileDialog>
 #include "Vaccin.h"
+#include "smtpclient.h"
+#include "mimemessage.h"
+#include "mimepart.h"
+#include "mimetext.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -47,6 +54,13 @@ private slots:
     void on_del_clicked();
 
     void on_pushButton_159_clicked();
+
+    void applyFilter(const QString &text);  // Added filter method
+    void onSortChanged(int index);  // Slot to handle QComboBox selection change
+    void on_pdfButton_clicked();
+
+
+    void on_emailButton_clicked();
 
 private:
     Ui::MainWindow *ui;

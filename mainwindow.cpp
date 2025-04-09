@@ -7,7 +7,8 @@
 #include "Vaccin.h"
 #include <QMessageBox>
 #include <QDate>
-
+#include<QStandardPaths>
+#include<QDesktopServices>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -15,6 +16,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);  // Setup UI from Qt Designer
 
     connect(ui->exit, &QPushButton::clicked, this, &MainWindow::close);
+    connect(ui->searchLineEdit, &QLineEdit::textChanged, this, &MainWindow::applyFilter);
+    connect(ui->sortComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::onSortChanged);
+    connect(ui->pdfButton, &QPushButton::clicked, this, &MainWindow::on_pdfButton_clicked);
+    connect(ui->emailButton, &QPushButton::clicked, this, &MainWindow::on_emailButton_clicked);
+
+
 
     ui->tableau->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableau2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -125,8 +132,8 @@ void MainWindow::on_btnrendezv3_clicked()
 
 void MainWindow::on_submit_clicked()
 {
-    QDate currentDate = QDate::currentDate();
-    ui->d2->setDate(QDate::currentDate());
+    /*QDate currentDate = QDate::currentDate();
+    ui->d2->setDate(QDate::currentDate());*/
 
     QString nom = ui->nom->text();
     QString type = ui->type->currentText();
@@ -242,25 +249,288 @@ void MainWindow::on_pushButton_159_clicked()
         double temperature = ui->temp->text().toDouble();
         QString paysOrigine = ui->pays->text();
         int stock = ui->stock->text().toInt();
-        bool test = vac.modifier(id,nom,type,fabricant,dateFabrication,dateExpiration,temperature,paysOrigine,stock);
-        if (test) {
-            ui->tableau5->setModel(vac.afficher());
-            QMessageBox::information(nullptr, QObject::tr("Succès"),
-                                     QObject::tr("Modification effectué.\nClick Cancel pour fermer."), QMessageBox::Cancel);
-            ui->nom->clear();
-            ui->fab->clear();
-            ui->d1->clear();
-            ui->d2->clear();
+        if (nom.isEmpty()) {
+            QMessageBox::critical(this, "Erreur", "Le nom ne peut pas être vide !");
+        } else if (type.isEmpty()) {
+            QMessageBox::critical(this, "Erreur", "Le type ne peut pas être vide !");
+        } else if (fabricant.isEmpty()) {
+            QMessageBox::critical(this, "Erreur", "Le fabricant ne peut pas être vide !");
+        } else if (dateFabrication > dateExpiration) {
+            QMessageBox::critical(this, "Erreur", "La date d'expiration doit être après la date de fabrication !");
+        } else if (temperature < -100 || temperature > 100) {
+            QMessageBox::critical(this, "Erreur", "Température invalide !");
             ui->temp->clear();
-            ui->pays->clear();
+        } else if (paysOrigine.isEmpty()) {
+            QMessageBox::critical(this, "Erreur", "Le pays d'origine ne peut pas être vide !");
+        } else if (stock < 0) {
+            QMessageBox::critical(this, "Erreur", "Le stock ne peut pas être négatif !");
             ui->stock->clear();
-            ui->id->clear();
-            mod=0;
         } else {
-            mod=0;
-            QMessageBox::critical(nullptr, QObject::tr("Échec"),
-                                  QObject::tr("Modification non effectué.\nClick Cancel pour fermer."), QMessageBox::Cancel);
+            bool test = vac.modifier(id,nom,type,fabricant,dateFabrication,dateExpiration,temperature,paysOrigine,stock);
+            if (test) {
+                ui->tableau5->setModel(vac.afficher());
+                QMessageBox::information(nullptr, QObject::tr("Succès"),
+                                         QObject::tr("Modification effectué.\nClick Cancel pour fermer."), QMessageBox::Cancel);
+                ui->nom->clear();
+                ui->fab->clear();
+                ui->d1->clear();
+                ui->d2->clear();
+                ui->temp->clear();
+                ui->pays->clear();
+                ui->stock->clear();
+                ui->id->clear();
+                mod=0;
+            } else {
+                mod=0;
+                QMessageBox::critical(nullptr, QObject::tr("Échec"),
+                                      QObject::tr("Modification non effectué.\nClick Cancel pour fermer."), QMessageBox::Cancel);
+            }
         }
     }
 }
+void MainWindow::applyFilter(const QString &text)
+{
+    // Call the searchByName method from Vaccin class and update the model
+    ui->sortComboBox->setCurrentIndex(0);
+    ui->tableau5->setModel(vac.searchByName(text));
+}
+void MainWindow::onSortChanged(int index)
+{
+    ui->searchLineEdit->clear();  // Assuming your search bar is called searchLineEdit
+
+    QString orderBy;
+
+    // Check the current index of the combo box and set the sorting column accordingly
+    if (index == 0) {
+        // "Default" selected - order by id_vac
+        orderBy = "id_vac";
+    } else if (index == 1) {
+        // "Date de fabrication" selected - order by date_fabrication
+        ui->sortComboBox->setCurrentIndex(1);
+        orderBy = "date_fabrication";
+    }
+
+    // Update the model with the appropriate sorted query
+    ui->tableau5->setModel(vac.afficher(orderBy));  // Call afficher with the orderBy column
+}
+void MainWindow::on_pdfButton_clicked()
+{
+    // Open save dialog
+    QString filePath = QFileDialog::getSaveFileName(
+        this,
+        tr("Save PDF"),
+        QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/vaccins.pdf",
+        tr("PDF Files (*.pdf)")
+        );
+    if (filePath.isEmpty()) {
+        return;
+    }
+
+    // Create PDF writer
+    QPdfWriter writer(filePath);
+    writer.setPageSize(QPageSize::A4);
+    writer.setResolution(300);
+    writer.setTitle(tr("Vaccin Report"));
+    writer.setCreator("Your Application Name");
+
+    QPainter painter(&writer);
+    if (!painter.isActive()) {
+        QMessageBox::critical(this, tr("Error"), tr("Failed to create PDF."));
+        return;
+    }
+
+    // Set fonts
+    QFont headerFont = painter.font();
+    headerFont.setBold(true);
+    headerFont.setPointSize(10);
+
+    QFont dataFont = painter.font();
+    dataFont.setPointSize(9);
+
+    // Layout parameters
+    const int margin = 40;
+    int yPos = margin;
+    const int baseRowHeight = 50; // Minimum row height
+    const int lineHeight = 20;
+    const int cellPadding = 5;
+
+    // Column widths (adjust according to your data)
+    QVector<int> columnWidths = {120, 300, 300, 300, 300, 300, 300, 300, 300}; // ID, Name, Type, etc.
+
+    // Get model data
+    QSqlQueryModel *model = qobject_cast<QSqlQueryModel*>(ui->tableau5->model());
+    if (!model) {
+        QMessageBox::critical(this, tr("Error"), tr("No data to export."));
+        return;
+    }
+
+    // Draw title
+    painter.setFont(headerFont);
+    painter.drawText(margin, yPos, tr("Vaccination Report"));
+    yPos += lineHeight * 2;
+
+    // Draw current date
+    painter.drawText(margin, yPos, tr("Generated on: ") + QDate::currentDate().toString(Qt::ISODate));
+    yPos += lineHeight * 2;
+
+    // Calculate total table width
+    int tableWidth = std::accumulate(columnWidths.begin(), columnWidths.end(), 0);
+
+    // Draw headers with background
+    painter.setFont(headerFont);
+    painter.setBrush(QBrush(Qt::lightGray));
+    painter.setPen(Qt::NoPen);
+    painter.drawRect(margin, yPos, tableWidth, baseRowHeight);
+
+    painter.setPen(Qt::black);
+    int xPos = margin;
+    for (int col = 0; col < model->columnCount(); ++col) {
+        QString header = model->headerData(col, Qt::Horizontal).toString();
+        painter.drawText(QRect(xPos, yPos, columnWidths[col], baseRowHeight),
+                         Qt::AlignCenter, header);
+        xPos += columnWidths[col];
+    }
+    yPos += baseRowHeight;
+
+    // Draw data rows with dynamic height
+    painter.setFont(dataFont);
+    for (int row = 0; row < model->rowCount(); ++row) {
+        // First pass: calculate required row height
+        int requiredRowHeight = baseRowHeight;
+
+        for (int col = 0; col < model->columnCount(); ++col) {
+            QString data = model->data(model->index(row, col)).toString();
+
+            // Special formatting for dates
+            if (col == 4 || col == 5) { // Date columns
+                QDate date = QDate::fromString(data, Qt::ISODate);
+                if (date.isValid()) {
+                    data = date.toString("dd/MM/yyyy");
+                }
+            }
+
+            QRect textRect(0, 0, columnWidths[col] - 2*cellPadding, 0);
+            QFontMetrics fm(dataFont);
+            QRect boundingRect = fm.boundingRect(textRect, Qt::TextWordWrap, data);
+
+            // Calculate how many lines we need
+            int linesNeeded = ceil((double)boundingRect.height() / lineHeight);
+            int cellHeight = linesNeeded * lineHeight;
+
+            if (cellHeight > requiredRowHeight) {
+                requiredRowHeight = cellHeight;
+            }
+        }
+
+        // Check for page break before drawing row
+        if (yPos + requiredRowHeight > writer.height() - margin) {
+            writer.newPage();
+            yPos = margin;
+
+            // Redraw headers on new page
+            painter.setFont(headerFont);
+            painter.setBrush(QBrush(Qt::lightGray));
+            painter.setPen(Qt::NoPen);
+            painter.drawRect(margin, yPos, tableWidth, baseRowHeight);
+
+            painter.setPen(Qt::black);
+            xPos = margin;
+            for (int col = 0; col < model->columnCount(); ++col) {
+                QString header = model->headerData(col, Qt::Horizontal).toString();
+                painter.drawText(QRect(xPos, yPos, columnWidths[col], baseRowHeight),
+                                 Qt::AlignCenter, header);
+                xPos += columnWidths[col];
+            }
+            yPos += baseRowHeight;
+
+            painter.setFont(dataFont);
+        }
+
+        // Draw row background (alternating colors)
+        painter.setBrush(QBrush(row % 2 ? Qt::white : QColor(240, 240, 240)));
+        painter.setPen(Qt::NoPen);
+        painter.drawRect(margin, yPos, tableWidth, requiredRowHeight);
+        painter.setPen(Qt::black);
+
+        // Draw cell contents with text wrapping
+        xPos = margin;
+        for (int col = 0; col < model->columnCount(); ++col) {
+            QString data = model->data(model->index(row, col)).toString();
+
+            // Format dates
+            if (col == 4 || col == 5) { // Date columns
+                QDate date = QDate::fromString(data, Qt::ISODate);
+                if (date.isValid()) {
+                    data = date.toString("dd/MM/yyyy");
+                }
+            }
+
+            QRect cellRect(xPos + cellPadding, yPos + cellPadding,
+                           columnWidths[col] - 2*cellPadding, requiredRowHeight - 2*cellPadding);
+
+            painter.drawText(cellRect, Qt::TextWordWrap | Qt::AlignVCenter, data);
+            xPos += columnWidths[col];
+        }
+
+        yPos += requiredRowHeight;
+    }
+
+    painter.end();
+
+    // Open the PDF after creation (optional)
+    QDesktopServices::openUrl(QUrl::fromLocalFile(filePath));
+}
+
+void MainWindow::on_emailButton_clicked()
+{
+    // Create the SMTP client for TLS connection on port 587
+    SmtpClient smtp("smtp.gmail.com", 587, SmtpClient::TlsConnection);
+
+    // Connect to the SMTP server and check if it succeeds
+    smtp.connectToHost();
+    if (smtp.waitForReadyConnected()) {
+        qDebug() << "Connected to the SMTP server!";
+
+        // Now login using the app password
+        smtp.login("3abedelsmadGathafi@gmail.com", "qbap zjeo obxj ixse", SmtpClient::AuthLogin);
+
+        if (smtp.waitForAuthenticated()) {
+            qDebug() << "Logged in successfully!";
+
+            // Create the MIME message
+            MimeMessage message;
+            EmailAddress sender("3abedelsmadGathafi@gmail.com", "VAX NEST");
+            message.setSender(sender);
+
+            EmailAddress recipient("allanimohammed73@gmail.com", "Mohamed");
+            message.addRecipient(recipient);
+
+            message.setSubject("Stock Alert: Low Levels");
+
+            MimeText *text = new MimeText();
+            text->setText("Dear Admin,\n\nSome stock levels are getting low. Please review.\n\nBest regards,\nYour Application");
+            message.addPart(text);
+
+            // Send the email
+            smtp.sendMail(message);
+
+            // Wait for the mail to be sent and quit the connection
+            if (smtp.waitForMailSent()) {
+                QMessageBox::information(this, "Email Sent", "Stock alert email has been sent successfully.");
+            } else {
+                QMessageBox::critical(this, "Mail Sending Error", "Failed to send the email.");
+            }
+
+            // Quit after sending the mail
+            smtp.quit();
+        } else {
+            qDebug() << "Failed to log in to the SMTP server.";
+            QMessageBox::critical(this, "Login Error", "Failed to log in to the SMTP server.");
+        }
+    } else {
+        qDebug() << "Failed to connect to the SMTP server.";
+        QMessageBox::critical(this, "Connection Error", "Failed to connect to the email server.");
+    }
+}
+
 
