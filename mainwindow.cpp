@@ -615,9 +615,7 @@ void MainWindow::on_btnrendezv3_clicked() {
         return;
     }
 
-    QString accountSID = qgetenv("TWILIO_SID");
-    QString authToken = qgetenv("TWILIO_TOKEN");
-    QString twilioNumber = "";  // Ajoute le préfixe international ici
+
 
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
 
@@ -675,9 +673,7 @@ void MainWindow::envoyerRappelRendezVous() {
         return;
     }
 
-    QString accountSID = qgetenv("TWILIO_SID");
-    QString authToken = qgetenv("TWILIO_TOKEN");
-    QString twilioNumber = "";  // Ajoute le préfixe international ici
+
 
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
 
