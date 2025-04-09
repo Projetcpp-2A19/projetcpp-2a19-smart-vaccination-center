@@ -1,0 +1,34 @@
+QT += core gui sql printsupport charts location positioning quickwidgets
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+CONFIG += c++17
+# Ajout des modules nécessaires pour QtLocation et QtPositioning
+QT += location positioning
+# You can make your code fail to compile if it uses deprecated APIs.
+# In order to do so, uncomment the following line.
+#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+
+SOURCES += \
+    MarkerModel.cpp \
+    connection.cpp \
+    lab.cpp \
+    main.cpp \
+    mainwindow.cpp
+
+HEADERS += \
+    MarkerModel.h \
+    connection.h \
+    lab.h \
+    mainwindow.h
+
+FORMS += \
+    mainwindow.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc
