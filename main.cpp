@@ -20,12 +20,18 @@ int main(int argc, char *argv[])
         // Crée et affiche la fenêtre principale
         MainWindow w;
 
-        // Crée le moteur QML
+
+        // Crée le moteur QML xhargment de modelle qml
         QQmlApplicationEngine engine;
+        engine.rootContext()->setContextProperty("mainWindow", &w);
 
         // Instanciation du modèle de marqueurs
         MarkerModel markerModel;
         qmlRegisterType<MarkerModel>("com.example", 1, 0, "MarkerModel"); // Enregistre le type MarkerModel
+        markerModel.loadFromJson(); // ✅ charge depuis MarkerModel
+
+        qDebug() << "Nombre de marqueurs après chargement du JSON:" << markerModel.rowCount();
+
 
         // Expose les objets C++ à QML
         engine.rootContext()->setContextProperty("markerModel", &markerModel); // Expose le modèle
@@ -33,7 +39,7 @@ int main(int argc, char *argv[])
 
         // Exemple d'ajout de marqueur
         QGeoCoordinate coord(36.8002, 10.1858);  // Crée une coordonnée
-        markerModel.addMarker(coord);  // Ajoute cette coordonnée au modèle
+       // markerModel.addMarker(coord);  // Ajoute cette coordonnée au modèle
 
         // Charge le fichier QML
         engine.load(QUrl(QStringLiteral("qrc:/map.qml")));  // Charge le fichier QML
@@ -45,6 +51,9 @@ int main(int argc, char *argv[])
 
         // Affiche la fenêtre principale Qt après avoir chargé QML
         w.show();  // Affiche la fenêtre principale qui peut inclure QML
+
+
+
 
         return app.exec();  // Exécute l'application
     } else {

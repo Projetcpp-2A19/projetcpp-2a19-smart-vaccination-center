@@ -3518,6 +3518,7 @@ public:
         comboBox = new QComboBox(layoutWidget3);
         comboBox->addItem(QString());
         comboBox->addItem(QString());
+        comboBox->addItem(QString());
         comboBox->setObjectName("comboBox");
         comboBox->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -3641,7 +3642,35 @@ public:
         btnlabo3_5->setAutoExclusive(true);
         btnlabo4 = new QPushButton(Labo);
         btnlabo4->setObjectName("btnlabo4");
-        btnlabo4->setGeometry(QRect(40, 70, 75, 24));
+        btnlabo4->setGeometry(QRect(0, 60, 171, 61));
+        btnlabo4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a   ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
         sqs->addWidget(Labo);
         equibment = new QWidget();
         equibment->setObjectName("equibment");
@@ -12933,7 +12962,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        sqs->setCurrentIndex(9);
+        sqs->setCurrentIndex(2);
         stackedWidget_2->setCurrentIndex(9);
         stackedWidget_3->setCurrentIndex(2);
         statmedcin->setCurrentIndex(0);
@@ -13081,8 +13110,9 @@ public:
         btnlabo2->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
         btnlabo3->setText(QCoreApplication::translate("MainWindow", "Chatbot      \326\216", nullptr));
         label_10->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
-        comboBox->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
-        comboBox->setItemText(1, QCoreApplication::translate("MainWindow", "ID", nullptr));
+        comboBox->setItemText(0, QCoreApplication::translate("MainWindow", "par defaut", nullptr));
+        comboBox->setItemText(1, QCoreApplication::translate("MainWindow", "\342\254\207\357\270\217 ID", nullptr));
+        comboBox->setItemText(2, QCoreApplication::translate("MainWindow", "\342\254\206\357\270\217 ID", nullptr));
 
         btnRechercher->setText(QString());
         btnlabo3_2->setText(QCoreApplication::translate("MainWindow", "Chatbot      \326\216", nullptr));

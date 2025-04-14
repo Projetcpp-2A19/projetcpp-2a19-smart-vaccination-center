@@ -1,0 +1,62 @@
+[
+    {
+        "latitude": 36.8065,
+        "localisation": "Tunis",
+        "longitude": 10.1815
+    },
+    {
+        "latitude": 37.0385985,
+        "localisation": "Matir",
+        "longitude": 9.6676974
+    },
+    {
+        "latitude": 36.5520138,
+        "localisation": "Testour",
+        "longitude": 9.4418606
+    },
+    {
+        "latitude": 35.8288284,
+        "localisation": "Sousse",
+        "longitude": 10.6405254
+    },
+    {
+        "latitude": 48.8588897,
+        "localisation": "Paris",
+        "longitude": 2.3200410217200766
+    },
+    {
+        "latitude": 37.1689041,
+        "localisation": "El Alia",
+        "longitude": 10.0338705
+    },
+    {
+        "latitude": 36.839879096972034,
+        "localisation": "Tunis Rue du Caire ",
+        "longitude": 10.316208140389703
+    },
+    {
+        "latitude": 36.40220569641857,
+        "localisation": "Hammamet Avenue de la Libération",
+        "longitude": 10.62456753393398
+    },
+    {
+        "latitude": 35.8451641,
+        "localisation": "GAA AL MEZWED",
+        "longitude": 9.5862013
+    },
+    {
+        "latitude": 34.7394361,
+        "localisation": "Sfax",
+        "longitude": 10.7604024
+    },
+    {
+        "latitude": 34.4224374,
+        "localisation": "Gafsa",
+        "longitude": 8.7843862
+    },
+    {
+        "latitude": 36.860059825395,
+        "localisation": "Beb Jdid",
+        "longitude": 10.191566469608548
+    }
+]

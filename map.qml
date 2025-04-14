@@ -1,129 +1,109 @@
 import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtLocation 6.7
 import QtPositioning 6.7
-
 
 Rectangle {
     width: 800
     height: 600
+    color: "#f9f9f9"
 
-    // Plugin pour OpenStreetMap
+    // Plugin OSM
     Plugin {
         id: osmPlugin
-        name: "osm"  // Utilise le plugin OpenStreetMap
+        name: "osm"
     }
 
+    // Définition de la carte
     Map {
         id: myMap
         anchors.fill: parent
         plugin: osmPlugin
-        center: QtPositioning.coordinate(36.8065, 10.1815) // Position initiale
-        zoomLevel: 14
+        center: QtPositioning.coordinate(36.8065, 10.1815) // Tunis
+        zoomLevel: 13
 
-        // Repeater pour afficher les marqueurs
+        // Affichage des marqueurs
         MapItemView {
-                    model: markerModel
-                    delegate: MapQuickItem {
-                        id: markerItem
-                        coordinate: model.coordinate // Utilise "coordinate" au lieu de "map"
-                        anchorPoint: Qt.point(icon.width / 2, icon.height)
-                        sourceItem: Image {
-                            id: icon
-                            source: "qrc:/img/pngegg.png"
-                            width: 32
-                            height: 32
-                        }
-                    }
-        }
-
-
-        // Zoom avec la molette de la souris
-        MouseArea {
-            anchors.fill: parent
-            acceptedButtons: Qt.AllButtons
-
-            onWheel: function(event) {
-                if (event.angleDelta.y > 0) {
-                    myMap.zoomLevel += 1;
-                } else {
-                    myMap.zoomLevel -= 1;
+            model: markerModel // Modèle de marqueur défini dans C++
+            delegate: MapQuickItem {
+                id: markerItem
+                coordinate: model.coordinate
+                anchorPoint: Qt.point(image.width / 2, image.height)
+                sourceItem: Image {
+                    id: image
+                    source: "qrc:/img/pngegg.png"
+                    width: 32
+                    height: 32
                 }
+            }
+
+            Component.onCompleted: {
+                console.log("Carte chargée, forçage du modèle...")
+                markerModel.loadFromJson()
             }
         }
 
-        // Déplacement de la carte avec la souris
+        // Gestion du mouvement de la carte avec la souris
         MouseArea {
             anchors.fill: parent
             acceptedButtons: Qt.LeftButton
-            property var lastCenter: myMap.center
-            property var lastMousePos: Qt.point(0, 0)
-            property real speedFactor: 0.3
+            property var lastMousePos
 
             onPressed: (mouse) => {
-                lastCenter = myMap.center;
-                lastMousePos = Qt.point(mouse.x, mouse.y);
+                lastMousePos = Qt.point(mouse.x, mouse.y)
             }
 
             onPositionChanged: (mouse) => {
-                var deltaX = lastMousePos.x - mouse.x;
-                var deltaY = lastMousePos.y - mouse.y;
-
-                var metersPerPixel = 156543.03 * Math.cos(myMap.center.latitude * Math.PI / 180) / Math.pow(2, myMap.zoomLevel);
-                var deltaLat = (deltaY * metersPerPixel / 111320) * speedFactor;
-                var deltaLon = (deltaX * metersPerPixel / (111320 * Math.cos(myMap.center.latitude * Math.PI / 180))) * speedFactor;
-
-                myMap.center.latitude = lastCenter.latitude + deltaLat;
-                myMap.center.longitude = lastCenter.longitude + deltaLon;
+                var dx = mouse.x - lastMousePos.x
+                var dy = mouse.y - lastMousePos.y
+                myMap.pan(-dx, -dy)
+                lastMousePos = Qt.point(mouse.x, mouse.y)
             }
         }
-    }
 
-    // Timer pour vérifier le nombre de marqueurs
-    Timer {
-        interval: 2000
-        running: true
-        repeat: false
-        onTriggered: {
-            console.log("📢 Nombre total de marqueurs dans markerModel:", markerModel.rowCount());
-            for (var i = 0; i < markerModel.rowCount(); i++) {
-                var marker = markerModel.data(markerModel.index(i, 0), markerModel.CoordinateRole);
-                if (marker) {
-                    console.log("📍 Marqueur", i, "-> Latitude:", marker.latitude, "Longitude:", marker.longitude);
+        // Gestion du zoom avec la molette sedeplacer dans la carte
+        WheelHandler {
+            id: zoomHandler
+            target: myMap
+            property real step: 0.5
+
+            onWheel: (event) => {
+                myMap.zoomLevel += event.angleDelta.y > 0 ? step : -step
+                event.accepted = true
+            }
+        }
+
+        // Rechargement des marqueurs au démarrage
+        Component.onCompleted: {
+            markerModel.loadFromJson()
+            console.log("🔁 loadFromJson() forcé côté QML.")
+        }
+
+        // Connexion avec mainWindow pour l'ajout de marqueurs via signal
+        Connections {
+            target: mainWindow
+            function onPositionTrouvee(lat, lon) {
+                if (!isNaN(lat) && !isNaN(lon)) {
+                    let coord = QtPositioning.coordinate(lat, lon)
+                    myMap.center = coord
+                    myMap.zoomLevel = 16  // Zoom plus proche
+                    markerModel.addMarker(coord)
+                    console.log("📍 Carte centrée sur :", lat, lon)
                 } else {
-                    console.log("📍 Aucun marqueur trouvé à l'index", i);
+                    console.warn("❌ Coordonnées invalides reçues :", lat, lon)
                 }
             }
         }
-    }
 
-    // Connexion au signal C++ pour ajouter un marqueur
-    Connections {
-        target: mainWindow
-        function onAjouterLaboratoireEPINGLE(lat, lon) {
-            console.log("✅ Signal reçu pour ajouter un laboratoire épinglé");
-            console.log("📍 Latitude :", lat, ", Longitude :", lon);
 
-            // Vérification des coordonnées avant ajout
-            if (!isNaN(lat) && !isNaN(lon) && lat !== 0 && lon !== 0) {
-                var exists = false;
-                // Vérifie si le marqueur existe déjà
-                for (var i = 0; i < markerModel.rowCount(); i++) {
-                    var marker = markerModel.data(markerModel.index(i, 0), markerModel.CoordinateRole);
-                    if (marker && marker.latitude === lat && marker.longitude === lon) {
-                        exists = true;
-                        break;
-                    }
-                }
+        // Champ de texte pour saisir une localisation
+        TextField {
+            id: locationInput
+            placeholderText: "Entrez une localisation"
+            width: parent.width * 0.8
 
-                if (!exists) {
-                    // Ajoute le marqueur au modèle
-                    markerModel.addMarker(QtPositioning.coordinate(lat, lon));
-                    console.log("📍 Marqueur ajouté — Latitude :", lat, ", Longitude :", lon);
-                } else {
-                    console.log("📍 Ce marqueur existe déjà — Latitude :", lat, ", Longitude :", lon);
-                }
-            } else {
-                console.warn("⚠️ Coordonnées invalides reçues : ", lat, lon);
+            onEditingFinished: {
+                mainWindow.searchLocation(locationInput.text)
             }
         }
     }

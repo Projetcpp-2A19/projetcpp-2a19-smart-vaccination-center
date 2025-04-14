@@ -36,8 +36,14 @@ namespace {
 struct qt_meta_stringdata_CLASSMarkerModelENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSMarkerModelENDCLASS = QtMocHelpers::stringData(
     "MarkerModel",
-    "addMarker",
+    "loadFromJson",
     "",
+    "addLocation",
+    "localisation",
+    "lat",
+    "lon",
+    "removeLocation",
+    "addMarker",
     "QGeoCoordinate",
     "coord"
 );
@@ -52,7 +58,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMarkerModelENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -60,10 +66,16 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMarkerModelENDCLASS[] = {
        0,       // signalCount
 
  // methods: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   20,    2, 0x02,    1 /* Public */,
+       1,    0,   38,    2, 0x02,    1 /* Public */,
+       3,    3,   39,    2, 0x02,    2 /* Public */,
+       7,    1,   46,    2, 0x02,    6 /* Public */,
+       8,    1,   49,    2, 0x02,    8 /* Public */,
 
  // methods: parameters
-    QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::Double, QMetaType::Double,    4,    5,    6,
+    QMetaType::Void, QMetaType::QString,    4,
+    QMetaType::Void, 0x80000000 | 9,   10,
 
        0        // eod
 };
@@ -77,6 +89,16 @@ Q_CONSTINIT const QMetaObject MarkerModel::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSMarkerModelENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<MarkerModel, std::true_type>,
+        // method 'loadFromJson'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'addLocation'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<double, std::false_type>,
+        QtPrivate::TypeAndForceComplete<double, std::false_type>,
+        // method 'removeLocation'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'addMarker'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QGeoCoordinate &, std::false_type>
@@ -90,13 +112,16 @@ void MarkerModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         auto *_t = static_cast<MarkerModel *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->addMarker((*reinterpret_cast< std::add_pointer_t<QGeoCoordinate>>(_a[1]))); break;
+        case 0: _t->loadFromJson(); break;
+        case 1: _t->addLocation((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[3]))); break;
+        case 2: _t->removeLocation((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 3: _t->addMarker((*reinterpret_cast< std::add_pointer_t<QGeoCoordinate>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 0:
+        case 3:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -126,13 +151,13 @@ int MarkerModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 4;
     }
     return _id;
 }

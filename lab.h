@@ -41,11 +41,11 @@ public:
     QMap<QString, int> getStatistiquesParstatus();
 
     // Fonctionnalité pour le chatbot (CRUD)
-    void analyserCommande(const QString &commande);
+    QSqlQueryModel* analyserCommande(const QString &commande);
     void ajouterLaboratoire(int id, const QString &nom, const QString &localisation, const QString &status, const QString &contact);
     void supprimerLaboratoire(int id);
     void modifierLaboratoire(int id, const QString &nom, const QString &localisation, const QString &status, const QString &contact);
-
+    void afficherAide();
     // Méthodes d'affichage
     void afficherTousLesLaboratoires();
     QSqlQueryModel* afficherLaboratoireParId(int id);

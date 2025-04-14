@@ -736,7 +736,7 @@ QPushButton:disabled {
 </string>
     </property>
     <property name="currentIndex">
-     <number>9</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="medecin">
      <widget class="QLabel" name="label_3">
@@ -3865,12 +3865,17 @@ text : search
          </property>
          <item>
           <property name="text">
-           <string>Par défaut</string>
+           <string>par defaut</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>ID</string>
+           <string>⬇️ ID</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>⬆️ ID</string>
           </property>
          </item>
         </widget>
@@ -4052,11 +4057,41 @@ QPushButton:disabled {
      <widget class="QPushButton" name="btnlabo4">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>70</y>
-        <width>75</width>
-        <height>24</height>
+        <x>0</x>
+        <y>60</y>
+        <width>171</width>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 2px solid #2a2a2a   ;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
       </property>
       <property name="text">
        <string>maps</string>

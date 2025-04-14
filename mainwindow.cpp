@@ -21,8 +21,13 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QQmlApplicationEngine>
+#include <QPdfWriter>
+#include <QPainter>
+#include <QSqlQuery>
+#include <QMessageBox>
+#include <QFileDialog>
 
-
+#include "markermodel.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -30,7 +35,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);  // Charge l'interface
 
-    // Initialisation du gestionnaire de réseau
+
+    // Initialisation du gestionnaire de réseau conexion a gecodage
     networkManager = new QNetworkAccessManager(this);
     connect(networkManager, &QNetworkAccessManager::finished, this, &MainWindow::onGeoCodeReply);
 
@@ -54,6 +60,8 @@ MainWindow::MainWindow(QWidget *parent)
             }
         }
     });
+    quickWidget->rootContext()->setContextProperty("markerModel", &m_markerModel);
+
 
     // Configuration d'autres éléments de l'interface
     connect(ui->btnRechercher, &QPushButton::clicked, this, &MainWindow::rechercher);
@@ -66,13 +74,10 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     // Dans le main.cpp ou autre fichier où tu charges QML
-    QQmlApplicationEngine engine;
-    MarkerModel markerModel;  // Instancie ton modèle
+   // m_markerModel.loadAndGeocodeLocations();  // 👈 Appelle la fonction sur le bon modèle
 
-    // Expose le modèle à QML
-    engine.rootContext()->setContextProperty("markerModel", &markerModel);
+   // loadMarkersFromJson();
 
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));  // Charge le fichier QML
 
 
     // Ajustement automatique des colonnes dans les tableaux
@@ -95,6 +100,8 @@ void MainWindow::getCoordinatesFromAddress(const QString &address) {
     // Envoie la requête de géocodage
     networkManager->get(QNetworkRequest(url));
 }
+
+
 
 
 MainWindow::~MainWindow()
@@ -166,6 +173,8 @@ void MainWindow::on_btnlabo3_clicked()
 void MainWindow::on_btnlabo4_clicked()
 {
     ui->sqs->setCurrentIndex(9);
+
+
 }
 
 void MainWindow::on_btnmedecin2_clicked()
@@ -261,10 +270,23 @@ void MainWindow::on_pushButton_115_clicked() {
 
         // Mise à jour de la table après ajout
         updateTableView();
+
+
+        //addLocationToJson(localisation, latitude, longitude);
     } else {
         QMessageBox::critical(this, tr("Erreur"), tr("Ajout non effectué."));
     }
-    m_markerModel.addMarker(QGeoCoordinate(latitude, longitude));
+    m_markerModel.addLocation(localisation, latitude, longitude);
+
+
+      //  m_markerModel.geocodeAndAddLocation(localisation);  // ✅
+    getCoordinatesFromAddress(localisation); // -> Lancement d'une requête asynchrone
+
+    // Puis immédiatement :
+   // m_markerModel.addLocation(localisation, latitude, longitude); // ❌ Mauvais : latitude/longitude = 0
+
+       // m_markerModel.geocodeAndAddLocation(lieu); // 🛠️ utilise le bon objet
+
 
 
 }
@@ -274,32 +296,40 @@ void MainWindow::on_pushButton_115_clicked() {
 
 
 void MainWindow::on_btnSupprimer_clicked() {
-    // Récupérer l'ID sélectionné
+    // Vérifie la sélection dans le tableau
     QModelIndex index = ui->tableau->selectionModel()->currentIndex();
     if (!index.isValid()) {
         QMessageBox::warning(this, tr("Suppression"), tr("Veuillez sélectionner un élément à supprimer."));
         return;
     }
 
-    int id = ui->tableau->model()->data(ui->tableau->model()->index(index.row(), 0)).toInt();  // Supposons que l'ID est en 1ère colonne
+    // Récupère l'ID (colonne 0) et la localisation (colonne 1 ou autre selon ta table)
+    int row = index.row();
+    int id = ui->tableau->model()->data(ui->tableau->model()->index(row, 0)).toInt();
+    QString localisationASupprimer = ui->tableau->model()->data(ui->tableau->model()->index(row, 2)).toString(); // colonne localisation
 
     // Confirmation
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, tr("Suppression"), tr("Voulez-vous vraiment supprimer cet élément ?"),
+    reply = QMessageBox::question(this, tr("Suppression"),
+                                  tr("Voulez-vous vraiment supprimer cet élément ?"),
                                   QMessageBox::Yes | QMessageBox::No);
+
     if (reply == QMessageBox::Yes) {
         Lab labo;
         if (labo.supprimer(id)) {
             QMessageBox::information(this, tr("Suppression"), tr("Suppression réussie."));
-            updateTableView();  // Rafraîchir la table après suppression
+            updateTableView();  // Rafraîchir la table
+
+            // Supprime du fichier JSON et met à jour la carte
+            m_markerModel.removeLocation(localisationASupprimer);  // Suppression du marqueur sur la carte et du fichier JSON
+
+            // Met à jour la carte après suppression
+           // updateMapMarkers();  // Cette fonction devrait actualiser la carte avec les marqueurs restants
         } else {
             QMessageBox::critical(this, tr("Erreur"), tr("Échec de la suppression."));
         }
     }
 }
-
-
-
 
 
 
@@ -410,20 +440,19 @@ void MainWindow::trierParId() {
     QString triOption = ui->comboBox->currentText();
     QSqlQuery query;
 
-    // Vérification de l'option sélectionnée
-    if (triOption == "ID") {
+    if (triOption == "⬆️ ID") {
         query.prepare("SELECT * FROM LABORATOIRES ORDER BY ID_LAB ASC");
+    } else if (triOption == "⬇️ ID") {
+        query.prepare("SELECT * FROM LABORATOIRES ORDER BY ID_LAB DESC");
     } else {
-        query.prepare("SELECT * FROM LABORATOIRES");  // Tri par défaut
+        query.prepare("SELECT * FROM LABORATOIRES");  // Aucun tri spécifique
     }
 
-    // Exécuter la requête et vérifier les erreurs
     if (!query.exec()) {
-        qDebug() << "Erreur lors du tri :" << query.lastError().text();
+        qDebug() << "❌ Erreur lors du tri :" << query.lastError().text();
         return;
     }
 
-    // Appliquer le modèle à la table
     model->setQuery(std::move(query));
     ui->tableau->setModel(model);
     ui->tableau->resizeColumnsToContents();
@@ -469,6 +498,14 @@ void MainWindow::rechercher() {
 }
 
 
+void MainWindow::updateTableViewchat(QSqlQueryModel *model)
+{
+    if (model != nullptr) {
+        ui->tableViewchatbot->setModel(model);
+    } else {
+        QMessageBox::warning(this, "Erreur", "Erreur d'affichage du laboratoire.");
+    }
+}
 
 
 
@@ -484,11 +521,6 @@ void MainWindow::rechercher() {
 
 
 
-#include <QPdfWriter>
-#include <QPainter>
-#include <QSqlQuery>
-#include <QMessageBox>
-#include <QFileDialog>
 
 void MainWindow::on_btnlabo5_clicked() {//PDF
     QString fileName = QFileDialog::getSaveFileName(this, tr("Enregistrer le rapport"), "", tr("Fichiers PDF (*.pdf)"));
@@ -496,11 +528,11 @@ void MainWindow::on_btnlabo5_clicked() {//PDF
         return;
     }
 
-    QPdfWriter writer(fileName);
+    QPdfWriter writer(fileName);//Initialise l’objet PDF
     writer.setPageSize(QPageSize(QPageSize::A4));
     writer.setResolution(300);
 
-    QPainter painter;
+    QPainter painter;//desgner de pfd
     if (!painter.begin(&writer)) {
         QMessageBox::warning(this, tr("Erreur"), tr("Impossible de créer le fichier PDF."));
         return;
@@ -569,12 +601,12 @@ void MainWindow::showStatistiques() {
         return;
     }
 
-    // Ensure chartContainer has a layout
+    // Étape 1 : Vérifier ou créer un layout
     if (!ui->chartContainer->layout()) {
-        ui->chartContainer->setLayout(new QVBoxLayout());  // Assign a layout if missing
+        ui->chartContainer->setLayout(new QVBoxLayout());
     }
 
-    // Remove old charts
+    // Étape 2 : Nettoyer les anciens graphiques
     QLayoutItem* item;
     while ((item = ui->chartContainer->layout()->takeAt(0)) != nullptr) {
         delete item->widget();
@@ -583,23 +615,42 @@ void MainWindow::showStatistiques() {
 
     QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(ui->chartContainer->layout());
 
-
-    // 📊 Pie Chart (Type Distribution)
+    // Étape 3 : Créer la série de données (QPieSeries)
     QPieSeries *pieSeries = new QPieSeries();
     QMap<QString, int> statsType = labo.getStatistiquesParstatus();
+
     if (statsType.isEmpty()) {
-        qDebug() << "⚠️ WARNING: No data found for equipment types!";
+        qDebug() << "⚠️ WARNING: No data found for status statistics!";
     }
+
+    // Étape 4 : Calculer le total pour les pourcentages
+    int total = 0;
     for (auto it = statsType.begin(); it != statsType.end(); ++it) {
-        pieSeries->append(it.key(), it.value());
+        total += it.value();
     }
+
+    // Étape 5 : Ajouter les tranches avec pourcentage dans le label
+    for (auto it = statsType.begin(); it != statsType.end(); ++it) {
+        qreal value = it.value();
+        QString label = QString("%1 (%2%)")
+                            .arg(it.key())
+                            .arg(QString::number((value / (double)total) * 100.0, 'f', 1));
+        QPieSlice *slice = pieSeries->append(label, value);
+    }
+
+    pieSeries->setLabelsVisible(true);  // Étape 6 : Afficher les labels
+
+    // Étape 7 : Créer le graphique et l’ajouter au layout
     QChart *pieChart = new QChart();
     pieChart->addSeries(pieSeries);
-    pieChart->setTitle("Répartition des laboratoires par status");
-    layout->addWidget(new QChartView(pieChart));
+    pieChart->setTitle("Répartition des laboratoires par statut");
 
-    ui->chartContainer->setLayout(new QVBoxLayout());
-    qDebug() << "✅ Statistics updated successfully!";
+    QChartView *chartView = new QChartView(pieChart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    layout->addWidget(chartView);
+
+    qDebug() << "✅ Statistiques mises à jour avec succès !";
 }
 
 //chatbot
@@ -609,67 +660,90 @@ void MainWindow::showStatistiques() {
 
 void MainWindow::analyserCommande()
 {
-    QString commande = ui->lineEditchat->text();  // Récupérer la commande entrée par l'utilisateur
+    QString commande = ui->lineEditchat->text().trimmed();
 
-    if (!commande.isEmpty()) {
-        // Analyser la commande via l'objet Lab
-        labo.analyserCommande(commande);
-
-        // Mettre à jour l'affichage du tableau après la commande
-        updateTableViewchat();
-    } else {
-        // Afficher un message d'erreur si la commande est vide
+    if (commande.isEmpty()) {
         QMessageBox::warning(this, "Commande vide", "Veuillez entrer une commande valide.");
+        return;
+    }
+
+    QSqlQueryModel* model = labo.analyserCommande(commande);  // On récupère le modèle en retour
+    if (model) {
+        updateTableViewchat(model);
+    } else {
+        updateTableViewchat();  // Afficher tous par défaut
     }
 }
+
+
 
 void MainWindow::updateTableViewchat()
 {
-    // Créer un modèle pour afficher les laboratoires
     QSqlQueryModel *model = labo.afficher();
 
     if (model != nullptr) {
-        ui->tableViewchatbot->setModel(model);  // Mettre à jour l'affichage du QTableView
+        ui->tableViewchatbot->setModel(model);
     } else {
-        QMessageBox::warning(this, "Erreur", "Impossible de charger les données du chatbot.");
+        QMessageBox::warning(this, "Erreur", "Impossible de charger les laboratoires.");
     }
 }
+
+
+
+
 
 //*********************maps
 
 
 // Fonction pour traiter la réponse de géocodage
-void MainWindow::onGeoCodeReply(QNetworkReply* reply) {
-    if (reply->error() != QNetworkReply::NoError) {
-        qDebug() << "Erreur de géocodage : " << reply->errorString();
-        return;
-    }
+void MainWindow::onGeoCodeReply(QNetworkReply *reply)
+{
+    if (reply->error() == QNetworkReply::NoError) {
+        QByteArray responseData = reply->readAll();
+        QJsonDocument json = QJsonDocument::fromJson(responseData);
+        QJsonArray results = json.array();
 
-    // Parse la réponse JSON
-    QByteArray response = reply->readAll();
-    QJsonDocument doc = QJsonDocument::fromJson(response);
-    QJsonArray jsonArray = doc.array();
+        if (!results.isEmpty()) {
+            QJsonObject firstResult = results.first().toObject();
+            double lat = firstResult["lat"].toString().toDouble();
+            double lon = firstResult["lon"].toString().toDouble();
+            QString localisation = QUrlQuery(reply->url()).queryItemValue("q");
 
-    // Vérifie si la réponse contient des résultats
-    if (!jsonArray.isEmpty()) {
-        // Récupère les coordonnées de la première entrée
-        QJsonObject firstResult = jsonArray.first().toObject();
-        double latitude = firstResult["lat"].toString().toDouble();
-        double longitude = firstResult["lon"].toString().toDouble();
+            qDebug() << "🌍 Coordonnées reçues pour" << localisation << ":" << lat << lon;
 
-        // Vérification des coordonnées avant de les émettre
-        if (std::isnan(latitude) || std::isnan(longitude) || latitude == 0 || longitude == 0) {
-            qDebug() << "Coordonnées invalides reçues : " << latitude << ", " << longitude;
+            // 1. Ajoute au modèle (et fichier JSON)
+            m_markerModel.addLocation(localisation, lat, lon);
+
+            // 2. (Optionnel) Mets à jour les coordonnées globales
+            latitude = lat;
+            longitude = lon;
+             emit positionTrouvee(lat, lon);
+
         } else {
-            // Affiche les coordonnées
-            qDebug() << "Latitude : " << latitude << ", Longitude : " << longitude;
-
-            // Émet le signal pour ajouter un marqueur sur la carte
-            emit ajouterLaboratoireEPINGLE(latitude, longitude);
+            qWarning() << "❌ Aucun résultat pour l'adresse.";
         }
     } else {
-        qDebug() << "Aucune coordonnée trouvée pour l'adresse.";
+        qWarning() << "❌ Erreur de la requête :" << reply->errorString();
     }
 
     reply->deleteLater();
+}
+void MainWindow::searchLocation(const QString &address) {
+    if (address.trimmed().isEmpty()) {
+        qDebug() << "Adresse vide, aucune recherche.";
+        return;
+    }
+
+    QUrl url("https://nominatim.openstreetmap.org/search");
+    QUrlQuery query;
+    query.addQueryItem("q", address);
+   query.addQueryItem("format", "json");
+    query.addQueryItem("addressdetails", "1");
+    url.setQuery(query);
+
+    QNetworkRequest request(url);
+    request.setHeader(QNetworkRequest::UserAgentHeader, "MyApp/1.0");  // Important pour Nominatim
+
+    networkManager->get(request);
+
 }

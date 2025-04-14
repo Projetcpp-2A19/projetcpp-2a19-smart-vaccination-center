@@ -117,75 +117,125 @@ QMap<QString, int> Lab::getStatistiquesParstatus() {
 
 
 // Fonction d'extraction d'informations sans imposer un format strict
-bool extraireInfosAjoutModif(const QString &commande, int &id, QString &nom, QString &localisation, QString &status, QString &contact) {
-    QRegularExpression regexId(R"((?:id|numéro|n°)\s*(\d+))", QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression regexNom(R"((?:nom|appellation|titre)\s*[:=]?\s*([\w\s]+))", QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression regexLoc(R"((?:localisation|ville|basé à|lieu)\s*[:=]?\s*([\w\s]+))", QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression regexStat(R"((?:status|statut|état)\s*[:=]?\s*([\w\s]+))", QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression regexContact(R"((?:contact|tél|tel|numéro de téléphone)\s*[:=]?\s*(\d{8,15}))", QRegularExpression::CaseInsensitiveOption);
+bool extraireInfosAjoutModif(const QString &commande, int &id, QString &nom, QString &localisation, QString &status, QString &contact)
+{
+    QRegularExpression regex(R"(id\s+(\d+)\s+nom\s+(.+?)\s+localisation\s+(.+?)\s+status\s+(.+?)\s+contact\s+(\d+))", QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch match = regex.match(commande);
 
-    QRegularExpressionMatch matchId = regexId.match(commande);
-    QRegularExpressionMatch matchNom = regexNom.match(commande);
-    QRegularExpressionMatch matchLoc = regexLoc.match(commande);
-    QRegularExpressionMatch matchStat = regexStat.match(commande);
-    QRegularExpressionMatch matchContact = regexContact.match(commande);
-
-    if (matchId.hasMatch() && matchNom.hasMatch() && matchLoc.hasMatch() && matchStat.hasMatch() && matchContact.hasMatch()) {
-        id = matchId.captured(1).toInt();
-        nom = matchNom.captured(1).trimmed();
-        localisation = matchLoc.captured(1).trimmed();
-        status = matchStat.captured(1).trimmed();
-        contact = matchContact.captured(1).trimmed();
+    if (match.hasMatch()) {
+        id = match.captured(1).toInt();
+        nom = match.captured(2).trimmed();
+        localisation = match.captured(3).trimmed();
+        status = match.captured(4).trimmed();
+        contact = match.captured(5).trimmed();
         return true;
     }
+
     return false;
 }
 
-void Lab::analyserCommande(const QString &commande) {
-    QString lowerCmd = commande.toLower();
-    int id;
-    QString nom, localisation, status, contact;
+QSqlQueryModel* Lab::analyserCommande(const QString &commande)
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+    QString cmd = commande.toLower();
 
-    if (lowerCmd.contains("ajoute") || lowerCmd.contains("ajouter")) {
-        if (extraireInfosAjoutModif(commande, id, nom, localisation, status, contact)) {
-            ajouterLaboratoire(id, nom, localisation, status, contact);
-        } else {
-            QMessageBox::warning(nullptr, "Format incorrect", "Merci de préciser l'ID, le nom, la localisation, le statut et le contact.");
+    // Ajout ou modification
+    if (cmd.startsWith("ajouter") || cmd.startsWith("modifier")) {
+        int id;
+        QString nom, localisation, status, contact;
+
+        if (!extraireInfosAjoutModif(commande, id, nom, localisation, status, contact)) {
+            QMessageBox::warning(nullptr, "Erreur", "ID manquant ou invalide. Veuillez entrer :\n"
+                                                    "ajouter id 1 nom BioX localisation Tunis status Actif contact 12345678");
+            return model;
         }
-    }
-    else if (lowerCmd.contains("modifie") || lowerCmd.contains("modifier") || lowerCmd.contains("change")) {
-        if (extraireInfosAjoutModif(commande, id, nom, localisation, status, contact)) {
-            modifierLaboratoire(id, nom, localisation, status, contact);
+
+        QSqlQuery query;
+        if (cmd.startsWith("ajouter")) {
+            query.prepare("INSERT INTO LABORATOIRES (ID_LAB, NOM_LAB, LOCALISATION_LAB, STATUS, CONTACT) "
+                          "VALUES (:id, :nom, :localisation, :status, :contact)");
         } else {
-            QMessageBox::warning(nullptr, "Format incorrect", "Merci de préciser l'ID, le nom, la localisation, le statut et le contact.");
+            query.prepare("UPDATE LABORATOIRES SET "
+                          "NOM_LAB = :nom, LOCALISATION_LAB = :localisation, STATUS = :status, CONTACT = :contact "
+                          "WHERE ID_LAB = :id");
         }
-    }
-    else if (lowerCmd.contains("supprime") || lowerCmd.contains("enlever") || lowerCmd.contains("delete")) {
-        QRegularExpression regexSupp(R"((\d+))");
-        QRegularExpressionMatch match = regexSupp.match(commande);
-        if (match.hasMatch()) {
-            supprimerLaboratoire(match.captured(1).toInt());
+
+        query.bindValue(":id", id);
+        query.bindValue(":nom", nom);
+        query.bindValue(":localisation", localisation);
+        query.bindValue(":status", status);
+        query.bindValue(":contact", contact);
+
+        if (!query.exec()) {
+            QMessageBox::critical(nullptr, "Erreur SQL", query.lastError().text());
         } else {
-            QMessageBox::warning(nullptr, "Commande invalide", "Spécifiez un ID pour supprimer.");
+            QMessageBox::information(nullptr, "Succès", cmd.startsWith("ajouter") ?
+                                                            "Laboratoire ajouté avec succès." :
+                                                            "Laboratoire modifié avec succès.");
         }
+
+        model->setQuery("SELECT * FROM LABORATOIRES");
+        return model;
     }
-    else if (lowerCmd.contains("affiche") || lowerCmd.contains("voir") || lowerCmd.contains("montre")) {
-        if (lowerCmd.contains("tous")) {
-            afficherTousLesLaboratoires();
-        } else {
-            QRegularExpression regexId(R"((\d+))");
-            QRegularExpressionMatch match = regexId.match(commande);
-            if (match.hasMatch()) {
-                afficherLaboratoireParId(match.captured(1).toInt());
+
+    // Suppression
+    if (cmd.startsWith("supprimer")) {
+        QStringList parts = commande.split(" ");
+        if (parts.size() >= 2) {
+            bool ok;
+            int id = parts[1].toInt(&ok);
+            if (ok) {
+                QSqlQuery query;
+                query.prepare("DELETE FROM LABORATOIRES WHERE ID_LAB = :id");
+                query.bindValue(":id", id);
+                if (!query.exec()) {
+                    QMessageBox::critical(nullptr, "Erreur SQL", query.lastError().text());
+                } else {
+                    QMessageBox::information(nullptr, "Succès", "Laboratoire supprimé.");
+                }
             } else {
-                QMessageBox::warning(nullptr, "Commande invalide", "Spécifiez un ID valide.");
+                QMessageBox::warning(nullptr, "Erreur", "ID invalide pour suppression.");
+            }
+        }
+        model->setQuery("SELECT * FROM LABORATOIRES");
+        return model;
+    }
+
+    // Afficher tous
+    if (cmd.contains("afficher tous")) {
+        model->setQuery("SELECT * FROM LABORATOIRES");
+        return model;
+    }
+
+    // Afficher un seul
+    if (cmd.contains("afficher")) {
+        QStringList parts = commande.split(" ");
+        for (const QString &part : parts) {
+            bool ok;
+            int id = part.toInt(&ok);
+            if (ok) {
+                model->setQuery("SELECT * FROM LABORATOIRES WHERE ID_LAB = " + QString::number(id));
+                return model;
             }
         }
     }
-    else {
-        QMessageBox::warning(nullptr, "Commande non reconnue", "Essayez une commande valide comme 'ajoute', 'supprime', 'modifie' ou 'affiche'.");
-    }
+
+    afficherAide();
+    return model;
 }
+void Lab::afficherAide() {
+    QString aide =
+        "Commande non reconnue.\n\n"
+        "Voici quelques exemples de commandes valides :\n"
+        " - Ajouter : ajouter id 1 nom BioTech localisation Tunis status Actif contact 12345678\n"
+        " - Modifier : modifier id 1 nom BioX status Inactif contact 87654321\n"
+        " - Supprimer : supprimer 1\n"
+        " - Afficher tous : afficher tous\n"
+        " - Afficher un : afficher 1\n";
+    QMessageBox::warning(nullptr, "Commande non reconnue", aide);
+}
+
+
 // Ajout d'un laboratoire
 void Lab::ajouterLaboratoire(int id, const QString &nom, const QString &localisation, const QString &status, const QString &contact)
 {
@@ -245,18 +295,14 @@ void Lab::afficherTousLesLaboratoires()
 // Affichage d'un laboratoire par ID
 QSqlQueryModel* Lab::afficherLaboratoireParId(int id)
 {
-    QSqlQueryModel *model = new QSqlQueryModel();
     QSqlQuery query;
-    query.prepare("SELECT * FROM laboratoires WHERE id = :id");
+    query.prepare("SELECT * FROM laboratoires WHERE ID_LAB = :id");
+
     query.bindValue(":id", id);
+    query.exec();
 
-    if (query.exec()) {
-        model->setQuery(query);
-    } else {
-        QMessageBox::warning(nullptr, "Erreur", "Erreur lors de l'exécution de la requête.");
-        delete model;
-        return nullptr;
-    }
-
+    auto* model = new QSqlQueryModel();
+    model->setQuery(std::move(query)); // ✅ On utilise std::move ici
     return model;
+
 }

@@ -48,10 +48,16 @@ public:
     //void afficherStatistiques();//stat
     // Fonction pour récupérer les coordonnées via géocodage
     void getCoordinatesFromAddress(const QString &address);
+  // Q_INVOKABLE void geocodeAndAddLocation(const QString &location);
+    //void updateMapMarkers() ;
+   Q_INVOKABLE void searchLocation(const QString &address);
+
 
 signals:
          //void addPinToMapSignal(double latitude, double longitude);
     Q_INVOKABLE void ajouterLaboratoireEPINGLE(double latitude, double longitude);
+
+    void positionTrouvee(double latitude, double longitude);
 
 
 
@@ -107,9 +113,10 @@ private slots:
     void updateTableView();
     void showStatistiques();
     void analyserCommande(); //chatbot
-    void updateTableViewchat();//chatbot
-    //void afficherReponseChatbot(const QString &message);
-    //void updateChatbotResponse(const QString &message);
+    void updateTableViewchat(QSqlQueryModel *model);//chatbot
+    void updateTableViewchat();
+
+
 
 
 private:
