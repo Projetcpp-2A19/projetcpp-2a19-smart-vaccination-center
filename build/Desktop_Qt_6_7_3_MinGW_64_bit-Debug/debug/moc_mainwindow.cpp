@@ -93,7 +93,7 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "chargerRendezVousDansCalendrier",
     "on_calendarWidget_clicked",
     "date",
-    "envoyerRappelRendezVous"
+    "on_pushButton_187_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -242,7 +242,7 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'on_calendarWidget_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QDate &, std::false_type>,
-        // method 'envoyerRappelRendezVous'
+        // method 'on_pushButton_187_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -281,7 +281,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 24: _t->showStatistiques_rdv(); break;
         case 25: _t->chargerRendezVousDansCalendrier(); break;
         case 26: _t->on_calendarWidget_clicked((*reinterpret_cast< std::add_pointer_t<QDate>>(_a[1]))); break;
-        case 27: _t->envoyerRappelRendezVous(); break;
+        case 27: _t->on_pushButton_187_clicked(); break;
         default: ;
         }
     }

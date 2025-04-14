@@ -16136,9 +16136,9 @@ QPushButton:disabled {
        <widget class="QWidget" name="layoutWidget_40">
         <property name="geometry">
          <rect>
-          <x>720</x>
-          <y>106</y>
-          <width>291</width>
+          <x>740</x>
+          <y>110</y>
+          <width>311</width>
           <height>61</height>
          </rect>
         </property>
@@ -16184,12 +16184,22 @@ text : search
            </item>
            <item>
             <property name="text">
-             <string>Priorite</string>
+             <string>Priorite  ↑</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Date de rendez-vous</string>
+             <string>Priorite  ↓</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Date de rendez-vous  ↑</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Date de rendez-vous  ↓</string>
             </property>
            </item>
           </widget>
@@ -18018,10 +18028,10 @@ background-color: rgb(234, 251, 255);
      <widget class="QWidget" name="verticalLayoutWidget_3">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>120</y>
-        <width>861</width>
-        <height>411</height>
+        <x>30</x>
+        <y>80</y>
+        <width>1051</width>
+        <height>481</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_6">

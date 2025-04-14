@@ -46,12 +46,13 @@ bool RendezVous::ajouter() {
 
 QSqlQueryModel* RendezVous::afficher() {
     QSqlQueryModel* model = new QSqlQueryModel();
-    model->setQuery("SELECT * FROM RENDEZ_VOUS");
+    model->setQuery("SELECT id_rdv, TO_CHAR(date_rdv, 'DD-MM-YYYY') AS date_rdv, TO_CHAR(heure_rdv, 'HH24:MI') AS heure_rdv, priorite_rdv, status, id_pat FROM RENDEZ_VOUS");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_rdv"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("date_rdv"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("heure_rdv"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("priorite_rdv"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("status"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("id_pat"));
     return model;
 }
 

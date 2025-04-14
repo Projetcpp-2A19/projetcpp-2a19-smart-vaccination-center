@@ -12,12 +12,14 @@ SOURCES += \
     connection.cpp \
     main.cpp \
     mainwindow.cpp \
-    rendezvous.cpp
+    rendezvous.cpp \
+    sms.cpp
 
 HEADERS += \
     connection.h \
     mainwindow.h \
-    rendezvous.h
+    rendezvous.h \
+    sms.h
 
 FORMS += \
     mainwindow.ui

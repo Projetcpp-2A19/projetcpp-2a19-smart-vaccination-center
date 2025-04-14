@@ -61,8 +61,8 @@ private slots:
     void chargerRendezVousDansCalendrier();
     void on_calendarWidget_clicked(const QDate &date);
     //void afficherRdv();
-    void envoyerRappelRendezVous();
-    //void on_pushButton_187_clicked();
+    //void envoyerRappelRendezVous();
+    void on_pushButton_187_clicked();
 private:
     int currentId;       // ID du rendez-vous sélectionné
     QDate originalDate;  // Date du rendez-vous avant modification
@@ -79,10 +79,11 @@ private:
     QWidget *popupWidget;  // The popup widget
     void updateTableView();
     void afficherRendezVous();              // Affichage par défaut
-    void afficherRendezVousTrieParPriorite(); // Affichage trié par priorité
-    void afficherRendezVousTrieParDate();    // Affichage trié par date
+    void afficherRendezVousTrieParPriorite(const QString &ordre);   // Affichage trié par priorité
+    void afficherRendezVousTrieParDate(const QString &ordre);    // Affichage trié par date
 protected:
     void mousePressEvent(QMouseEvent *event) override;  // Detect clicks outside the popup
+    void showEvent(QShowEvent *event) override;
 };
 
 

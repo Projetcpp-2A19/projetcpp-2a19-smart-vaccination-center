@@ -11683,7 +11683,7 @@ public:
         btnrendezv3->setAutoExclusive(true);
         layoutWidget_40 = new QWidget(Labo_20);
         layoutWidget_40->setObjectName("layoutWidget_40");
-        layoutWidget_40->setGeometry(QRect(720, 106, 291, 61));
+        layoutWidget_40->setGeometry(QRect(740, 110, 311, 61));
         horizontalLayout_20 = new QHBoxLayout(layoutWidget_40);
         horizontalLayout_20->setSpacing(7);
         horizontalLayout_20->setObjectName("horizontalLayout_20");
@@ -11700,6 +11700,8 @@ public:
         horizontalLayout_20->addWidget(label_327, 0, Qt::AlignmentFlag::AlignRight);
 
         comboBox_38 = new QComboBox(layoutWidget_40);
+        comboBox_38->addItem(QString());
+        comboBox_38->addItem(QString());
         comboBox_38->addItem(QString());
         comboBox_38->addItem(QString());
         comboBox_38->addItem(QString());
@@ -12865,7 +12867,7 @@ public:
 ""));
         verticalLayoutWidget_3 = new QWidget(stat_rdv);
         verticalLayoutWidget_3->setObjectName("verticalLayoutWidget_3");
-        verticalLayoutWidget_3->setGeometry(QRect(90, 120, 861, 411));
+        verticalLayoutWidget_3->setGeometry(QRect(30, 80, 1051, 481));
         verticalLayout_6 = new QVBoxLayout(verticalLayoutWidget_3);
         verticalLayout_6->setObjectName("verticalLayout_6");
         verticalLayout_6->setContentsMargins(0, 0, 0, 0);
@@ -12966,7 +12968,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        sqs->setCurrentIndex(5);
+        sqs->setCurrentIndex(15);
         stackedWidget_2->setCurrentIndex(5);
         stackedWidget_3->setCurrentIndex(6);
         statmedcin->setCurrentIndex(2);
@@ -13620,8 +13622,10 @@ public:
         btnrendezv3->setText(QCoreApplication::translate("MainWindow", "Calendrier         \360\237\227\223", nullptr));
         label_327->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
         comboBox_38->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
-        comboBox_38->setItemText(1, QCoreApplication::translate("MainWindow", "Priorite", nullptr));
-        comboBox_38->setItemText(2, QCoreApplication::translate("MainWindow", "Date de rendez-vous", nullptr));
+        comboBox_38->setItemText(1, QCoreApplication::translate("MainWindow", "Priorite  \342\206\221", nullptr));
+        comboBox_38->setItemText(2, QCoreApplication::translate("MainWindow", "Priorite  \342\206\223", nullptr));
+        comboBox_38->setItemText(3, QCoreApplication::translate("MainWindow", "Date de rendez-vous  \342\206\221", nullptr));
+        comboBox_38->setItemText(4, QCoreApplication::translate("MainWindow", "Date de rendez-vous  \342\206\223", nullptr));
 
         pushButton_187->setText(QCoreApplication::translate("MainWindow", "Sms", nullptr));
         label_328->setText(QCoreApplication::translate("MainWindow", "equibment", nullptr));
