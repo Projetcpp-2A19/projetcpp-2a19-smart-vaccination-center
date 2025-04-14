@@ -5567,7 +5567,7 @@ QPushButton:disabled {
            <rect>
             <x>310</x>
             <y>100</y>
-            <width>151</width>
+            <width>111</width>
             <height>51</height>
            </rect>
           </property>
@@ -5698,8 +5698,8 @@ QPushButton:disabled {
          <widget class="QWidget" name="layoutWidget_11">
           <property name="geometry">
            <rect>
-            <x>537</x>
-            <y>90</y>
+            <x>480</x>
+            <y>100</y>
             <width>391</width>
             <height>58</height>
            </rect>
@@ -5797,9 +5797,9 @@ QPushButton:disabled {
          <widget class="QPushButton" name="recherche">
           <property name="geometry">
            <rect>
-            <x>450</x>
+            <x>420</x>
             <y>100</y>
-            <width>71</width>
+            <width>51</width>
             <height>51</height>
            </rect>
           </property>
@@ -5845,7 +5845,7 @@ QPushButton:disabled {
           <property name="geometry">
            <rect>
             <x>310</x>
-            <y>160</y>
+            <y>180</y>
             <width>781</width>
             <height>501</height>
            </rect>
@@ -5970,8 +5970,8 @@ QTableWidget::item:hover {
          <widget class="QPushButton" name="listpatient">
           <property name="geometry">
            <rect>
-            <x>520</x>
-            <y>10</y>
+            <x>930</x>
+            <y>110</y>
             <width>181</width>
             <height>61</height>
            </rect>

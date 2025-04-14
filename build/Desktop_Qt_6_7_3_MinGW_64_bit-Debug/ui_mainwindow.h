@@ -4653,7 +4653,7 @@ public:
 
         lineEdit_50 = new QLineEdit(Labo_6);
         lineEdit_50->setObjectName("lineEdit_50");
-        lineEdit_50->setGeometry(QRect(310, 100, 151, 51));
+        lineEdit_50->setGeometry(QRect(310, 100, 111, 51));
         lineEdit_50->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
 "        padding: 5px 8px;\n"
@@ -4736,7 +4736,7 @@ public:
         btnpatient2_2->setAutoExclusive(true);
         layoutWidget_11 = new QWidget(Labo_6);
         layoutWidget_11->setObjectName("layoutWidget_11");
-        layoutWidget_11->setGeometry(QRect(537, 90, 391, 58));
+        layoutWidget_11->setGeometry(QRect(480, 100, 391, 58));
         horizontalLayout_6 = new QHBoxLayout(layoutWidget_11);
         horizontalLayout_6->setSpacing(7);
         horizontalLayout_6->setObjectName("horizontalLayout_6");
@@ -4809,7 +4809,7 @@ public:
 
         recherche = new QPushButton(Labo_6);
         recherche->setObjectName("recherche");
-        recherche->setGeometry(QRect(450, 100, 71, 51));
+        recherche->setGeometry(QRect(420, 100, 51, 51));
         recherche->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #2a2a2a   ;\n"
 "    color: #ffffff;\n"
@@ -4841,7 +4841,7 @@ public:
         recherche->setIcon(icon7);
         rapportettable = new QStackedWidget(Labo_6);
         rapportettable->setObjectName("rapportettable");
-        rapportettable->setGeometry(QRect(310, 160, 781, 501));
+        rapportettable->setGeometry(QRect(310, 180, 781, 501));
         page_5 = new QWidget();
         page_5->setObjectName("page_5");
         tableau3_2 = new QTableWidget(page_5);
@@ -4913,7 +4913,7 @@ public:
         rapportettable->addWidget(page_6);
         listpatient = new QPushButton(Labo_6);
         listpatient->setObjectName("listpatient");
-        listpatient->setGeometry(QRect(520, 10, 181, 61));
+        listpatient->setGeometry(QRect(930, 110, 181, 61));
         listpatient->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #2a2a2a   ;\n"
 "    color: #ffffff;\n"

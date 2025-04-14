@@ -1,7 +1,7 @@
 
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "patient.h"
 #include <QMainWindow>
 #include <QWidget>  // For the popup widget
 #include <QPushButton>  // For the button
@@ -23,6 +23,7 @@ public:
     void supprimerPatient(int id);
     void modifierPatient(int id);
     int currentPatientId = -1;
+    void envoyerCertificat(int patientID);
 
 private slots:
     void on_btnmedecin_clicked();  // Slot to handle btnmedecin click
@@ -50,6 +51,11 @@ private slots:
     void afficherStatistiques();
     void on_btnpatient2_2_clicked();
     void on_listpatient_clicked();
+    QImage genererQRCodeAvecLienDrive();
+    void genererCertificatImage(const Patient &patient);
+    void envoyerCertificatParEmail(const QString &emailDestinataire, const QImage &qrImage);
+    Patient getPatientById(int id);
+    bool ajouterCertificatImageDansBDD(int patientID);
 private:
 
     Ui::MainWindow *ui;

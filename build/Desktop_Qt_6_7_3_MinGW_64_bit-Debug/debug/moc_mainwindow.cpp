@@ -62,7 +62,18 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "on_btnpatient3_2_clicked",
     "afficherStatistiques",
     "on_btnpatient2_2_clicked",
-    "on_listpatient_clicked"
+    "on_listpatient_clicked",
+    "genererQRCodeAvecLienDrive",
+    "genererCertificatImage",
+    "Patient",
+    "patient",
+    "envoyerCertificatParEmail",
+    "emailDestinataire",
+    "qrImage",
+    "getPatientById",
+    "id",
+    "ajouterCertificatImageDansBDD",
+    "patientID"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -75,7 +86,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      25,   14, // methods
+      30,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -83,31 +94,36 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  164,    2, 0x08,    1 /* Private */,
-       3,    0,  165,    2, 0x08,    2 /* Private */,
-       4,    0,  166,    2, 0x08,    3 /* Private */,
-       5,    0,  167,    2, 0x08,    4 /* Private */,
-       6,    0,  168,    2, 0x08,    5 /* Private */,
-       7,    0,  169,    2, 0x08,    6 /* Private */,
-       8,    0,  170,    2, 0x08,    7 /* Private */,
-       9,    0,  171,    2, 0x08,    8 /* Private */,
-      10,    0,  172,    2, 0x08,    9 /* Private */,
-      11,    0,  173,    2, 0x08,   10 /* Private */,
-      12,    0,  174,    2, 0x08,   11 /* Private */,
-      13,    0,  175,    2, 0x08,   12 /* Private */,
-      14,    0,  176,    2, 0x08,   13 /* Private */,
-      15,    0,  177,    2, 0x08,   14 /* Private */,
-      16,    0,  178,    2, 0x08,   15 /* Private */,
-      17,    0,  179,    2, 0x08,   16 /* Private */,
-      18,    0,  180,    2, 0x08,   17 /* Private */,
-      19,    0,  181,    2, 0x08,   18 /* Private */,
-      20,    0,  182,    2, 0x08,   19 /* Private */,
-      21,    0,  183,    2, 0x08,   20 /* Private */,
-      22,    0,  184,    2, 0x08,   21 /* Private */,
-      23,    0,  185,    2, 0x08,   22 /* Private */,
-      24,    0,  186,    2, 0x08,   23 /* Private */,
-      25,    0,  187,    2, 0x08,   24 /* Private */,
-      26,    0,  188,    2, 0x08,   25 /* Private */,
+       1,    0,  194,    2, 0x08,    1 /* Private */,
+       3,    0,  195,    2, 0x08,    2 /* Private */,
+       4,    0,  196,    2, 0x08,    3 /* Private */,
+       5,    0,  197,    2, 0x08,    4 /* Private */,
+       6,    0,  198,    2, 0x08,    5 /* Private */,
+       7,    0,  199,    2, 0x08,    6 /* Private */,
+       8,    0,  200,    2, 0x08,    7 /* Private */,
+       9,    0,  201,    2, 0x08,    8 /* Private */,
+      10,    0,  202,    2, 0x08,    9 /* Private */,
+      11,    0,  203,    2, 0x08,   10 /* Private */,
+      12,    0,  204,    2, 0x08,   11 /* Private */,
+      13,    0,  205,    2, 0x08,   12 /* Private */,
+      14,    0,  206,    2, 0x08,   13 /* Private */,
+      15,    0,  207,    2, 0x08,   14 /* Private */,
+      16,    0,  208,    2, 0x08,   15 /* Private */,
+      17,    0,  209,    2, 0x08,   16 /* Private */,
+      18,    0,  210,    2, 0x08,   17 /* Private */,
+      19,    0,  211,    2, 0x08,   18 /* Private */,
+      20,    0,  212,    2, 0x08,   19 /* Private */,
+      21,    0,  213,    2, 0x08,   20 /* Private */,
+      22,    0,  214,    2, 0x08,   21 /* Private */,
+      23,    0,  215,    2, 0x08,   22 /* Private */,
+      24,    0,  216,    2, 0x08,   23 /* Private */,
+      25,    0,  217,    2, 0x08,   24 /* Private */,
+      26,    0,  218,    2, 0x08,   25 /* Private */,
+      27,    0,  219,    2, 0x08,   26 /* Private */,
+      28,    1,  220,    2, 0x08,   27 /* Private */,
+      31,    2,  223,    2, 0x08,   29 /* Private */,
+      34,    1,  228,    2, 0x08,   32 /* Private */,
+      36,    1,  231,    2, 0x08,   34 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -135,6 +151,11 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::QImage,
+    QMetaType::Void, 0x80000000 | 29,   30,
+    QMetaType::Void, QMetaType::QString, QMetaType::QImage,   32,   33,
+    0x80000000 | 29, QMetaType::Int,   35,
+    QMetaType::Bool, QMetaType::Int,   37,
 
        0        // eod
 };
@@ -197,7 +218,22 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'on_btnpatient2_2_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_listpatient_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'genererQRCodeAvecLienDrive'
+        QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
+        // method 'genererCertificatImage'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const Patient &, std::false_type>,
+        // method 'envoyerCertificatParEmail'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QImage &, std::false_type>,
+        // method 'getPatientById'
+        QtPrivate::TypeAndForceComplete<Patient, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'ajouterCertificatImageDansBDD'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>
     >,
     nullptr
 } };
@@ -233,10 +269,17 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 22: _t->afficherStatistiques(); break;
         case 23: _t->on_btnpatient2_2_clicked(); break;
         case 24: _t->on_listpatient_clicked(); break;
+        case 25: { QImage _r = _t->genererQRCodeAvecLienDrive();
+            if (_a[0]) *reinterpret_cast< QImage*>(_a[0]) = std::move(_r); }  break;
+        case 26: _t->genererCertificatImage((*reinterpret_cast< std::add_pointer_t<Patient>>(_a[1]))); break;
+        case 27: _t->envoyerCertificatParEmail((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QImage>>(_a[2]))); break;
+        case 28: { Patient _r = _t->getPatientById((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< Patient*>(_a[0]) = std::move(_r); }  break;
+        case 29: { bool _r = _t->ajouterCertificatImageDansBDD((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *MainWindow::metaObject() const
@@ -258,13 +301,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 25)
+        if (_id < 30)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 25;
+        _id -= 30;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 25)
+        if (_id < 30)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 25;
+        _id -= 30;
     }
     return _id;
 }

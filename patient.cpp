@@ -57,11 +57,10 @@ void Patient::afficher(QTableWidget* tableWidget)
 
     tableWidget->clearContents();
     tableWidget->setRowCount(0);
-    tableWidget->setColumnCount(9);
-    tableWidget->setHorizontalHeaderLabels({"ID", "Nom", "Prénom", "Date Naissance", "Email", "Genre", "Adresse", "Groupe Sanguin", "Actions"});
+    tableWidget->setColumnCount(10);
+    tableWidget->setHorizontalHeaderLabels({"ID", "Nom", "Prénom", "Date Naissance", "Email", "Genre", "Adresse", "Groupe Sanguin", "Actions", "Certificat"});
 
     QSqlQuery query;
-    query.exec("SELECT * FROM PATIENTS ORDER BY ID_PAT");
     if (!query.exec("SELECT * FROM PATIENTS ORDER BY ID_PAT")) {
         QMessageBox::critical(nullptr, "Erreur SQL", "Impossible de récupérer les patients !");
         return;
@@ -79,16 +78,14 @@ void Patient::afficher(QTableWidget* tableWidget)
         tableWidget->setItem(row, 6, new QTableWidgetItem(query.value("ADRESSE").toString()));
         tableWidget->setItem(row, 7, new QTableWidgetItem(query.value("GROUPSANGUIN").toString()));
 
-        // Création des boutons
+        // ---------- BOUTONS MODIFIER & SUPPRIMER ----------
         QWidget* widget = new QWidget();
         QPushButton* btnModifier = new QPushButton("✏ Modifier");
         QPushButton* btnSupprimer = new QPushButton("🗑 Supprimer");
 
-        // Réduire la taille des boutons
         btnModifier->setFixedSize(80, 25);
         btnSupprimer->setFixedSize(80, 25);
 
-        // Appliquer un style
         QString buttonStyle = R"(
             QPushButton {
                 background-color: green;
@@ -99,7 +96,6 @@ void Patient::afficher(QTableWidget* tableWidget)
                 border-radius: 8px;
                 font-size: 12px;
                 font-weight: bold;
-                transition: all 0.3s ease-in-out;
             }
             QPushButton:hover {
                 background-color: #606060;
@@ -110,66 +106,74 @@ void Patient::afficher(QTableWidget* tableWidget)
                 border-color: #909090;
             }
         )";
-        QString buttonStyle2 = R"(
-            QPushButton {
-                background-color: red;
-                color: #ffffff;
-                border: 2px solid rgb(173, 216, 230);
-                padding: 5px;
-                margin: 3px;
-                border-radius: 8px;
-                font-size: 12px;
-                font-weight: bold;
-                transition: all 0.3s ease-in-out;
-            }
-            QPushButton:hover {
-                background-color: #606060;
-                border-color: #777777;
-            }
-            QPushButton:pressed {
-                background-color: #787878;
-                border-color: #909090;
-            }
-        )";
+        QString buttonStyle2 = buttonStyle;
+        buttonStyle2.replace("green", "red");
 
         btnModifier->setStyleSheet(buttonStyle);
         btnSupprimer->setStyleSheet(buttonStyle2);
 
-        // Récupérer l'ID du patient
         int patientID = query.value("ID_PAT").toInt();
-        qDebug()<<patientID;
         btnModifier->setProperty("id", patientID);
         btnSupprimer->setProperty("id", patientID);
 
-        // Récupérer la fenêtre principale pour connecter les signaux
         QObject* parentWidget = tableWidget->window();
         MainWindow* mainWindow = qobject_cast<MainWindow*>(parentWidget);
         if (mainWindow) {
-            // Connexion du bouton Modifier
             QObject::connect(btnModifier, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
                 mainWindow->modifierPatient(patientID);
             });
 
-            // Connexion du bouton Supprimer
             QObject::connect(btnSupprimer, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
                 mainWindow->supprimerPatient(patientID);
             });
         }
 
-        // Mise en page des boutons
         QHBoxLayout* layout = new QHBoxLayout();
         layout->addWidget(btnModifier);
         layout->addWidget(btnSupprimer);
         layout->setContentsMargins(3, 1, 3, 1);
         layout->setAlignment(Qt::AlignCenter);
         widget->setLayout(layout);
-
         tableWidget->setCellWidget(row, 8, widget);
+
+        // ---------- BOUTON CERTIFICAT ----------
+        QPushButton* btnCertificat = new QPushButton("📩 Certificat");
+        btnCertificat->setFixedSize(100, 25);
+        btnCertificat->setStyleSheet(R"(
+            QPushButton {
+                background-color: #2980b9;
+                color: white;
+                border: 2px solid rgb(173, 216, 230);
+                padding: 5px;
+                margin: 3px;
+                border-radius: 8px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: #1f618d;
+                border-color: #5dade2;
+            }
+            QPushButton:pressed {
+                background-color: #154360;
+                border-color: #3498db;
+            }
+        )");
+        btnCertificat->setProperty("id", patientID);
+
+        if (mainWindow) {
+            QObject::connect(btnCertificat, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
+                mainWindow->envoyerCertificat(patientID);  // Crée cette fonction
+            });
+        }
+
+        tableWidget->setCellWidget(row, 9, btnCertificat); // Nouvelle colonne "Certificat"
         row++;
     }
 
     tableWidget->resizeColumnsToContents();
 }
+
 void Patient::afficherSpecifique(QTableWidget* tableWidget, const QString& filtreNom)
 {
     if (!tableWidget) return;

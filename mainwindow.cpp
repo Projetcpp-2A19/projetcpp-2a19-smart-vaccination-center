@@ -25,6 +25,30 @@
 
 #include <QPropertyAnimation>
 #include <QGraphicsOpacityEffect>
+
+#include <QTemporaryFile>
+#include <QBuffer>
+#include <QDebug>
+#include <QImage>
+#include <QSslSocket>
+
+#include "qrcode/qrcodegen.hpp"
+using qrcodegen::QrCode;
+using qrcodegen::QrSegment;
+#include "mailing/smtpclient.h"
+#include "mailing/emailaddress.h"
+#include "mailing/mimehtml.h"
+#include "mailing/mimeinlinefile.h"
+
+#include <QBuffer>
+#include <QImage>
+#include <QFile>
+#include <QDebug>
+#include "mailing/mimemessage.h"
+#include "mailing/mimehtml.h"
+#include "mailing/mimeinlinefile.h"
+#include "mailing/emailaddress.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -349,6 +373,228 @@ void MainWindow::on_listpatient_clicked()
     p.afficher(ui->tableau3_2);  // Charge les patients dans le tableau
     ui->rapportettable->setCurrentWidget(ui->page_5);
 }
+void MainWindow::genererCertificatImage(const Patient &patient)
+{
+    QPixmap certificatPixmap(900, 600);
+    certificatPixmap.fill(Qt::white);
+
+    QPainter painter(&certificatPixmap);
+    painter.setRenderHint(QPainter::Antialiasing);
+
+    // Header banner
+    QRect headerRect(0, 0, certificatPixmap.width(), 80);
+    painter.fillRect(headerRect, QColor("#0d6efd")); // Blue banner
+    painter.setPen(Qt::white);
+    painter.setFont(QFont("Arial", 22, QFont::Bold));
+    painter.drawText(headerRect, Qt::AlignCenter, "Certificat de Fin de Vaccination");
+
+    // Draw a border
+    painter.setPen(QPen(Qt::gray, 2));
+    painter.drawRect(10, 10, certificatPixmap.width() - 20, certificatPixmap.height() - 20);
+
+    // Add logo (if available)
+    QPixmap logo(":/img/logo.png");  // Change to your actual resource/logo path
+    if (!logo.isNull())
+        painter.drawPixmap(30, 100, 100, 100, logo);
+
+    // Info section
+    painter.setPen(Qt::black);
+    painter.setFont(QFont("Arial", 14));
+    int leftMargin = 160;
+    int top = 120;
+    int lineSpacing = 40;
+
+    painter.drawText(leftMargin, top, QString("Nom : %1").arg(patient.getNom()));
+    painter.drawText(leftMargin, top + lineSpacing, QString("Prénom : %1").arg(patient.getPrenom()));
+    painter.drawText(leftMargin, top + 2 * lineSpacing, QString("Date de naissance : %1").arg(patient.getDateNaissance().toString("dd/MM/yyyy")));
+    painter.drawText(leftMargin, top + 3 * lineSpacing, QString("Vaccin complété le : %1").arg(QDate::currentDate().toString("dd/MM/yyyy")));
+
+    // Signature area
+    QFont font("Arial", 12, -1, true); // true pour italique
+    painter.setFont(font);
+    painter.drawText(certificatPixmap.width() - 300, certificatPixmap.height() - 100, "Signature du médecin");
+    painter.drawLine(certificatPixmap.width() - 300, certificatPixmap.height() - 95, certificatPixmap.width() - 100, certificatPixmap.height() - 95);
+
+    // Save image
+    QString filePath = "C:/Users/justmalek/Desktop/c++/vaxnestv2/certificat.jpg";
+    if (!certificatPixmap.save(filePath, "JPG")) {
+        qDebug() << "❌ Failed to save certificate image at:" << filePath;
+    } else {
+        qDebug() << "✅ Certificate image saved at:" << filePath;
+    }
+}
+
+bool MainWindow::ajouterCertificatImageDansBDD(int patientID)
+{
+    QString imagePath = "C:/Users/justmalek/Desktop/c++/vaxnestv2/certificat.jpg";
+
+    QFile file(imagePath);
+    if (!file.open(QIODevice::ReadOnly)) {
+        qDebug() << "❌ Impossible d’ouvrir le fichier certificat.jpg";
+        return false;
+    }
+
+    QByteArray imageData = file.readAll(); // Lire l’image
+    file.close();
+
+    QSqlQuery query;
+    query.prepare("UPDATE PATIENTS SET CERTIFICAT = :image WHERE ID_PAT = :id");
+    query.bindValue(":image", imageData);
+    query.bindValue(":id", patientID);
+
+    if (!query.exec()) {
+        qDebug() << "❌ Échec de l'enregistrement du certificat dans la base:" << query.lastError().text();
+        return false;
+    }
+
+    qDebug() << "✅ Certificat image enregistré dans la base pour le patient ID" << patientID;
+    return true;
+}
+
+QImage MainWindow::genererQRCodeAvecLienDrive()
+{
+    // Lien Google Drive transformé
+    QString lienImage = "https://drive.google.com/uc?export=view&id=1HfaF1eGw_ZD8LK2qdx8fxhxuYCKZmW8y";
+
+    using qrcodegen::QrCode;
+    QrCode qr = QrCode::encodeText(lienImage.toUtf8().constData(), QrCode::Ecc::LOW);
+
+    const int size = qr.getSize();
+    QImage qrImage(size, size, QImage::Format_RGB32);
+    qrImage.fill(Qt::white);
+
+    for (int y = 0; y < size; ++y)
+        for (int x = 0; x < size; ++x)
+            if (qr.getModule(x, y))
+                qrImage.setPixel(x, y, qRgb(0, 0, 0));
+
+    return qrImage.scaled(200, 200);
+}
+
+
+void MainWindow::envoyerCertificatParEmail(const QString &emailDestinataire, const QImage &qrImage)
+{
+    // Setup SMTP client (Gmail with App Password)
+    SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
+    smtp.setUser("melekbenrejeb1919@gmail.com");
+    smtp.setPassword("btlkydkksieygnww");  // ✅ App Password
+
+    // Debug socket errors
+    QObject::connect(smtp.getSocket(), &QSslSocket::errorOccurred, [](QAbstractSocket::SocketError err){
+        qDebug() << "Socket error:" << err;
+    });
+
+    // Build the email message
+    MimeMessage message;
+    EmailAddress from("melekbenrejeb1919@gmail.com", "malekbenrejeb");
+    EmailAddress to(emailDestinataire, "Destinataire");
+
+    message.setSender(from);
+    message.addRecipient(to);
+    message.setSubject("Votre certificat de fin de vaccination");
+
+    // HTML body
+    MimeHtml *html = new MimeHtml;
+    html->setHtml(R"(
+        <html>
+        <body style="font-family: Arial, sans-serif; background-color: #f5f5f5; padding: 20px;">
+            <h2 style="color: #0d6efd;">🎉 Félicitations !</h2>
+            <p>Vous avez complété votre vaccination. Veuillez trouver ci-dessous votre certificat.</p>
+            <p>📎 Scannez ce QR Code pour télécharger votre certificat :</p>
+            <img src="cid:qrimage" width="200" height="200" alt="QR code">
+            <p style="margin-top: 20px;">Merci de votre confiance.</p>
+        </body>
+        </html>
+    )");
+
+    // 1. Save QR image as "certificat.png"
+    QString qrPath = "C:/Users/justmalek/Desktop/c++/vaxnestv2/certificat.png";
+
+    // Save QR to file
+    QFile *qrFile = new QFile(qrPath);
+    if (!qrFile->open(QIODevice::WriteOnly)) {
+        qDebug() << "❌ Failed to write QR image to:" << qrPath;
+        return;
+    }
+    qrImage.save(qrFile, "PNG");
+    qrFile->close();
+
+    // Reopen for reading to embed in email
+    if (!qrFile->open(QIODevice::ReadOnly)) {
+        qDebug() << "❌ Failed to reopen QR image for reading!";
+        return;
+    }
+
+    // 2. Attach QR image as inline file
+    MimeInlineFile *qrAttachment = new MimeInlineFile(qrFile);
+    qrAttachment->setContentType("image/png");
+    qrAttachment->setContentId("qrimage"); // must match <img src="cid:qrimage">
+    qrAttachment->setEncoding(MimePart::Base64);
+
+    // 3. Add parts to the message
+    message.addPart(html);
+    message.addPart(qrAttachment);
+
+    // 4. SMTP send process
+    smtp.connectToHost();
+    if (!smtp.waitForReadyConnected()) {
+        qDebug() << "❌ Failed to connect to host!";
+        return;
+    }
+
+    smtp.login("melekbenrejeb1919@gmail.com","btlkydkksieygnww");
+    if (!smtp.waitForAuthenticated()) {
+        qDebug() << "❌ Login failed! Check app password.";
+        return;
+    }
+
+    smtp.sendMail(message);
+    if (!smtp.waitForMailSent()) {
+        qDebug() << "❌ Failed to send email!";
+    } else {
+        qDebug() << "✅ Email sent successfully to:" << emailDestinataire;
+    }
+
+    smtp.quit();
+}
+
+Patient MainWindow::getPatientById(int id)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * FROM PATIENTS WHERE ID_PAT = :id");
+    query.bindValue(":id", id);
+
+    if (query.exec() && query.next()) {
+        int id = query.value("ID_PAT").toInt();
+        QString nom = query.value("NOM_PAT").toString();
+        QString prenom = query.value("PRENOM_PAT").toString();
+        QDate dateNaissance = query.value("DATENAIS_PAT").toDate();
+        QString email = query.value("EMAIL").toString();
+        QString genre = query.value("GENRE").toString();
+        QString adresse = query.value("ADRESSE").toString();
+        QString groupeSanguin = query.value("GROUPSANGUIN").toString();
+
+        return Patient(id, nom, prenom, dateNaissance, email, genre, adresse, groupeSanguin);
+    } else {
+        qDebug() << "Erreur : patient non trouvé ou erreur SQL :" << query.lastError().text();
+        return Patient(); // patient vide
+    }
+}
+
+void MainWindow::envoyerCertificat(int patientID)
+{
+    qDebug() << "declaratient patient" ;
+    Patient patient = getPatientById(patientID); // récupérez l'objet Patient
+    qDebug() << "generation certificat";
+    genererCertificatImage(patient);
+    qDebug() << "Qrcode"  ;
+    ajouterCertificatImageDansBDD(patient.getId());
+    QImage qrCode = genererQRCodeAvecLienDrive();
+    qDebug() << "1:";
+    envoyerCertificatParEmail(patient.getEmail().trimmed(), qrCode);
+    qDebug() << "mail envoyer!:" << patientID;
+}
+
 void MainWindow::on_btnmedecin_clicked()
 {
     ui->sqs->setCurrentIndex(0);

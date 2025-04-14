@@ -33,6 +33,7 @@ public:
     QString getGroupSanguin() const;
     void setGroupSanguin(const QString &groupSanguin);
 
+
     // CRUD Operations
     bool ajouter();
     void afficher(QTableWidget* tableWidget);
