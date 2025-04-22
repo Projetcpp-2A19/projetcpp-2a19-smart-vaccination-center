@@ -15,7 +15,7 @@
 #include <QDebug>
 #include <QNetworkAccessManager>  // Ajout pour les requêtes HTTP
 #include <QNetworkReply>          // Pour gérer les réponses des requêtes
-
+#include "arduino.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -81,6 +81,7 @@ private:
     void afficherRendezVous();              // Affichage par défaut
     void afficherRendezVousTrieParPriorite(const QString &ordre);   // Affichage trié par priorité
     void afficherRendezVousTrieParDate(const QString &ordre);    // Affichage trié par date
+    Arduino A;
 protected:
     void mousePressEvent(QMouseEvent *event) override;  // Detect clicks outside the popup
     void showEvent(QShowEvent *event) override;

@@ -16184,22 +16184,22 @@ text : search
            </item>
            <item>
             <property name="text">
-             <string>Priorite  ↑</string>
+             <string>Priorite  ⬆️</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Priorite  ↓</string>
+             <string>Priorite  ⬇️</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Date de rendez-vous  ↑</string>
+             <string>Date de rendez-vous  ⬆️</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Date de rendez-vous  ↓</string>
+             <string>Date de rendez-vous  ⬇️</string>
             </property>
            </item>
           </widget>

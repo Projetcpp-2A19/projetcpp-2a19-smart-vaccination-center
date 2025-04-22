@@ -30,6 +30,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include "sms.h"
+#include "arduino.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -71,6 +72,16 @@ MainWindow::MainWindow(QWidget *parent)
         QMessageBox::critical(this, "Erreur", "Échec de l'affichage des RendezVous");
     }
     //envoyerRappelRendezVous();
+    int ret=    A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+        break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+    QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+    //le slot update_label suite à la reception du signal readyRe
 }
 
 
@@ -679,7 +690,7 @@ void MainWindow::chargerRendezVousDansCalendrier() {
 }
 void MainWindow::on_calendarWidget_clicked(const QDate &date) {
     QSqlQuery query;
-    query.prepare("SELECT id_rdv, TO_CHAR(heure_rdv, 'HH24:MI') AS heure_rdv, priorite_rdv, status FROM RENDEZ_VOUS WHERE date_rdv = TO_DATE(:date, 'YYYY-MM-DD')");
+    query.prepare("SELECT id_rdv, TO_CHAR(heure_rdv, 'HH24:MI') AS heure_rdv, priorite_rdv, status, id_pat FROM RENDEZ_VOUS WHERE date_rdv = TO_DATE(:date, 'YYYY-MM-DD')");
     query.bindValue(":date", date.toString("yyyy-MM-dd"));
 
     if (!query.exec()) {
@@ -690,8 +701,8 @@ void MainWindow::on_calendarWidget_clicked(const QDate &date) {
     qDebug() << "Requête exécutée avec succès.";
 
     ui->tableWidget->setRowCount(0); // Effacer l'ancien contenu
-    ui->tableWidget->setColumnCount(4);
-    ui->tableWidget->setHorizontalHeaderLabels(QStringList() << "ID" << "Heure" << "Priorité" << "Status");
+    ui->tableWidget->setColumnCount(5);
+    ui->tableWidget->setHorizontalHeaderLabels(QStringList() << "ID" << "Heure" << "Priorité" << "Status" << "ID patient");
 
     int row = 0;
 
@@ -699,13 +710,15 @@ void MainWindow::on_calendarWidget_clicked(const QDate &date) {
         qDebug() << "Données reçues -> ID:" << query.value(0).toInt()
             << ", Heure:" << query.value(1).toString()
             << ", Priorité:" << query.value(2).toString()
-            << ", Status:" << query.value(3).toString();
+            << ", Status:" << query.value(3).toString()
+            << ", ID patient:" << query.value(4).toString();
 
         ui->tableWidget->insertRow(row);
         ui->tableWidget->setItem(row, 0, new QTableWidgetItem(query.value(0).toString())); // ID
         ui->tableWidget->setItem(row, 1, new QTableWidgetItem(query.value(1).toString())); // Heure
         ui->tableWidget->setItem(row, 2, new QTableWidgetItem(query.value(2).toString())); // Priorité
         ui->tableWidget->setItem(row, 3, new QTableWidgetItem(query.value(3).toString())); // Status
+        ui->tableWidget->setItem(row, 4, new QTableWidgetItem(query.value(4).toString())); // id_pat
         row++;
     }
 
@@ -719,121 +732,7 @@ void MainWindow::on_btnrendezv3_clicked() {
     ui->sqs->setCurrentIndex(16 );
 }
 
-/*void MainWindow::envoyerRappelRendezVous() {
-    QSqlQuery query;
-    query.prepare("SELECT p.tel, r.date_rdv, r.heure_rdv "
-                  "FROM RENDEZ_VOUS r "
-                  "JOIN PATIENTS p ON r.id_pat = p.id_pat "
-                  );
 
-    if (!query.exec()) {
-        QMessageBox::warning(this, "Erreur", "Échec de récupération des rendez-vous : " + query.lastError().text());
-        return;
-    }
-
-    QString accountSID = qgetenv("TWILIO_SID");
-    QString authToken = qgetenv("TWILIO_TOKEN");
-    QString twilioNumber = "+16602286692";  // Ajoute le préfixe international ici
-
-    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-
-    while (query.next()) {
-        QString phoneNumber = query.value(0).toString().trimmed();
-        QString dateRdv = query.value(1).toDate().toString("yyyy-MM-dd");
-        QString heureRdv = query.value(2).toTime().toString("hh:mm");
-
-        if (phoneNumber.length() != 8) { // Vérifie que c'est bien un numéro tunisien
-            qDebug() << "Numéro de téléphone invalide : " << phoneNumber;
-            continue;
-        }
-
-        QString message = "Rappel : Vous avez un rendez-vous aujourd'hui à " + heureRdv;
-
-        // Construire la requête HTTP pour Twilio
-        QNetworkRequest request(QUrl("https://api.twilio.com/2010-04-01/Accounts/" + accountSID + "/Messages.json"));
-        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
-
-        QUrlQuery params;
-        params.addQueryItem("To", "+216" + phoneNumber); // Ajout du préfixe de la Tunisie
-        params.addQueryItem("From", twilioNumber);
-        params.addQueryItem("Body", message);
-
-        QByteArray postData = params.query().toUtf8();
-        request.setRawHeader("Authorization", "Basic " + QByteArray(QString(accountSID + ":" + authToken).toUtf8()).toBase64());
-
-        // Envoyer la requête POST
-        QNetworkReply *reply = manager->post(request, postData);
-        connect(reply, &QNetworkReply::finished, [reply]() {
-            if (reply->error() == QNetworkReply::NoError) {
-                qDebug() << "SMS envoyé avec succès !";
-            } else {
-                qDebug() << "Erreur d'envoi du SMS :" << reply->errorString();
-            }
-            reply->deleteLater();
-        });
-    }
-}
-
-
-void MainWindow::on_pushButton_187_clicked() {
-    envoyerRappelRendezVous();
-}
-
-void MainWindow::envoyerRappelRendezVous() {
-    QSqlQuery query;
-    query.prepare("SELECT p.tel, r.date_rdv, r.heure_rdv "
-                  "FROM RENDEZ_VOUS r "
-                  "JOIN PATIENTS p ON r.id_pat = p.id_pat "
-                  "WHERE r.date_rdv = CURRENT_DATE AND r.heure_rdv >= (CURRENT_TIME + INTERVAL '2' HOUR)");
-
-    if (!query.exec()) {
-        QMessageBox::warning(this, "Erreur", "Échec de récupération des rendez-vous : " + query.lastError().text());
-        return;
-    }
-
-    QString accountSID = "AC76504e48b30a646ff4be149648929856";
-    QString authToken = "179d814c8c2028957a73e404e421c333";
-    QString twilioNumber = "+16602286692";  // Ajoute le préfixe international ici
-
-    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-
-    while (query.next()) {
-        QString phoneNumber = query.value(0).toString().trimmed();
-        QString dateRdv = query.value(1).toDate().toString("yyyy-MM-dd");
-        QString heureRdv = query.value(2).toTime().toString("hh:mm");
-
-        if (phoneNumber.length() != 8) { // Vérifie que c'est bien un numéro tunisien
-            qDebug() << "Numéro de téléphone invalide : " << phoneNumber;
-            continue;
-        }
-
-        QString message = "Rappel : Vous avez un rendez-vous aujourd'hui à " + heureRdv;
-
-        // Construire la requête HTTP pour Twilio
-        QNetworkRequest request(QUrl("https://api.twilio.com/2010-04-01/Accounts/" + accountSID + "/Messages.json"));
-        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
-
-        QUrlQuery params;
-        params.addQueryItem("To", "+216" + phoneNumber); // Ajout du préfixe de la Tunisie
-        params.addQueryItem("From", twilioNumber);
-        params.addQueryItem("Body", message);
-
-        QByteArray postData = params.query().toUtf8();
-        request.setRawHeader("Authorization", "Basic " + QByteArray(QString(accountSID + ":" + authToken).toUtf8()).toBase64());
-
-        // Envoyer la requête POST
-        QNetworkReply *reply = manager->post(request, postData);
-        connect(reply, &QNetworkReply::finished, [reply]() {
-            if (reply->error() == QNetworkReply::NoError) {
-                qDebug() << "SMS envoyé avec succès !";
-            } else {
-                qDebug() << "Erreur d'envoi du SMS :" << reply->errorString();
-            }
-            reply->deleteLater();
-        });
-    }
-}
-*/
 void MainWindow::on_pushButton_187_clicked()
 {
     QSqlQuery query;

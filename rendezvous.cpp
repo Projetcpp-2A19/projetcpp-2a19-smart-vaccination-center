@@ -111,9 +111,9 @@ QMap<QString, int> RendezVous::getStatistiquesParDate() {
     QSqlQuery query("SELECT TO_CHAR(date_rdv, 'YYYY-MM-DD'), COUNT(*) FROM RENDEZ_VOUS GROUP BY TO_CHAR(date_rdv, 'YYYY-MM-DD') ORDER BY TO_CHAR(date_rdv, 'YYYY-MM-DD')");
 
     while (query.next()) {
-        QString type = query.value(0).toString();
+        QString date = query.value(0).toString();
         int count = query.value(1).toInt();
-        stats[type] = count;
+        stats[date] = count;
     }
 
     return stats;

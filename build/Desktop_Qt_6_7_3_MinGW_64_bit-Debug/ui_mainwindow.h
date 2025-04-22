@@ -12968,7 +12968,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        sqs->setCurrentIndex(15);
+        sqs->setCurrentIndex(5);
         stackedWidget_2->setCurrentIndex(5);
         stackedWidget_3->setCurrentIndex(6);
         statmedcin->setCurrentIndex(2);
@@ -13622,10 +13622,10 @@ public:
         btnrendezv3->setText(QCoreApplication::translate("MainWindow", "Calendrier         \360\237\227\223", nullptr));
         label_327->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
         comboBox_38->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
-        comboBox_38->setItemText(1, QCoreApplication::translate("MainWindow", "Priorite  \342\206\221", nullptr));
-        comboBox_38->setItemText(2, QCoreApplication::translate("MainWindow", "Priorite  \342\206\223", nullptr));
-        comboBox_38->setItemText(3, QCoreApplication::translate("MainWindow", "Date de rendez-vous  \342\206\221", nullptr));
-        comboBox_38->setItemText(4, QCoreApplication::translate("MainWindow", "Date de rendez-vous  \342\206\223", nullptr));
+        comboBox_38->setItemText(1, QCoreApplication::translate("MainWindow", "Priorite  \342\254\206\357\270\217", nullptr));
+        comboBox_38->setItemText(2, QCoreApplication::translate("MainWindow", "Priorite  \342\254\207\357\270\217", nullptr));
+        comboBox_38->setItemText(3, QCoreApplication::translate("MainWindow", "Date de rendez-vous  \342\254\206\357\270\217", nullptr));
+        comboBox_38->setItemText(4, QCoreApplication::translate("MainWindow", "Date de rendez-vous  \342\254\207\357\270\217", nullptr));
 
         pushButton_187->setText(QCoreApplication::translate("MainWindow", "Sms", nullptr));
         label_328->setText(QCoreApplication::translate("MainWindow", "equibment", nullptr));
