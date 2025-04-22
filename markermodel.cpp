@@ -31,8 +31,8 @@ int MarkerModel::rowCount(const QModelIndex &parent) const //nbr totale de coord
 
 QVariant MarkerModel::data(const QModelIndex &index, int role) const//Fournit les données d’une coordonnée spécifique à QM
 {
-    if (!index.isValid() || index.row() >= m_coordinates.count())
-        return QVariant();
+    if (!index.isValid() || index.row() >= m_coordinates.count()) // vérifie que l’index est valide
+        return QVariant(); // aucun donnes dispo
 // Récupération des données (QML)
     const QGeoCoordinate &coord = m_coordinates.at(index.row());
 
@@ -69,8 +69,8 @@ void MarkerModel::addMarker(const QGeoCoordinate &coord)
 }
 void MarkerModel::loadFromJson()
 {
-    QString filePath = QCoreApplication::applicationDirPath() + "/coordinates.json";
-    QFile file(filePath);
+    QString filePath = QCoreApplication::applicationDirPath() + "/coordinates.json"; //chemin
+    QFile file(filePath); //cree un ficher p reagire avec fichier
 
     if (!file.exists()) {
         qWarning() << "❌ Le fichier coordinates.json n'existe pas :" << filePath;
@@ -82,12 +82,12 @@ void MarkerModel::loadFromJson()
         return;
     }
 
-    QByteArray jsonData = file.readAll();
+    QByteArray jsonData = file.readAll(); //lecture de contenu
     file.close();
 
-    QJsonParseError parseError;
+    QJsonParseError parseError; //Tente de convertir le texte JSON en un QJsonDocument
     QJsonDocument doc = QJsonDocument::fromJson(jsonData, &parseError);
-    if (parseError.error != QJsonParseError::NoError) {
+    if (parseError.error != QJsonParseError::NoError) { //si fama eruer stake dans parseeroer
         qWarning() << "❌ Erreur lors du parsing JSON :" << parseError.errorString();
         return;
     }
@@ -97,15 +97,15 @@ void MarkerModel::loadFromJson()
         return;
     }
 
-    QJsonArray array = doc.array();
-
+    QJsonArray array = doc.array(); //recupere
+//miss ajour de modell
     beginResetModel();
     m_coordinates.clear();
 
     for (const QJsonValue &val : array) {
         if (!val.isObject())
             continue;
-
+//recupere les valeur
         QJsonObject obj = val.toObject();
         double lat = obj["latitude"].toDouble();
         double lon = obj["longitude"].toDouble();
@@ -118,7 +118,7 @@ void MarkerModel::loadFromJson()
             qWarning() << "⚠️ Coordonnée invalide ignorée :" << obj;
         }
     }
-
+//miss a jour
     endResetModel();
     qDebug() << "✅ Modèle rechargé depuis le fichier JSON.";
 }
@@ -163,16 +163,16 @@ void MarkerModel::removeLocation(const QString &localisation)
 {
     QFile file(QCoreApplication::applicationDirPath() + "/coordinates.json");
 
-    if (!file.open(QIODevice::ReadOnly)) {
+    if (!file.open(QIODevice::ReadOnly)) {//verfication de de accede a .json
         qWarning() << "❌ Impossible d'ouvrir coordinates.json pour lecture";
         return;
     }
 
-    if (localisation.trimmed().isEmpty()) {
+    if (localisation.trimmed().isEmpty()) { //verification de mocalisation recu
         qWarning() << "❌ Nom de localisation vide ou invalide reçu.";
         return;
     }
-
+//lecture de json
     QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
     QJsonArray array = doc.array();
     file.close();
@@ -180,7 +180,7 @@ void MarkerModel::removeLocation(const QString &localisation)
     QJsonArray updatedArray;
     QList<QGeoCoordinate> coordsASupprimer;
 
-    // Comparaison avec une tolérance
+    // Comparaison avec une tolérance recherche de loc a supp
     for (const QJsonValue &val : array) {
         QJsonObject obj = val.toObject();
         QString loc = obj["localisation"].toString();
@@ -195,13 +195,13 @@ void MarkerModel::removeLocation(const QString &localisation)
             }
         }
     }
-
+//reecriture de json
     if (file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
         file.write(QJsonDocument(updatedArray).toJson());
         file.close();
     }
 
-    // Supprimer les coordonnées du modèle avec une tolérance sur les coordonnées
+    // Supprimer les coordonnées du modèle avec une tolérance sur les coordonnées supp de lacarte
     bool removed = false;
     for (const QGeoCoordinate &coord : coordsASupprimer) {
         for (int i = 0; i < m_coordinates.size(); ++i) {
@@ -213,7 +213,7 @@ void MarkerModel::removeLocation(const QString &localisation)
             }
         }
     }
-
+//miss a jour
     if (removed) {
         beginResetModel();
         endResetModel();

@@ -103,9 +103,9 @@ QMap<QString, int> Lab::getStatistiquesParstatus() {
     QSqlQuery query("SELECT STATUS, COUNT(*) FROM LABORATOIRES GROUP BY STATUS");
 
     while (query.next()) {
-        QString type = query.value(0).toString();
-        int count = query.value(1).toInt();
-        stats[type] = count;
+        QString type = query.value(0).toString(); //recupere la stat
+        int count = query.value(1).toInt(); //counr le stat
+        stats[type] = count; //ajout
     }
 
     return stats;

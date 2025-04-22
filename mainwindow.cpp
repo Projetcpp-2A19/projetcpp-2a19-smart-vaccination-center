@@ -615,7 +615,7 @@ void MainWindow::showStatistiques() {
 
     QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(ui->chartContainer->layout());
 
-    // Étape 3 : Créer la série de données (QPieSeries)
+    // Étape 3 : Créer la série de données avec les stats. (QPieSeries)
     QPieSeries *pieSeries = new QPieSeries();
     QMap<QString, int> statsType = labo.getStatistiquesParstatus();
 
