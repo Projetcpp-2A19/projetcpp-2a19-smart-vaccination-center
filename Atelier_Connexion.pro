@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql network
+QT       += core gui sql network charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -46,6 +46,7 @@ SOURCES += \
     mimeqpformatter.cpp \
     mimetext.cpp \
     quotedprintable.cpp \
+    sms.cpp \
     smtpclient.cpp
 
 HEADERS += \
@@ -69,6 +70,7 @@ HEADERS += \
     mimeqpformatter.h \
     mimetext.h \
     quotedprintable.h \
+    sms.h \
     smtpclient.h \
     smtpmime_global.h
 

@@ -7307,6 +7307,43 @@ QPushButton:disabled {
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="sms">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    background-color: rgb(173, 216, 230);
+    color: #ffffff;
+    border: 2px solid rgb(173, 216, 230);
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>SMS</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QLabel" name="label_231">
            <property name="styleSheet">
             <string notr="true"> color: #2a2a2a  ;

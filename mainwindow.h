@@ -13,6 +13,7 @@
 #include "mimemessage.h"
 #include "mimepart.h"
 #include "mimetext.h"
+#include "sms.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -61,6 +62,11 @@ private slots:
 
 
     void on_emailButton_clicked();
+
+    void on_sms_clicked();
+    void checkLowStockAndNotify();
+    void sendStockAlertEmail(const QString &nom, const QString &type, const QString &pays, int stock);
+    void showStockPieChart();
 
 private:
     Ui::MainWindow *ui;

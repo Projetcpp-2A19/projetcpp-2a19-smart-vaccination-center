@@ -9,6 +9,22 @@
 #include <QDate>
 #include<QStandardPaths>
 #include<QDesktopServices>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+
+
+void logToFile(const QString &event, const QString &details) {
+    QFile file("app_log.txt");
+    if (file.open(QIODevice::Append | QIODevice::Text)) {
+        QTextStream out(&file);
+        QString timestamp = QDateTime::currentDateTime().toString("[yyyy-MM-dd HH:mm:ss] ");
+        out << timestamp << event << ": " << details << "\n";
+        file.close();
+    }
+}
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -18,8 +34,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->exit, &QPushButton::clicked, this, &MainWindow::close);
     connect(ui->searchLineEdit, &QLineEdit::textChanged, this, &MainWindow::applyFilter);
     connect(ui->sortComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::onSortChanged);
-    connect(ui->pdfButton, &QPushButton::clicked, this, &MainWindow::on_pdfButton_clicked);
+    /*connect(ui->pdfButton, &QPushButton::clicked, this, &MainWindow::on_pdfButton_clicked);
     connect(ui->emailButton, &QPushButton::clicked, this, &MainWindow::on_emailButton_clicked);
+    connect(ui->sms, &QPushButton::clicked, this, &MainWindow::on_sms_clicked);*/
 
 
 
@@ -109,7 +126,8 @@ void MainWindow::on_btnequiprmrnt3_clicked()
 
 void MainWindow::on_btnvaccins2_clicked()
 {
-    ui->sqs->setCurrentIndex(14);
+    showStockPieChart();
+    //ui->sqs->setCurrentIndex(14);
 }
 
 void MainWindow::on_btnrendezv2_clicked()
@@ -167,6 +185,8 @@ void MainWindow::on_submit_clicked()
 
         if (test) {
             ui->tableau5->setModel(V.afficher());
+            logToFile("Vaccine added", nom + ", " + type + ", " + paysOrigine);
+            checkLowStockAndNotify(); // 🚨 Add this line
             QMessageBox::information(nullptr, QObject::tr("Succès"),
                                      QObject::tr("Ajout effectué.\nClick Cancel pour fermer."), QMessageBox::Cancel);
             ui->nom->clear();
@@ -202,8 +222,10 @@ void MainWindow::on_del_clicked()
     reply = QMessageBox::question(this, tr("Suppression"), tr("Voulez-vous vraiment supprimer cet élément ?"),
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes) {
+        Vaccin vacToDelete = vac.getVaccinById(id);
         Vaccin r;
         if (r.supprimer(id)) {
+            logToFile("Vaccine deleted", vacToDelete.getNom() + ", " + vacToDelete.getType() + ", " + vacToDelete.getPaysOrigine()); // 📝 Log it
             QMessageBox::information(this, tr("Suppression"), tr("Suppression réussie."));
             ui->tableau5->setModel(vac.afficher());
 
@@ -269,6 +291,8 @@ void MainWindow::on_pushButton_159_clicked()
             bool test = vac.modifier(id,nom,type,fabricant,dateFabrication,dateExpiration,temperature,paysOrigine,stock);
             if (test) {
                 ui->tableau5->setModel(vac.afficher());
+                logToFile("Vaccine modified", nom + ", " + type + ", " + paysOrigine);
+                checkLowStockAndNotify(); // 🚨 Add this line
                 QMessageBox::information(nullptr, QObject::tr("Succès"),
                                          QObject::tr("Modification effectué.\nClick Cancel pour fermer."), QMessageBox::Cancel);
                 ui->nom->clear();
@@ -296,7 +320,7 @@ void MainWindow::applyFilter(const QString &text)
 }
 void MainWindow::onSortChanged(int index)
 {
-    ui->searchLineEdit->clear();  // Assuming your search bar is called searchLineEdit
+    ui->searchLineEdit->clear();
 
     QString orderBy;
 
@@ -331,7 +355,7 @@ void MainWindow::on_pdfButton_clicked()
     writer.setPageSize(QPageSize::A4);
     writer.setResolution(300);
     writer.setTitle(tr("Vaccin Report"));
-    writer.setCreator("Your Application Name");
+    writer.setCreator("VAX Nest");
 
     QPainter painter(&writer);
     if (!painter.isActive()) {
@@ -477,27 +501,27 @@ void MainWindow::on_pdfButton_clicked()
 
     painter.end();
 
-    // Open the PDF after creation (optional)
+
     QDesktopServices::openUrl(QUrl::fromLocalFile(filePath));
 }
 
 void MainWindow::on_emailButton_clicked()
 {
-    // Create the SMTP client for TLS connection on port 587
+
     SmtpClient smtp("smtp.gmail.com", 587, SmtpClient::TlsConnection);
 
-    // Connect to the SMTP server and check if it succeeds
+
     smtp.connectToHost();
     if (smtp.waitForReadyConnected()) {
         qDebug() << "Connected to the SMTP server!";
 
-        // Now login using the app password
+
         smtp.login("3abedelsmadGathafi@gmail.com", "qbap zjeo obxj ixse", SmtpClient::AuthLogin);
 
         if (smtp.waitForAuthenticated()) {
             qDebug() << "Logged in successfully!";
 
-            // Create the MIME message
+
             MimeMessage message;
             EmailAddress sender("3abedelsmadGathafi@gmail.com", "VAX NEST");
             message.setSender(sender);
@@ -511,17 +535,17 @@ void MainWindow::on_emailButton_clicked()
             text->setText("Dear Admin,\n\nSome stock levels are getting low. Please review.\n\nBest regards,\nYour Application");
             message.addPart(text);
 
-            // Send the email
+
             smtp.sendMail(message);
 
-            // Wait for the mail to be sent and quit the connection
+
             if (smtp.waitForMailSent()) {
                 QMessageBox::information(this, "Email Sent", "Stock alert email has been sent successfully.");
             } else {
                 QMessageBox::critical(this, "Mail Sending Error", "Failed to send the email.");
             }
 
-            // Quit after sending the mail
+
             smtp.quit();
         } else {
             qDebug() << "Failed to log in to the SMTP server.";
@@ -534,3 +558,108 @@ void MainWindow::on_emailButton_clicked()
 }
 
 
+
+void MainWindow::on_sms_clicked()
+{
+    SmsSender sender("b7e5a19e50227693c9f5a908a1382769-dbfcdd8b-0e1d-4392-bd72-7c50d3600a4f", "447491163443");
+    sender.sendSms("+21646598646", "Hello from Qt!");
+    QMessageBox::critical(this, "Connection Error", "hi");
+
+}
+
+
+void MainWindow::sendStockAlertEmail(const QString &nom, const QString &type, const QString &pays, int stock) {
+    SmtpClient smtp("smtp.gmail.com", 587, SmtpClient::TlsConnection);
+    smtp.connectToHost();
+    if (smtp.waitForReadyConnected()) {
+        smtp.login("3abedelsmadGathafi@gmail.com", "qbap zjeo obxj ixse", SmtpClient::AuthLogin);
+        if (smtp.waitForAuthenticated()) {
+            MimeMessage message;
+            EmailAddress sender("3abedelsmadGathafi@gmail.com", "AUTO VAX NEST");
+            message.setSender(sender);
+
+            EmailAddress recipient("allanimohammed73@gmail.com", "Mohamed");
+            message.addRecipient(recipient);
+
+            message.setSubject("Low Vaccine Stock Alert");
+
+            QString content = QString("Dear Admin,\n\nStock for vaccine %1 (%2 - %3) is low.\nCurrent stock: %4 units.\n\nPlease restock soon.")
+                                  .arg(nom, type, pays).arg(stock);
+
+            MimeText *text = new MimeText();
+            text->setText(content);
+            message.addPart(text);
+
+            qDebug() << "📤 Trying to send email...";
+            smtp.sendMail(message);
+            qDebug() << "✅ sendMail() called.";
+
+            if (smtp.waitForMailSent()) {
+                qDebug() << "📬 Email successfully sent.";
+            } else {
+                qDebug() << "❌ Failed to send email after calling sendMail.";
+            }
+
+            smtp.quit();
+        } else {
+            qDebug() << "❌ Failed to authenticate.";
+        }
+    } else {
+        qDebug() << "❌ Failed to connect.";
+    }
+}
+
+
+
+void MainWindow::checkLowStockAndNotify() {
+    QSqlQuery query;
+    query.prepare("SELECT nom_vac, type_vac, pays_origin, stock FROM vaccins WHERE stock <= 10");
+
+    if (query.exec()) {
+        while (query.next()) {
+            QString nom = query.value(0).toString();
+            QString type = query.value(1).toString();
+            QString pays = query.value(2).toString();
+            int stock = query.value(3).toInt();
+
+            // Compose message
+            QString details = QString("Vaccine %1 (%2 - %3) stock is low: %4 units left.")
+                                  .arg(nom, type, pays).arg(stock);
+
+            // Log and send
+            logToFile("Stock alert", details);
+            sendStockAlertEmail(nom, type, pays, stock);
+        }
+    }
+}
+
+void MainWindow::showStockPieChart() {
+    QPieSeries *series = new QPieSeries();
+
+    QSqlQuery query;
+    query.prepare("SELECT type_vac, SUM(stock) FROM vaccins GROUP BY type_vac");
+    if (query.exec()) {
+        while (query.next()) {
+            QString type = query.value(0).toString();
+            int stock = query.value(1).toInt();
+            series->append(type, stock);
+        }
+    }
+
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Stock Distribution by Vaccine Type");
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignRight);
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    QDialog *dialog = new QDialog(this);
+    dialog->setWindowTitle("Statistics - Pie Chart");
+    QVBoxLayout *layout = new QVBoxLayout(dialog);
+    layout->addWidget(chartView);
+    dialog->setLayout(layout);
+    dialog->resize(600, 400);
+    dialog->exec();
+}
