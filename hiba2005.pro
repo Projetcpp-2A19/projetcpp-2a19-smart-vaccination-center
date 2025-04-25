@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui serialport
 QT += charts
 
 
@@ -14,6 +14,7 @@ SOURCES += \
     Login.cpp \
     Medecin.cpp \
     MotDePasseOublie.cpp \
+    arduino.cpp \
     connection.cpp \
     main.cpp \
     mainwindow.cpp
@@ -22,6 +23,7 @@ HEADERS += \
     Login.h \
     Medecin.h \
     MotDePasseOublie.h \
+    arduino.h \
     connection.h \
     mainwindow.h
 

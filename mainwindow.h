@@ -16,6 +16,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QVBoxLayout>
+#include "arduino.h"
 
 //using namespace QtCharts;
 QT_BEGIN_NAMESPACE
@@ -64,6 +65,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QWidget *popupWidget;  // The popup widget
+    //Arduino A;
 protected:
     void mousePressEvent(QMouseEvent *event) override;  // Detect clicks outside the popup
 };

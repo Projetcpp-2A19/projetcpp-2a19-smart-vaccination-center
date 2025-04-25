@@ -1075,7 +1075,7 @@ QGroupBox::title {
            <x>10</x>
            <y>20</y>
            <width>241</width>
-           <height>671</height>
+           <height>651</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1520,9 +1520,9 @@ QPushButton:disabled {
        <widget class="QWidget" name="layoutWidget_3">
         <property name="geometry">
          <rect>
-          <x>537</x>
+          <x>557</x>
           <y>90</y>
-          <width>391</width>
+          <width>371</width>
           <height>57</height>
          </rect>
         </property>

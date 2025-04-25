@@ -23,6 +23,7 @@
 #include <QFont>
 #include <QLabel>
 #include <QDebug>
+#include "arduino.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -83,6 +84,14 @@ MainWindow::MainWindow(QWidget *parent)
 
         connect(ui->pushButton_116, &QPushButton::clicked, this, &MainWindow::ajouterMedecin);
     afficherMedecins();
+    /*int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+        break;
+    case(-1):qDebug() << "arduino is not available";
+    }*/
 
 
 }

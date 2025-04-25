@@ -2,6 +2,7 @@
 #define LOGIN_H
 
 #include <QDialog>
+#include "arduino.h";
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Login; }
@@ -18,8 +19,10 @@ public:
 private slots:
     void on_pushButton_login_clicked();
     void on_pushButton_mdp_oublie_clicked();
+    void readRFID(); // Slot appelé automatiquement à chaque nouvelle lecture Arduino
 private:
     Ui::Login *ui;
+    Arduino A;
 };
 
 #endif // LOGIN_H
