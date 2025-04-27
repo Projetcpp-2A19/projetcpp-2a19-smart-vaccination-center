@@ -1,11 +1,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+
 #include <QMainWindow>
 #include <QWidget>  // For the popup widget
 #include <QPushButton>  // For the button
 #include <QLabel>  // For the label inside the popup widget
 #include <QSqlQueryModel>  // Pour afficher les données dans tableau2
-#include "medecin.h"
 #include <QtCharts/QChartView>
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
@@ -16,6 +16,18 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QVBoxLayout>
+#include <QPdfWriter>
+#include <QPainter>
+#include <QFileDialog>
+#include <QStandardPaths>
+#include <QDesktopServices>
+#include "Vaccin.h"
+#include "Medecin.h"
+#include "smtpclient.h"
+#include "mimemessage.h"
+#include "mimepart.h"
+#include "mimetext.h"
+#include "sms.h"
 #include "arduino.h"
 
 //using namespace QtCharts;
@@ -62,12 +74,24 @@ private slots:
     void afficherStat();
     void exporterPDF();
 
+    void on_submit_clicked();
+    void on_del_clicked();
+    void on_pushButton_159_clicked();
+    void applyFilter(const QString &text);  // Added filter method
+    void onSortChanged(int index);  // Slot to handle QComboBox selection change
+    void on_pdfButton_clicked();
+    void on_emailButton_clicked();
+    void on_sms_clicked();
+    void checkLowStockAndNotify();
+    void sendStockAlertEmail(const QString &nom, const QString &type, const QString &pays, int stock);
+    void showStockPieChart();
+    void mousePressEvent(QMouseEvent *event);
+
 private:
     Ui::MainWindow *ui;
     QWidget *popupWidget;  // The popup widget
-    //Arduino A;
-protected:
-    void mousePressEvent(QMouseEvent *event) override;  // Detect clicks outside the popup
+    Vaccin vac;
+    int mod=0;
 };
 
 #endif // MAINWINDOW_H
