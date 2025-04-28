@@ -753,6 +753,7 @@ public:
     QLabel *label_327;
     QComboBox *comboBox_38;
     QPushButton *pushButton_187;
+    QLabel *label_resultat;
     QWidget *equibment_20;
     QLabel *label_328;
     QWidget *Vacc_19;
@@ -11683,7 +11684,7 @@ public:
         btnrendezv3->setAutoExclusive(true);
         layoutWidget_40 = new QWidget(Labo_20);
         layoutWidget_40->setObjectName("layoutWidget_40");
-        layoutWidget_40->setGeometry(QRect(740, 110, 311, 61));
+        layoutWidget_40->setGeometry(QRect(740, 110, 313, 61));
         horizontalLayout_20 = new QHBoxLayout(layoutWidget_40);
         horizontalLayout_20->setSpacing(7);
         horizontalLayout_20->setObjectName("horizontalLayout_20");
@@ -11752,6 +11753,9 @@ public:
 "    border-color: #444444;\n"
 "}\n"
 ""));
+        label_resultat = new QLabel(Labo_20);
+        label_resultat->setObjectName("label_resultat");
+        label_resultat->setGeometry(QRect(200, 10, 111, 31));
         statmedcin_7->addWidget(Labo_20);
         equibment_20 = new QWidget();
         equibment_20->setObjectName("equibment_20");
@@ -13628,6 +13632,7 @@ public:
         comboBox_38->setItemText(4, QCoreApplication::translate("MainWindow", "Date de rendez-vous  \342\254\207\357\270\217", nullptr));
 
         pushButton_187->setText(QCoreApplication::translate("MainWindow", "Sms", nullptr));
+        label_resultat->setText(QString());
         label_328->setText(QCoreApplication::translate("MainWindow", "equibment", nullptr));
         label_329->setText(QCoreApplication::translate("MainWindow", "VACCINS", nullptr));
         label_330->setText(QCoreApplication::translate("MainWindow", "rendez vous", nullptr));

@@ -82,6 +82,8 @@ private:
     void afficherRendezVousTrieParPriorite(const QString &ordre);   // Affichage trié par priorité
     void afficherRendezVousTrieParDate(const QString &ordre);    // Affichage trié par date
     Arduino A;
+    QTimer *timer;
+    void verifierIDDepuisArduino();
 protected:
     void mousePressEvent(QMouseEvent *event) override;  // Detect clicks outside the popup
     void showEvent(QShowEvent *event) override;
