@@ -26,14 +26,32 @@
 #include <QSqlQuery>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QTimer>
+#include <QSerialPort>
+#include <QSerialPortInfo>
+
 
 #include "markermodel.h"
+#include "arduino.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);  // Charge l'interface
+    // Connexion à Arduino
+    A.connect_arduino();
+
+
+
+
+    // Lecture auto de l'ID depuis Arduino (optionnel)
+    timer = new QTimer(this);
+    //connect(timer, &QTimer::timeout, this, &MainWindow::verifierIDDepuisArduino);
+    timer->start(500);
+
+    // Bouton pour déclencher la vérification rendez-vous
+    connect(ui->pushButton_test, &QPushButton::clicked, this, &MainWindow::verifierRendezVousDepuisLabel);
 
 
     // Initialisation du gestionnaire de réseau conexion a gecodage
@@ -79,7 +97,6 @@ MainWindow::MainWindow(QWidget *parent)
    // loadMarkersFromJson();
 
 
-
     // Ajustement automatique des colonnes dans les tableaux
     ui->tableau->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableau2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -101,13 +118,47 @@ void MainWindow::getCoordinatesFromAddress(const QString &address) {
     networkManager->get(QNetworkRequest(url));
 }
 
+void MainWindow::verifierRendezVousDepuisLabel() {
+    QString texte = ui->label_resultat->text();  // Ex: "ID Patient valide : 101"
 
+    if (texte.startsWith("ID Patient valide :")) {
+        QString id = texte.section(':', 1).trimmed();  // récupère "101"
+        verifierRendezVousEtCommanderServo(id);
+    } else {
+        qDebug() << "Aucun ID valide trouvé dans le label.";
+    }
+}
+
+void MainWindow::verifierRendezVousEtCommanderServo(QString id) {
+    QDate date_auj = QDate::currentDate();
+    QString dateStr = date_auj.toString("yyyy-MM-dd");
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(*) FROM Rendez_Vous WHERE id_pat = :id AND TRUNC(date_rdv) = TO_DATE(:date, 'YYYY-MM-DD')");
+    query.bindValue(":id", id);
+    query.bindValue(":date", dateStr);
+
+    if (query.exec() && query.next()) {
+        int count = query.value(0).toInt();
+        if (count > 0) {
+            qDebug() << "Rendez-vous trouvé aujourd'hui, activation du servo.";
+            QMessageBox::information(this, "Debug", "Rendez-vous trouvé aujourd'hui, activation du servo.");
+            A.write_to_arduino("1");
+        } else {
+            qDebug() << "Aucun rendez-vous pour aujourd'hui.";
+            QMessageBox::information(this, "Debug", "Aucun rendez-vous pour aujourd'hui.");
+            A.write_to_arduino("0");
+        }
+    } else {
+        qDebug() << "Erreur requête rendez-vous :" << query.lastError().text();
+        QMessageBox::critical(this, "Erreur", "Erreur requête rendez-vous : " + query.lastError().text());
+    }
+}
 
 
 MainWindow::~MainWindow()
 {
     delete ui;
-
+    A.close_arduino();
 }
 
 

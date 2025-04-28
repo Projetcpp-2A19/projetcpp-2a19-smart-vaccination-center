@@ -89,6 +89,7 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "on_btnSupprimer_clicked",
     "on_btnModifier_clicked",
     "on_btnConfirmerModifier_clicked",
+    "verifierRendezVousDepuisLabel",
     "on_pushButton_115_clicked",
     "onGeoCodeReply",
     "QNetworkReply*",
@@ -113,7 +114,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      31,   14, // methods
+      32,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -121,41 +122,42 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    2,  200,    2, 0x06,    1 /* Public */,
-       5,    2,  205,    2, 0x06,    4 /* Public */,
+       1,    2,  206,    2, 0x06,    1 /* Public */,
+       5,    2,  211,    2, 0x06,    4 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       6,    1,  210,    2, 0x08,    7 /* Private */,
-       8,    0,  213,    2, 0x08,    9 /* Private */,
-       9,    0,  214,    2, 0x08,   10 /* Private */,
-      10,    0,  215,    2, 0x08,   11 /* Private */,
-      11,    0,  216,    2, 0x08,   12 /* Private */,
-      12,    0,  217,    2, 0x08,   13 /* Private */,
-      13,    0,  218,    2, 0x08,   14 /* Private */,
-      14,    0,  219,    2, 0x08,   15 /* Private */,
-      15,    0,  220,    2, 0x08,   16 /* Private */,
-      16,    0,  221,    2, 0x08,   17 /* Private */,
-      17,    0,  222,    2, 0x08,   18 /* Private */,
-      18,    0,  223,    2, 0x08,   19 /* Private */,
-      19,    0,  224,    2, 0x08,   20 /* Private */,
-      20,    0,  225,    2, 0x08,   21 /* Private */,
-      21,    0,  226,    2, 0x08,   22 /* Private */,
-      22,    0,  227,    2, 0x08,   23 /* Private */,
-      23,    0,  228,    2, 0x08,   24 /* Private */,
-      24,    0,  229,    2, 0x08,   25 /* Private */,
-      25,    0,  230,    2, 0x08,   26 /* Private */,
-      26,    0,  231,    2, 0x08,   27 /* Private */,
-      27,    0,  232,    2, 0x08,   28 /* Private */,
-      28,    0,  233,    2, 0x08,   29 /* Private */,
-      29,    1,  234,    2, 0x08,   30 /* Private */,
-      32,    0,  237,    2, 0x08,   32 /* Private */,
-      33,    0,  238,    2, 0x08,   33 /* Private */,
-      34,    0,  239,    2, 0x08,   34 /* Private */,
-      35,    1,  240,    2, 0x08,   35 /* Private */,
-      35,    0,  243,    2, 0x08,   37 /* Private */,
+       6,    1,  216,    2, 0x08,    7 /* Private */,
+       8,    0,  219,    2, 0x08,    9 /* Private */,
+       9,    0,  220,    2, 0x08,   10 /* Private */,
+      10,    0,  221,    2, 0x08,   11 /* Private */,
+      11,    0,  222,    2, 0x08,   12 /* Private */,
+      12,    0,  223,    2, 0x08,   13 /* Private */,
+      13,    0,  224,    2, 0x08,   14 /* Private */,
+      14,    0,  225,    2, 0x08,   15 /* Private */,
+      15,    0,  226,    2, 0x08,   16 /* Private */,
+      16,    0,  227,    2, 0x08,   17 /* Private */,
+      17,    0,  228,    2, 0x08,   18 /* Private */,
+      18,    0,  229,    2, 0x08,   19 /* Private */,
+      19,    0,  230,    2, 0x08,   20 /* Private */,
+      20,    0,  231,    2, 0x08,   21 /* Private */,
+      21,    0,  232,    2, 0x08,   22 /* Private */,
+      22,    0,  233,    2, 0x08,   23 /* Private */,
+      23,    0,  234,    2, 0x08,   24 /* Private */,
+      24,    0,  235,    2, 0x08,   25 /* Private */,
+      25,    0,  236,    2, 0x08,   26 /* Private */,
+      26,    0,  237,    2, 0x08,   27 /* Private */,
+      27,    0,  238,    2, 0x08,   28 /* Private */,
+      28,    0,  239,    2, 0x08,   29 /* Private */,
+      29,    0,  240,    2, 0x08,   30 /* Private */,
+      30,    1,  241,    2, 0x08,   31 /* Private */,
+      33,    0,  244,    2, 0x08,   33 /* Private */,
+      34,    0,  245,    2, 0x08,   34 /* Private */,
+      35,    0,  246,    2, 0x08,   35 /* Private */,
+      36,    1,  247,    2, 0x08,   36 /* Private */,
+      36,    0,  250,    2, 0x08,   38 /* Private */,
 
  // methods: name, argc, parameters, tag, flags, initial metatype offsets
-      38,    1,  244,    2, 0x02,   38 /* Public */,
+      39,    1,  251,    2, 0x02,   39 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Double, QMetaType::Double,    3,    4,
@@ -184,15 +186,16 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 30,   31,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 31,   32,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 36,   37,
+    QMetaType::Void, 0x80000000 | 37,   38,
     QMetaType::Void,
 
  // methods: parameters
-    QMetaType::Void, QMetaType::QString,   39,
+    QMetaType::Void, QMetaType::QString,   40,
 
        0        // eod
 };
@@ -257,6 +260,8 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_btnConfirmerModifier_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'verifierRendezVousDepuisLabel'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_pushButton_115_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onGeoCodeReply'
@@ -309,27 +314,28 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 20: _t->on_btnSupprimer_clicked(); break;
         case 21: _t->on_btnModifier_clicked(); break;
         case 22: _t->on_btnConfirmerModifier_clicked(); break;
-        case 23: _t->on_pushButton_115_clicked(); break;
-        case 24: _t->onGeoCodeReply((*reinterpret_cast< std::add_pointer_t<QNetworkReply*>>(_a[1]))); break;
-        case 25: _t->updateTableView(); break;
-        case 26: _t->showStatistiques(); break;
-        case 27: _t->analyserCommande(); break;
-        case 28: _t->updateTableViewchat((*reinterpret_cast< std::add_pointer_t<QSqlQueryModel*>>(_a[1]))); break;
-        case 29: _t->updateTableViewchat(); break;
-        case 30: _t->searchLocation((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 23: _t->verifierRendezVousDepuisLabel(); break;
+        case 24: _t->on_pushButton_115_clicked(); break;
+        case 25: _t->onGeoCodeReply((*reinterpret_cast< std::add_pointer_t<QNetworkReply*>>(_a[1]))); break;
+        case 26: _t->updateTableView(); break;
+        case 27: _t->showStatistiques(); break;
+        case 28: _t->analyserCommande(); break;
+        case 29: _t->updateTableViewchat((*reinterpret_cast< std::add_pointer_t<QSqlQueryModel*>>(_a[1]))); break;
+        case 30: _t->updateTableViewchat(); break;
+        case 31: _t->searchLocation((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 24:
+        case 25:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QNetworkReply* >(); break;
             }
             break;
-        case 28:
+        case 29:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -375,13 +381,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 31)
+        if (_id < 32)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 31;
+        _id -= 32;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 31)
+        if (_id < 32)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 31;
+        _id -= 32;
     }
     return _id;
 }

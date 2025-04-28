@@ -1,4 +1,4 @@
-QT += core gui sql printsupport charts location positioning quickwidgets
+QT += core gui sql printsupport charts location positioning quickwidgets serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -11,6 +11,7 @@ QT += location positioning
 
 SOURCES += \
     MarkerModel.cpp \
+    arduino.cpp \
     connection.cpp \
     lab.cpp \
     main.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     MarkerModel.h \
+    arduino.h \
     connection.h \
     lab.h \
     mainwindow.h

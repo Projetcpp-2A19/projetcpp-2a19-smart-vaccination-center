@@ -4097,6 +4097,32 @@ QPushButton:disabled {
        <string>maps</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_test">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>50</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_resultat">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>10</y>
+        <width>161</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ID Patient valide : 12345678</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="equibment">
      <widget class="QStackedWidget" name="statmedcin">

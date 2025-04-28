@@ -30,6 +30,7 @@
 -IC:/Qt/6.7.3/mingw_64/include/QtNetwork
 -IC:/Qt/6.7.3/mingw_64/include/QtCore/6.7.3
 -IC:/Qt/6.7.3/mingw_64/include/QtCore/6.7.3/QtCore
+-IC:/Qt/6.7.3/mingw_64/include/QtSerialPort
 -IC:/Qt/6.7.3/mingw_64/include/QtCore
 -IC:/Qt/6.7.3/mingw_64/include/QtQmlBuiltins/6.7.3
 -IC:/Qt/6.7.3/mingw_64/include/QtQmlBuiltins/6.7.3/QtQmlBuiltins

@@ -13,6 +13,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include "MarkerModel.h"
+#include "arduino.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -51,6 +52,8 @@ public:
   // Q_INVOKABLE void geocodeAndAddLocation(const QString &location);
     //void updateMapMarkers() ;
    Q_INVOKABLE void searchLocation(const QString &address);
+    void traiterDemandeAcces();
+   void update_label();
 
 
 signals:
@@ -87,7 +90,7 @@ private slots:
     void on_btnModifier_clicked();
     void on_btnConfirmerModifier_clicked();
 
-
+     void verifierRendezVousDepuisLabel();
 
 
 
@@ -104,7 +107,9 @@ private:
     QString originalStatut;
     QString originalContact;
     bool modificationInProgress = false; // Indique si une modification est en cours
-
+    Arduino A;
+    QTimer *timer;
+    void verifierRendezVousEtCommanderServo(QString id);
 
     // Detect clicks outside the popup
 private slots:
@@ -115,6 +120,7 @@ private slots:
     void analyserCommande(); //chatbot
     void updateTableViewchat(QSqlQueryModel *model);//chatbot
     void updateTableViewchat();
+
 
 
 

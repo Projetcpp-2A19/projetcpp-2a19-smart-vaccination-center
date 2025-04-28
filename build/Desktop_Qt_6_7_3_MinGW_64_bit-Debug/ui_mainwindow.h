@@ -194,6 +194,8 @@ public:
     QPushButton *btnlabo3_4;
     QPushButton *btnlabo3_5;
     QPushButton *btnlabo4;
+    QPushButton *pushButton_test;
+    QLabel *label_resultat;
     QWidget *equibment;
     QStackedWidget *statmedcin;
     QWidget *medecin_5;
@@ -3671,6 +3673,12 @@ public:
 "    border-color: #444444;\n"
 "}\n"
 ""));
+        pushButton_test = new QPushButton(Labo);
+        pushButton_test->setObjectName("pushButton_test");
+        pushButton_test->setGeometry(QRect(210, 50, 75, 24));
+        label_resultat = new QLabel(Labo);
+        label_resultat->setObjectName("label_resultat");
+        label_resultat->setGeometry(QRect(200, 10, 161, 20));
         sqs->addWidget(Labo);
         equibment = new QWidget();
         equibment->setObjectName("equibment");
@@ -13119,6 +13127,8 @@ public:
         btnlabo3_4->setText(QCoreApplication::translate("MainWindow", "Chatbot      \326\216", nullptr));
         btnlabo3_5->setText(QCoreApplication::translate("MainWindow", "Chatbot      \326\216", nullptr));
         btnlabo4->setText(QCoreApplication::translate("MainWindow", "maps", nullptr));
+        pushButton_test->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        label_resultat->setText(QCoreApplication::translate("MainWindow", "ID Patient valide : 12345678", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "medecin", nullptr));
         label_49->setText(QCoreApplication::translate("MainWindow", "medecin", nullptr));
         label_50->setText(QCoreApplication::translate("MainWindow", "patient", nullptr));
