@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCalendarWidget>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QGroupBox>
@@ -24,6 +25,7 @@
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QTableWidget>
+#include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -629,158 +631,165 @@ public:
     QWidget *page_14;
     QLabel *label_364;
     QStackedWidget *statmedcin_7;
-    QWidget *medecin_18;
-    QLabel *label_288;
-    QStackedWidget *stackedWidget_13;
-    QWidget *medecin_19;
-    QLabel *label_289;
-    QWidget *Patient_18;
-    QLabel *label_290;
-    QWidget *Labo_18;
-    QLabel *label_291;
-    QWidget *popupWidget_18;
-    QPushButton *pushButton_54;
-    QPushButton *pushButton_55;
-    QPushButton *pushButton_56;
-    QGroupBox *groupBox_21;
-    QWidget *layoutWidget_35;
-    QVBoxLayout *verticalLayout_21;
-    QLabel *label_292;
-    QLineEdit *lineEdit_106;
-    QLabel *label_293;
-    QLineEdit *lineEdit_107;
-    QLabel *label_294;
-    QLineEdit *lineEdit_108;
-    QLabel *label_295;
-    QLineEdit *lineEdit_109;
-    QPushButton *pushButton_173;
-    QTableWidget *tableau2_7;
-    QLineEdit *lineEdit_110;
-    QPushButton *pushButton_174;
-    QPushButton *pushButton_175;
-    QPushButton *btnmedecin3_7;
-    QPushButton *btnmedecin2_7;
-    QWidget *layoutWidget_36;
-    QHBoxLayout *horizontalLayout_18;
-    QLabel *label_296;
-    QComboBox *comboBox_33;
-    QWidget *equibment_18;
-    QLabel *label_297;
-    QWidget *Vacc_17;
-    QLabel *label_298;
-    QWidget *RendezVous_17;
-    QLabel *label_299;
-    QWidget *user_17;
-    QLabel *label_300;
-    QWidget *statlabo_17;
-    QLabel *label_301;
-    QWidget *chatbotlabo_17;
-    QLabel *label_302;
-    QWidget *journallabo_17;
-    QLabel *label_303;
-    QWidget *Patient_19;
-    QStackedWidget *stackedWidget_14;
-    QWidget *medecin_20;
-    QLabel *label_304;
-    QWidget *Patient_20;
-    QLabel *label_305;
-    QWidget *Labo_19;
-    QLabel *label_306;
-    QWidget *popupWidget_19;
-    QPushButton *pushButton_57;
-    QPushButton *pushButton_58;
-    QPushButton *pushButton_59;
-    QGroupBox *groupBox_22;
-    QWidget *layoutWidget_37;
-    QVBoxLayout *verticalLayout_22;
-    QLabel *label_307;
-    QLineEdit *lineEdit_111;
-    QLabel *label_308;
-    QLineEdit *lineEdit_112;
-    QLabel *label_309;
-    QDateEdit *dateEdit_18;
-    QLabel *label_310;
-    QComboBox *comboBox_34;
-    QLabel *label_311;
-    QLineEdit *lineEdit_113;
-    QLabel *label_312;
-    QLineEdit *lineEdit_114;
-    QLabel *label_313;
-    QLineEdit *lineEdit_115;
-    QPushButton *pushButton_176;
-    QTableWidget *tableau3_6;
-    QLineEdit *lineEdit_116;
-    QPushButton *pushButton_177;
-    QPushButton *pushButton_178;
-    QPushButton *btnpatient3_6;
-    QPushButton *btnpatient2_6;
-    QWidget *layoutWidget_38;
-    QHBoxLayout *horizontalLayout_19;
-    QLabel *label_314;
-    QComboBox *comboBox_35;
-    QPushButton *pushButton_179;
-    QWidget *equibment_19;
-    QLabel *label_315;
-    QWidget *Vacc_18;
-    QLabel *label_316;
-    QWidget *RendezVous_18;
-    QLabel *label_317;
-    QWidget *user_18;
-    QLabel *label_318;
-    QWidget *statlabo_18;
-    QLabel *label_319;
-    QWidget *chatbotlabo_18;
-    QLabel *label_320;
-    QWidget *journallabo_18;
-    QLabel *label_321;
-    QWidget *Labo_20;
-    QLabel *label_322;
-    QWidget *popupWidget_20;
-    QPushButton *pushButton_60;
-    QPushButton *pushButton_61;
-    QPushButton *pushButton_62;
-    QGroupBox *groupBox_23;
-    QWidget *layoutWidget_39;
-    QVBoxLayout *verticalLayout_23;
-    QLabel *label_323;
-    QDateEdit *dateEdit_22;
-    QLabel *label_324;
-    QDateEdit *dateEdit_19;
-    QLabel *label_326;
+    QWidget *medecin_22;
+    QLabel *label_367;
+    QStackedWidget *stackedWidget_16;
+    QWidget *medecin_23;
+    QLabel *label_368;
+    QWidget *Patient_22;
+    QLabel *label_369;
+    QWidget *Labo_22;
+    QLabel *label_370;
+    QWidget *popupWidget_22;
+    QPushButton *pushButton_66;
+    QPushButton *pushButton_67;
+    QPushButton *pushButton_68;
+    QGroupBox *groupBox_25;
+    QWidget *layoutWidget_43;
+    QVBoxLayout *verticalLayout_25;
+    QLabel *label_371;
+    QLineEdit *lineEdit_117;
+    QLabel *label_372;
     QLineEdit *lineEdit_124;
-    QLabel *label_325;
-    QComboBox *comboBox_37;
-    QPushButton *pushButton_180;
-    QTableWidget *tableau6;
-    QLineEdit *lineEdit_118;
+    QLabel *label_373;
+    QLineEdit *lineEdit_125;
+    QLabel *label_374;
+    QLineEdit *lineEdit_126;
     QPushButton *pushButton_181;
+    QTableWidget *tableau2_8;
+    QLineEdit *lineEdit_127;
     QPushButton *pushButton_182;
-    QPushButton *btnrendezv4;
-    QPushButton *btnrendezv2;
-    QPushButton *btnrendezv3;
-    QWidget *layoutWidget_40;
-    QHBoxLayout *horizontalLayout_20;
-    QLabel *label_327;
-    QComboBox *comboBox_38;
-    QPushButton *pushButton_187;
-    QWidget *equibment_20;
-    QLabel *label_328;
-    QWidget *Vacc_19;
-    QLabel *label_329;
-    QWidget *RendezVous_19;
-    QLabel *label_330;
-    QWidget *user_19;
-    QLabel *label_331;
-    QWidget *statlabo_19;
-    QLabel *label_332;
-    QWidget *chatbotlabo_19;
-    QLabel *label_333;
-    QWidget *journallabo_19;
-    QLabel *label_334;
-    QWidget *statmedcin_8;
-    QLabel *label_335;
-    QWidget *page_10;
-    QLabel *label_336;
+    QPushButton *pushButton_188;
+    QPushButton *btnmedecin3_8;
+    QPushButton *btnmedecin2_8;
+    QWidget *layoutWidget_44;
+    QHBoxLayout *horizontalLayout_22;
+    QLabel *label_375;
+    QComboBox *comboBox_36;
+    QWidget *equibment_22;
+    QLabel *label_376;
+    QWidget *Vacc_22;
+    QLabel *label_377;
+    QWidget *RendezVous_22;
+    QLabel *label_378;
+    QWidget *user_22;
+    QLabel *label_379;
+    QWidget *statlabo_22;
+    QLabel *label_380;
+    QWidget *chatbotlabo_22;
+    QLabel *label_381;
+    QWidget *journallabo_22;
+    QLabel *label_382;
+    QWidget *Patient_23;
+    QStackedWidget *stackedWidget_17;
+    QWidget *medecin_24;
+    QLabel *label_383;
+    QWidget *Patient_24;
+    QLabel *label_384;
+    QWidget *Labo_23;
+    QLabel *label_385;
+    QWidget *popupWidget_23;
+    QPushButton *pushButton_69;
+    QPushButton *pushButton_70;
+    QPushButton *pushButton_71;
+    QGroupBox *groupBox_26;
+    QWidget *layoutWidget_45;
+    QVBoxLayout *verticalLayout_26;
+    QLabel *label_386;
+    QLineEdit *lineEdit_128;
+    QLabel *label_387;
+    QLineEdit *lineEdit_129;
+    QLabel *label_388;
+    QDateEdit *dateEdit_23;
+    QLabel *label_389;
+    QComboBox *comboBox_42;
+    QLabel *label_390;
+    QLineEdit *lineEdit_130;
+    QLabel *label_391;
+    QLineEdit *lineEdit_131;
+    QLabel *label_392;
+    QLineEdit *lineEdit_132;
+    QPushButton *pushButton_189;
+    QTableWidget *tableau3_7;
+    QLineEdit *lineEdit_133;
+    QPushButton *pushButton_190;
+    QPushButton *pushButton_191;
+    QPushButton *btnpatient3_7;
+    QPushButton *btnpatient2_7;
+    QWidget *layoutWidget_46;
+    QHBoxLayout *horizontalLayout_23;
+    QLabel *label_393;
+    QComboBox *comboBox_43;
+    QPushButton *pushButton_192;
+    QWidget *equibment_23;
+    QLabel *label_394;
+    QWidget *Vacc_23;
+    QLabel *label_395;
+    QWidget *RendezVous_23;
+    QLabel *label_396;
+    QWidget *user_23;
+    QLabel *label_397;
+    QWidget *statlabo_23;
+    QLabel *label_398;
+    QWidget *chatbotlabo_23;
+    QLabel *label_399;
+    QWidget *journallabo_23;
+    QLabel *label_400;
+    QWidget *Labo_24;
+    QLabel *label_401;
+    QWidget *popupWidget_24;
+    QPushButton *pushButton_72;
+    QPushButton *pushButton_73;
+    QPushButton *pushButton_74;
+    QGroupBox *groupBox_27;
+    QWidget *layoutWidget_47;
+    QVBoxLayout *verticalLayout_27;
+    QLabel *label_38;
+    QLineEdit *lineEditID_2;
+    QLabel *label_402;
+    QDateEdit *dateEdit_24;
+    QLabel *label_403;
+    QTimeEdit *dateEdit_25;
+    QLabel *label_404;
+    QComboBox *comboBox_44;
+    QLabel *label_405;
+    QComboBox *comboBox_45;
+    QLabel *label_39;
+    QLineEdit *lineEdit_2;
+    QHBoxLayout *horizontalLayout_9;
+    QPushButton *pushButton_193;
+    QPushButton *btncmodif_2;
+    QTableView *tableau6_2;
+    QLineEdit *lineEdit_134;
+    QPushButton *btnmodif_2;
+    QPushButton *btnsupp_2;
+    QPushButton *btnrendezv4_2;
+    QPushButton *btnrendezv2_2;
+    QPushButton *btnrendezv3_2;
+    QWidget *layoutWidget_48;
+    QHBoxLayout *horizontalLayout_24;
+    QLabel *label_406;
+    QComboBox *comboBox_46;
+    QPushButton *pushButton_194;
+    QLabel *label_resultat_2;
+    QWidget *equibment_24;
+    QLabel *label_407;
+    QWidget *Vacc_24;
+    QLabel *label_408;
+    QWidget *RendezVous_24;
+    QLabel *label_409;
+    QWidget *user_24;
+    QLabel *label_410;
+    QWidget *statlabo_24;
+    QLabel *label_411;
+    QWidget *chatbotlabo_24;
+    QLabel *label_412;
+    QWidget *journallabo_24;
+    QLabel *label_413;
+    QWidget *statmedcin_10;
+    QLabel *label_414;
+    QWidget *page_17;
+    QLabel *label_415;
     QWidget *user;
     QStackedWidget *qsqsdqqqqqqqqqqq;
     QWidget *medecin_70;
@@ -888,8 +897,13 @@ public:
     QLabel *label_246;
     QWidget *page_15;
     QLabel *label_365;
+    QWidget *verticalLayoutWidget_3;
+    QVBoxLayout *verticalLayout_6;
+    QWidget *chartContainer_rdv;
     QWidget *page_16;
     QLabel *label_366;
+    QCalendarWidget *calendarWidget;
+    QTableWidget *tableWidget;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -1826,7 +1840,7 @@ public:
 "}"));
         layoutWidget_2 = new QWidget(groupBox_5);
         layoutWidget_2->setObjectName("layoutWidget_2");
-        layoutWidget_2->setGeometry(QRect(10, 20, 241, 684));
+        layoutWidget_2->setGeometry(QRect(10, 20, 241, 699));
         verticalLayout_4 = new QVBoxLayout(layoutWidget_2);
         verticalLayout_4->setObjectName("verticalLayout_4");
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
@@ -2557,7 +2571,7 @@ public:
 "}"));
         layoutWidget_4 = new QWidget(groupBox_6);
         layoutWidget_4->setObjectName("layoutWidget_4");
-        layoutWidget_4->setGeometry(QRect(10, 30, 271, 638));
+        layoutWidget_4->setGeometry(QRect(10, 30, 271, 674));
         verticalLayout_5 = new QVBoxLayout(layoutWidget_4);
         verticalLayout_5->setObjectName("verticalLayout_5");
         verticalLayout_5->setContentsMargins(0, 0, 0, 0);
@@ -3317,7 +3331,7 @@ public:
 "}"));
         layoutWidget2 = new QWidget(groupBox_4);
         layoutWidget2->setObjectName("layoutWidget2");
-        layoutWidget2->setGeometry(QRect(10, 40, 271, 481));
+        layoutWidget2->setGeometry(QRect(10, 40, 271, 498));
         verticalLayout_3 = new QVBoxLayout(layoutWidget2);
         verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -4693,7 +4707,7 @@ public:
 "}"));
         layoutWidget_10 = new QWidget(groupBox_9);
         layoutWidget_10->setObjectName("layoutWidget_10");
-        layoutWidget_10->setGeometry(QRect(10, 30, 271, 641));
+        layoutWidget_10->setGeometry(QRect(10, 30, 271, 674));
         verticalLayout_8 = new QVBoxLayout(layoutWidget_10);
         verticalLayout_8->setObjectName("verticalLayout_8");
         verticalLayout_8->setContentsMargins(0, 0, 0, 0);
@@ -6099,7 +6113,7 @@ public:
 "}"));
         layoutWidget_26 = new QWidget(groupBox_18);
         layoutWidget_26->setObjectName("layoutWidget_26");
-        layoutWidget_26->setGeometry(QRect(10, 30, 271, 680));
+        layoutWidget_26->setGeometry(QRect(10, 30, 271, 762));
         verticalLayout_16 = new QVBoxLayout(layoutWidget_26);
         verticalLayout_16->setObjectName("verticalLayout_16");
         verticalLayout_16->setContentsMargins(0, 0, 0, 0);
@@ -7549,7 +7563,7 @@ public:
 "}"));
         layoutWidget_31 = new QWidget(groupBox_19);
         layoutWidget_31->setObjectName("layoutWidget_31");
-        layoutWidget_31->setGeometry(QRect(10, 30, 271, 641));
+        layoutWidget_31->setGeometry(QRect(10, 30, 271, 674));
         verticalLayout_19 = new QVBoxLayout(layoutWidget_31);
         verticalLayout_19->setObjectName("verticalLayout_19");
         verticalLayout_19->setContentsMargins(0, 0, 0, 0);
@@ -8309,7 +8323,7 @@ public:
 "}"));
         layoutWidget_33 = new QWidget(groupBox_20);
         layoutWidget_33->setObjectName("layoutWidget_33");
-        layoutWidget_33->setGeometry(QRect(10, 40, 271, 481));
+        layoutWidget_33->setGeometry(QRect(10, 40, 271, 498));
         verticalLayout_20 = new QVBoxLayout(layoutWidget_33);
         verticalLayout_20->setObjectName("verticalLayout_20");
         verticalLayout_20->setContentsMargins(0, 0, 0, 0);
@@ -9283,7 +9297,7 @@ public:
 "}"));
         layoutWidget_42 = new QWidget(groupBox_24);
         layoutWidget_42->setObjectName("layoutWidget_42");
-        layoutWidget_42->setGeometry(QRect(10, 30, 271, 611));
+        layoutWidget_42->setGeometry(QRect(10, 30, 271, 674));
         verticalLayout_24 = new QVBoxLayout(layoutWidget_42);
         verticalLayout_24->setObjectName("verticalLayout_24");
         verticalLayout_24->setContentsMargins(0, 0, 0, 0);
@@ -9700,41 +9714,41 @@ public:
         sqs_2->addWidget(page_14);
         statmedcin_7 = new QStackedWidget(RendezVous);
         statmedcin_7->setObjectName("statmedcin_7");
-        statmedcin_7->setGeometry(QRect(0, 0, 1101, 671));
+        statmedcin_7->setGeometry(QRect(0, 0, 1241, 711));
         statmedcin_7->setStyleSheet(QString::fromUtf8("background-color: rgb(234, 251, 255);\n"
 ""));
-        medecin_18 = new QWidget();
-        medecin_18->setObjectName("medecin_18");
-        label_288 = new QLabel(medecin_18);
-        label_288->setObjectName("label_288");
-        label_288->setGeometry(QRect(560, 80, 171, 61));
-        label_288->setStyleSheet(QString::fromUtf8("color : black;"));
-        stackedWidget_13 = new QStackedWidget(medecin_18);
-        stackedWidget_13->setObjectName("stackedWidget_13");
-        stackedWidget_13->setGeometry(QRect(0, 0, 1101, 671));
-        stackedWidget_13->setStyleSheet(QString::fromUtf8("background-color: rgb(234, 251, 255);\n"
+        medecin_22 = new QWidget();
+        medecin_22->setObjectName("medecin_22");
+        label_367 = new QLabel(medecin_22);
+        label_367->setObjectName("label_367");
+        label_367->setGeometry(QRect(560, 80, 171, 61));
+        label_367->setStyleSheet(QString::fromUtf8("color : black;"));
+        stackedWidget_16 = new QStackedWidget(medecin_22);
+        stackedWidget_16->setObjectName("stackedWidget_16");
+        stackedWidget_16->setGeometry(QRect(0, 0, 1101, 671));
+        stackedWidget_16->setStyleSheet(QString::fromUtf8("background-color: rgb(234, 251, 255);\n"
 ""));
-        medecin_19 = new QWidget();
-        medecin_19->setObjectName("medecin_19");
-        label_289 = new QLabel(medecin_19);
-        label_289->setObjectName("label_289");
-        label_289->setGeometry(QRect(560, 80, 171, 61));
-        label_289->setStyleSheet(QString::fromUtf8("color : black;"));
-        stackedWidget_13->addWidget(medecin_19);
-        Patient_18 = new QWidget();
-        Patient_18->setObjectName("Patient_18");
-        Patient_18->setStyleSheet(QString::fromUtf8("color : black;"));
-        label_290 = new QLabel(Patient_18);
-        label_290->setObjectName("label_290");
-        label_290->setGeometry(QRect(410, 60, 171, 61));
-        stackedWidget_13->addWidget(Patient_18);
-        Labo_18 = new QWidget();
-        Labo_18->setObjectName("Labo_18");
-        Labo_18->setStyleSheet(QString::fromUtf8("color : black;"));
-        label_291 = new QLabel(Labo_18);
-        label_291->setObjectName("label_291");
-        label_291->setGeometry(QRect(350, 30, 341, 61));
-        label_291->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+        medecin_23 = new QWidget();
+        medecin_23->setObjectName("medecin_23");
+        label_368 = new QLabel(medecin_23);
+        label_368->setObjectName("label_368");
+        label_368->setGeometry(QRect(560, 80, 171, 61));
+        label_368->setStyleSheet(QString::fromUtf8("color : black;"));
+        stackedWidget_16->addWidget(medecin_23);
+        Patient_22 = new QWidget();
+        Patient_22->setObjectName("Patient_22");
+        Patient_22->setStyleSheet(QString::fromUtf8("color : black;"));
+        label_369 = new QLabel(Patient_22);
+        label_369->setObjectName("label_369");
+        label_369->setGeometry(QRect(410, 60, 171, 61));
+        stackedWidget_16->addWidget(Patient_22);
+        Labo_22 = new QWidget();
+        Labo_22->setObjectName("Labo_22");
+        Labo_22->setStyleSheet(QString::fromUtf8("color : black;"));
+        label_370 = new QLabel(Labo_22);
+        label_370->setObjectName("label_370");
+        label_370->setGeometry(QRect(350, 30, 341, 61));
+        label_370->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
 "    padding: 10px;\n"
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
@@ -9742,10 +9756,10 @@ public:
 "background-color: rgb(234, 251, 255); \n"
 "\n"
 ""));
-        popupWidget_18 = new QWidget(Labo_18);
-        popupWidget_18->setObjectName("popupWidget_18");
-        popupWidget_18->setGeometry(QRect(1140, 650, 51, 81));
-        popupWidget_18->setStyleSheet(QString::fromUtf8("QWidget {\n"
+        popupWidget_22 = new QWidget(Labo_22);
+        popupWidget_22->setObjectName("popupWidget_22");
+        popupWidget_22->setGeometry(QRect(1140, 650, 51, 81));
+        popupWidget_22->setStyleSheet(QString::fromUtf8("QWidget {\n"
 "    background-color: #2a2a2a;\n"
 "    border-right: 2px solid #3a3a3a;\n"
 "    border-radius: 10px;\n"
@@ -9807,10 +9821,10 @@ public:
 "    background: none;\n"
 "}\n"
 ""));
-        pushButton_54 = new QPushButton(popupWidget_18);
-        pushButton_54->setObjectName("pushButton_54");
-        pushButton_54->setGeometry(QRect(30, 70, 111, 51));
-        pushButton_54->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        pushButton_66 = new QPushButton(popupWidget_22);
+        pushButton_66->setObjectName("pushButton_66");
+        pushButton_66->setGeometry(QRect(30, 70, 111, 51));
+        pushButton_66->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #2a2a2a;\n"
 "    color: #ffffff;\n"
 "    border: 2px solid #2a2a2a;\n"
@@ -9839,10 +9853,10 @@ public:
 "    border-color: #444444;\n"
 "}\n"
 ""));
-        pushButton_55 = new QPushButton(popupWidget_18);
-        pushButton_55->setObjectName("pushButton_55");
-        pushButton_55->setGeometry(QRect(20, 0, 131, 61));
-        pushButton_55->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        pushButton_67 = new QPushButton(popupWidget_22);
+        pushButton_67->setObjectName("pushButton_67");
+        pushButton_67->setGeometry(QRect(20, 0, 131, 61));
+        pushButton_67->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #2a2a2a;\n"
 "    color: #ffffff;\n"
 "    border: 2px solid #2a2a2a;\n"
@@ -9871,10 +9885,10 @@ public:
 "    border-color: #444444;\n"
 "}\n"
 ""));
-        pushButton_56 = new QPushButton(popupWidget_18);
-        pushButton_56->setObjectName("pushButton_56");
-        pushButton_56->setGeometry(QRect(20, 30, 131, 61));
-        pushButton_56->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        pushButton_68 = new QPushButton(popupWidget_22);
+        pushButton_68->setObjectName("pushButton_68");
+        pushButton_68->setGeometry(QRect(20, 30, 131, 61));
+        pushButton_68->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #2a2a2a;\n"
 "    color: #ffffff;\n"
 "    border: 2px solid #2a2a2a;\n"
@@ -9903,10 +9917,10 @@ public:
 "    border-color: #444444;\n"
 "}\n"
 ""));
-        groupBox_21 = new QGroupBox(Labo_18);
-        groupBox_21->setObjectName("groupBox_21");
-        groupBox_21->setGeometry(QRect(10, 130, 291, 531));
-        groupBox_21->setStyleSheet(QString::fromUtf8("QGroupBox {\n"
+        groupBox_25 = new QGroupBox(Labo_22);
+        groupBox_25->setObjectName("groupBox_25");
+        groupBox_25->setGeometry(QRect(10, 130, 291, 531));
+        groupBox_25->setStyleSheet(QString::fromUtf8("QGroupBox {\n"
 "    background-color: rgb(234, 251, 255);  /* Light blue background */\n"
 "    border: 2px solid #2a2a2a ;  /* Dark gray border */\n"
 "    border-radius: 8px;         /* Rounded corners */\n"
@@ -9922,24 +9936,24 @@ public:
 "    border-radius: 5px;\n"
 "    font-weight: bold;\n"
 "}"));
-        layoutWidget_35 = new QWidget(groupBox_21);
-        layoutWidget_35->setObjectName("layoutWidget_35");
-        layoutWidget_35->setGeometry(QRect(10, 40, 271, 481));
-        verticalLayout_21 = new QVBoxLayout(layoutWidget_35);
-        verticalLayout_21->setObjectName("verticalLayout_21");
-        verticalLayout_21->setContentsMargins(0, 0, 0, 0);
-        label_292 = new QLabel(layoutWidget_35);
-        label_292->setObjectName("label_292");
-        label_292->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+        layoutWidget_43 = new QWidget(groupBox_25);
+        layoutWidget_43->setObjectName("layoutWidget_43");
+        layoutWidget_43->setGeometry(QRect(10, 40, 271, 481));
+        verticalLayout_25 = new QVBoxLayout(layoutWidget_43);
+        verticalLayout_25->setObjectName("verticalLayout_25");
+        verticalLayout_25->setContentsMargins(0, 0, 0, 0);
+        label_371 = new QLabel(layoutWidget_43);
+        label_371->setObjectName("label_371");
+        label_371->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
 "        color: #333; /* Dark gray text */\n"
 "        background: transparent;"));
 
-        verticalLayout_21->addWidget(label_292);
+        verticalLayout_25->addWidget(label_371);
 
-        lineEdit_106 = new QLineEdit(layoutWidget_35);
-        lineEdit_106->setObjectName("lineEdit_106");
-        lineEdit_106->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+        lineEdit_117 = new QLineEdit(layoutWidget_43);
+        lineEdit_117->setObjectName("lineEdit_117");
+        lineEdit_117->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
 "        padding: 5px 8px;\n"
 "         color: #2a2a2a;\n"
@@ -9951,1475 +9965,18 @@ public:
 "\n"
 ""));
 
-        verticalLayout_21->addWidget(lineEdit_106);
+        verticalLayout_25->addWidget(lineEdit_117);
 
-        label_293 = new QLabel(layoutWidget_35);
-        label_293->setObjectName("label_293");
-        label_293->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+        label_372 = new QLabel(layoutWidget_43);
+        label_372->setObjectName("label_372");
+        label_372->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
 "        color: #333; /* Dark gray text */\n"
 "        background: transparent;"));
 
-        verticalLayout_21->addWidget(label_293);
+        verticalLayout_25->addWidget(label_372);
 
-        lineEdit_107 = new QLineEdit(layoutWidget_35);
-        lineEdit_107->setObjectName("lineEdit_107");
-        lineEdit_107->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-"         color: #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-""));
-
-        verticalLayout_21->addWidget(lineEdit_107);
-
-        label_294 = new QLabel(layoutWidget_35);
-        label_294->setObjectName("label_294");
-        label_294->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
-"        font-weight: bold;\n"
-"        color: #333; /* Dark gray text */\n"
-"        background: transparent;"));
-
-        verticalLayout_21->addWidget(label_294);
-
-        lineEdit_108 = new QLineEdit(layoutWidget_35);
-        lineEdit_108->setObjectName("lineEdit_108");
-        lineEdit_108->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-"         color: #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-""));
-
-        verticalLayout_21->addWidget(lineEdit_108);
-
-        label_295 = new QLabel(layoutWidget_35);
-        label_295->setObjectName("label_295");
-        label_295->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
-"        font-weight: bold;\n"
-"        color: #333; /* Dark gray text */\n"
-"        background: transparent;"));
-
-        verticalLayout_21->addWidget(label_295);
-
-        lineEdit_109 = new QLineEdit(layoutWidget_35);
-        lineEdit_109->setObjectName("lineEdit_109");
-        lineEdit_109->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-"         color: #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-""));
-
-        verticalLayout_21->addWidget(lineEdit_109);
-
-        pushButton_173 = new QPushButton(layoutWidget_35);
-        pushButton_173->setObjectName("pushButton_173");
-        pushButton_173->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: rgb(173, 216, 230);\n"
-"    color: #ffffff;\n"
-"    border: 2px solid rgb(173, 216, 230);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-
-        verticalLayout_21->addWidget(pushButton_173);
-
-        tableau2_7 = new QTableWidget(Labo_18);
-        if (tableau2_7->columnCount() < 5)
-            tableau2_7->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem55 = new QTableWidgetItem();
-        tableau2_7->setHorizontalHeaderItem(0, __qtablewidgetitem55);
-        QTableWidgetItem *__qtablewidgetitem56 = new QTableWidgetItem();
-        tableau2_7->setHorizontalHeaderItem(1, __qtablewidgetitem56);
-        QTableWidgetItem *__qtablewidgetitem57 = new QTableWidgetItem();
-        tableau2_7->setHorizontalHeaderItem(2, __qtablewidgetitem57);
-        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
-        tableau2_7->setHorizontalHeaderItem(3, __qtablewidgetitem58);
-        QTableWidgetItem *__qtablewidgetitem59 = new QTableWidgetItem();
-        tableau2_7->setHorizontalHeaderItem(4, __qtablewidgetitem59);
-        if (tableau2_7->rowCount() < 1)
-            tableau2_7->setRowCount(1);
-        tableau2_7->setObjectName("tableau2_7");
-        tableau2_7->setGeometry(QRect(310, 150, 781, 511));
-        tableau2_7->setMinimumSize(QSize(781, 0));
-        tableau2_7->setMaximumSize(QSize(781, 511));
-        tableau2_7->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
-        tableau2_7->setAutoFillBackground(false);
-        tableau2_7->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
-"    background-color: rgb(234, 251, 255);\n"
-"    border: 2px solid #2a2a2a;\n"
-"    border-radius: 8px;\n"
-"    gridline-color: #2a2a2a;\n"
-"    selection-background-color: #2a2a2a;\n"
-"    selection-color: white;\n"
-"}\n"
-"\n"
-"QHeaderView::section {\n"
-"    background-color: #2a2a2a;\n"
-"    color: white;\n"
-"    padding: 5px;\n"
-"    border: 1px solid #2a2a2a;\n"
-"    font-weight: bold;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section {\n"
-"    background-color: #2a2a2a;\n"
-"    border: 1px solid #2a2a2a;\n"
-"}\n"
-"\n"
-"QTableWidget::item {\n"
-"    padding: 5px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:selected {\n"
-"    background-color: #2a2a2a;\n"
-"    color: white;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    background-color: rgb(200, 240, 250);\n"
-"}\n"
-""));
-        tableau2_7->setLineWidth(144);
-        tableau2_7->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
-        tableau2_7->horizontalHeader()->setStretchLastSection(true);
-        lineEdit_110 = new QLineEdit(Labo_18);
-        lineEdit_110->setObjectName("lineEdit_110");
-        lineEdit_110->setGeometry(QRect(310, 100, 151, 51));
-        lineEdit_110->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-" color: #2a2a2a  ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-"text : search\n"
-""));
-        pushButton_174 = new QPushButton(Labo_18);
-        pushButton_174->setObjectName("pushButton_174");
-        pushButton_174->setGeometry(QRect(980, 220, 111, 61));
-        pushButton_174->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: rgb(173, 216, 230);\n"
-"    color: #ffffff;\n"
-"    border: 2px solid rgb(173, 216, 230);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        pushButton_175 = new QPushButton(Labo_18);
-        pushButton_175->setObjectName("pushButton_175");
-        pushButton_175->setGeometry(QRect(980, 270, 111, 61));
-        pushButton_175->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: rgb(173, 216, 230);\n"
-"    color: #ffffff;\n"
-"    border: 2px solid rgb(173, 216, 230);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        btnmedecin3_7 = new QPushButton(Labo_18);
-        btnmedecin3_7->setObjectName("btnmedecin3_7");
-        btnmedecin3_7->setGeometry(QRect(930, 10, 181, 61));
-        btnmedecin3_7->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a   ;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a   ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        btnmedecin3_7->setIcon(icon6);
-        btnmedecin3_7->setCheckable(true);
-        btnmedecin3_7->setAutoExclusive(true);
-        btnmedecin2_7 = new QPushButton(Labo_18);
-        btnmedecin2_7->setObjectName("btnmedecin2_7");
-        btnmedecin2_7->setGeometry(QRect(930, 60, 181, 61));
-        btnmedecin2_7->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a   ;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a   ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        btnmedecin2_7->setIcon(icon6);
-        btnmedecin2_7->setCheckable(true);
-        btnmedecin2_7->setAutoExclusive(true);
-        layoutWidget_36 = new QWidget(Labo_18);
-        layoutWidget_36->setObjectName("layoutWidget_36");
-        layoutWidget_36->setGeometry(QRect(537, 90, 391, 57));
-        horizontalLayout_18 = new QHBoxLayout(layoutWidget_36);
-        horizontalLayout_18->setSpacing(7);
-        horizontalLayout_18->setObjectName("horizontalLayout_18");
-        horizontalLayout_18->setContentsMargins(0, 0, 0, 0);
-        label_296 = new QLabel(layoutWidget_36);
-        label_296->setObjectName("label_296");
-        label_296->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-" "));
-
-        horizontalLayout_18->addWidget(label_296, 0, Qt::AlignmentFlag::AlignRight);
-
-        comboBox_33 = new QComboBox(layoutWidget_36);
-        comboBox_33->addItem(QString());
-        comboBox_33->addItem(QString());
-        comboBox_33->addItem(QString());
-        comboBox_33->addItem(QString());
-        comboBox_33->setObjectName("comboBox_33");
-        comboBox_33->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-" color: #2a2a2a  ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-"text : search\n"
-""));
-
-        horizontalLayout_18->addWidget(comboBox_33);
-
-        stackedWidget_13->addWidget(Labo_18);
-        equibment_18 = new QWidget();
-        equibment_18->setObjectName("equibment_18");
-        label_297 = new QLabel(equibment_18);
-        label_297->setObjectName("label_297");
-        label_297->setGeometry(QRect(440, 50, 171, 61));
-        label_297->setStyleSheet(QString::fromUtf8("color : black;"));
-        stackedWidget_13->addWidget(equibment_18);
-        Vacc_17 = new QWidget();
-        Vacc_17->setObjectName("Vacc_17");
-        label_298 = new QLabel(Vacc_17);
-        label_298->setObjectName("label_298");
-        label_298->setGeometry(QRect(430, 70, 171, 61));
-        label_298->setStyleSheet(QString::fromUtf8("color : black;"));
-        stackedWidget_13->addWidget(Vacc_17);
-        RendezVous_17 = new QWidget();
-        RendezVous_17->setObjectName("RendezVous_17");
-        label_299 = new QLabel(RendezVous_17);
-        label_299->setObjectName("label_299");
-        label_299->setGeometry(QRect(410, 60, 171, 61));
-        label_299->setStyleSheet(QString::fromUtf8("color : black;"));
-        stackedWidget_13->addWidget(RendezVous_17);
-        user_17 = new QWidget();
-        user_17->setObjectName("user_17");
-        label_300 = new QLabel(user_17);
-        label_300->setObjectName("label_300");
-        label_300->setGeometry(QRect(750, 170, 171, 61));
-        label_300->setStyleSheet(QString::fromUtf8("color : black;"));
-        stackedWidget_13->addWidget(user_17);
-        statlabo_17 = new QWidget();
-        statlabo_17->setObjectName("statlabo_17");
-        label_301 = new QLabel(statlabo_17);
-        label_301->setObjectName("label_301");
-        label_301->setGeometry(QRect(0, 0, 461, 71));
-        label_301->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 30px;\n"
-"    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
-"\n"
-""));
-        stackedWidget_13->addWidget(statlabo_17);
-        chatbotlabo_17 = new QWidget();
-        chatbotlabo_17->setObjectName("chatbotlabo_17");
-        label_302 = new QLabel(chatbotlabo_17);
-        label_302->setObjectName("label_302");
-        label_302->setGeometry(QRect(0, 0, 461, 71));
-        label_302->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 30px;\n"
-"    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
-"\n"
-""));
-        stackedWidget_13->addWidget(chatbotlabo_17);
-        journallabo_17 = new QWidget();
-        journallabo_17->setObjectName("journallabo_17");
-        label_303 = new QLabel(journallabo_17);
-        label_303->setObjectName("label_303");
-        label_303->setGeometry(QRect(0, 0, 461, 71));
-        label_303->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 30px;\n"
-"    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
-"\n"
-""));
-        stackedWidget_13->addWidget(journallabo_17);
-        statmedcin_7->addWidget(medecin_18);
-        Patient_19 = new QWidget();
-        Patient_19->setObjectName("Patient_19");
-        Patient_19->setStyleSheet(QString::fromUtf8("color : black;"));
-        stackedWidget_14 = new QStackedWidget(Patient_19);
-        stackedWidget_14->setObjectName("stackedWidget_14");
-        stackedWidget_14->setGeometry(QRect(0, 0, 1101, 671));
-        stackedWidget_14->setStyleSheet(QString::fromUtf8("background-color: rgb(234, 251, 255);\n"
-""));
-        medecin_20 = new QWidget();
-        medecin_20->setObjectName("medecin_20");
-        label_304 = new QLabel(medecin_20);
-        label_304->setObjectName("label_304");
-        label_304->setGeometry(QRect(560, 80, 171, 61));
-        label_304->setStyleSheet(QString::fromUtf8("color : black;"));
-        stackedWidget_14->addWidget(medecin_20);
-        Patient_20 = new QWidget();
-        Patient_20->setObjectName("Patient_20");
-        Patient_20->setStyleSheet(QString::fromUtf8("color : black;"));
-        label_305 = new QLabel(Patient_20);
-        label_305->setObjectName("label_305");
-        label_305->setGeometry(QRect(410, 60, 171, 61));
-        stackedWidget_14->addWidget(Patient_20);
-        Labo_19 = new QWidget();
-        Labo_19->setObjectName("Labo_19");
-        Labo_19->setStyleSheet(QString::fromUtf8("color : black;"));
-        label_306 = new QLabel(Labo_19);
-        label_306->setObjectName("label_306");
-        label_306->setGeometry(QRect(350, 30, 341, 71));
-        label_306->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 30px;\n"
-"    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
-"\n"
-""));
-        popupWidget_19 = new QWidget(Labo_19);
-        popupWidget_19->setObjectName("popupWidget_19");
-        popupWidget_19->setGeometry(QRect(1140, 650, 51, 81));
-        popupWidget_19->setStyleSheet(QString::fromUtf8("QWidget {\n"
-"    background-color: #2a2a2a;\n"
-"    border-right: 2px solid #3a3a3a;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"    background-color: #3a3a3a;\n"
-"    color: #ffffff;\n"
-"    border: none;\n"
-"    padding: 10px;\n"
-"    margin: 5px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #4a4a4a;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #666666;\n"
-"}\n"
-"\n"
-"QListWidget {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: none;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QListWidget::item {\n"
-"    padding: 8px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QListWidget::item:selected {\n"
-"    background-color: #4a4a4a;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background: #2a2a2a;\n"
-"    width: 8px;\n"
-"    margin: 0px 0px 0px 0px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical {\n"
-"    background: #555555;\n"
-"    border-radius: 10px;\n"
-"}\n"
-""
-                        "\n"
-"QScrollBar::handle:vertical:hover {\n"
-"    background: #777777;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
-"    border: none;\n"
-"    background: none;\n"
-"}\n"
-""));
-        pushButton_57 = new QPushButton(popupWidget_19);
-        pushButton_57->setObjectName("pushButton_57");
-        pushButton_57->setGeometry(QRect(30, 70, 111, 51));
-        pushButton_57->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 11px;\n"
-"    font-weight: bold;\n"
-"    text-transform: uppercase;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        pushButton_58 = new QPushButton(popupWidget_19);
-        pushButton_58->setObjectName("pushButton_58");
-        pushButton_58->setGeometry(QRect(20, 0, 131, 61));
-        pushButton_58->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 11px;\n"
-"    font-weight: bold;\n"
-"    text-transform: uppercase;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        pushButton_59 = new QPushButton(popupWidget_19);
-        pushButton_59->setObjectName("pushButton_59");
-        pushButton_59->setGeometry(QRect(20, 30, 131, 61));
-        pushButton_59->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 11px;\n"
-"    font-weight: bold;\n"
-"    text-transform: uppercase;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        groupBox_22 = new QGroupBox(Labo_19);
-        groupBox_22->setObjectName("groupBox_22");
-        groupBox_22->setGeometry(QRect(10, 10, 291, 651));
-        groupBox_22->setStyleSheet(QString::fromUtf8("QGroupBox {\n"
-"    background-color: rgb(234, 251, 255);  /* Light blue background */\n"
-"    border: 2px solid #2a2a2a ;  /* Dark gray border */\n"
-"    border-radius: 8px;         /* Rounded corners */\n"
-"    margin-top: 20px;           /* Space for title */\n"
-"    padding: 10px;\n"
-"}\n"
-"QGroupBox::title {\n"
-"    subcontrol-origin: margin;\n"
-"    subcontrol-position: top center;\n"
-"    padding: 5px 15px;\n"
-"    background-color: #2a2a2a  ;  /* Dark gray background */\n"
-"    color: white  ;               /* White text */\n"
-"    border-radius: 5px;\n"
-"    font-weight: bold;\n"
-"}"));
-        layoutWidget_37 = new QWidget(groupBox_22);
-        layoutWidget_37->setObjectName("layoutWidget_37");
-        layoutWidget_37->setGeometry(QRect(10, 30, 271, 641));
-        verticalLayout_22 = new QVBoxLayout(layoutWidget_37);
-        verticalLayout_22->setObjectName("verticalLayout_22");
-        verticalLayout_22->setContentsMargins(0, 0, 0, 0);
-        label_307 = new QLabel(layoutWidget_37);
-        label_307->setObjectName("label_307");
-        label_307->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
-"        font-weight: bold;\n"
-"        color: #333; /* Dark gray text */\n"
-"        background: transparent;"));
-
-        verticalLayout_22->addWidget(label_307);
-
-        lineEdit_111 = new QLineEdit(layoutWidget_37);
-        lineEdit_111->setObjectName("lineEdit_111");
-        lineEdit_111->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-"         color: #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-""));
-
-        verticalLayout_22->addWidget(lineEdit_111);
-
-        label_308 = new QLabel(layoutWidget_37);
-        label_308->setObjectName("label_308");
-        label_308->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
-"        font-weight: bold;\n"
-"        color: #333; /* Dark gray text */\n"
-"        background: transparent;"));
-
-        verticalLayout_22->addWidget(label_308);
-
-        lineEdit_112 = new QLineEdit(layoutWidget_37);
-        lineEdit_112->setObjectName("lineEdit_112");
-        lineEdit_112->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-"         color: #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-""));
-
-        verticalLayout_22->addWidget(lineEdit_112);
-
-        label_309 = new QLabel(layoutWidget_37);
-        label_309->setObjectName("label_309");
-        label_309->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
-"        font-weight: bold;\n"
-"        color: #333; /* Dark gray text */\n"
-"        background: transparent;"));
-
-        verticalLayout_22->addWidget(label_309);
-
-        dateEdit_18 = new QDateEdit(layoutWidget_37);
-        dateEdit_18->setObjectName("dateEdit_18");
-        dateEdit_18->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-"         color: #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-"\n"
-""));
-
-        verticalLayout_22->addWidget(dateEdit_18);
-
-        label_310 = new QLabel(layoutWidget_37);
-        label_310->setObjectName("label_310");
-        label_310->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
-"        font-weight: bold;\n"
-"        color: #333; /* Dark gray text */\n"
-"        background: transparent;"));
-
-        verticalLayout_22->addWidget(label_310);
-
-        comboBox_34 = new QComboBox(layoutWidget_37);
-        comboBox_34->addItem(QString());
-        comboBox_34->addItem(QString());
-        comboBox_34->setObjectName("comboBox_34");
-        comboBox_34->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-"         color: #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-"text : search\n"
-""));
-
-        verticalLayout_22->addWidget(comboBox_34);
-
-        label_311 = new QLabel(layoutWidget_37);
-        label_311->setObjectName("label_311");
-        label_311->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
-"        font-weight: bold;\n"
-"        color: #333; /* Dark gray text */\n"
-"        background: transparent;"));
-
-        verticalLayout_22->addWidget(label_311);
-
-        lineEdit_113 = new QLineEdit(layoutWidget_37);
-        lineEdit_113->setObjectName("lineEdit_113");
-        lineEdit_113->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-"         color: #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-""));
-
-        verticalLayout_22->addWidget(lineEdit_113);
-
-        label_312 = new QLabel(layoutWidget_37);
-        label_312->setObjectName("label_312");
-        label_312->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
-"        font-weight: bold;\n"
-"        color: #333; /* Dark gray text */\n"
-"        background: transparent;"));
-
-        verticalLayout_22->addWidget(label_312);
-
-        lineEdit_114 = new QLineEdit(layoutWidget_37);
-        lineEdit_114->setObjectName("lineEdit_114");
-        lineEdit_114->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-"         color: #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-""));
-
-        verticalLayout_22->addWidget(lineEdit_114);
-
-        label_313 = new QLabel(layoutWidget_37);
-        label_313->setObjectName("label_313");
-        label_313->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
-"        font-weight: bold;\n"
-"        color: #333; /* Dark gray text */\n"
-"        background: transparent;"));
-
-        verticalLayout_22->addWidget(label_313);
-
-        lineEdit_115 = new QLineEdit(layoutWidget_37);
-        lineEdit_115->setObjectName("lineEdit_115");
-        lineEdit_115->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-"         color: #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-""));
-
-        verticalLayout_22->addWidget(lineEdit_115);
-
-        pushButton_176 = new QPushButton(layoutWidget_37);
-        pushButton_176->setObjectName("pushButton_176");
-        pushButton_176->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: rgb(173, 216, 230);\n"
-"    color: #ffffff;\n"
-"    border: 2px solid rgb(173, 216, 230);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-
-        verticalLayout_22->addWidget(pushButton_176);
-
-        tableau3_6 = new QTableWidget(Labo_19);
-        if (tableau3_6->columnCount() < 7)
-            tableau3_6->setColumnCount(7);
-        QTableWidgetItem *__qtablewidgetitem60 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(0, __qtablewidgetitem60);
-        QTableWidgetItem *__qtablewidgetitem61 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(1, __qtablewidgetitem61);
-        QTableWidgetItem *__qtablewidgetitem62 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(2, __qtablewidgetitem62);
-        QTableWidgetItem *__qtablewidgetitem63 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(3, __qtablewidgetitem63);
-        QTableWidgetItem *__qtablewidgetitem64 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(4, __qtablewidgetitem64);
-        QTableWidgetItem *__qtablewidgetitem65 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(5, __qtablewidgetitem65);
-        QTableWidgetItem *__qtablewidgetitem66 = new QTableWidgetItem();
-        tableau3_6->setHorizontalHeaderItem(6, __qtablewidgetitem66);
-        if (tableau3_6->rowCount() < 1)
-            tableau3_6->setRowCount(1);
-        tableau3_6->setObjectName("tableau3_6");
-        tableau3_6->setGeometry(QRect(310, 150, 781, 511));
-        tableau3_6->setMinimumSize(QSize(781, 0));
-        tableau3_6->setMaximumSize(QSize(781, 511));
-        tableau3_6->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
-        tableau3_6->setAutoFillBackground(false);
-        tableau3_6->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
-"    background-color: rgb(234, 251, 255);\n"
-"    border: 2px solid #2a2a2a;\n"
-"    border-radius: 8px;\n"
-"    gridline-color: #2a2a2a;\n"
-"    selection-background-color: #2a2a2a;\n"
-"    selection-color: white;\n"
-"}\n"
-"\n"
-"QHeaderView::section {\n"
-"    background-color: #2a2a2a;\n"
-"    color: white;\n"
-"    padding: 5px;\n"
-"    border: 1px solid #2a2a2a;\n"
-"    font-weight: bold;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section {\n"
-"    background-color: #2a2a2a;\n"
-"    border: 1px solid #2a2a2a;\n"
-"}\n"
-"\n"
-"QTableWidget::item {\n"
-"    padding: 5px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:selected {\n"
-"    background-color: #2a2a2a;\n"
-"    color: white;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    background-color: rgb(200, 240, 250);\n"
-"}\n"
-""));
-        tableau3_6->setLineWidth(144);
-        tableau3_6->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
-        tableau3_6->horizontalHeader()->setStretchLastSection(true);
-        lineEdit_116 = new QLineEdit(Labo_19);
-        lineEdit_116->setObjectName("lineEdit_116");
-        lineEdit_116->setGeometry(QRect(310, 100, 151, 51));
-        lineEdit_116->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-" color: #2a2a2a  ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-"text : search\n"
-""));
-        pushButton_177 = new QPushButton(Labo_19);
-        pushButton_177->setObjectName("pushButton_177");
-        pushButton_177->setGeometry(QRect(980, 220, 111, 61));
-        pushButton_177->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: rgb(173, 216, 230);\n"
-"    color: #ffffff;\n"
-"    border: 2px solid rgb(173, 216, 230);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        pushButton_178 = new QPushButton(Labo_19);
-        pushButton_178->setObjectName("pushButton_178");
-        pushButton_178->setGeometry(QRect(980, 270, 111, 61));
-        pushButton_178->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: rgb(173, 216, 230);\n"
-"    color: #ffffff;\n"
-"    border: 2px solid rgb(173, 216, 230);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        btnpatient3_6 = new QPushButton(Labo_19);
-        btnpatient3_6->setObjectName("btnpatient3_6");
-        btnpatient3_6->setGeometry(QRect(930, 10, 181, 61));
-        btnpatient3_6->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a   ;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a   ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        btnpatient3_6->setIcon(icon6);
-        btnpatient3_6->setCheckable(true);
-        btnpatient3_6->setAutoExclusive(true);
-        btnpatient2_6 = new QPushButton(Labo_19);
-        btnpatient2_6->setObjectName("btnpatient2_6");
-        btnpatient2_6->setGeometry(QRect(930, 60, 181, 61));
-        btnpatient2_6->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a   ;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a   ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        btnpatient2_6->setIcon(icon6);
-        btnpatient2_6->setCheckable(true);
-        btnpatient2_6->setAutoExclusive(true);
-        layoutWidget_38 = new QWidget(Labo_19);
-        layoutWidget_38->setObjectName("layoutWidget_38");
-        layoutWidget_38->setGeometry(QRect(537, 90, 391, 57));
-        horizontalLayout_19 = new QHBoxLayout(layoutWidget_38);
-        horizontalLayout_19->setSpacing(7);
-        horizontalLayout_19->setObjectName("horizontalLayout_19");
-        horizontalLayout_19->setContentsMargins(0, 0, 0, 0);
-        label_314 = new QLabel(layoutWidget_38);
-        label_314->setObjectName("label_314");
-        label_314->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-" "));
-
-        horizontalLayout_19->addWidget(label_314, 0, Qt::AlignmentFlag::AlignRight);
-
-        comboBox_35 = new QComboBox(layoutWidget_38);
-        comboBox_35->addItem(QString());
-        comboBox_35->addItem(QString());
-        comboBox_35->setObjectName("comboBox_35");
-        comboBox_35->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-" color: #2a2a2a  ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-"text : search\n"
-""));
-
-        horizontalLayout_19->addWidget(comboBox_35);
-
-        pushButton_179 = new QPushButton(Labo_19);
-        pushButton_179->setObjectName("pushButton_179");
-        pushButton_179->setGeometry(QRect(980, 320, 111, 61));
-        pushButton_179->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: rgb(173, 216, 230);\n"
-"    color: #ffffff;\n"
-"    border: 2px solid rgb(173, 216, 230);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        stackedWidget_14->addWidget(Labo_19);
-        equibment_19 = new QWidget();
-        equibment_19->setObjectName("equibment_19");
-        label_315 = new QLabel(equibment_19);
-        label_315->setObjectName("label_315");
-        label_315->setGeometry(QRect(440, 50, 171, 61));
-        label_315->setStyleSheet(QString::fromUtf8("color : black;"));
-        stackedWidget_14->addWidget(equibment_19);
-        Vacc_18 = new QWidget();
-        Vacc_18->setObjectName("Vacc_18");
-        label_316 = new QLabel(Vacc_18);
-        label_316->setObjectName("label_316");
-        label_316->setGeometry(QRect(430, 70, 171, 61));
-        label_316->setStyleSheet(QString::fromUtf8("color : black;"));
-        stackedWidget_14->addWidget(Vacc_18);
-        RendezVous_18 = new QWidget();
-        RendezVous_18->setObjectName("RendezVous_18");
-        label_317 = new QLabel(RendezVous_18);
-        label_317->setObjectName("label_317");
-        label_317->setGeometry(QRect(410, 60, 171, 61));
-        label_317->setStyleSheet(QString::fromUtf8("color : black;"));
-        stackedWidget_14->addWidget(RendezVous_18);
-        user_18 = new QWidget();
-        user_18->setObjectName("user_18");
-        label_318 = new QLabel(user_18);
-        label_318->setObjectName("label_318");
-        label_318->setGeometry(QRect(750, 170, 171, 61));
-        label_318->setStyleSheet(QString::fromUtf8("color : black;"));
-        stackedWidget_14->addWidget(user_18);
-        statlabo_18 = new QWidget();
-        statlabo_18->setObjectName("statlabo_18");
-        label_319 = new QLabel(statlabo_18);
-        label_319->setObjectName("label_319");
-        label_319->setGeometry(QRect(0, 0, 461, 71));
-        label_319->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 30px;\n"
-"    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
-"\n"
-""));
-        stackedWidget_14->addWidget(statlabo_18);
-        chatbotlabo_18 = new QWidget();
-        chatbotlabo_18->setObjectName("chatbotlabo_18");
-        label_320 = new QLabel(chatbotlabo_18);
-        label_320->setObjectName("label_320");
-        label_320->setGeometry(QRect(0, 0, 461, 71));
-        label_320->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 30px;\n"
-"    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
-"\n"
-""));
-        stackedWidget_14->addWidget(chatbotlabo_18);
-        journallabo_18 = new QWidget();
-        journallabo_18->setObjectName("journallabo_18");
-        label_321 = new QLabel(journallabo_18);
-        label_321->setObjectName("label_321");
-        label_321->setGeometry(QRect(0, 0, 461, 71));
-        label_321->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 30px;\n"
-"    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
-"\n"
-""));
-        stackedWidget_14->addWidget(journallabo_18);
-        statmedcin_7->addWidget(Patient_19);
-        Labo_20 = new QWidget();
-        Labo_20->setObjectName("Labo_20");
-        Labo_20->setStyleSheet(QString::fromUtf8("color : black;"));
-        label_322 = new QLabel(Labo_20);
-        label_322->setObjectName("label_322");
-        label_322->setGeometry(QRect(350, 10, 341, 71));
-        label_322->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 30px;\n"
-"    font-weight: bold;\n"
-"background-color: rgb(234, 251, 255); \n"
-"\n"
-""));
-        popupWidget_20 = new QWidget(Labo_20);
-        popupWidget_20->setObjectName("popupWidget_20");
-        popupWidget_20->setGeometry(QRect(1140, 650, 51, 81));
-        popupWidget_20->setStyleSheet(QString::fromUtf8("QWidget {\n"
-"    background-color: #2a2a2a;\n"
-"    border-right: 2px solid #3a3a3a;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"    background-color: #3a3a3a;\n"
-"    color: #ffffff;\n"
-"    border: none;\n"
-"    padding: 10px;\n"
-"    margin: 5px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #4a4a4a;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #666666;\n"
-"}\n"
-"\n"
-"QListWidget {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: none;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QListWidget::item {\n"
-"    padding: 8px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QListWidget::item:selected {\n"
-"    background-color: #4a4a4a;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background: #2a2a2a;\n"
-"    width: 8px;\n"
-"    margin: 0px 0px 0px 0px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical {\n"
-"    background: #555555;\n"
-"    border-radius: 10px;\n"
-"}\n"
-""
-                        "\n"
-"QScrollBar::handle:vertical:hover {\n"
-"    background: #777777;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
-"    border: none;\n"
-"    background: none;\n"
-"}\n"
-""));
-        pushButton_60 = new QPushButton(popupWidget_20);
-        pushButton_60->setObjectName("pushButton_60");
-        pushButton_60->setGeometry(QRect(30, 70, 111, 51));
-        pushButton_60->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 11px;\n"
-"    font-weight: bold;\n"
-"    text-transform: uppercase;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        pushButton_61 = new QPushButton(popupWidget_20);
-        pushButton_61->setObjectName("pushButton_61");
-        pushButton_61->setGeometry(QRect(20, 0, 131, 61));
-        pushButton_61->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 11px;\n"
-"    font-weight: bold;\n"
-"    text-transform: uppercase;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        pushButton_62 = new QPushButton(popupWidget_20);
-        pushButton_62->setObjectName("pushButton_62");
-        pushButton_62->setGeometry(QRect(20, 30, 131, 61));
-        pushButton_62->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 11px;\n"
-"    font-weight: bold;\n"
-"    text-transform: uppercase;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        groupBox_23 = new QGroupBox(Labo_20);
-        groupBox_23->setObjectName("groupBox_23");
-        groupBox_23->setGeometry(QRect(10, 130, 291, 531));
-        groupBox_23->setStyleSheet(QString::fromUtf8("QGroupBox {\n"
-"    background-color: rgb(234, 251, 255);  /* Light blue background */\n"
-"    border: 2px solid #2a2a2a ;  /* Dark gray border */\n"
-"    border-radius: 8px;         /* Rounded corners */\n"
-"    margin-top: 20px;           /* Space for title */\n"
-"    padding: 10px;\n"
-"}\n"
-"QGroupBox::title {\n"
-"    subcontrol-origin: margin;\n"
-"    subcontrol-position: top center;\n"
-"    padding: 5px 15px;\n"
-"    background-color: #2a2a2a  ;  /* Dark gray background */\n"
-"    color: white  ;               /* White text */\n"
-"    border-radius: 5px;\n"
-"    font-weight: bold;\n"
-"}"));
-        layoutWidget_39 = new QWidget(groupBox_23);
-        layoutWidget_39->setObjectName("layoutWidget_39");
-        layoutWidget_39->setGeometry(QRect(10, 40, 271, 481));
-        verticalLayout_23 = new QVBoxLayout(layoutWidget_39);
-        verticalLayout_23->setObjectName("verticalLayout_23");
-        verticalLayout_23->setContentsMargins(0, 0, 0, 0);
-        label_323 = new QLabel(layoutWidget_39);
-        label_323->setObjectName("label_323");
-        label_323->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
-"        font-weight: bold;\n"
-"        color: #333; /* Dark gray text */\n"
-"        background: transparent;"));
-
-        verticalLayout_23->addWidget(label_323);
-
-        dateEdit_22 = new QDateEdit(layoutWidget_39);
-        dateEdit_22->setObjectName("dateEdit_22");
-        dateEdit_22->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-"         color: #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-"\n"
-""));
-
-        verticalLayout_23->addWidget(dateEdit_22);
-
-        label_324 = new QLabel(layoutWidget_39);
-        label_324->setObjectName("label_324");
-        label_324->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
-"        font-weight: bold;\n"
-"        color: #333; /* Dark gray text */\n"
-"        background: transparent;"));
-
-        verticalLayout_23->addWidget(label_324);
-
-        dateEdit_19 = new QDateEdit(layoutWidget_39);
-        dateEdit_19->setObjectName("dateEdit_19");
-        dateEdit_19->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-"         color: #2a2a2a;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-"\n"
-""));
-
-        verticalLayout_23->addWidget(dateEdit_19);
-
-        label_326 = new QLabel(layoutWidget_39);
-        label_326->setObjectName("label_326");
-        label_326->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
-"        font-weight: bold;\n"
-"        color: #333; /* Dark gray text */\n"
-"        background: transparent;"));
-
-        verticalLayout_23->addWidget(label_326);
-
-        lineEdit_124 = new QLineEdit(layoutWidget_39);
+        lineEdit_124 = new QLineEdit(layoutWidget_43);
         lineEdit_124->setObjectName("lineEdit_124");
         lineEdit_124->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
@@ -11433,22 +9990,20 @@ public:
 "\n"
 ""));
 
-        verticalLayout_23->addWidget(lineEdit_124);
+        verticalLayout_25->addWidget(lineEdit_124);
 
-        label_325 = new QLabel(layoutWidget_39);
-        label_325->setObjectName("label_325");
-        label_325->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+        label_373 = new QLabel(layoutWidget_43);
+        label_373->setObjectName("label_373");
+        label_373->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "        font-weight: bold;\n"
 "        color: #333; /* Dark gray text */\n"
 "        background: transparent;"));
 
-        verticalLayout_23->addWidget(label_325);
+        verticalLayout_25->addWidget(label_373);
 
-        comboBox_37 = new QComboBox(layoutWidget_39);
-        comboBox_37->addItem(QString());
-        comboBox_37->addItem(QString());
-        comboBox_37->setObjectName("comboBox_37");
-        comboBox_37->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+        lineEdit_125 = new QLineEdit(layoutWidget_43);
+        lineEdit_125->setObjectName("lineEdit_125");
+        lineEdit_125->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
 "        padding: 5px 8px;\n"
 "         color: #2a2a2a;\n"
@@ -11458,121 +10013,37 @@ public:
 "    font-weight: bold;\n"
 "        selection-background-color: #cce5ff; /* Light blue selection */\n"
 "\n"
-"text : search\n"
 ""));
 
-        verticalLayout_23->addWidget(comboBox_37);
+        verticalLayout_25->addWidget(lineEdit_125);
 
-        pushButton_180 = new QPushButton(layoutWidget_39);
-        pushButton_180->setObjectName("pushButton_180");
-        pushButton_180->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: rgb(173, 216, 230);\n"
-"    color: #ffffff;\n"
-"    border: 2px solid rgb(173, 216, 230);\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
+        label_374 = new QLabel(layoutWidget_43);
+        label_374->setObjectName("label_374");
+        label_374->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
 
-        verticalLayout_23->addWidget(pushButton_180);
+        verticalLayout_25->addWidget(label_374);
 
-        tableau6 = new QTableWidget(Labo_20);
-        if (tableau6->columnCount() < 5)
-            tableau6->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem67 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(0, __qtablewidgetitem67);
-        QTableWidgetItem *__qtablewidgetitem68 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(1, __qtablewidgetitem68);
-        QTableWidgetItem *__qtablewidgetitem69 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(2, __qtablewidgetitem69);
-        QTableWidgetItem *__qtablewidgetitem70 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(3, __qtablewidgetitem70);
-        QTableWidgetItem *__qtablewidgetitem71 = new QTableWidgetItem();
-        tableau6->setHorizontalHeaderItem(4, __qtablewidgetitem71);
-        if (tableau6->rowCount() < 1)
-            tableau6->setRowCount(1);
-        tableau6->setObjectName("tableau6");
-        tableau6->setGeometry(QRect(310, 150, 781, 511));
-        tableau6->setMinimumSize(QSize(781, 0));
-        tableau6->setMaximumSize(QSize(781, 511));
-        tableau6->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
-        tableau6->setAutoFillBackground(false);
-        tableau6->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
-"    background-color: rgb(234, 251, 255);\n"
-"    border: 2px solid #2a2a2a;\n"
-"    border-radius: 8px;\n"
-"    gridline-color: #2a2a2a;\n"
-"    selection-background-color: #2a2a2a;\n"
-"    selection-color: white;\n"
-"}\n"
-"\n"
-"QHeaderView::section {\n"
-"    background-color: #2a2a2a;\n"
-"    color: white;\n"
-"    padding: 5px;\n"
-"    border: 1px solid #2a2a2a;\n"
-"    font-weight: bold;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section {\n"
-"    background-color: #2a2a2a;\n"
-"    border: 1px solid #2a2a2a;\n"
-"}\n"
-"\n"
-"QTableWidget::item {\n"
-"    padding: 5px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:selected {\n"
-"    background-color: #2a2a2a;\n"
-"    color: white;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    background-color: rgb(200, 240, 250);\n"
-"}\n"
-""));
-        tableau6->setLineWidth(144);
-        tableau6->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
-        tableau6->horizontalHeader()->setStretchLastSection(true);
-        lineEdit_118 = new QLineEdit(Labo_20);
-        lineEdit_118->setObjectName("lineEdit_118");
-        lineEdit_118->setGeometry(QRect(310, 100, 151, 51));
-        lineEdit_118->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+        lineEdit_126 = new QLineEdit(layoutWidget_43);
+        lineEdit_126->setObjectName("lineEdit_126");
+        lineEdit_126->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
 "        border-radius: 6px;\n"
 "        padding: 5px 8px;\n"
-" color: #2a2a2a  ;\n"
+"         color: #2a2a2a;\n"
 "    padding: 10px;\n"
 "    margin: 6px;\n"
 "    font-size: 13px;\n"
 "    font-weight: bold;\n"
 "        selection-background-color: #cce5ff; /* Light blue selection */\n"
 "\n"
-"text : search\n"
 ""));
-        pushButton_181 = new QPushButton(Labo_20);
+
+        verticalLayout_25->addWidget(lineEdit_126);
+
+        pushButton_181 = new QPushButton(layoutWidget_43);
         pushButton_181->setObjectName("pushButton_181");
-        pushButton_181->setGeometry(QRect(980, 220, 111, 61));
         pushButton_181->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: rgb(173, 216, 230);\n"
 "    color: #ffffff;\n"
@@ -11601,9 +10072,86 @@ public:
 "    border-color: #444444;\n"
 "}\n"
 ""));
-        pushButton_182 = new QPushButton(Labo_20);
+
+        verticalLayout_25->addWidget(pushButton_181);
+
+        tableau2_8 = new QTableWidget(Labo_22);
+        if (tableau2_8->columnCount() < 5)
+            tableau2_8->setColumnCount(5);
+        QTableWidgetItem *__qtablewidgetitem55 = new QTableWidgetItem();
+        tableau2_8->setHorizontalHeaderItem(0, __qtablewidgetitem55);
+        QTableWidgetItem *__qtablewidgetitem56 = new QTableWidgetItem();
+        tableau2_8->setHorizontalHeaderItem(1, __qtablewidgetitem56);
+        QTableWidgetItem *__qtablewidgetitem57 = new QTableWidgetItem();
+        tableau2_8->setHorizontalHeaderItem(2, __qtablewidgetitem57);
+        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
+        tableau2_8->setHorizontalHeaderItem(3, __qtablewidgetitem58);
+        QTableWidgetItem *__qtablewidgetitem59 = new QTableWidgetItem();
+        tableau2_8->setHorizontalHeaderItem(4, __qtablewidgetitem59);
+        if (tableau2_8->rowCount() < 1)
+            tableau2_8->setRowCount(1);
+        tableau2_8->setObjectName("tableau2_8");
+        tableau2_8->setGeometry(QRect(310, 150, 781, 511));
+        tableau2_8->setMinimumSize(QSize(781, 0));
+        tableau2_8->setMaximumSize(QSize(781, 511));
+        tableau2_8->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        tableau2_8->setAutoFillBackground(false);
+        tableau2_8->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
+"    background-color: rgb(234, 251, 255);\n"
+"    border: 2px solid #2a2a2a;\n"
+"    border-radius: 8px;\n"
+"    gridline-color: #2a2a2a;\n"
+"    selection-background-color: #2a2a2a;\n"
+"    selection-color: white;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #2a2a2a;\n"
+"    color: white;\n"
+"    padding: 5px;\n"
+"    border: 1px solid #2a2a2a;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section {\n"
+"    background-color: #2a2a2a;\n"
+"    border: 1px solid #2a2a2a;\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:selected {\n"
+"    background-color: #2a2a2a;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    background-color: rgb(200, 240, 250);\n"
+"}\n"
+""));
+        tableau2_8->setLineWidth(144);
+        tableau2_8->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
+        tableau2_8->horizontalHeader()->setStretchLastSection(true);
+        lineEdit_127 = new QLineEdit(Labo_22);
+        lineEdit_127->setObjectName("lineEdit_127");
+        lineEdit_127->setGeometry(QRect(310, 100, 151, 51));
+        lineEdit_127->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+" color: #2a2a2a  ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"text : search\n"
+""));
+        pushButton_182 = new QPushButton(Labo_22);
         pushButton_182->setObjectName("pushButton_182");
-        pushButton_182->setGeometry(QRect(980, 270, 111, 61));
+        pushButton_182->setGeometry(QRect(980, 220, 111, 61));
         pushButton_182->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: rgb(173, 216, 230);\n"
 "    color: #ffffff;\n"
@@ -11632,149 +10180,10 @@ public:
 "    border-color: #444444;\n"
 "}\n"
 ""));
-        btnrendezv4 = new QPushButton(Labo_20);
-        btnrendezv4->setObjectName("btnrendezv4");
-        btnrendezv4->setGeometry(QRect(930, 10, 181, 61));
-        btnrendezv4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a   ;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a   ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        btnrendezv4->setIcon(icon6);
-        btnrendezv4->setCheckable(true);
-        btnrendezv4->setAutoExclusive(true);
-        btnrendezv2 = new QPushButton(Labo_20);
-        btnrendezv2->setObjectName("btnrendezv2");
-        btnrendezv2->setGeometry(QRect(930, 60, 181, 61));
-        btnrendezv2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a   ;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a   ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        btnrendezv2->setIcon(icon6);
-        btnrendezv2->setCheckable(true);
-        btnrendezv2->setAutoExclusive(true);
-        btnrendezv3 = new QPushButton(Labo_20);
-        btnrendezv3->setObjectName("btnrendezv3");
-        btnrendezv3->setGeometry(QRect(-20, 10, 181, 61));
-        btnrendezv3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    background-color: #2a2a2a;\n"
-"    color: #ffffff;\n"
-"    border: 2px solid #2a2a2a   ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    border-radius: 12px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-"    transition: all 0.3s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #606060;\n"
-"    border-color: #777777;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #787878;\n"
-"    border-color: #909090;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #353535;\n"
-"    color: #ffffff;\n"
-"    border-color: #444444;\n"
-"}\n"
-""));
-        btnrendezv3->setIcon(icon6);
-        btnrendezv3->setCheckable(true);
-        btnrendezv3->setAutoExclusive(true);
-        layoutWidget_40 = new QWidget(Labo_20);
-        layoutWidget_40->setObjectName("layoutWidget_40");
-        layoutWidget_40->setGeometry(QRect(537, 90, 391, 57));
-        horizontalLayout_20 = new QHBoxLayout(layoutWidget_40);
-        horizontalLayout_20->setSpacing(7);
-        horizontalLayout_20->setObjectName("horizontalLayout_20");
-        horizontalLayout_20->setContentsMargins(0, 0, 0, 0);
-        label_327 = new QLabel(layoutWidget_40);
-        label_327->setObjectName("label_327");
-        label_327->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 15px;\n"
-"    font-weight: bold;\n"
-" "));
-
-        horizontalLayout_20->addWidget(label_327, 0, Qt::AlignmentFlag::AlignRight);
-
-        comboBox_38 = new QComboBox(layoutWidget_40);
-        comboBox_38->addItem(QString());
-        comboBox_38->addItem(QString());
-        comboBox_38->setObjectName("comboBox_38");
-        comboBox_38->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
-"        border-radius: 6px;\n"
-"        padding: 5px 8px;\n"
-" color: #2a2a2a  ;\n"
-"    padding: 10px;\n"
-"    margin: 6px;\n"
-"    font-size: 13px;\n"
-"    font-weight: bold;\n"
-"        selection-background-color: #cce5ff; /* Light blue selection */\n"
-"\n"
-"text : search\n"
-""));
-
-        horizontalLayout_20->addWidget(comboBox_38);
-
-        pushButton_187 = new QPushButton(Labo_20);
-        pushButton_187->setObjectName("pushButton_187");
-        pushButton_187->setGeometry(QRect(980, 320, 111, 61));
-        pushButton_187->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        pushButton_188 = new QPushButton(Labo_22);
+        pushButton_188->setObjectName("pushButton_188");
+        pushButton_188->setGeometry(QRect(980, 270, 111, 61));
+        pushButton_188->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: rgb(173, 216, 230);\n"
 "    color: #ffffff;\n"
 "    border: 2px solid rgb(173, 216, 230);\n"
@@ -11802,41 +10211,148 @@ public:
 "    border-color: #444444;\n"
 "}\n"
 ""));
-        statmedcin_7->addWidget(Labo_20);
-        equibment_20 = new QWidget();
-        equibment_20->setObjectName("equibment_20");
-        label_328 = new QLabel(equibment_20);
-        label_328->setObjectName("label_328");
-        label_328->setGeometry(QRect(440, 50, 171, 61));
-        label_328->setStyleSheet(QString::fromUtf8("color : black;"));
-        statmedcin_7->addWidget(equibment_20);
-        Vacc_19 = new QWidget();
-        Vacc_19->setObjectName("Vacc_19");
-        label_329 = new QLabel(Vacc_19);
-        label_329->setObjectName("label_329");
-        label_329->setGeometry(QRect(430, 70, 171, 61));
-        label_329->setStyleSheet(QString::fromUtf8("color : black;"));
-        statmedcin_7->addWidget(Vacc_19);
-        RendezVous_19 = new QWidget();
-        RendezVous_19->setObjectName("RendezVous_19");
-        label_330 = new QLabel(RendezVous_19);
-        label_330->setObjectName("label_330");
-        label_330->setGeometry(QRect(410, 60, 171, 61));
-        label_330->setStyleSheet(QString::fromUtf8("color : black;"));
-        statmedcin_7->addWidget(RendezVous_19);
-        user_19 = new QWidget();
-        user_19->setObjectName("user_19");
-        label_331 = new QLabel(user_19);
-        label_331->setObjectName("label_331");
-        label_331->setGeometry(QRect(750, 170, 171, 61));
-        label_331->setStyleSheet(QString::fromUtf8("color : black;"));
-        statmedcin_7->addWidget(user_19);
-        statlabo_19 = new QWidget();
-        statlabo_19->setObjectName("statlabo_19");
-        label_332 = new QLabel(statlabo_19);
-        label_332->setObjectName("label_332");
-        label_332->setGeometry(QRect(0, 0, 461, 71));
-        label_332->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+        btnmedecin3_8 = new QPushButton(Labo_22);
+        btnmedecin3_8->setObjectName("btnmedecin3_8");
+        btnmedecin3_8->setGeometry(QRect(930, 10, 181, 61));
+        btnmedecin3_8->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a   ;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a   ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        btnmedecin3_8->setIcon(icon6);
+        btnmedecin3_8->setCheckable(true);
+        btnmedecin3_8->setAutoExclusive(true);
+        btnmedecin2_8 = new QPushButton(Labo_22);
+        btnmedecin2_8->setObjectName("btnmedecin2_8");
+        btnmedecin2_8->setGeometry(QRect(930, 60, 181, 61));
+        btnmedecin2_8->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a   ;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a   ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        btnmedecin2_8->setIcon(icon6);
+        btnmedecin2_8->setCheckable(true);
+        btnmedecin2_8->setAutoExclusive(true);
+        layoutWidget_44 = new QWidget(Labo_22);
+        layoutWidget_44->setObjectName("layoutWidget_44");
+        layoutWidget_44->setGeometry(QRect(537, 90, 391, 57));
+        horizontalLayout_22 = new QHBoxLayout(layoutWidget_44);
+        horizontalLayout_22->setSpacing(7);
+        horizontalLayout_22->setObjectName("horizontalLayout_22");
+        horizontalLayout_22->setContentsMargins(0, 0, 0, 0);
+        label_375 = new QLabel(layoutWidget_44);
+        label_375->setObjectName("label_375");
+        label_375->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+" "));
+
+        horizontalLayout_22->addWidget(label_375, 0, Qt::AlignmentFlag::AlignRight);
+
+        comboBox_36 = new QComboBox(layoutWidget_44);
+        comboBox_36->addItem(QString());
+        comboBox_36->addItem(QString());
+        comboBox_36->addItem(QString());
+        comboBox_36->addItem(QString());
+        comboBox_36->setObjectName("comboBox_36");
+        comboBox_36->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+" color: #2a2a2a  ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"text : search\n"
+""));
+
+        horizontalLayout_22->addWidget(comboBox_36);
+
+        stackedWidget_16->addWidget(Labo_22);
+        equibment_22 = new QWidget();
+        equibment_22->setObjectName("equibment_22");
+        label_376 = new QLabel(equibment_22);
+        label_376->setObjectName("label_376");
+        label_376->setGeometry(QRect(440, 50, 171, 61));
+        label_376->setStyleSheet(QString::fromUtf8("color : black;"));
+        stackedWidget_16->addWidget(equibment_22);
+        Vacc_22 = new QWidget();
+        Vacc_22->setObjectName("Vacc_22");
+        label_377 = new QLabel(Vacc_22);
+        label_377->setObjectName("label_377");
+        label_377->setGeometry(QRect(430, 70, 171, 61));
+        label_377->setStyleSheet(QString::fromUtf8("color : black;"));
+        stackedWidget_16->addWidget(Vacc_22);
+        RendezVous_22 = new QWidget();
+        RendezVous_22->setObjectName("RendezVous_22");
+        label_378 = new QLabel(RendezVous_22);
+        label_378->setObjectName("label_378");
+        label_378->setGeometry(QRect(410, 60, 171, 61));
+        label_378->setStyleSheet(QString::fromUtf8("color : black;"));
+        stackedWidget_16->addWidget(RendezVous_22);
+        user_22 = new QWidget();
+        user_22->setObjectName("user_22");
+        label_379 = new QLabel(user_22);
+        label_379->setObjectName("label_379");
+        label_379->setGeometry(QRect(750, 170, 171, 61));
+        label_379->setStyleSheet(QString::fromUtf8("color : black;"));
+        stackedWidget_16->addWidget(user_22);
+        statlabo_22 = new QWidget();
+        statlabo_22->setObjectName("statlabo_22");
+        label_380 = new QLabel(statlabo_22);
+        label_380->setObjectName("label_380");
+        label_380->setGeometry(QRect(0, 0, 461, 71));
+        label_380->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
 "    padding: 10px;\n"
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
@@ -11844,13 +10360,13 @@ public:
 "background-color: rgb(234, 251, 255); \n"
 "\n"
 ""));
-        statmedcin_7->addWidget(statlabo_19);
-        chatbotlabo_19 = new QWidget();
-        chatbotlabo_19->setObjectName("chatbotlabo_19");
-        label_333 = new QLabel(chatbotlabo_19);
-        label_333->setObjectName("label_333");
-        label_333->setGeometry(QRect(0, 0, 461, 71));
-        label_333->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+        stackedWidget_16->addWidget(statlabo_22);
+        chatbotlabo_22 = new QWidget();
+        chatbotlabo_22->setObjectName("chatbotlabo_22");
+        label_381 = new QLabel(chatbotlabo_22);
+        label_381->setObjectName("label_381");
+        label_381->setGeometry(QRect(0, 0, 461, 71));
+        label_381->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
 "    padding: 10px;\n"
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
@@ -11858,13 +10374,13 @@ public:
 "background-color: rgb(234, 251, 255); \n"
 "\n"
 ""));
-        statmedcin_7->addWidget(chatbotlabo_19);
-        journallabo_19 = new QWidget();
-        journallabo_19->setObjectName("journallabo_19");
-        label_334 = new QLabel(journallabo_19);
-        label_334->setObjectName("label_334");
-        label_334->setGeometry(QRect(0, 0, 461, 71));
-        label_334->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+        stackedWidget_16->addWidget(chatbotlabo_22);
+        journallabo_22 = new QWidget();
+        journallabo_22->setObjectName("journallabo_22");
+        label_382 = new QLabel(journallabo_22);
+        label_382->setObjectName("label_382");
+        label_382->setGeometry(QRect(0, 0, 461, 71));
+        label_382->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
 "    padding: 10px;\n"
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
@@ -11872,13 +10388,37 @@ public:
 "background-color: rgb(234, 251, 255); \n"
 "\n"
 ""));
-        statmedcin_7->addWidget(journallabo_19);
-        statmedcin_8 = new QWidget();
-        statmedcin_8->setObjectName("statmedcin_8");
-        label_335 = new QLabel(statmedcin_8);
-        label_335->setObjectName("label_335");
-        label_335->setGeometry(QRect(0, 0, 461, 71));
-        label_335->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+        stackedWidget_16->addWidget(journallabo_22);
+        statmedcin_7->addWidget(medecin_22);
+        Patient_23 = new QWidget();
+        Patient_23->setObjectName("Patient_23");
+        Patient_23->setStyleSheet(QString::fromUtf8("color : black;"));
+        stackedWidget_17 = new QStackedWidget(Patient_23);
+        stackedWidget_17->setObjectName("stackedWidget_17");
+        stackedWidget_17->setGeometry(QRect(0, 0, 1101, 671));
+        stackedWidget_17->setStyleSheet(QString::fromUtf8("background-color: rgb(234, 251, 255);\n"
+""));
+        medecin_24 = new QWidget();
+        medecin_24->setObjectName("medecin_24");
+        label_383 = new QLabel(medecin_24);
+        label_383->setObjectName("label_383");
+        label_383->setGeometry(QRect(560, 80, 171, 61));
+        label_383->setStyleSheet(QString::fromUtf8("color : black;"));
+        stackedWidget_17->addWidget(medecin_24);
+        Patient_24 = new QWidget();
+        Patient_24->setObjectName("Patient_24");
+        Patient_24->setStyleSheet(QString::fromUtf8("color : black;"));
+        label_384 = new QLabel(Patient_24);
+        label_384->setObjectName("label_384");
+        label_384->setGeometry(QRect(410, 60, 171, 61));
+        stackedWidget_17->addWidget(Patient_24);
+        Labo_23 = new QWidget();
+        Labo_23->setObjectName("Labo_23");
+        Labo_23->setStyleSheet(QString::fromUtf8("color : black;"));
+        label_385 = new QLabel(Labo_23);
+        label_385->setObjectName("label_385");
+        label_385->setGeometry(QRect(350, 30, 341, 71));
+        label_385->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
 "    padding: 10px;\n"
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
@@ -11886,13 +10426,715 @@ public:
 "background-color: rgb(234, 251, 255); \n"
 "\n"
 ""));
-        statmedcin_7->addWidget(statmedcin_8);
-        page_10 = new QWidget();
-        page_10->setObjectName("page_10");
-        label_336 = new QLabel(page_10);
-        label_336->setObjectName("label_336");
-        label_336->setGeometry(QRect(-10, 0, 461, 71));
-        label_336->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+        popupWidget_23 = new QWidget(Labo_23);
+        popupWidget_23->setObjectName("popupWidget_23");
+        popupWidget_23->setGeometry(QRect(1140, 650, 51, 81));
+        popupWidget_23->setStyleSheet(QString::fromUtf8("QWidget {\n"
+"    background-color: #2a2a2a;\n"
+"    border-right: 2px solid #3a3a3a;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color: #3a3a3a;\n"
+"    color: #ffffff;\n"
+"    border: none;\n"
+"    padding: 10px;\n"
+"    margin: 5px;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #4a4a4a;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #666666;\n"
+"}\n"
+"\n"
+"QListWidget {\n"
+"    background-color: #2a2a2a;\n"
+"    color: #ffffff;\n"
+"    border: none;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QListWidget::item {\n"
+"    padding: 8px;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QListWidget::item:selected {\n"
+"    background-color: #4a4a4a;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background: #2a2a2a;\n"
+"    width: 8px;\n"
+"    margin: 0px 0px 0px 0px;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #555555;\n"
+"    border-radius: 10px;\n"
+"}\n"
+""
+                        "\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: #777777;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
+"    border: none;\n"
+"    background: none;\n"
+"}\n"
+""));
+        pushButton_69 = new QPushButton(popupWidget_23);
+        pushButton_69->setObjectName("pushButton_69");
+        pushButton_69->setGeometry(QRect(30, 70, 111, 51));
+        pushButton_69->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 11px;\n"
+"    font-weight: bold;\n"
+"    text-transform: uppercase;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        pushButton_70 = new QPushButton(popupWidget_23);
+        pushButton_70->setObjectName("pushButton_70");
+        pushButton_70->setGeometry(QRect(20, 0, 131, 61));
+        pushButton_70->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 11px;\n"
+"    font-weight: bold;\n"
+"    text-transform: uppercase;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        pushButton_71 = new QPushButton(popupWidget_23);
+        pushButton_71->setObjectName("pushButton_71");
+        pushButton_71->setGeometry(QRect(20, 30, 131, 61));
+        pushButton_71->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 11px;\n"
+"    font-weight: bold;\n"
+"    text-transform: uppercase;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        groupBox_26 = new QGroupBox(Labo_23);
+        groupBox_26->setObjectName("groupBox_26");
+        groupBox_26->setGeometry(QRect(10, 10, 291, 651));
+        groupBox_26->setStyleSheet(QString::fromUtf8("QGroupBox {\n"
+"    background-color: rgb(234, 251, 255);  /* Light blue background */\n"
+"    border: 2px solid #2a2a2a ;  /* Dark gray border */\n"
+"    border-radius: 8px;         /* Rounded corners */\n"
+"    margin-top: 20px;           /* Space for title */\n"
+"    padding: 10px;\n"
+"}\n"
+"QGroupBox::title {\n"
+"    subcontrol-origin: margin;\n"
+"    subcontrol-position: top center;\n"
+"    padding: 5px 15px;\n"
+"    background-color: #2a2a2a  ;  /* Dark gray background */\n"
+"    color: white  ;               /* White text */\n"
+"    border-radius: 5px;\n"
+"    font-weight: bold;\n"
+"}"));
+        layoutWidget_45 = new QWidget(groupBox_26);
+        layoutWidget_45->setObjectName("layoutWidget_45");
+        layoutWidget_45->setGeometry(QRect(10, 30, 271, 674));
+        verticalLayout_26 = new QVBoxLayout(layoutWidget_45);
+        verticalLayout_26->setObjectName("verticalLayout_26");
+        verticalLayout_26->setContentsMargins(0, 0, 0, 0);
+        label_386 = new QLabel(layoutWidget_45);
+        label_386->setObjectName("label_386");
+        label_386->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_26->addWidget(label_386);
+
+        lineEdit_128 = new QLineEdit(layoutWidget_45);
+        lineEdit_128->setObjectName("lineEdit_128");
+        lineEdit_128->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+""));
+
+        verticalLayout_26->addWidget(lineEdit_128);
+
+        label_387 = new QLabel(layoutWidget_45);
+        label_387->setObjectName("label_387");
+        label_387->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_26->addWidget(label_387);
+
+        lineEdit_129 = new QLineEdit(layoutWidget_45);
+        lineEdit_129->setObjectName("lineEdit_129");
+        lineEdit_129->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+""));
+
+        verticalLayout_26->addWidget(lineEdit_129);
+
+        label_388 = new QLabel(layoutWidget_45);
+        label_388->setObjectName("label_388");
+        label_388->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_26->addWidget(label_388);
+
+        dateEdit_23 = new QDateEdit(layoutWidget_45);
+        dateEdit_23->setObjectName("dateEdit_23");
+        dateEdit_23->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"\n"
+""));
+
+        verticalLayout_26->addWidget(dateEdit_23);
+
+        label_389 = new QLabel(layoutWidget_45);
+        label_389->setObjectName("label_389");
+        label_389->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_26->addWidget(label_389);
+
+        comboBox_42 = new QComboBox(layoutWidget_45);
+        comboBox_42->addItem(QString());
+        comboBox_42->addItem(QString());
+        comboBox_42->setObjectName("comboBox_42");
+        comboBox_42->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"text : search\n"
+""));
+
+        verticalLayout_26->addWidget(comboBox_42);
+
+        label_390 = new QLabel(layoutWidget_45);
+        label_390->setObjectName("label_390");
+        label_390->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_26->addWidget(label_390);
+
+        lineEdit_130 = new QLineEdit(layoutWidget_45);
+        lineEdit_130->setObjectName("lineEdit_130");
+        lineEdit_130->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+""));
+
+        verticalLayout_26->addWidget(lineEdit_130);
+
+        label_391 = new QLabel(layoutWidget_45);
+        label_391->setObjectName("label_391");
+        label_391->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_26->addWidget(label_391);
+
+        lineEdit_131 = new QLineEdit(layoutWidget_45);
+        lineEdit_131->setObjectName("lineEdit_131");
+        lineEdit_131->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+""));
+
+        verticalLayout_26->addWidget(lineEdit_131);
+
+        label_392 = new QLabel(layoutWidget_45);
+        label_392->setObjectName("label_392");
+        label_392->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_26->addWidget(label_392);
+
+        lineEdit_132 = new QLineEdit(layoutWidget_45);
+        lineEdit_132->setObjectName("lineEdit_132");
+        lineEdit_132->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+""));
+
+        verticalLayout_26->addWidget(lineEdit_132);
+
+        pushButton_189 = new QPushButton(layoutWidget_45);
+        pushButton_189->setObjectName("pushButton_189");
+        pushButton_189->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+
+        verticalLayout_26->addWidget(pushButton_189);
+
+        tableau3_7 = new QTableWidget(Labo_23);
+        if (tableau3_7->columnCount() < 7)
+            tableau3_7->setColumnCount(7);
+        QTableWidgetItem *__qtablewidgetitem60 = new QTableWidgetItem();
+        tableau3_7->setHorizontalHeaderItem(0, __qtablewidgetitem60);
+        QTableWidgetItem *__qtablewidgetitem61 = new QTableWidgetItem();
+        tableau3_7->setHorizontalHeaderItem(1, __qtablewidgetitem61);
+        QTableWidgetItem *__qtablewidgetitem62 = new QTableWidgetItem();
+        tableau3_7->setHorizontalHeaderItem(2, __qtablewidgetitem62);
+        QTableWidgetItem *__qtablewidgetitem63 = new QTableWidgetItem();
+        tableau3_7->setHorizontalHeaderItem(3, __qtablewidgetitem63);
+        QTableWidgetItem *__qtablewidgetitem64 = new QTableWidgetItem();
+        tableau3_7->setHorizontalHeaderItem(4, __qtablewidgetitem64);
+        QTableWidgetItem *__qtablewidgetitem65 = new QTableWidgetItem();
+        tableau3_7->setHorizontalHeaderItem(5, __qtablewidgetitem65);
+        QTableWidgetItem *__qtablewidgetitem66 = new QTableWidgetItem();
+        tableau3_7->setHorizontalHeaderItem(6, __qtablewidgetitem66);
+        if (tableau3_7->rowCount() < 1)
+            tableau3_7->setRowCount(1);
+        tableau3_7->setObjectName("tableau3_7");
+        tableau3_7->setGeometry(QRect(310, 150, 781, 511));
+        tableau3_7->setMinimumSize(QSize(781, 0));
+        tableau3_7->setMaximumSize(QSize(781, 511));
+        tableau3_7->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        tableau3_7->setAutoFillBackground(false);
+        tableau3_7->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
+"    background-color: rgb(234, 251, 255);\n"
+"    border: 2px solid #2a2a2a;\n"
+"    border-radius: 8px;\n"
+"    gridline-color: #2a2a2a;\n"
+"    selection-background-color: #2a2a2a;\n"
+"    selection-color: white;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #2a2a2a;\n"
+"    color: white;\n"
+"    padding: 5px;\n"
+"    border: 1px solid #2a2a2a;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section {\n"
+"    background-color: #2a2a2a;\n"
+"    border: 1px solid #2a2a2a;\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:selected {\n"
+"    background-color: #2a2a2a;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    background-color: rgb(200, 240, 250);\n"
+"}\n"
+""));
+        tableau3_7->setLineWidth(144);
+        tableau3_7->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
+        tableau3_7->horizontalHeader()->setStretchLastSection(true);
+        lineEdit_133 = new QLineEdit(Labo_23);
+        lineEdit_133->setObjectName("lineEdit_133");
+        lineEdit_133->setGeometry(QRect(310, 100, 151, 51));
+        lineEdit_133->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+" color: #2a2a2a  ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"text : search\n"
+""));
+        pushButton_190 = new QPushButton(Labo_23);
+        pushButton_190->setObjectName("pushButton_190");
+        pushButton_190->setGeometry(QRect(980, 220, 111, 61));
+        pushButton_190->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        pushButton_191 = new QPushButton(Labo_23);
+        pushButton_191->setObjectName("pushButton_191");
+        pushButton_191->setGeometry(QRect(980, 270, 111, 61));
+        pushButton_191->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        btnpatient3_7 = new QPushButton(Labo_23);
+        btnpatient3_7->setObjectName("btnpatient3_7");
+        btnpatient3_7->setGeometry(QRect(930, 10, 181, 61));
+        btnpatient3_7->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a   ;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a   ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        btnpatient3_7->setIcon(icon6);
+        btnpatient3_7->setCheckable(true);
+        btnpatient3_7->setAutoExclusive(true);
+        btnpatient2_7 = new QPushButton(Labo_23);
+        btnpatient2_7->setObjectName("btnpatient2_7");
+        btnpatient2_7->setGeometry(QRect(930, 60, 181, 61));
+        btnpatient2_7->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a   ;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a   ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        btnpatient2_7->setIcon(icon6);
+        btnpatient2_7->setCheckable(true);
+        btnpatient2_7->setAutoExclusive(true);
+        layoutWidget_46 = new QWidget(Labo_23);
+        layoutWidget_46->setObjectName("layoutWidget_46");
+        layoutWidget_46->setGeometry(QRect(537, 90, 391, 57));
+        horizontalLayout_23 = new QHBoxLayout(layoutWidget_46);
+        horizontalLayout_23->setSpacing(7);
+        horizontalLayout_23->setObjectName("horizontalLayout_23");
+        horizontalLayout_23->setContentsMargins(0, 0, 0, 0);
+        label_393 = new QLabel(layoutWidget_46);
+        label_393->setObjectName("label_393");
+        label_393->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+" "));
+
+        horizontalLayout_23->addWidget(label_393, 0, Qt::AlignmentFlag::AlignRight);
+
+        comboBox_43 = new QComboBox(layoutWidget_46);
+        comboBox_43->addItem(QString());
+        comboBox_43->addItem(QString());
+        comboBox_43->setObjectName("comboBox_43");
+        comboBox_43->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+" color: #2a2a2a  ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"text : search\n"
+""));
+
+        horizontalLayout_23->addWidget(comboBox_43);
+
+        pushButton_192 = new QPushButton(Labo_23);
+        pushButton_192->setObjectName("pushButton_192");
+        pushButton_192->setGeometry(QRect(980, 320, 111, 61));
+        pushButton_192->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        stackedWidget_17->addWidget(Labo_23);
+        equibment_23 = new QWidget();
+        equibment_23->setObjectName("equibment_23");
+        label_394 = new QLabel(equibment_23);
+        label_394->setObjectName("label_394");
+        label_394->setGeometry(QRect(440, 50, 171, 61));
+        label_394->setStyleSheet(QString::fromUtf8("color : black;"));
+        stackedWidget_17->addWidget(equibment_23);
+        Vacc_23 = new QWidget();
+        Vacc_23->setObjectName("Vacc_23");
+        label_395 = new QLabel(Vacc_23);
+        label_395->setObjectName("label_395");
+        label_395->setGeometry(QRect(430, 70, 171, 61));
+        label_395->setStyleSheet(QString::fromUtf8("color : black;"));
+        stackedWidget_17->addWidget(Vacc_23);
+        RendezVous_23 = new QWidget();
+        RendezVous_23->setObjectName("RendezVous_23");
+        label_396 = new QLabel(RendezVous_23);
+        label_396->setObjectName("label_396");
+        label_396->setGeometry(QRect(410, 60, 171, 61));
+        label_396->setStyleSheet(QString::fromUtf8("color : black;"));
+        stackedWidget_17->addWidget(RendezVous_23);
+        user_23 = new QWidget();
+        user_23->setObjectName("user_23");
+        label_397 = new QLabel(user_23);
+        label_397->setObjectName("label_397");
+        label_397->setGeometry(QRect(750, 170, 171, 61));
+        label_397->setStyleSheet(QString::fromUtf8("color : black;"));
+        stackedWidget_17->addWidget(user_23);
+        statlabo_23 = new QWidget();
+        statlabo_23->setObjectName("statlabo_23");
+        label_398 = new QLabel(statlabo_23);
+        label_398->setObjectName("label_398");
+        label_398->setGeometry(QRect(0, 0, 461, 71));
+        label_398->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
 "    padding: 10px;\n"
 "    margin: 6px;\n"
 "    font-size: 30px;\n"
@@ -11900,7 +11142,868 @@ public:
 "background-color: rgb(234, 251, 255); \n"
 "\n"
 ""));
-        statmedcin_7->addWidget(page_10);
+        stackedWidget_17->addWidget(statlabo_23);
+        chatbotlabo_23 = new QWidget();
+        chatbotlabo_23->setObjectName("chatbotlabo_23");
+        label_399 = new QLabel(chatbotlabo_23);
+        label_399->setObjectName("label_399");
+        label_399->setGeometry(QRect(0, 0, 461, 71));
+        label_399->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 30px;\n"
+"    font-weight: bold;\n"
+"background-color: rgb(234, 251, 255); \n"
+"\n"
+""));
+        stackedWidget_17->addWidget(chatbotlabo_23);
+        journallabo_23 = new QWidget();
+        journallabo_23->setObjectName("journallabo_23");
+        label_400 = new QLabel(journallabo_23);
+        label_400->setObjectName("label_400");
+        label_400->setGeometry(QRect(0, 0, 461, 71));
+        label_400->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 30px;\n"
+"    font-weight: bold;\n"
+"background-color: rgb(234, 251, 255); \n"
+"\n"
+""));
+        stackedWidget_17->addWidget(journallabo_23);
+        statmedcin_7->addWidget(Patient_23);
+        Labo_24 = new QWidget();
+        Labo_24->setObjectName("Labo_24");
+        Labo_24->setStyleSheet(QString::fromUtf8("color : black;"));
+        label_401 = new QLabel(Labo_24);
+        label_401->setObjectName("label_401");
+        label_401->setGeometry(QRect(350, 10, 341, 71));
+        label_401->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 30px;\n"
+"    font-weight: bold;\n"
+"background-color: rgb(234, 251, 255); \n"
+"\n"
+""));
+        popupWidget_24 = new QWidget(Labo_24);
+        popupWidget_24->setObjectName("popupWidget_24");
+        popupWidget_24->setGeometry(QRect(1140, 650, 51, 81));
+        popupWidget_24->setStyleSheet(QString::fromUtf8("QWidget {\n"
+"    background-color: #2a2a2a;\n"
+"    border-right: 2px solid #3a3a3a;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color: #3a3a3a;\n"
+"    color: #ffffff;\n"
+"    border: none;\n"
+"    padding: 10px;\n"
+"    margin: 5px;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #4a4a4a;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #666666;\n"
+"}\n"
+"\n"
+"QListWidget {\n"
+"    background-color: #2a2a2a;\n"
+"    color: #ffffff;\n"
+"    border: none;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QListWidget::item {\n"
+"    padding: 8px;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QListWidget::item:selected {\n"
+"    background-color: #4a4a4a;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background: #2a2a2a;\n"
+"    width: 8px;\n"
+"    margin: 0px 0px 0px 0px;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #555555;\n"
+"    border-radius: 10px;\n"
+"}\n"
+""
+                        "\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: #777777;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
+"    border: none;\n"
+"    background: none;\n"
+"}\n"
+""));
+        pushButton_72 = new QPushButton(popupWidget_24);
+        pushButton_72->setObjectName("pushButton_72");
+        pushButton_72->setGeometry(QRect(30, 70, 111, 51));
+        pushButton_72->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 11px;\n"
+"    font-weight: bold;\n"
+"    text-transform: uppercase;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        pushButton_73 = new QPushButton(popupWidget_24);
+        pushButton_73->setObjectName("pushButton_73");
+        pushButton_73->setGeometry(QRect(20, 0, 131, 61));
+        pushButton_73->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 11px;\n"
+"    font-weight: bold;\n"
+"    text-transform: uppercase;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        pushButton_74 = new QPushButton(popupWidget_24);
+        pushButton_74->setObjectName("pushButton_74");
+        pushButton_74->setGeometry(QRect(20, 30, 131, 61));
+        pushButton_74->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 11px;\n"
+"    font-weight: bold;\n"
+"    text-transform: uppercase;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        groupBox_27 = new QGroupBox(Labo_24);
+        groupBox_27->setObjectName("groupBox_27");
+        groupBox_27->setGeometry(QRect(10, 60, 291, 651));
+        groupBox_27->setStyleSheet(QString::fromUtf8("QGroupBox {\n"
+"    background-color: rgb(234, 251, 255);  /* Light blue background */\n"
+"    border: 2px solid #2a2a2a ;  /* Dark gray border */\n"
+"    border-radius: 8px;         /* Rounded corners */\n"
+"    margin-top: 20px;           /* Space for title */\n"
+"    padding: 10px;\n"
+"}\n"
+"QGroupBox::title {\n"
+"    subcontrol-origin: margin;\n"
+"    subcontrol-position: top center;\n"
+"    padding: 5px 15px;\n"
+"    background-color: #2a2a2a  ;  /* Dark gray background */\n"
+"    color: white  ;               /* White text */\n"
+"    border-radius: 5px;\n"
+"    font-weight: bold;\n"
+"}"));
+        layoutWidget_47 = new QWidget(groupBox_27);
+        layoutWidget_47->setObjectName("layoutWidget_47");
+        layoutWidget_47->setGeometry(QRect(10, 30, 271, 611));
+        verticalLayout_27 = new QVBoxLayout(layoutWidget_47);
+        verticalLayout_27->setObjectName("verticalLayout_27");
+        verticalLayout_27->setContentsMargins(0, 0, 0, 0);
+        label_38 = new QLabel(layoutWidget_47);
+        label_38->setObjectName("label_38");
+        label_38->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_27->addWidget(label_38);
+
+        lineEditID_2 = new QLineEdit(layoutWidget_47);
+        lineEditID_2->setObjectName("lineEditID_2");
+        lineEditID_2->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+""));
+
+        verticalLayout_27->addWidget(lineEditID_2);
+
+        label_402 = new QLabel(layoutWidget_47);
+        label_402->setObjectName("label_402");
+        label_402->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_27->addWidget(label_402);
+
+        dateEdit_24 = new QDateEdit(layoutWidget_47);
+        dateEdit_24->setObjectName("dateEdit_24");
+        dateEdit_24->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"\n"
+""));
+
+        verticalLayout_27->addWidget(dateEdit_24);
+
+        label_403 = new QLabel(layoutWidget_47);
+        label_403->setObjectName("label_403");
+        label_403->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_27->addWidget(label_403);
+
+        dateEdit_25 = new QTimeEdit(layoutWidget_47);
+        dateEdit_25->setObjectName("dateEdit_25");
+        dateEdit_25->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"\n"
+""));
+
+        verticalLayout_27->addWidget(dateEdit_25);
+
+        label_404 = new QLabel(layoutWidget_47);
+        label_404->setObjectName("label_404");
+        label_404->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_27->addWidget(label_404);
+
+        comboBox_44 = new QComboBox(layoutWidget_47);
+        comboBox_44->addItem(QString());
+        comboBox_44->addItem(QString());
+        comboBox_44->addItem(QString());
+        comboBox_44->setObjectName("comboBox_44");
+        comboBox_44->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"text : search\n"
+""));
+
+        verticalLayout_27->addWidget(comboBox_44);
+
+        label_405 = new QLabel(layoutWidget_47);
+        label_405->setObjectName("label_405");
+        label_405->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_27->addWidget(label_405);
+
+        comboBox_45 = new QComboBox(layoutWidget_47);
+        comboBox_45->addItem(QString());
+        comboBox_45->addItem(QString());
+        comboBox_45->setObjectName("comboBox_45");
+        comboBox_45->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"text : search\n"
+""));
+
+        verticalLayout_27->addWidget(comboBox_45);
+
+        label_39 = new QLabel(layoutWidget_47);
+        label_39->setObjectName("label_39");
+        label_39->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        color: #333; /* Dark gray text */\n"
+"        background: transparent;"));
+
+        verticalLayout_27->addWidget(label_39);
+
+        lineEdit_2 = new QLineEdit(layoutWidget_47);
+        lineEdit_2->setObjectName("lineEdit_2");
+        lineEdit_2->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+"         color: #2a2a2a;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+""));
+
+        verticalLayout_27->addWidget(lineEdit_2);
+
+        horizontalLayout_9 = new QHBoxLayout();
+        horizontalLayout_9->setObjectName("horizontalLayout_9");
+        pushButton_193 = new QPushButton(layoutWidget_47);
+        pushButton_193->setObjectName("pushButton_193");
+        pushButton_193->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+
+        horizontalLayout_9->addWidget(pushButton_193);
+
+        btncmodif_2 = new QPushButton(layoutWidget_47);
+        btncmodif_2->setObjectName("btncmodif_2");
+        btncmodif_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+
+        horizontalLayout_9->addWidget(btncmodif_2);
+
+
+        verticalLayout_27->addLayout(horizontalLayout_9);
+
+        tableau6_2 = new QTableView(Labo_24);
+        tableau6_2->setObjectName("tableau6_2");
+        tableau6_2->setGeometry(QRect(310, 160, 901, 551));
+        tableau6_2->setMinimumSize(QSize(781, 0));
+        tableau6_2->setMaximumSize(QSize(1000, 1000));
+        tableau6_2->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        tableau6_2->setAutoFillBackground(false);
+        tableau6_2->setStyleSheet(QString::fromUtf8("QTableView {\n"
+"    background-color: rgb(234, 251, 255);\n"
+"    border: 2px solid #2a2a2a;\n"
+"    border-radius: 8px;\n"
+"    gridline-color: #2a2a2a;\n"
+"    selection-background-color: #2a2a2a;\n"
+"    selection-color: white;\n"
+"	padding: 5px;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #2a2a2a;\n"
+"    color: white;\n"
+"    padding: 5px;\n"
+"    border: 1px solid #2a2a2a;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QTableView QTableCornerButton::section {\n"
+"    background-color: #2a2a2a;\n"
+"    border: 1px solid #2a2a2a;\n"
+"    border-top-left-radius: 8px;\n"
+"}\n"
+"\n"
+"QTableView::item {\n"
+"    padding: 5px;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QTableView::item:selected {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QTableView::item:hover {\n"
+"    background-color: rgb(220, 78, 78);\n"
+"    border-radius: 4px;\n"
+"}"));
+        tableau6_2->setLineWidth(144);
+        tableau6_2->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
+        tableau6_2->verticalHeader()->setCascadingSectionResizes(true);
+        lineEdit_134 = new QLineEdit(Labo_24);
+        lineEdit_134->setObjectName("lineEdit_134");
+        lineEdit_134->setGeometry(QRect(310, 100, 151, 51));
+        lineEdit_134->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+" color: #2a2a2a  ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"text : search\n"
+""));
+        btnmodif_2 = new QPushButton(Labo_24);
+        btnmodif_2->setObjectName("btnmodif_2");
+        btnmodif_2->setGeometry(QRect(470, 90, 111, 61));
+        btnmodif_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        btnsupp_2 = new QPushButton(Labo_24);
+        btnsupp_2->setObjectName("btnsupp_2");
+        btnsupp_2->setGeometry(QRect(590, 90, 111, 61));
+        btnsupp_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        btnrendezv4_2 = new QPushButton(Labo_24);
+        btnrendezv4_2->setObjectName("btnrendezv4_2");
+        btnrendezv4_2->setGeometry(QRect(1060, 20, 181, 61));
+        btnrendezv4_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a   ;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a   ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        btnrendezv4_2->setIcon(icon6);
+        btnrendezv4_2->setCheckable(true);
+        btnrendezv4_2->setAutoExclusive(true);
+        btnrendezv2_2 = new QPushButton(Labo_24);
+        btnrendezv2_2->setObjectName("btnrendezv2_2");
+        btnrendezv2_2->setGeometry(QRect(1060, 70, 181, 61));
+        btnrendezv2_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a   ;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a   ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        btnrendezv2_2->setIcon(icon6);
+        btnrendezv2_2->setCheckable(true);
+        btnrendezv2_2->setAutoExclusive(true);
+        btnrendezv3_2 = new QPushButton(Labo_24);
+        btnrendezv3_2->setObjectName("btnrendezv3_2");
+        btnrendezv3_2->setGeometry(QRect(-20, 0, 181, 61));
+        btnrendezv3_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #2a2a2a;\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #2a2a2a   ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        btnrendezv3_2->setIcon(icon6);
+        btnrendezv3_2->setCheckable(true);
+        btnrendezv3_2->setAutoExclusive(true);
+        layoutWidget_48 = new QWidget(Labo_24);
+        layoutWidget_48->setObjectName("layoutWidget_48");
+        layoutWidget_48->setGeometry(QRect(750, 90, 313, 61));
+        horizontalLayout_24 = new QHBoxLayout(layoutWidget_48);
+        horizontalLayout_24->setSpacing(7);
+        horizontalLayout_24->setObjectName("horizontalLayout_24");
+        horizontalLayout_24->setContentsMargins(0, 0, 0, 0);
+        label_406 = new QLabel(layoutWidget_48);
+        label_406->setObjectName("label_406");
+        label_406->setStyleSheet(QString::fromUtf8(" color: #2a2a2a  ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+" "));
+
+        horizontalLayout_24->addWidget(label_406);
+
+        comboBox_46 = new QComboBox(layoutWidget_48);
+        comboBox_46->addItem(QString());
+        comboBox_46->addItem(QString());
+        comboBox_46->addItem(QString());
+        comboBox_46->addItem(QString());
+        comboBox_46->addItem(QString());
+        comboBox_46->setObjectName("comboBox_46");
+        comboBox_46->setStyleSheet(QString::fromUtf8("border: 2px solid #2a2a2a ; /* Blue border */\n"
+"        border-radius: 6px;\n"
+"        padding: 5px 8px;\n"
+" color: #2a2a2a  ;\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"        selection-background-color: #cce5ff; /* Light blue selection */\n"
+"\n"
+"text : search\n"
+""));
+
+        horizontalLayout_24->addWidget(comboBox_46);
+
+        pushButton_194 = new QPushButton(Labo_24);
+        pushButton_194->setObjectName("pushButton_194");
+        pushButton_194->setGeometry(QRect(760, 20, 111, 61));
+        pushButton_194->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    border-radius: 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    transition: all 0.3s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #606060;\n"
+"    border-color: #777777;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #787878;\n"
+"    border-color: #909090;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #353535;\n"
+"    color: #ffffff;\n"
+"    border-color: #444444;\n"
+"}\n"
+""));
+        label_resultat_2 = new QLabel(Labo_24);
+        label_resultat_2->setObjectName("label_resultat_2");
+        label_resultat_2->setGeometry(QRect(200, 10, 111, 31));
+        statmedcin_7->addWidget(Labo_24);
+        equibment_24 = new QWidget();
+        equibment_24->setObjectName("equibment_24");
+        label_407 = new QLabel(equibment_24);
+        label_407->setObjectName("label_407");
+        label_407->setGeometry(QRect(440, 50, 171, 61));
+        label_407->setStyleSheet(QString::fromUtf8("color : black;"));
+        statmedcin_7->addWidget(equibment_24);
+        Vacc_24 = new QWidget();
+        Vacc_24->setObjectName("Vacc_24");
+        label_408 = new QLabel(Vacc_24);
+        label_408->setObjectName("label_408");
+        label_408->setGeometry(QRect(430, 70, 171, 61));
+        label_408->setStyleSheet(QString::fromUtf8("color : black;"));
+        statmedcin_7->addWidget(Vacc_24);
+        RendezVous_24 = new QWidget();
+        RendezVous_24->setObjectName("RendezVous_24");
+        label_409 = new QLabel(RendezVous_24);
+        label_409->setObjectName("label_409");
+        label_409->setGeometry(QRect(410, 60, 171, 61));
+        label_409->setStyleSheet(QString::fromUtf8("color : black;"));
+        statmedcin_7->addWidget(RendezVous_24);
+        user_24 = new QWidget();
+        user_24->setObjectName("user_24");
+        label_410 = new QLabel(user_24);
+        label_410->setObjectName("label_410");
+        label_410->setGeometry(QRect(750, 170, 171, 61));
+        label_410->setStyleSheet(QString::fromUtf8("color : black;"));
+        statmedcin_7->addWidget(user_24);
+        statlabo_24 = new QWidget();
+        statlabo_24->setObjectName("statlabo_24");
+        label_411 = new QLabel(statlabo_24);
+        label_411->setObjectName("label_411");
+        label_411->setGeometry(QRect(0, 0, 461, 71));
+        label_411->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 30px;\n"
+"    font-weight: bold;\n"
+"background-color: rgb(234, 251, 255); \n"
+"\n"
+""));
+        statmedcin_7->addWidget(statlabo_24);
+        chatbotlabo_24 = new QWidget();
+        chatbotlabo_24->setObjectName("chatbotlabo_24");
+        label_412 = new QLabel(chatbotlabo_24);
+        label_412->setObjectName("label_412");
+        label_412->setGeometry(QRect(0, 0, 461, 71));
+        label_412->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 30px;\n"
+"    font-weight: bold;\n"
+"background-color: rgb(234, 251, 255); \n"
+"\n"
+""));
+        statmedcin_7->addWidget(chatbotlabo_24);
+        journallabo_24 = new QWidget();
+        journallabo_24->setObjectName("journallabo_24");
+        label_413 = new QLabel(journallabo_24);
+        label_413->setObjectName("label_413");
+        label_413->setGeometry(QRect(0, 0, 461, 71));
+        label_413->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 30px;\n"
+"    font-weight: bold;\n"
+"background-color: rgb(234, 251, 255); \n"
+"\n"
+""));
+        statmedcin_7->addWidget(journallabo_24);
+        statmedcin_10 = new QWidget();
+        statmedcin_10->setObjectName("statmedcin_10");
+        label_414 = new QLabel(statmedcin_10);
+        label_414->setObjectName("label_414");
+        label_414->setGeometry(QRect(0, 0, 461, 71));
+        label_414->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 30px;\n"
+"    font-weight: bold;\n"
+"background-color: rgb(234, 251, 255); \n"
+"\n"
+""));
+        statmedcin_7->addWidget(statmedcin_10);
+        page_17 = new QWidget();
+        page_17->setObjectName("page_17");
+        label_415 = new QLabel(page_17);
+        label_415->setObjectName("label_415");
+        label_415->setGeometry(QRect(-10, 0, 461, 71));
+        label_415->setStyleSheet(QString::fromUtf8(" color: rgb(220, 78, 78);\n"
+"    padding: 10px;\n"
+"    margin: 6px;\n"
+"    font-size: 30px;\n"
+"    font-weight: bold;\n"
+"background-color: rgb(234, 251, 255); \n"
+"\n"
+""));
+        statmedcin_7->addWidget(page_17);
         sqs->addWidget(RendezVous);
         user = new QWidget();
         user->setObjectName("user");
@@ -12915,6 +13018,17 @@ public:
 "background-color: rgb(234, 251, 255); \n"
 "\n"
 ""));
+        verticalLayoutWidget_3 = new QWidget(page_15);
+        verticalLayoutWidget_3->setObjectName("verticalLayoutWidget_3");
+        verticalLayoutWidget_3->setGeometry(QRect(40, 120, 1021, 461));
+        verticalLayout_6 = new QVBoxLayout(verticalLayoutWidget_3);
+        verticalLayout_6->setObjectName("verticalLayout_6");
+        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
+        chartContainer_rdv = new QWidget(verticalLayoutWidget_3);
+        chartContainer_rdv->setObjectName("chartContainer_rdv");
+
+        verticalLayout_6->addWidget(chartContainer_rdv);
+
         sqs->addWidget(page_15);
         page_16 = new QWidget();
         page_16->setObjectName("page_16");
@@ -12929,6 +13043,76 @@ public:
 "background-color: rgb(234, 251, 255); \n"
 "\n"
 ""));
+        calendarWidget = new QCalendarWidget(page_16);
+        calendarWidget->setObjectName("calendarWidget");
+        calendarWidget->setGeometry(QRect(90, 190, 441, 301));
+        calendarWidget->setStyleSheet(QString::fromUtf8("QCalendarWidget QAbstractItemView {\n"
+"                background-color: white;\n"
+"                /*selection-background-color: white;  Fond jaune pour le jour s\303\251lectionn\303\251 */\n"
+"                                selection-background-color: rgb(236, 236, 236);\n"
+"                selection-color: black; /* Texte noir pour le jour s\303\251lectionn\303\251 */\n"
+"            }\n"
+"            QCalendarWidget QWidget#qt_calendar_navigationbar {\n"
+"                background-color: #333; /* Fond sombre pour la barre de navigation */\n"
+"                color: white; /* Texte blanc */\n"
+"                border-radius: 5px;\n"
+"            }\n"
+"            QCalendarWidget QToolButton {\n"
+"                color: white;\n"
+"                background-color: #444; /* Boutons de navigation fonc\303\251s */\n"
+"                border-radius: 3px;\n"
+"                padding: 5px;\n"
+"            }\n"
+"            QCalendarWidget QToolButton:hover {\n"
+"                background-color: #555;\n"
+"     "
+                        "       }\n"
+"            QCalendarWidget QTableView {\n"
+"                alternate-background-color: #f0f0f0; /* Alternance de couleurs */\n"
+"            }"));
+        tableWidget = new QTableWidget(page_16);
+        tableWidget->setObjectName("tableWidget");
+        tableWidget->setGeometry(QRect(50, 100, 731, 81));
+        tableWidget->setStyleSheet(QString::fromUtf8("QTableView {\n"
+"    background-color: rgb(234, 251, 255);\n"
+"    border: 2px solid #2a2a2a;\n"
+"    border-radius: 8px;\n"
+"    gridline-color: #2a2a2a;\n"
+"    selection-background-color: #2a2a2a;\n"
+"    selection-color: white;\n"
+"        padding: 5px;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #2a2a2a;\n"
+"    color: white;\n"
+"    padding: 5px;\n"
+"    border: 1px solid #2a2a2a;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QTableView QTableCornerButton::section {\n"
+"    background-color: #2a2a2a;\n"
+"    border: 1px solid #2a2a2a;\n"
+"    border-top-left-radius: 8px;\n"
+"}\n"
+"\n"
+"QTableView::item {\n"
+"    padding: 5px;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QTableView::item:selected {\n"
+"    background-color: rgb(173, 216, 230);\n"
+"    color: #ffffff;\n"
+"    border: 2px solid rgb(173, 216, 230);\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QTableView::item:hover {\n"
+"    background-color: rgb(220, 78, 78);\n"
+"    border-radius: 4px;\n"
+"}"));
         sqs->addWidget(page_16);
         MainWindow->setCentralWidget(centralwidget);
         widget_4->raise();
@@ -12937,9 +13121,9 @@ public:
 
         retranslateUi(MainWindow);
 
-        sqs->setCurrentIndex(4);
+        sqs->setCurrentIndex(5);
         stackedWidget_2->setCurrentIndex(2);
-        stackedWidget_3->setCurrentIndex(2);
+        stackedWidget_3->setCurrentIndex(5);
         statmedcin->setCurrentIndex(2);
         stackedWidget_4->setCurrentIndex(2);
         stackedWidget_5->setCurrentIndex(2);
@@ -12949,8 +13133,8 @@ public:
         stackedWidget_12->setCurrentIndex(2);
         stackedWidget_15->setCurrentIndex(2);
         statmedcin_7->setCurrentIndex(2);
-        stackedWidget_13->setCurrentIndex(2);
-        stackedWidget_14->setCurrentIndex(2);
+        stackedWidget_16->setCurrentIndex(2);
+        stackedWidget_17->setCurrentIndex(2);
         qsqsdqqqqqqqqqqq->setCurrentIndex(2);
         qsqsdqqqqqqqqqqq_2->setCurrentIndex(2);
 
@@ -13462,139 +13646,140 @@ public:
         label_362->setText(QCoreApplication::translate("MainWindow", "Statistique :    (equipment)", nullptr));
         label_363->setText(QCoreApplication::translate("MainWindow", "Performance :    (equipment)", nullptr));
         label_364->setText(QCoreApplication::translate("MainWindow", "Statistique :    (vaccins)", nullptr));
-        label_288->setText(QCoreApplication::translate("MainWindow", "medecin", nullptr));
-        label_289->setText(QCoreApplication::translate("MainWindow", "medecin", nullptr));
-        label_290->setText(QCoreApplication::translate("MainWindow", "patient", nullptr));
-        label_291->setText(QCoreApplication::translate("MainWindow", "Liste des m\303\251decins", nullptr));
-        pushButton_54->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        pushButton_55->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        pushButton_56->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        groupBox_21->setTitle(QCoreApplication::translate("MainWindow", "Ajouter / Modifier", nullptr));
-        label_292->setText(QCoreApplication::translate("MainWindow", "Nom :", nullptr));
-        label_293->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom :", nullptr));
-        label_294->setText(QCoreApplication::translate("MainWindow", "Specialit\303\251 :", nullptr));
-        label_295->setText(QCoreApplication::translate("MainWindow", "Contact :", nullptr));
-        pushButton_173->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem55 = tableau2_7->horizontalHeaderItem(0);
+        label_367->setText(QCoreApplication::translate("MainWindow", "medecin", nullptr));
+        label_368->setText(QCoreApplication::translate("MainWindow", "medecin", nullptr));
+        label_369->setText(QCoreApplication::translate("MainWindow", "patient", nullptr));
+        label_370->setText(QCoreApplication::translate("MainWindow", "Liste des m\303\251decins", nullptr));
+        pushButton_66->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
+        pushButton_67->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
+        pushButton_68->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
+        groupBox_25->setTitle(QCoreApplication::translate("MainWindow", "Ajouter / Modifier", nullptr));
+        label_371->setText(QCoreApplication::translate("MainWindow", "Nom :", nullptr));
+        label_372->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom :", nullptr));
+        label_373->setText(QCoreApplication::translate("MainWindow", "Specialit\303\251 :", nullptr));
+        label_374->setText(QCoreApplication::translate("MainWindow", "Contact :", nullptr));
+        pushButton_181->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
+        QTableWidgetItem *___qtablewidgetitem55 = tableau2_8->horizontalHeaderItem(0);
         ___qtablewidgetitem55->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem56 = tableau2_7->horizontalHeaderItem(1);
+        QTableWidgetItem *___qtablewidgetitem56 = tableau2_8->horizontalHeaderItem(1);
         ___qtablewidgetitem56->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem57 = tableau2_7->horizontalHeaderItem(2);
+        QTableWidgetItem *___qtablewidgetitem57 = tableau2_8->horizontalHeaderItem(2);
         ___qtablewidgetitem57->setText(QCoreApplication::translate("MainWindow", "Specialit\303\251", nullptr));
-        QTableWidgetItem *___qtablewidgetitem58 = tableau2_7->horizontalHeaderItem(3);
+        QTableWidgetItem *___qtablewidgetitem58 = tableau2_8->horizontalHeaderItem(3);
         ___qtablewidgetitem58->setText(QCoreApplication::translate("MainWindow", "Contact", nullptr));
-        QTableWidgetItem *___qtablewidgetitem59 = tableau2_7->horizontalHeaderItem(4);
+        QTableWidgetItem *___qtablewidgetitem59 = tableau2_8->horizontalHeaderItem(4);
         ___qtablewidgetitem59->setText(QCoreApplication::translate("MainWindow", "Action", nullptr));
-        lineEdit_110->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
-        pushButton_174->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
-        pushButton_175->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
-        btnmedecin3_7->setText(QCoreApplication::translate("MainWindow", "\360\237\223\221   Rapports PDF", nullptr));
-        btnmedecin2_7->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
-        label_296->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
-        comboBox_33->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
-        comboBox_33->setItemText(1, QCoreApplication::translate("MainWindow", "Id", nullptr));
-        comboBox_33->setItemText(2, QCoreApplication::translate("MainWindow", "Nom", nullptr));
-        comboBox_33->setItemText(3, QCoreApplication::translate("MainWindow", "Pr\303\251nom", nullptr));
+        lineEdit_127->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
+        pushButton_182->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
+        pushButton_188->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
+        btnmedecin3_8->setText(QCoreApplication::translate("MainWindow", "\360\237\223\221   Rapports PDF", nullptr));
+        btnmedecin2_8->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
+        label_375->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
+        comboBox_36->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
+        comboBox_36->setItemText(1, QCoreApplication::translate("MainWindow", "Id", nullptr));
+        comboBox_36->setItemText(2, QCoreApplication::translate("MainWindow", "Nom", nullptr));
+        comboBox_36->setItemText(3, QCoreApplication::translate("MainWindow", "Pr\303\251nom", nullptr));
 
-        label_297->setText(QCoreApplication::translate("MainWindow", "equibment", nullptr));
-        label_298->setText(QCoreApplication::translate("MainWindow", "VACCINS", nullptr));
-        label_299->setText(QCoreApplication::translate("MainWindow", "rendez vous", nullptr));
-        label_300->setText(QCoreApplication::translate("MainWindow", "user", nullptr));
-        label_301->setText(QCoreApplication::translate("MainWindow", "Statistique :    (laboratoire)", nullptr));
-        label_302->setText(QCoreApplication::translate("MainWindow", "Chatbot :    (laboratoire)", nullptr));
-        label_303->setText(QCoreApplication::translate("MainWindow", "Journal :    (laboratoire)", nullptr));
-        label_304->setText(QCoreApplication::translate("MainWindow", "medecin", nullptr));
-        label_305->setText(QCoreApplication::translate("MainWindow", "patient", nullptr));
-        label_306->setText(QCoreApplication::translate("MainWindow", "Liste des patients", nullptr));
-        pushButton_57->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        pushButton_58->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        pushButton_59->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        groupBox_22->setTitle(QCoreApplication::translate("MainWindow", "Ajouter / Modifier", nullptr));
-        label_307->setText(QCoreApplication::translate("MainWindow", "Nom :", nullptr));
-        label_308->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom :", nullptr));
-        label_309->setText(QCoreApplication::translate("MainWindow", "Date de naissance :", nullptr));
-        label_310->setText(QCoreApplication::translate("MainWindow", "Genre :", nullptr));
-        comboBox_34->setItemText(0, QCoreApplication::translate("MainWindow", "M\303\242le", nullptr));
-        comboBox_34->setItemText(1, QCoreApplication::translate("MainWindow", "Femelle", nullptr));
+        label_376->setText(QCoreApplication::translate("MainWindow", "equibment", nullptr));
+        label_377->setText(QCoreApplication::translate("MainWindow", "VACCINS", nullptr));
+        label_378->setText(QCoreApplication::translate("MainWindow", "rendez vous", nullptr));
+        label_379->setText(QCoreApplication::translate("MainWindow", "user", nullptr));
+        label_380->setText(QCoreApplication::translate("MainWindow", "Statistique :    (laboratoire)", nullptr));
+        label_381->setText(QCoreApplication::translate("MainWindow", "Chatbot :    (laboratoire)", nullptr));
+        label_382->setText(QCoreApplication::translate("MainWindow", "Journal :    (laboratoire)", nullptr));
+        label_383->setText(QCoreApplication::translate("MainWindow", "medecin", nullptr));
+        label_384->setText(QCoreApplication::translate("MainWindow", "patient", nullptr));
+        label_385->setText(QCoreApplication::translate("MainWindow", "Liste des patients", nullptr));
+        pushButton_69->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
+        pushButton_70->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
+        pushButton_71->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
+        groupBox_26->setTitle(QCoreApplication::translate("MainWindow", "Ajouter / Modifier", nullptr));
+        label_386->setText(QCoreApplication::translate("MainWindow", "Nom :", nullptr));
+        label_387->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom :", nullptr));
+        label_388->setText(QCoreApplication::translate("MainWindow", "Date de naissance :", nullptr));
+        label_389->setText(QCoreApplication::translate("MainWindow", "Genre :", nullptr));
+        comboBox_42->setItemText(0, QCoreApplication::translate("MainWindow", "M\303\242le", nullptr));
+        comboBox_42->setItemText(1, QCoreApplication::translate("MainWindow", "Femelle", nullptr));
 
-        label_311->setText(QCoreApplication::translate("MainWindow", "Mail :", nullptr));
-        label_312->setText(QCoreApplication::translate("MainWindow", "Adresse :", nullptr));
-        label_313->setText(QCoreApplication::translate("MainWindow", "Group sanguin :", nullptr));
-        pushButton_176->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem60 = tableau3_6->horizontalHeaderItem(0);
+        label_390->setText(QCoreApplication::translate("MainWindow", "Mail :", nullptr));
+        label_391->setText(QCoreApplication::translate("MainWindow", "Adresse :", nullptr));
+        label_392->setText(QCoreApplication::translate("MainWindow", "Group sanguin :", nullptr));
+        pushButton_189->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
+        QTableWidgetItem *___qtablewidgetitem60 = tableau3_7->horizontalHeaderItem(0);
         ___qtablewidgetitem60->setText(QCoreApplication::translate("MainWindow", "Nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem61 = tableau3_6->horizontalHeaderItem(1);
+        QTableWidgetItem *___qtablewidgetitem61 = tableau3_7->horizontalHeaderItem(1);
         ___qtablewidgetitem61->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom", nullptr));
-        QTableWidgetItem *___qtablewidgetitem62 = tableau3_6->horizontalHeaderItem(2);
+        QTableWidgetItem *___qtablewidgetitem62 = tableau3_7->horizontalHeaderItem(2);
         ___qtablewidgetitem62->setText(QCoreApplication::translate("MainWindow", "Date Naissance", nullptr));
-        QTableWidgetItem *___qtablewidgetitem63 = tableau3_6->horizontalHeaderItem(3);
+        QTableWidgetItem *___qtablewidgetitem63 = tableau3_7->horizontalHeaderItem(3);
         ___qtablewidgetitem63->setText(QCoreApplication::translate("MainWindow", "Genre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem64 = tableau3_6->horizontalHeaderItem(4);
+        QTableWidgetItem *___qtablewidgetitem64 = tableau3_7->horizontalHeaderItem(4);
         ___qtablewidgetitem64->setText(QCoreApplication::translate("MainWindow", "Mail", nullptr));
-        QTableWidgetItem *___qtablewidgetitem65 = tableau3_6->horizontalHeaderItem(5);
+        QTableWidgetItem *___qtablewidgetitem65 = tableau3_7->horizontalHeaderItem(5);
         ___qtablewidgetitem65->setText(QCoreApplication::translate("MainWindow", "Adresse", nullptr));
-        QTableWidgetItem *___qtablewidgetitem66 = tableau3_6->horizontalHeaderItem(6);
+        QTableWidgetItem *___qtablewidgetitem66 = tableau3_7->horizontalHeaderItem(6);
         ___qtablewidgetitem66->setText(QCoreApplication::translate("MainWindow", "Group Sanguin", nullptr));
-        lineEdit_116->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
-        pushButton_177->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
-        pushButton_178->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
-        btnpatient3_6->setText(QCoreApplication::translate("MainWindow", "\360\237\223\221   Rapports PDF", nullptr));
-        btnpatient2_6->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
-        label_314->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
-        comboBox_35->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
-        comboBox_35->setItemText(1, QCoreApplication::translate("MainWindow", "Group Sanguin", nullptr));
+        lineEdit_133->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
+        pushButton_190->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
+        pushButton_191->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
+        btnpatient3_7->setText(QCoreApplication::translate("MainWindow", "\360\237\223\221   Rapports PDF", nullptr));
+        btnpatient2_7->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
+        label_393->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
+        comboBox_43->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
+        comboBox_43->setItemText(1, QCoreApplication::translate("MainWindow", "Group Sanguin", nullptr));
 
-        pushButton_179->setText(QCoreApplication::translate("MainWindow", "Email", nullptr));
-        label_315->setText(QCoreApplication::translate("MainWindow", "equibment", nullptr));
-        label_316->setText(QCoreApplication::translate("MainWindow", "VACCINS", nullptr));
-        label_317->setText(QCoreApplication::translate("MainWindow", "rendez vous", nullptr));
-        label_318->setText(QCoreApplication::translate("MainWindow", "user", nullptr));
-        label_319->setText(QCoreApplication::translate("MainWindow", "Statistique :    (laboratoire)", nullptr));
-        label_320->setText(QCoreApplication::translate("MainWindow", "Chatbot :    (laboratoire)", nullptr));
-        label_321->setText(QCoreApplication::translate("MainWindow", "Journal :    (laboratoire)", nullptr));
-        label_322->setText(QCoreApplication::translate("MainWindow", "Liste des rendez-vous", nullptr));
-        pushButton_60->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        pushButton_61->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        pushButton_62->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
-        groupBox_23->setTitle(QCoreApplication::translate("MainWindow", "Ajouter / Modifier", nullptr));
-        label_323->setText(QCoreApplication::translate("MainWindow", "Date de rendez-vous :", nullptr));
-        label_324->setText(QCoreApplication::translate("MainWindow", "Heure de rendez-vous :", nullptr));
-        label_326->setText(QCoreApplication::translate("MainWindow", "Priorit\303\251 :", nullptr));
-        label_325->setText(QCoreApplication::translate("MainWindow", "Statut :", nullptr));
-        comboBox_37->setItemText(0, QCoreApplication::translate("MainWindow", "Libre", nullptr));
-        comboBox_37->setItemText(1, QCoreApplication::translate("MainWindow", "Occup\303\251e", nullptr));
+        pushButton_192->setText(QCoreApplication::translate("MainWindow", "Email", nullptr));
+        label_394->setText(QCoreApplication::translate("MainWindow", "equibment", nullptr));
+        label_395->setText(QCoreApplication::translate("MainWindow", "VACCINS", nullptr));
+        label_396->setText(QCoreApplication::translate("MainWindow", "rendez vous", nullptr));
+        label_397->setText(QCoreApplication::translate("MainWindow", "user", nullptr));
+        label_398->setText(QCoreApplication::translate("MainWindow", "Statistique :    (laboratoire)", nullptr));
+        label_399->setText(QCoreApplication::translate("MainWindow", "Chatbot :    (laboratoire)", nullptr));
+        label_400->setText(QCoreApplication::translate("MainWindow", "Journal :    (laboratoire)", nullptr));
+        label_401->setText(QCoreApplication::translate("MainWindow", "Liste des rendez-vous", nullptr));
+        pushButton_72->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
+        pushButton_73->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
+        pushButton_74->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));
+        groupBox_27->setTitle(QCoreApplication::translate("MainWindow", "Ajouter / Modifier", nullptr));
+        label_38->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
+        label_402->setText(QCoreApplication::translate("MainWindow", "Date de rendez-vous :", nullptr));
+        label_403->setText(QCoreApplication::translate("MainWindow", "Heure de rendez-vous :", nullptr));
+        label_404->setText(QCoreApplication::translate("MainWindow", "Priorit\303\251 :", nullptr));
+        comboBox_44->setItemText(0, QCoreApplication::translate("MainWindow", "Normal", nullptr));
+        comboBox_44->setItemText(1, QCoreApplication::translate("MainWindow", "Moyenne", nullptr));
+        comboBox_44->setItemText(2, QCoreApplication::translate("MainWindow", "Urgente", nullptr));
 
-        pushButton_180->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem67 = tableau6->horizontalHeaderItem(0);
-        ___qtablewidgetitem67->setText(QCoreApplication::translate("MainWindow", "Date Rendez-vous", nullptr));
-        QTableWidgetItem *___qtablewidgetitem68 = tableau6->horizontalHeaderItem(1);
-        ___qtablewidgetitem68->setText(QCoreApplication::translate("MainWindow", "Heure Rendez-vous", nullptr));
-        QTableWidgetItem *___qtablewidgetitem69 = tableau6->horizontalHeaderItem(2);
-        ___qtablewidgetitem69->setText(QCoreApplication::translate("MainWindow", "Priorit\303\251", nullptr));
-        QTableWidgetItem *___qtablewidgetitem70 = tableau6->horizontalHeaderItem(3);
-        ___qtablewidgetitem70->setText(QCoreApplication::translate("MainWindow", "Statut", nullptr));
-        QTableWidgetItem *___qtablewidgetitem71 = tableau6->horizontalHeaderItem(4);
-        ___qtablewidgetitem71->setText(QCoreApplication::translate("MainWindow", "Action", nullptr));
-        lineEdit_118->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
-        pushButton_181->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
-        pushButton_182->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
-        btnrendezv4->setText(QCoreApplication::translate("MainWindow", "\360\237\223\221   Rapports PDF", nullptr));
-        btnrendezv2->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
-        btnrendezv3->setText(QCoreApplication::translate("MainWindow", "Calendrier         \360\237\227\223", nullptr));
-        label_327->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
-        comboBox_38->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
-        comboBox_38->setItemText(1, QCoreApplication::translate("MainWindow", "Date de rendez-vous", nullptr));
+        label_405->setText(QCoreApplication::translate("MainWindow", "Statut :", nullptr));
+        comboBox_45->setItemText(0, QCoreApplication::translate("MainWindow", "Programmer", nullptr));
+        comboBox_45->setItemText(1, QCoreApplication::translate("MainWindow", "Annuler", nullptr));
 
-        pushButton_187->setText(QCoreApplication::translate("MainWindow", "Sms", nullptr));
-        label_328->setText(QCoreApplication::translate("MainWindow", "equibment", nullptr));
-        label_329->setText(QCoreApplication::translate("MainWindow", "VACCINS", nullptr));
-        label_330->setText(QCoreApplication::translate("MainWindow", "rendez vous", nullptr));
-        label_331->setText(QCoreApplication::translate("MainWindow", "user", nullptr));
-        label_332->setText(QCoreApplication::translate("MainWindow", "Statistique :    (laboratoire)", nullptr));
-        label_333->setText(QCoreApplication::translate("MainWindow", "Chatbot :    (laboratoire)", nullptr));
-        label_334->setText(QCoreApplication::translate("MainWindow", "Journal :    (laboratoire)", nullptr));
-        label_335->setText(QCoreApplication::translate("MainWindow", "Statistique :    (medcin)", nullptr));
-        label_336->setText(QCoreApplication::translate("MainWindow", "Statistique :    (patient)", nullptr));
+        label_39->setText(QCoreApplication::translate("MainWindow", "Patient", nullptr));
+        pushButton_193->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
+        btncmodif_2->setText(QCoreApplication::translate("MainWindow", "Confirmer", nullptr));
+        lineEdit_134->setText(QString());
+        btnmodif_2->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
+        btnsupp_2->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
+        btnrendezv4_2->setText(QCoreApplication::translate("MainWindow", "\360\237\223\221   Rapports PDF", nullptr));
+        btnrendezv2_2->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
+        btnrendezv3_2->setText(QCoreApplication::translate("MainWindow", "Calendrier         \360\237\227\223", nullptr));
+        label_406->setText(QCoreApplication::translate("MainWindow", "Trier par", nullptr));
+        comboBox_46->setItemText(0, QCoreApplication::translate("MainWindow", "Par d\303\251faut", nullptr));
+        comboBox_46->setItemText(1, QCoreApplication::translate("MainWindow", "Priorite  \342\254\206\357\270\217", nullptr));
+        comboBox_46->setItemText(2, QCoreApplication::translate("MainWindow", "Priorite  \342\254\207\357\270\217", nullptr));
+        comboBox_46->setItemText(3, QCoreApplication::translate("MainWindow", "Date de rendez-vous  \342\254\206\357\270\217", nullptr));
+        comboBox_46->setItemText(4, QCoreApplication::translate("MainWindow", "Date de rendez-vous  \342\254\207\357\270\217", nullptr));
+
+        pushButton_194->setText(QCoreApplication::translate("MainWindow", "Sms", nullptr));
+        label_resultat_2->setText(QString());
+        label_407->setText(QCoreApplication::translate("MainWindow", "equibment", nullptr));
+        label_408->setText(QCoreApplication::translate("MainWindow", "VACCINS", nullptr));
+        label_409->setText(QCoreApplication::translate("MainWindow", "rendez vous", nullptr));
+        label_410->setText(QCoreApplication::translate("MainWindow", "user", nullptr));
+        label_411->setText(QCoreApplication::translate("MainWindow", "Statistique :    (laboratoire)", nullptr));
+        label_412->setText(QCoreApplication::translate("MainWindow", "Chatbot :    (laboratoire)", nullptr));
+        label_413->setText(QCoreApplication::translate("MainWindow", "Journal :    (laboratoire)", nullptr));
+        label_414->setText(QCoreApplication::translate("MainWindow", "Statistique :    (medcin)", nullptr));
+        label_415->setText(QCoreApplication::translate("MainWindow", "Statistique :    (patient)", nullptr));
         label_1175->setText(QCoreApplication::translate("MainWindow", "medecin", nullptr));
         label_1176->setText(QCoreApplication::translate("MainWindow", "patient", nullptr));
         pushButton_452->setText(QCoreApplication::translate("MainWindow", "testtt", nullptr));

@@ -6,6 +6,8 @@ debug/connection.o
 debug/main.o
 debug/mainwindow.o
 debug/Vaccin.o
+debug/rendezvous.o
+debug/sms1.o
 debug/emailaddress.o
 debug/mimeattachment.o
 debug/mimebase64encoder.o

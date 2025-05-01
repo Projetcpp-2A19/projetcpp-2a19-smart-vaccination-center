@@ -6,6 +6,8 @@ release/connection.o
 release/main.o
 release/mainwindow.o
 release/Vaccin.o
+release/rendezvous.o
+release/sms1.o
 release/emailaddress.o
 release/mimeattachment.o
 release/mimebase64encoder.o

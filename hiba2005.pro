@@ -1,4 +1,4 @@
-QT       += core gui network charts serialport
+QT       += core gui network charts serialport printsupport
 QT += charts
 
 
@@ -20,6 +20,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     Vaccin.cpp \
+    rendezvous.cpp \
+    sms1.cpp \
     src/emailaddress.cpp \
     src/mimeattachment.cpp \
     src/mimebase64encoder.cpp \
@@ -48,6 +50,8 @@ HEADERS += \
     connection.h \
     mainwindow.h \
     Vaccin.h \
+    rendezvous.h \
+    sms1.h \
     src/emailaddress.h \
     src/mimeattachment.h \
     src/mimebase64encoder.h \

@@ -64,6 +64,7 @@ QByteArray Arduino::read_from_arduino()
 
         return data;
     }
+    return {};
 }
 
 
