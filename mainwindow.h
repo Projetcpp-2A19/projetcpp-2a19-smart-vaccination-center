@@ -44,6 +44,9 @@
 #include "mimetext.h"
 #include "sms.h"
 #include "arduino.h"
+#include "MarkerModel.h"
+#include"lab.h"
+
 
 //using namespace QtCharts;
 QT_BEGIN_NAMESPACE
@@ -59,6 +62,19 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void rechercher_labo(); ///recherche
+    void on_btnlabo5_clicked();//pdf
+
+    // Fonction pour récupérer les coordonnées via géocodage
+    void getCoordinatesFromAddress(const QString &address);
+
+    Q_INVOKABLE void searchLocation(const QString &address);
+    void traiterDemandeAcces();
+    void update_label();
+signals:
+    Q_INVOKABLE void ajouterLaboratoireEPINGLE(double latitude, double longitude);
+
+    void positionTrouvee(double latitude, double longitude);
 
 private slots:
     void on_btnmedecin_clicked();  // Slot to handle btnmedecin click
@@ -112,17 +128,26 @@ private slots:
     void on_btnmodif_2_clicked();
     void on_btncmodif_2_clicked();
     void on_btnrendezv4_2_clicked();
-    void on_comboBox_38_currentIndexChanged(int index);
+    void on_comboBox_46_currentIndexChanged(int index);
     void on_lineEdit_134_textChanged(const QString &searchTerm);
     void showStatistiques_rdv();
     void chargerRendezVousDansCalendrier();
     void on_calendarWidget_clicked(const QDate &date);
     void on_pushButton_194_clicked();
 
+
+
+    void on_btnSupprimer_labo_clicked(); //btn supp
+    void on_btnModifier_labo_clicked();
+    void on_btnConfirmerModifier_labo8_clicked();
+
+
+
 private:
     Ui::MainWindow *ui;
     QWidget *popupWidget;  // The popup widget
     QNetworkAccessManager *networkManager;
+     Lab labo;  // LABORATOIRE object
     Vaccin vac;
     int mod=0;
 
@@ -130,6 +155,7 @@ private:
     QTimer *timer;
     QString dernierTexteLabel;
     QTimer* labelWatchTimer;
+    MarkerModel m_markerModel; //maps
 
     void afficherRendezVous();              // Affichage par défaut
     void afficherRendezVousTrieParPriorite(const QString &ordre);   // Affichage trié par priorité
@@ -137,6 +163,9 @@ private:
     void verifierIDDepuisArduino();
     //void verifierRendezVousDepuisLabel();
     void verifierRendezVousEtCommanderServo(QString id);
+
+
+
 protected:
     void showEvent(QShowEvent *event) override;
 
@@ -148,8 +177,28 @@ private:
     QString originalPriorite; // Priorité du rendez-vous avant modification
     QString originalStatus;   // Statut du rendez-vous avant modification
     int originalIdPat;   // ID du patient lié au rendez-vous
-
+ void trierParId_labo();
     bool modificationInProgress = false; // Indicateur de modification en cours
+
+    int currentIdL;  // Stocke l'ID de l'élément en cours de modification
+    QString originalNomL;
+    QString originalLocalisationL;
+    QString originalStatutL;
+    QString originalContactL;
+    bool modificationInProgressL = false; // Indique si une modification est en cours
+private slots:
+    void on_pushButton_labo7_clicked();
+    void onGeoCodeReply(QNetworkReply* reply);//MAP
+    void updateTableView_labo();
+    void showStatistiques_labo();
+    void analyserCommande(); //chatbot
+    void updateTableViewchat(QSqlQueryModel *model);//chatbot
+    void updateTableViewchat();
+    void on_comboBox_labo6_currentIndexChanged(int index); //TRI
+private://maps
+    //QNetworkAccessManager *networkManager;  // Gestionnaire de requêtes réseau
+    double latitude = 0.0;
+    double longitude = 0.0;
 
 };
 

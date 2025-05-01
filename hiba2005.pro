@@ -1,7 +1,7 @@
 QT       += core gui network charts serialport printsupport
 QT += charts
 
-
+QT += location positioning location positioning quickwidgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
@@ -13,10 +13,12 @@ INCLUDEPATH += src
 
 SOURCES += \
     Login.cpp \
+    MarkerModel.cpp \
     Medecin.cpp \
     MotDePasseOublie.cpp \
     arduino.cpp \
     connection.cpp \
+    lab.cpp \
     main.cpp \
     mainwindow.cpp \
     Vaccin.cpp \
@@ -44,10 +46,12 @@ SOURCES += \
 
 HEADERS += \
     Login.h \
+    MarkerModel.h \
     Medecin.h \
     MotDePasseOublie.h \
     arduino.h \
     connection.h \
+    lab.h \
     mainwindow.h \
     Vaccin.h \
     rendezvous.h \
@@ -86,3 +90,6 @@ QT+=sql
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES += \
+    map.qml

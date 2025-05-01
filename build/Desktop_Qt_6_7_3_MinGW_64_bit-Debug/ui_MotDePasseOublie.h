@@ -442,7 +442,7 @@ public:
 
         retranslateUi(MotDePasseOublie);
 
-        stackedWidget_2->setCurrentIndex(2);
+        stackedWidget_2->setCurrentIndex(5);
 
 
         QMetaObject::connectSlotsByName(MotDePasseOublie);

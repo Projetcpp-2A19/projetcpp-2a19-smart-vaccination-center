@@ -19,5 +19,8 @@
         <file>icons/microscope_10864084.png</file>
         <file>icons/more_12194453.png</file>
         <file>icons/pin_6218489.png</file>
+        <file>icons/pngegg.png</file>
+        <file>map.qml</file>
     </qresource>
+    <qresource prefix="/new/prefix2"/>
 </RCC>

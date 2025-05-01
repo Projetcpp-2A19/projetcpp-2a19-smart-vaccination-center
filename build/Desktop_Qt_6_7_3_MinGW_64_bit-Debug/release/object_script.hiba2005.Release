@@ -1,8 +1,10 @@
 release/Login.o
+release/MarkerModel.o
 release/Medecin.o
 release/MotDePasseOublie.o
 release/arduino.o
 release/connection.o
+release/lab.o
 release/main.o
 release/mainwindow.o
 release/Vaccin.o
@@ -29,6 +31,7 @@ release/sms.o
 release/smtpclient.o
 release/qrc_resources.o
 release/moc_Login.o
+release/moc_MarkerModel.o
 release/moc_MotDePasseOublie.o
 release/moc_mainwindow.o
 release/moc_mimecontentformatter.o

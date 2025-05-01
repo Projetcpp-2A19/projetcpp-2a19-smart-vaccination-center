@@ -1,8 +1,10 @@
 debug/Login.o
+debug/MarkerModel.o
 debug/Medecin.o
 debug/MotDePasseOublie.o
 debug/arduino.o
 debug/connection.o
+debug/lab.o
 debug/main.o
 debug/mainwindow.o
 debug/Vaccin.o
@@ -29,6 +31,7 @@ debug/sms.o
 debug/smtpclient.o
 debug/qrc_resources.o
 debug/moc_Login.o
+debug/moc_MarkerModel.o
 debug/moc_MotDePasseOublie.o
 debug/moc_mainwindow.o
 debug/moc_mimecontentformatter.o
