@@ -253,6 +253,8 @@ private slots:
     void updateTableViewchat(QSqlQueryModel *model);//chatbot
     void updateTableViewchat();
     void on_comboBox_labo6_currentIndexChanged(int index); //TRI
+    void on_btnrendezv_2_clicked();
+
 private://maps
     //QNetworkAccessManager *networkManager;  // Gestionnaire de requêtes réseau
     double latitude = 0.0;

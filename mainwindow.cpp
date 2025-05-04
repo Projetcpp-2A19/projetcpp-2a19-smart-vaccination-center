@@ -178,13 +178,13 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->exit, &QPushButton::clicked, this, &MainWindow::close);
 
 
-    popupWidget = ui->popupWidget;
+    //popupWidget = ui->popupWidget;
 
     // Optionally, set the position and size of the popup widget (can be customized)
-    popupWidget->setGeometry(200, 100, 200, 100);  // Set position and size of the popup
+    //popupWidget->setGeometry(200, 100, 200, 100);  // Set position and size of the popup
 
     // Initially hide the popup
-    popupWidget->hide();
+    //popupWidget->hide();
 
     // Connect button click to show or hide the popup
     connect(ui->btnmedecin, &QPushButton::clicked, this, &MainWindow::on_btnmedecin_clicked);
@@ -236,13 +236,13 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->btnsupp_2, &QPushButton::clicked, this, &MainWindow::on_btnsupp_2_clicked);//supp
 
     // Reference the existing popupWidget from the UI (it should be named popupWidget in the designer)
-    popupWidget = ui->popupWidget;
+    //popupWidget = ui->popupWidget;
 
     // Optionally, set the position and size of the popup widget (can be customized)
-    popupWidget->setGeometry(200, 100, 200, 100);  // Set position and size of the popup
+    //popupWidget->setGeometry(200, 100, 200, 100);  // Set position and size of the popup
 
     // Initially hide the popup
-    popupWidget->hide();
+    //popupWidget->hide();
 
     // Connect button click to show or hide the popup
     connect(ui->btnmedecin, &QPushButton::clicked, this, &MainWindow::on_btnmedecin_clicked);
@@ -3037,6 +3037,21 @@ void MainWindow::update_fridge_status() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //pat
 void MainWindow::modifierPatient(int id)
 {
@@ -3493,3 +3508,14 @@ void MainWindow::envoyerCertificat(int patientID)
     afficherCertificatDepuisBDD(patientID);
     ui->rapportettable->setCurrentWidget(ui->page_5);
 }
+#include "login.h"
+
+void MainWindow::on_btnrendezv_2_clicked()
+{
+    this->close();
+
+    Login *mainWindow = new Login();
+    mainWindow->show();
+
+}
+

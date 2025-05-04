@@ -33,7 +33,6 @@ void MotDePasseOublie::on_pushButton_valider_clicked()
         updateQuery.bindValue(":login", login);
 
         if (updateQuery.exec()) {
-            QMessageBox::information(this, "Succès", "Mot de passe mis à jour !");
             this->close();
         } else {
             QMessageBox::critical(this, "Erreur", "Échec de mise à jour du mot de passe.");

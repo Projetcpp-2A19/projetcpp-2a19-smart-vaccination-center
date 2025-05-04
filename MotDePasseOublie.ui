@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1303</width>
-    <height>711</height>
+    <width>1420</width>
+    <height>798</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QStackedWidget" name="stackedWidget_2">
    <property name="geometry">
     <rect>
-     <x>-70</x>
+     <x>0</x>
      <y>0</y>
-     <width>1381</width>
+     <width>1421</width>
      <height>801</height>
     </rect>
    </property>
@@ -27,7 +27,7 @@
 </string>
    </property>
    <property name="currentIndex">
-    <number>5</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="medecin_2">
     <widget class="QLabel" name="label_13">
@@ -69,139 +69,13 @@
     <property name="styleSheet">
      <string notr="true">color : black;</string>
     </property>
-    <widget class="QWidget" name="widget_4" native="true">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>0</y>
-       <width>1121</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QWidget {
-    background-color: #2a2a2a;
-    border-right: 2px solid #3a3a3a;
-    border-radius: 10px;
-}
-
-QPushButton {
-    background-color: #3a3a3a;
-    color: #ffffff;
-    border: none;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 10px;
-}
-
-QPushButton:hover {
-    background-color: #4a4a4a;
-}
-
-QPushButton:pressed {
-    background-color: #666666;
-}
-
-QListWidget {
-    background-color: #2a2a2a;
-    color: #ffffff;
-    border: none;
-    border-radius: 10px;
-}
-
-QListWidget::item {
-    padding: 8px;
-    border-radius: 10px;
-}
-
-QListWidget::item:selected {
-    background-color: #4a4a4a;
-}
-
-QScrollBar:vertical {
-    border: none;
-    background: #2a2a2a;
-    width: 8px;
-    margin: 0px 0px 0px 0px;
-    border-radius: 10px;
-}
-
-QScrollBar::handle:vertical {
-    background: #555555;
-    border-radius: 10px;
-}
-
-QScrollBar::handle:vertical:hover {
-    background: #777777;
-}
-
-QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
-    border: none;
-    background: none;
-}
-</string>
-     </property>
-     <widget class="QPushButton" name="btnuser">
-      <property name="geometry">
-       <rect>
-        <x>950</x>
-        <y>0</y>
-        <width>151</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-    background-color: #2a2a2a;
-    color: #ffffff;
-    border: 2px solid #2a2a2a;
-    padding: 10px;
-    margin: 6px;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-}
-
-QPushButton:hover {
-    background-color: #606060;
-    border-color: #777777;
-}
-
-QPushButton:pressed {
-    background-color: #787878;
-    border-color: #909090;
-}
-
-QPushButton:disabled {
-    background-color: #353535;
-    color: #ffffff;
-    border-color: #444444;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>👨🏻‍💻   Utilisateur</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>:/new/prefix1/icons/microscope_4131002.png</normaloff>:/new/prefix1/icons/microscope_4131002.png</iconset>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoExclusive">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </widget>
     <widget class="QWidget" name="widget_2" native="true">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>-1</x>
        <y>0</y>
        <width>191</width>
-       <height>781</height>
+       <height>801</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -320,7 +194,7 @@ QPushButton:disabled {
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_4">
+     <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -339,7 +213,7 @@ QPushButton:disabled {
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_9">
+     <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -359,17 +233,296 @@ QPushButton:disabled {
       </property>
      </widget>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_login">
+    <widget class="QWidget" name="widget_4" native="true">
      <property name="geometry">
       <rect>
-       <x>660</x>
-       <y>240</y>
-       <width>271</width>
-       <height>51</height>
+       <x>169</x>
+       <y>0</y>
+       <width>1251</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+      <string notr="true">QWidget {
+    background-color: #2a2a2a;
+    border-right: 2px solid #3a3a3a;
+    border-radius: 10px;
+}
+
+QPushButton {
+    background-color: #3a3a3a;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color: #4a4a4a;
+}
+
+QPushButton:pressed {
+    background-color: #666666;
+}
+
+QListWidget {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+}
+
+QListWidget::item {
+    padding: 8px;
+    border-radius: 10px;
+}
+
+QListWidget::item:selected {
+    background-color: #4a4a4a;
+}
+
+QScrollBar:vertical {
+    border: none;
+    background: #2a2a2a;
+    width: 8px;
+    margin: 0px 0px 0px 0px;
+    border-radius: 10px;
+}
+
+QScrollBar::handle:vertical {
+    background: #555555;
+    border-radius: 10px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #777777;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    border: none;
+    background: none;
+}
+</string>
+     </property>
+     <widget class="QWidget" name="popupWidget_14" native="true">
+      <property name="geometry">
+       <rect>
+        <x>810</x>
+        <y>30</y>
+        <width>51</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget {
+    background-color: #2a2a2a;
+    border-right: 2px solid #3a3a3a;
+    border-radius: 10px;
+}
+
+QPushButton {
+    background-color: #3a3a3a;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color: #4a4a4a;
+}
+
+QPushButton:pressed {
+    background-color: #666666;
+}
+
+QListWidget {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+}
+
+QListWidget::item {
+    padding: 8px;
+    border-radius: 10px;
+}
+
+QListWidget::item:selected {
+    background-color: #4a4a4a;
+}
+
+QScrollBar:vertical {
+    border: none;
+    background: #2a2a2a;
+    width: 8px;
+    margin: 0px 0px 0px 0px;
+    border-radius: 10px;
+}
+
+QScrollBar::handle:vertical {
+    background: #555555;
+    border-radius: 10px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #777777;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    border: none;
+    background: none;
+}
+</string>
+      </property>
+      <widget class="QPushButton" name="pushButton_42">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>70</y>
+         <width>111</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 2px solid #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>testtt</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_43">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>0</y>
+         <width>131</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 2px solid #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>testtt</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_44">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>131</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 2px solid #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>testtt</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="id">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>-20</y>
+         <width>101</width>
+         <height>55</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
         border-radius: 6px;
         padding: 5px 8px;
          color: #2a2a2a;
@@ -380,22 +533,67 @@ QPushButton:disabled {
         selection-background-color: #cce5ff; /* Light blue selection */
 
 </string>
-     </property>
-     <property name="placeholderText">
-      <string>Identifiant</string>
-     </property>
+       </property>
+      </widget>
+     </widget>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_reponse">
+    <widget class="QLabel" name="label_240">
      <property name="geometry">
       <rect>
-       <x>660</x>
-       <y>310</y>
-       <width>271</width>
-       <height>51</height>
+       <x>260</x>
+       <y>70</y>
+       <width>1081</width>
+       <height>181</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+      <string notr="true"> color: rgb(220, 78, 78);
+    padding: 10px;
+    margin: 6px;
+    font-size: 70px;
+    font-weight: bold;
+background-color: rgb(234, 251, 255); 
+
+</string>
+     </property>
+     <property name="text">
+      <string>Réinitialiser votre mot de passe</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>260</y>
+       <width>751</width>
+       <height>471</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="styleSheet">
+             <string notr="true">font-size: 30px;
+        font-weight: bold;
+        color: #333; /* Dark gray text */
+        background: transparent;</string>
+            </property>
+            <property name="text">
+             <string>Identifiant</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2"/>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_login">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
         border-radius: 6px;
         padding: 5px 8px;
          color: #2a2a2a;
@@ -406,22 +604,38 @@ QPushButton:disabled {
         selection-background-color: #cce5ff; /* Light blue selection */
 
 </string>
-     </property>
-     <property name="placeholderText">
-      <string>Réponse à la question</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_newPassword">
-     <property name="geometry">
-      <rect>
-       <x>660</x>
-       <y>380</y>
-       <width>271</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+            </property>
+            <property name="placeholderText">
+             <string>Identifiant</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="styleSheet">
+           <string notr="true">font-size: 30px;
+        font-weight: bold;
+        color: #333; /* Dark gray text */
+        background: transparent;</string>
+          </property>
+          <property name="text">
+           <string>Nouveau mot de passe</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_8"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_newPassword">
+          <property name="styleSheet">
+           <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
         border-radius: 6px;
         padding: 5px 8px;
          color: #2a2a2a;
@@ -432,25 +646,64 @@ QPushButton:disabled {
         selection-background-color: #cce5ff; /* Light blue selection */
 
 </string>
-     </property>
-     <property name="echoMode">
-      <enum>QLineEdit::EchoMode::Password</enum>
-     </property>
-     <property name="placeholderText">
-      <string>Nouveau mot de passe</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_valider">
-     <property name="geometry">
-      <rect>
-       <x>860</x>
-       <y>470</y>
-       <width>151</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::EchoMode::Password</enum>
+          </property>
+          <property name="placeholderText">
+           <string>Nouveau mot de passe</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="styleSheet">
+           <string notr="true">font-size: 30px;
+        font-weight: bold;
+        color: #333; /* Dark gray text */
+        background: transparent;</string>
+          </property>
+          <property name="text">
+           <string>Réponse à la question</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_10">
+          <item>
+           <widget class="QLineEdit" name="lineEdit_reponse">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+         color: #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+</string>
+            </property>
+            <property name="placeholderText">
+             <string>Réponse à la question</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QPushButton" name="pushButton_valider">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
     background-color: rgb(173, 216, 230);
     color: #ffffff;
     border: 2px solid rgb(173, 216, 230);
@@ -478,11 +731,20 @@ QPushButton:disabled {
     border-color: #444444;
 }
 </string>
-     </property>
-     <property name="text">
-      <string>Valider</string>
-     </property>
+          </property>
+          <property name="text">
+           <string>Valider</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
     </widget>
+    <zorder>widget_4</zorder>
+    <zorder>widget_2</zorder>
+    <zorder>label_240</zorder>
+    <zorder>verticalLayoutWidget</zorder>
    </widget>
    <widget class="QWidget" name="equibment_2">
     <widget class="QLabel" name="label_17">

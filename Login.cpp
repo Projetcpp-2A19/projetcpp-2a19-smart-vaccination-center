@@ -88,7 +88,6 @@ void Login::on_pushButton_login_clicked()
         query.bindValue(":password", password);
 
         if (query.exec() && query.next()) {
-            QMessageBox::information(this, "Connexion", "Connexion réussie !");
             MainWindow *mainWindow = new MainWindow();
             mainWindow->show();
             this->close();
