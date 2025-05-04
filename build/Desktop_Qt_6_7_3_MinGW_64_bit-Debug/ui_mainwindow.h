@@ -201,6 +201,8 @@ public:
     QWidget *page_7;
     QTableWidget *tableau3_4;
     QWidget *page_8;
+    QWidget *page_5;
+    QLabel *labelCertificat;
     QPushButton *btnpatient2_3;
     QLabel *label_240;
     QWidget *user_3;
@@ -3155,7 +3157,7 @@ public:
 "}"));
         layoutWidget_13 = new QWidget(groupBox_11);
         layoutWidget_13->setObjectName("layoutWidget_13");
-        layoutWidget_13->setGeometry(QRect(10, 40, 271, 571));
+        layoutWidget_13->setGeometry(QRect(10, 40, 271, 601));
         verticalLayout_10 = new QVBoxLayout(layoutWidget_13);
         verticalLayout_10->setObjectName("verticalLayout_10");
         verticalLayout_10->setContentsMargins(0, 0, 0, 0);
@@ -3647,6 +3649,12 @@ public:
         page_8 = new QWidget();
         page_8->setObjectName("page_8");
         rapportettable->addWidget(page_8);
+        page_5 = new QWidget();
+        page_5->setObjectName("page_5");
+        labelCertificat = new QLabel(page_5);
+        labelCertificat->setObjectName("labelCertificat");
+        labelCertificat->setGeometry(QRect(12, 19, 771, 501));
+        rapportettable->addWidget(page_5);
         btnpatient2_3 = new QPushButton(RendezVous_3);
         btnpatient2_3->setObjectName("btnpatient2_3");
         btnpatient2_3->setGeometry(QRect(947, 69, 181, 61));
@@ -13866,7 +13874,7 @@ public:
         sqs->setCurrentIndex(1);
         stackedWidget_2->setCurrentIndex(2);
         stackedWidget_3->setCurrentIndex(5);
-        rapportettable->setCurrentIndex(0);
+        rapportettable->setCurrentIndex(2);
         statmedcin->setCurrentIndex(5);
         stackedWidget_4->setCurrentIndex(2);
         stackedWidget_5->setCurrentIndex(1);
@@ -14029,6 +14037,7 @@ public:
         ___qtablewidgetitem12->setText(QCoreApplication::translate("MainWindow", "Adresse", nullptr));
         QTableWidgetItem *___qtablewidgetitem13 = tableau3_4->horizontalHeaderItem(6);
         ___qtablewidgetitem13->setText(QCoreApplication::translate("MainWindow", "Group Sanguin", nullptr));
+        labelCertificat->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         btnpatient2_3->setText(QCoreApplication::translate("MainWindow", "\360\237\223\212        Statistique", nullptr));
         label_240->setText(QCoreApplication::translate("MainWindow", "Liste des patients", nullptr));
         label_33->setText(QCoreApplication::translate("MainWindow", "user", nullptr));

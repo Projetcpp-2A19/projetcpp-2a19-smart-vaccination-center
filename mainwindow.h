@@ -182,6 +182,7 @@ private slots:
     bool ajouterCertificatImageDansBDD(int patientID);
     void genererCertificatImage(const Patient &patient);
     Patient getPatientById(int id);
+    void afficherCertificatDepuisBDD(int patientID);
 
 
 public:

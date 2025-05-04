@@ -3455,6 +3455,31 @@ Patient MainWindow::getPatientById(int id)
         return Patient(); // patient vide
     }
 }
+void MainWindow::afficherCertificatDepuisBDD(int patientID)
+{
+    QSqlQuery query;
+    query.prepare("SELECT CERTIFICAT FROM PATIENTS WHERE ID_PAT = :id");
+    query.bindValue(":id", patientID);
+
+    if (query.exec() && query.next()) {
+        QByteArray imageData = query.value(0).toByteArray();
+
+        if (imageData.isEmpty()) {
+            QMessageBox::warning(this, "Erreur", "Aucune image de certificat trouvée !");
+            return;
+        }
+
+        QPixmap pixmap;
+        pixmap.loadFromData(imageData);
+
+        QLabel *label = ui->labelCertificat;  // Assure-toi qu'il existe dans page_5
+        label->setPixmap(pixmap.scaled(label->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+
+    } else {
+        QMessageBox::critical(this, "Erreur", "Impossible de charger le certificat depuis la base !");
+    }
+}
+
 void MainWindow::envoyerCertificat(int patientID)
 {
     qDebug() << "declaratient patient" ;
@@ -3464,9 +3489,7 @@ void MainWindow::envoyerCertificat(int patientID)
     qDebug() << "Qrcode"  ;
     /*uploadCertificatViaPython();*/
     ajouterCertificatImageDansBDD(patient.getId());
-
-    qDebug() << "1:";
-
-
-    qDebug() << "mail envoyer!:" << patientID;
+    //affichege de certificat
+    afficherCertificatDepuisBDD(patientID);
+    ui->rapportettable->setCurrentWidget(ui->page_5);
 }

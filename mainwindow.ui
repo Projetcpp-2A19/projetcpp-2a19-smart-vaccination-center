@@ -3223,7 +3223,7 @@ QGroupBox::title {
            <x>10</x>
            <y>40</y>
            <width>271</width>
-           <height>571</height>
+           <height>601</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -3849,7 +3849,7 @@ QPushButton:disabled {
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="page_7">
          <widget class="QTableWidget" name="tableau3_4">
@@ -3964,6 +3964,21 @@ QTableWidget::item:hover {
          </widget>
         </widget>
         <widget class="QWidget" name="page_8"/>
+        <widget class="QWidget" name="page_5">
+         <widget class="QLabel" name="labelCertificat">
+          <property name="geometry">
+           <rect>
+            <x>12</x>
+            <y>19</y>
+            <width>771</width>
+            <height>501</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </widget>
        </widget>
        <widget class="QPushButton" name="btnpatient2_3">
         <property name="geometry">
