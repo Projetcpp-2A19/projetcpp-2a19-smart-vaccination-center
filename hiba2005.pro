@@ -1,8 +1,10 @@
-QT       += core gui network charts serialport printsupport
-QT += charts
+QT += core gui network charts serialport printsupport sql multimedia location positioning quickwidgets
 
-QT += location positioning location positioning quickwidgets
+QMAKE_POST_LINK += echo Ensure Python is installed and models are downloaded
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+
 
 CONFIG += c++17
 
@@ -18,6 +20,7 @@ SOURCES += \
     MotDePasseOublie.cpp \
     arduino.cpp \
     connection.cpp \
+    equipements.cpp \
     lab.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -51,6 +54,7 @@ HEADERS += \
     MotDePasseOublie.h \
     arduino.h \
     connection.h \
+    equipements.h \
     lab.h \
     mainwindow.h \
     Vaccin.h \

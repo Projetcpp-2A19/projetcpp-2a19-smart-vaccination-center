@@ -4,6 +4,7 @@ release/Medecin.o
 release/MotDePasseOublie.o
 release/arduino.o
 release/connection.o
+release/equipements.o
 release/lab.o
 release/main.o
 release/mainwindow.o

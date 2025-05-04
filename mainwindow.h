@@ -36,6 +36,11 @@
 #include <QDebug>
 #include <QNetworkAccessManager>  // Ajout pour les requêtes HTTP
 #include <QNetworkReply>
+#include <QMainWindow>
+#include <QWidget>  // For the popup widget
+#include <QPushButton>  // For the button
+#include <QLabel>  // For the label inside the popup widget
+#include <QtCharts>
 #include "Vaccin.h"
 #include "Medecin.h"
 #include "smtpclient.h"
@@ -46,6 +51,8 @@
 #include "arduino.h"
 #include "MarkerModel.h"
 #include"lab.h"
+#include "equipements.h"
+
 
 
 //using namespace QtCharts;
@@ -141,14 +148,43 @@ private slots:
     void on_btnModifier_labo_clicked();
     void on_btnConfirmerModifier_labo8_clicked();
 
+//----------------------------------------------------------------------------------------------------sadek
+    void on_btnequipementAjouter_4_clicked();  // Slot for adding equipment
+    void afficherEquipements();  // Function to display data in the table
+    void on_btnSupprimer_clicked(); //btn supp
+    void on_btnModifier_clicked();
+    void on_btnConfirmerModifier_4_clicked();
+    void on_lineEdit_54_textChanged(const QString &searchTerm);
+    void on_btnequiprmrnt4_clicked();
+    void showStatistiques();
+    void on_panneButton_clicked();  // Handle "Panne" button click
+    void showPanneNotification(const QString &equipementNom); // Display scrolling notification
+    void on_btnvoice_4_clicked();
+    void update_fridge_status();
+
+
+public:
+    void updateTableViewEquipement();
+
+private:
+    QByteArray data;
+    QString originalNom;        // original name loaded from table
+    QString originalType;       // original type loaded from table
+    QString originalStatut;     // original status loaded from table
+    QString originalDescription;
+
+    QSortFilterProxyModel *proxyModel;
+//----------------------------------------------------------------------------------------------------sadek
+
 
 
 private:
     Ui::MainWindow *ui;
     QWidget *popupWidget;  // The popup widget
     QNetworkAccessManager *networkManager;
-     Lab labo;  // LABORATOIRE object
+    Lab labo;  // LABORATOIRE object
     Vaccin vac;
+    Equipement equipement;  // Equipement object
     int mod=0;
 
     Arduino A;
@@ -199,6 +235,9 @@ private://maps
     //QNetworkAccessManager *networkManager;  // Gestionnaire de requêtes réseau
     double latitude = 0.0;
     double longitude = 0.0;
+
+
+
 
 };
 

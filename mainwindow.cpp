@@ -23,6 +23,30 @@
 #include <QLabel>
 #include <QDebug>
 #include <QTableWidgetItem>
+#include <QMouseEvent>
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QWidget>
+#include <QDateTime>
+#include <QMessageBox>
+#include <QDebug>
+#include <QSqlError>
+#include <QSignalBlocker>
+#include <QTextDocument>
+#include <QFileDialog>
+#include <QPrinter>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>
+#include <QVBoxLayout>
+#include <QPropertyAnimation>
+#include <QMediaPlayer>
+#include <QAudioOutput>
+#include <QTimer>
+#include <QProcess>
+#include <QDate>
 #include "Vaccin.h"
 #include "Medecin.h"
 #include "arduino.h"
@@ -148,8 +172,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tableau->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableau3->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->tableau4->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    //ui->tableau4->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableau5->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableauEquipements->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     //ui->tableau6_2_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     //partie vaccin
@@ -267,7 +292,20 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
+    //----------------------------------------------------------------------------------------------------------------------------sadek
+    ui->lineEdit_54->setPlaceholderText("Recherche");  // Set search hint
+    connect(ui->lineEdit_54, &QLineEdit::textChanged, this, &MainWindow::on_lineEdit_54_textChanged);
+    ui->tableauEquipements->setModel(equipement.afficher()); // or trier("Par défaut")
+    ui->tableauEquipements->setSortingEnabled(true);
+    ui->tableauEquipements->sortByColumn(0, Qt::AscendingOrder); // optional default sort
 
+    updateTableViewEquipement();
+
+    ui->dateEdit_11->clear();             // Clear the date field (remains empty)
+    ui->dateEdit_11->setEnabled(false);     // Disable user interaction
+    ui->dateEdit_11->setVisible(false);
+    ui->label_2009->setVisible(false);
+    //connect(A.getserial(), SIGNAL(readyRead()), this, SLOT(update_fridge_status()));
 
 
 }
@@ -359,6 +397,7 @@ void MainWindow::on_btnpatient2_clicked()
 
 void MainWindow::on_btnequiprmrnt2_clicked()
 {
+    showStatistiques();
     ui->sqs->setCurrentIndex(12);
 }
 
@@ -2393,4 +2432,565 @@ void MainWindow::getCoordinatesFromAddress(const QString &address) {
 
     // Envoie la requête de géocodage
     networkManager->get(QNetworkRequest(url));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------Sadek
+
+
+
+//------------------------------------------------------------------------------------------------------------------CRUD
+
+void MainWindow::updateTableViewEquipement() {
+    QSqlQueryModel* model = equipement.afficher();
+
+    proxyModel = new QSortFilterProxyModel(this);
+    proxyModel->setSourceModel(model);
+    proxyModel->setSortCaseSensitivity(Qt::CaseInsensitive);
+    proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+    ui->tableauEquipements->setModel(proxyModel);
+    ui->tableauEquipements->setSortingEnabled(true);
+    ui->tableauEquipements->sortByColumn(0, Qt::AscendingOrder);  // Optional: Default sort by ID
+}
+
+void MainWindow::on_btnequipementAjouter_4_clicked() {
+    QSqlQuery query;
+    query.prepare("SELECT MAX(id_eqp) FROM EQUIPEMENTS");  // Get max ID
+    query.exec();
+
+    int id = 1;  // Default ID if the table is empty
+
+    if (query.next() && !query.value(0).isNull()) {
+        id = query.value(0).toInt() + 1;  // Assign max ID + 1
+    }
+
+    // Récupérer les valeurs de l'UI
+    QString nom = ui->lineEdit_67->text();
+    QString type = ui->comboBox_20->currentText();
+    QString statut = ui->comboBox_21->currentText();
+    QString description = ui->inputvoice_4->text();
+
+    // Obtenir la date actuelle
+    QDate dateMaintenance ;
+
+    // Vérifier si le nom est vide
+    if (nom.isEmpty()) {
+        QMessageBox::warning(this, "Erreur", "Le nom ne peut pas être vide !");
+        return;
+    }
+
+    if (nom.length() > 30) {
+        QMessageBox::warning(this, "Erreur", "Le nom ne doit pas dépasser 30 caractères !");
+        return;
+    }
+
+    if (description.isEmpty()) {
+        QMessageBox::warning(this, "Erreur", "La description ne peut pas être vide !");
+        return;
+    }
+
+    if (description.length() > 100) {
+        QMessageBox::warning(this, "Erreur", "La description ne doit pas dépasser 100 caractères !");
+        return;
+    }
+
+    // Vérifier si le nom existe déjà
+    QSqlQuery checkQuery;
+    checkQuery.prepare("SELECT COUNT(*) FROM EQUIPEMENTS WHERE nom_eqp = :nom");
+    checkQuery.bindValue(":nom", nom);
+    checkQuery.exec();
+
+    if (checkQuery.next() && checkQuery.value(0).toInt() > 0) {
+        QMessageBox::warning(this, "Erreur", "Un équipement avec ce nom existe déjà !");
+        return;
+    }
+
+    // Créer l'objet Equipement avec le bon ID
+    Equipement equip(id, nom, type, statut, dateMaintenance, description);
+
+    // Ajouter dans la base de données
+    if (equip.ajouter()) {
+        QMessageBox::information(this, "Succès", "Équipement ajouté avec succès !");
+        afficherEquipements();  // Refresh table after adding
+    } else {
+        QMessageBox::critical(this, "Erreur", "L'ajout de l'équipement a échoué !");
+    }
+}
+
+void MainWindow::afficherEquipements(){
+    QSqlQueryModel* model = equipement.afficher();
+    ui->tableauEquipements->setModel(model);  // Assign model to QTableView
+}
+
+void MainWindow::on_btnSupprimer_clicked() {
+    QModelIndex index = ui->tableauEquipements->selectionModel()->currentIndex();
+    if (!index.isValid()) {
+        QMessageBox::warning(this, tr("Suppression"), tr("Veuillez sélectionner un élément à supprimer."));
+        return;
+    }
+
+    int id = ui->tableauEquipements->model()->data(ui->tableauEquipements->model()->index(index.row(), 0)).toInt();
+
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, tr("Suppression"), tr("Voulez-vous vraiment supprimer cet élément ?"),
+                                  QMessageBox::Yes | QMessageBox::No);
+
+    if (reply == QMessageBox::Yes) {
+        Equipement equip;
+        if (equip.supprimer(id)) {
+            QMessageBox::information(this, tr("Suppression"), tr("Suppression réussie."));
+            updateTableViewEquipement();
+        } else {
+            QMessageBox::critical(this, tr("Erreur"), tr("Échec de la suppression."));
+        }
+    }
+}
+
+void MainWindow::on_btnModifier_clicked() {
+
+    ui->dateEdit_11->setEnabled(true);
+    ui->dateEdit_11->setVisible(true);
+    ui->label_2009->setVisible(true);
+
+    // Retrieve the selected row
+    QModelIndex index = ui->tableauEquipements->selectionModel()->currentIndex();
+    if (!index.isValid()) {
+        QMessageBox::warning(this, tr("Modification"), tr("Veuillez sélectionner un élément à modifier."));
+        return;
+    }
+
+    // Get the record values from the table.
+    currentId = ui->tableauEquipements->model()->data(ui->tableauEquipements->model()->index(index.row(), 0)).toInt();
+    originalNom = ui->tableauEquipements->model()->data(ui->tableauEquipements->model()->index(index.row(), 1)).toString();
+    originalType = ui->tableauEquipements->model()->data(ui->tableauEquipements->model()->index(index.row(), 2)).toString();
+    originalStatut = ui->tableauEquipements->model()->data(ui->tableauEquipements->model()->index(index.row(), 3)).toString();
+    originalDescription = ui->tableauEquipements->model()->data(ui->tableauEquipements->model()->index(index.row(), 5)).toString();
+
+    QString dateStr = ui->tableauEquipements->model()->data(ui->tableauEquipements->model()->index(index.row(), 4)).toString();
+
+    QDate maintenanceDate = QDate::fromString(dateStr, "dd-MM-yyyy");
+    originalDate = maintenanceDate;
+
+    if (maintenanceDate.isValid()) {
+        ui->dateEdit_11->setDate(maintenanceDate);
+        ui->dateEdit_11->setDisplayFormat("dd/MM/yyyy");
+    } else {
+        ui->dateEdit_11->clear();  // fallback if parsing fails
+    }
+
+    // Populate the other fields
+    ui->lineEdit_67->setText(originalNom);
+
+    // Set comboBox_20 (Type)
+    if (originalType == "Machine")
+        ui->comboBox_20->setCurrentIndex(0);
+    else if (originalType == "Outil")
+        ui->comboBox_20->setCurrentIndex(1);
+    else if (originalType == "Stockage")
+        ui->comboBox_20->setCurrentIndex(0);
+    else
+        ui->comboBox_20->setCurrentIndex(3);
+
+    // Set comboBox_21 (Statut)
+    if (originalStatut == "Inactif")
+        ui->comboBox_21->setCurrentIndex(1);
+    else
+        ui->comboBox_21->setCurrentIndex(0);
+
+    ui->inputvoice_4->setText(originalDescription);
+
+    modificationInProgress = true; // Set the flag when modification starts
+}
+
+void MainWindow::on_btnConfirmerModifier_4_clicked() {
+    // Ensure user clicked "Modifier" before confirming
+    if (!modificationInProgress) {
+        QMessageBox::warning(this, tr("Erreur"), tr("Veuillez d'abord sélectionner un équipement à modifier en cliquant sur 'Modifier'."));
+        return;
+    }
+
+    // Retrieve new values from groupbox fields
+    QString newNom = ui->lineEdit_67->text();
+    QString newType = ui->comboBox_20->currentText();
+    QString newStatut = ui->comboBox_21->currentText();
+    QString newDescription = ui->inputvoice_4->text();
+
+    // Here, we use the text of the dateEdit_11:
+    QString dateText = ui->dateEdit_11->text().trimmed();
+    QDate newDate;
+    if (dateText.isEmpty()) {
+        // If the field is empty, set newDate to an invalid date
+        newDate = QDate();
+    } else {
+        newDate = ui->dateEdit_11->date();
+    }
+
+    // Check if no change was made
+    if (newNom == originalNom && newType == originalType && newStatut == originalStatut && newDescription == originalDescription && newDate == originalDate) {
+        QMessageBox::information(this, tr("Modification"), tr("Aucune modification apportée."));
+        return;
+    }
+
+    // Validate the new name
+    if (newNom.isEmpty()) {
+        QMessageBox::warning(this, tr("Erreur"), tr("Le nom ne peut pas être vide !"));
+        return;
+    }
+    if (newNom.length() > 30) {
+        QMessageBox::warning(this, tr("Erreur"), tr("Le nom ne doit pas dépasser 30 caractères !"));
+        return;
+    }
+
+    // Check if the new name already exists in the database
+    if (newNom != originalNom) {
+        QSqlQuery query;
+        query.prepare("SELECT COUNT(*) FROM EQUIPEMENTS WHERE nom_eqp = :nom");
+        query.bindValue(":nom", newNom);
+        if(query.exec() && query.next() && query.value(0).toInt() > 0) {
+            QMessageBox::warning(this, tr("Erreur"), tr("Un équipement avec ce nom existe déjà !"));
+            return;
+        }
+    }
+
+    if (newDescription.isEmpty()) {
+        QMessageBox::warning(this, "Erreur", "La description ne peut pas être vide !");
+        return;
+    }
+
+    if (newDescription.length() > 100) {
+        QMessageBox::warning(this, "Erreur", "La description ne doit pas dépasser 100 caractères !");
+        return;
+    }
+
+    Equipement equip(currentId, newNom, newType, newStatut, newDate, newDescription);
+    if (equip.modifier(currentId)) {
+        QMessageBox::information(this, tr("Modification"), tr("Modification réussie."));
+        updateTableViewEquipement();  // Refresh the table
+
+        modificationInProgress = false; // Reset the flag after modification
+    } else {
+        QMessageBox::critical(this, tr("Erreur"), tr("Échec de la modification."));
+    }
+
+    ui->dateEdit_11->clear();             // Clear the date field (remains empty)
+    ui->dateEdit_11->setEnabled(false);     // Disable user interaction
+    ui->dateEdit_11->setVisible(false);
+    ui->label_2009->setVisible(false);
+    ui->comboBox_20->setCurrentIndex(0);
+    ui->comboBox_21->setCurrentIndex(0);
+    ui->inputvoice_4->clear();
+    ui->lineEdit_67->clear();
+}
+
+
+
+//------------------------------------------------------------------------------------------------------------------RECHERCHER
+
+void MainWindow::on_lineEdit_54_textChanged(const QString &searchTerm) {
+    if (searchTerm.trimmed().isEmpty()) {
+        // If the search field is empty, show all equipment
+        ui->tableauEquipements->setModel(equipement.afficher());
+    } else {
+        // Otherwise, filter based on search input
+        ui->tableauEquipements->setModel(equipement.rechercher(searchTerm));
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------PDF
+
+void MainWindow::on_btnequiprmrnt4_clicked() {
+    QString fileName = QFileDialog::getSaveFileName(this, "Enregistrer PDF", "", "PDF Files (*.pdf)");
+    if (fileName.isEmpty()) {
+        return;
+    }
+
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName(fileName);
+
+    QTextDocument doc;
+    doc.setHtml(equipement.getEquipementsAsHTML()); // Call the function from Equipement class
+    doc.print(&printer);
+
+    QMessageBox::information(this, "Succès", "PDF généré avec succès !");
+}
+
+//------------------------------------------------------------------------------------------------------------------STAT
+
+void MainWindow::showStatistiques() {
+    // Clear existing layout content
+    if (ui->chartContainerType->layout()) {
+        QLayout *layout = ui->chartContainerType->layout();
+        while (QLayoutItem *item = layout->takeAt(0)) {
+            if (QWidget *widget = item->widget()) {
+                widget->deleteLater();
+            }
+            delete item;
+        }
+    } else {
+        ui->chartContainerType->setLayout(new QVBoxLayout());
+    }
+
+    // 📊 Pie Chart (Type Distribution)
+    QPieSeries *pieSeries = new QPieSeries();
+    QMap<QString, int> statsType = equipement.getStatistiquesParType();
+
+    int total = 0;
+    for (auto it = statsType.begin(); it != statsType.end(); ++it) {
+        total += it.value();  // Calculate total count of all equipment
+    }
+
+    if (statsType.isEmpty()) {
+        qDebug() << "⚠️ WARNING: No data found for equipment types!";
+    } else {
+        for (auto it = statsType.begin(); it != statsType.end(); ++it) {
+            double percentage = (total > 0) ? (it.value() * 100.0 / total) : 0;  // Calculate percentage
+
+            QPieSlice *slice = pieSeries->append(it.key(), it.value());
+
+            // Set label format to show percentage
+            slice->setLabel(QString("%1: %2%").arg(it.key()).arg(percentage, 0, 'f', 1));
+
+            slice->setLabelVisible(true);  // Ensure label is visible
+
+            // Add hover effect
+            connect(slice, &QPieSlice::hovered, [slice](bool hovered) {
+                slice->setExploded(hovered);
+                slice->setLabelFont(QFont("Arial", hovered ? 12 : 10, hovered ? QFont::Bold : QFont::Normal));
+            });
+        }
+    }
+
+    QChart *pieChart = new QChart();
+    pieChart->addSeries(pieSeries);
+
+    // Set Background Color 🎨
+    pieChart->setBackgroundBrush(QBrush(QColor(234, 251, 255)));
+
+    QChartView *chartView = new QChartView(pieChart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    ui->chartContainerType->layout()->addWidget(chartView);
+}
+
+
+
+//------------------------------------------------------------------------------------------------------------------Alert
+
+void MainWindow::on_panneButton_clicked() {
+    // Get the selected row from QTableView
+    QModelIndex index = ui->tableauEquipements->selectionModel()->currentIndex();
+    if (!index.isValid()) {
+        QMessageBox::warning(this, tr("Aucune sélection"), tr("Veuillez sélectionner un équipement."));
+        return;
+    }
+
+    // Get the model to extract data from the selected row
+    QAbstractItemModel *model = ui->tableauEquipements->model();
+    int row = index.row();
+
+    // Get the equipment ID and name
+    QString equipementID = model->data(model->index(row, 0)).toString();  // Column 1 = id_eqp
+    QString equipementNom = model->data(model->index(row, 1)).toString(); // Column 2 = nom_eqp
+
+    // Call the function to update the database
+    Equipement equip;
+    if (equip.setEnPanne(equipementID)) {
+        QMessageBox::information(this, tr("Mise en panne"), tr("L'équipement a été marqué en panne."));
+        updateTableViewEquipement();  // Refresh the table from the database
+        showPanneNotification(equipementNom);  // Show scrolling alert message
+    } else {
+        QMessageBox::critical(this, tr("Erreur"), tr("Impossible de modifier le statut en panne."));
+    }
+}
+
+void MainWindow::showPanneNotification(const QString &equipementNom) {
+    QString alertText = equipementNom + " est en panne. 🚨";
+
+    // Set text style (red text only)
+    ui->labelAlert_6->setStyleSheet("color: red; font-size: 18px; font-weight: bold;");
+    ui->labelAlert_6->setAlignment(Qt::AlignVCenter);
+    ui->labelAlert_6->setText(alertText);
+
+    // Setup media player with audio output
+    QMediaPlayer *player = new QMediaPlayer(this);
+    QAudioOutput *audioOutput = new QAudioOutput(this);
+    player->setAudioOutput(audioOutput);
+    player->setSource(QUrl::fromLocalFile("C:/Users/sadekk/Documents/sadek/siren.wav"));
+    audioOutput->setVolume(50); // 50% volume
+    player->setLoops(QMediaPlayer::Infinite);
+
+    // Faster animation (3 seconds per cycle)
+    int animationDuration = 6000;
+    int totalDuration = 15000;
+
+    QPropertyAnimation *animation = new QPropertyAnimation(ui->labelAlert_6, "pos", this);
+    animation->setDuration(animationDuration);
+    animation->setStartValue(QPoint(-ui->labelAlert_6->width(), ui->labelAlert_6->y()));
+    animation->setEndValue(QPoint(width(), ui->labelAlert_6->y()));
+    animation->setEasingCurve(QEasingCurve::Linear);
+    animation->setLoopCount(totalDuration / animationDuration);
+
+    // Start both sound and animation
+    player->play();
+    animation->start();
+
+    // Cleanup after 15 seconds
+    QTimer::singleShot(totalDuration, [=]() {
+        player->stop();
+        animation->stop();
+        ui->labelAlert_6->clear();
+        player->deleteLater();
+        audioOutput->deleteLater();
+        animation->deleteLater();
+    });
+}
+
+//------------------------------------------------------------------------------------------------------------------Voice to chat
+
+void MainWindow::on_btnvoice_4_clicked() {
+    QProcess process;
+    QString pythonPath = "python";  // Or the full path if needed
+    QString scriptPath = "C:/Users/sadekk/Documents/sadek/voice_module/run_transcription.py";
+
+    // Start the Python process
+    process.start(pythonPath, QStringList() << scriptPath);
+    process.waitForFinished(-1);  // Wait for the script to finish
+
+    // 🔹 Capture standard output (transcribed text)
+    QString output = QString::fromUtf8(process.readAllStandardOutput()).trimmed();
+    ui->inputvoice_4->setText(output);
+
+    // 🔹 Capture and print standard error (for debugging)
+    QString errors = QString::fromUtf8(process.readAllStandardError());
+}
+
+//------------------------------------------------------------------------------------------------------------------Arduino
+
+void MainWindow::update_fridge_status() {
+    static QByteArray buffer;
+    buffer += A.read_from_arduino();
+    int endIndex;
+
+    while ((endIndex = buffer.indexOf('\n')) != -1) {
+        QByteArray line = buffer.left(endIndex).trimmed();
+        buffer.remove(0, endIndex + 1);
+        QString text = QString::fromUtf8(line);
+
+        QString id;
+        float currentTemp = 0.0;
+        bool ok = false;
+
+        QRegularExpression re(R"(ID(\d+):TEMP:([\d.]+))");
+        QRegularExpressionMatch match = re.match(text);
+
+        if (match.hasMatch()) {
+            id = match.captured(1);               // "1" or "2"
+            currentTemp = match.captured(2).toFloat(&ok);
+
+            if (ok) {
+                QSqlQuery tempQuery;
+                tempQuery.prepare("SELECT temperature_conservation FROM VACCINS WHERE id_vac = :id");
+                tempQuery.bindValue(":id", id.toInt());
+                float conservationTemp = 0.0;
+
+                if (tempQuery.exec() && tempQuery.next()) {
+                    conservationTemp = tempQuery.value(0).toFloat(&ok);
+                }
+
+                if (id == "1") {
+                    ui->label_temperaturearduino->setText(QString::number(currentTemp) + " °C");
+                    ui->label_temperaturebase->setText(QString::number(conservationTemp) + " °C");
+                } else if (id == "2") {
+                    ui->label_temperaturearduino2->setText(QString::number(currentTemp) + " °C");
+                    ui->label_temperaturearduino2_2->setText(QString::number(conservationTemp) + " °C");
+                }
+
+                // Alert check
+                if (qAbs(currentTemp - conservationTemp) > 0.5) {
+
+                    QSqlQuery update;
+                    update.prepare("UPDATE EQUIPEMENTS SET statut_eqp = 'En panne' WHERE id_eqp = :id");
+                    update.bindValue(":id", id.toInt());
+                    if (!update.exec()) {
+                        qDebug() << "Update failed:" << update.lastError().text();
+                    }
+
+                    A.write_to_arduino("ALERTE\n");
+                    updateTableViewEquipement();
+                }
+            }
+        }
+    }
 }

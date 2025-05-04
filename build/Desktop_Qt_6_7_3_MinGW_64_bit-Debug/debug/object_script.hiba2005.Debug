@@ -4,6 +4,7 @@ debug/Medecin.o
 debug/MotDePasseOublie.o
 debug/arduino.o
 debug/connection.o
+debug/equipements.o
 debug/lab.o
 debug/main.o
 debug/mainwindow.o
