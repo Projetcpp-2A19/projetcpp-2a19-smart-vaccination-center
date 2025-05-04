@@ -1,6 +1,6 @@
 -IC:/Qt/6.7.3/mingw_64/mkspecs/win32-g++
--IC:/Users/sadekk/Desktop/Integration
--IC:/Users/sadekk/Desktop/Integration/src
+-IC:/Users/justmalek/Desktop/c++/integ2
+-IC:/Users/justmalek/Desktop/c++/integ2/src
 -IC:/Qt/6.7.3/mingw_64/include
 -IC:/Qt/6.7.3/mingw_64/include/QtCharts
 -IC:/Qt/6.7.3/mingw_64/include/QtOpenGLWidgets

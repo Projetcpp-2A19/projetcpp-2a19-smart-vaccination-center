@@ -150,14 +150,7 @@ Makefile: ../../hiba2005.pro C:/Qt/6.7.3/mingw_64/mkspecs/win32-g++/qmake.conf C
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_harfbuzz_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_help.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_help_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_httpserver.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_httpserver_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_insighttracker.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_insighttracker_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_insighttrackerqml.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_insighttrackerqml_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_jpeg_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_jsonrpc_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_labsanimation.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_labsanimation_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri \
@@ -170,7 +163,6 @@ Makefile: ../../hiba2005.pro C:/Qt/6.7.3/mingw_64/mkspecs/win32-g++/qmake.conf C
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_labssharedimage_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_languageserver_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_linguist.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_location.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_location_private.pri \
@@ -261,10 +253,6 @@ Makefile: ../../hiba2005.pro C:/Qt/6.7.3/mingw_64/mkspecs/win32-g++/qmake.conf C
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dparticles.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dparticles_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dphysics.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dphysics_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dphysicshelpers.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dphysicshelpers_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri \
@@ -328,10 +316,6 @@ Makefile: ../../hiba2005.pro C:/Qt/6.7.3/mingw_64/mkspecs/win32-g++/qmake.conf C
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_scxml_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_scxmlqml.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_scxmlqml_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_sensors.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_sensors_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_sensorsquick.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_sensorsquick_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_serialbus.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_serialbus_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_serialport.pri \
@@ -358,20 +342,10 @@ Makefile: ../../hiba2005.pro C:/Qt/6.7.3/mingw_64/mkspecs/win32-g++/qmake.conf C
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_uiplugin.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_uitools.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_uitools_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_virtualkeyboard.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_virtualkeyboard_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_virtualkeyboardsettings.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_virtualkeyboardsettings_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webchannel.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webchannel_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webchannelquick.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webchannelquick_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_websockets.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_websockets_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webview.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webview_private.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webviewquick.pri \
-		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webviewquick_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_widgets.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_widgets_private.pri \
 		C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_xml.pri \
@@ -511,14 +485,7 @@ C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_gui_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_harfbuzz_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_help.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_help_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_httpserver.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_httpserver_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_insighttracker.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_insighttracker_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_insighttrackerqml.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_insighttrackerqml_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_jpeg_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_jsonrpc_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_labsanimation.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_labsanimation_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri:
@@ -531,7 +498,6 @@ C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_labssharedimage.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_labssharedimage_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_languageserver_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_linguist.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_location.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_location_private.pri:
@@ -622,10 +588,6 @@ C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dparticles.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dparticles_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dphysics.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dphysics_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dphysicshelpers.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dphysicshelpers_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri:
@@ -689,10 +651,6 @@ C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_scxml.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_scxml_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_scxmlqml.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_scxmlqml_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_sensors.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_sensors_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_sensorsquick.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_sensorsquick_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_serialbus.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_serialbus_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_serialport.pri:
@@ -719,20 +677,10 @@ C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_tools_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_uiplugin.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_uitools.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_uitools_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_virtualkeyboard.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_virtualkeyboard_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_virtualkeyboardsettings.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_virtualkeyboardsettings_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webchannel.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webchannel_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webchannelquick.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webchannelquick_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_websockets.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_websockets_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webview.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webview_private.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webviewquick.pri:
-C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_webviewquick_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_widgets.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_widgets_private.pri:
 C:/Qt/6.7.3/mingw_64/mkspecs/modules/qt_lib_xml.pri:

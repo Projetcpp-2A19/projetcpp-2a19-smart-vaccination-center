@@ -52,7 +52,7 @@
 #include "MarkerModel.h"
 #include"lab.h"
 #include "equipements.h"
-
+#include "patient.h"
 
 
 //using namespace QtCharts;
@@ -78,10 +78,17 @@ public:
     Q_INVOKABLE void searchLocation(const QString &address);
     void traiterDemandeAcces();
     void update_label();
+    //pat
+    void supprimerPatient(int id);
+    void modifierPatient(int id);
+    int currentPatientId = -1;
+    void envoyerCertificat(int patientID);
 signals:
     Q_INVOKABLE void ajouterLaboratoireEPINGLE(double latitude, double longitude);
 
     void positionTrouvee(double latitude, double longitude);
+
+
 
 private slots:
     void on_btnmedecin_clicked();  // Slot to handle btnmedecin click
@@ -161,6 +168,20 @@ private slots:
     void showPanneNotification(const QString &equipementNom); // Display scrolling notification
     void on_btnvoice_4_clicked();
     void update_fridge_status();
+
+    //pat
+    void on_btnajouterpatient_2_clicked();
+    void on_recherche_clicked();
+    void on_tri_clicked();
+    void genererRapportPDF();
+    void on_btnpatient3_3_clicked();
+    void afficherStatistiques();
+    void on_btnpatient2_3_clicked();
+    void on_listpatient_clicked();
+    QString recupererVaccinsPatient(int patientID);
+    bool ajouterCertificatImageDansBDD(int patientID);
+    void genererCertificatImage(const Patient &patient);
+    Patient getPatientById(int id);
 
 
 public:

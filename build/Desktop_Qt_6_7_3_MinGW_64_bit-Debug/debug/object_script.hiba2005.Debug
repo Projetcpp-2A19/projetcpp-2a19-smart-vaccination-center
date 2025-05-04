@@ -10,6 +10,7 @@ debug/main.o
 debug/mainwindow.o
 debug/Vaccin.o
 debug/rendezvous.o
+debug/patient.o
 debug/sms1.o
 debug/emailaddress.o
 debug/mimeattachment.o

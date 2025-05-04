@@ -967,7 +967,7 @@ QPushButton:disabled {
 </string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="medecin">
      <widget class="QLabel" name="label_3">
@@ -2138,8 +2138,8 @@ background-color: rgb(234, 251, 255);
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1101</width>
-        <height>671</height>
+        <width>1141</width>
+        <height>711</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -3187,20 +3187,858 @@ QPushButton:disabled {
        </widget>
       </widget>
       <widget class="QWidget" name="RendezVous_3">
-       <widget class="QLabel" name="label_32">
+       <widget class="QGroupBox" name="groupBox_11">
         <property name="geometry">
          <rect>
-          <x>410</x>
-          <y>60</y>
-          <width>171</width>
+          <x>20</x>
+          <y>0</y>
+          <width>291</width>
+          <height>711</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QGroupBox {
+    background-color: rgb(234, 251, 255);  /* Light blue background */
+    border: 2px solid #2a2a2a ;  /* Dark gray border */
+    border-radius: 8px;         /* Rounded corners */
+    margin-top: 20px;           /* Space for title */
+    padding: 10px;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 5px 15px;
+    background-color: #2a2a2a  ;  /* Dark gray background */
+    color: white  ;               /* White text */
+    border-radius: 5px;
+    font-weight: bold;
+}</string>
+        </property>
+        <property name="title">
+         <string>Ajouter / Modifier</string>
+        </property>
+        <widget class="QWidget" name="layoutWidget_13">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>40</y>
+           <width>271</width>
+           <height>571</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_10">
+          <item>
+           <widget class="QLabel" name="label_128">
+            <property name="styleSheet">
+             <string notr="true">font-size: 14px;
+        font-weight: bold;
+        color: #333; /* Dark gray text */
+        background: transparent;</string>
+            </property>
+            <property name="text">
+             <string>Nom :</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_57">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+         color: #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_129">
+            <property name="styleSheet">
+             <string notr="true">font-size: 14px;
+        font-weight: bold;
+        color: #333; /* Dark gray text */
+        background: transparent;</string>
+            </property>
+            <property name="text">
+             <string>Prénom :</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_58">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+         color: #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_130">
+            <property name="styleSheet">
+             <string notr="true">font-size: 14px;
+        font-weight: bold;
+        color: #333; /* Dark gray text */
+        background: transparent;</string>
+            </property>
+            <property name="text">
+             <string>Date de naissance :</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDateEdit" name="dateEdit_9">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+         color: #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+
+</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_131">
+            <property name="styleSheet">
+             <string notr="true">font-size: 14px;
+        font-weight: bold;
+        color: #333; /* Dark gray text */
+        background: transparent;</string>
+            </property>
+            <property name="text">
+             <string>Genre :</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox_12">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+         color: #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+text : search
+</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Mâle</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Femelle</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_132">
+            <property name="styleSheet">
+             <string notr="true">font-size: 14px;
+        font-weight: bold;
+        color: #333; /* Dark gray text */
+        background: transparent;</string>
+            </property>
+            <property name="text">
+             <string>Mail :</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_59">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+         color: #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_133">
+            <property name="styleSheet">
+             <string notr="true">font-size: 14px;
+        font-weight: bold;
+        color: #333; /* Dark gray text */
+        background: transparent;</string>
+            </property>
+            <property name="text">
+             <string>Adresse :</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_60">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+         color: #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_134">
+            <property name="styleSheet">
+             <string notr="true">font-size: 14px;
+        font-weight: bold;
+        color: #333; /* Dark gray text */
+        background: transparent;</string>
+            </property>
+            <property name="text">
+             <string>Group sanguin :</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox_7">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+         color: #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+text : search
+</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>A+</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>A-</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>B+</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>B-</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>O+</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>O-</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_135">
+            <property name="styleSheet">
+             <string notr="true">font-size: 14px;
+        font-weight: bold;
+        color: #333; /* Dark gray text */
+        background: transparent;</string>
+            </property>
+            <property name="text">
+             <string>Tel:</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_61">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>620</y>
+           <width>269</width>
+           <height>43</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+         color: #2a2a2a;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btnajouterpatient_2">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>660</y>
+           <width>269</width>
+           <height>45</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: rgb(173, 216, 230);
+    color: #ffffff;
+    border: 2px solid rgb(173, 216, 230);
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Soumettre</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QComboBox" name="comboBox_13">
+        <property name="geometry">
+         <rect>
+          <x>640</x>
+          <y>100</y>
+          <width>125</width>
+          <height>55</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+ color: #2a2a2a  ;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+text : search
+</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>date</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_62">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>140</y>
+          <width>111</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid #2a2a2a ; /* Blue border */
+        border-radius: 6px;
+        padding: 5px 8px;
+ color: #2a2a2a  ;
+    padding: 10px;
+    margin: 6px;
+    font-size: 13px;
+    font-weight: bold;
+        selection-background-color: #cce5ff; /* Light blue selection */
+
+text : search
+</string>
+        </property>
+        <property name="text">
+         <string>Recherche</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_72">
+        <property name="geometry">
+         <rect>
+          <x>650</x>
+          <y>40</y>
+          <width>125</width>
+          <height>56</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> color: #2a2a2a  ;
+    padding: 10px;
+    margin: 6px;
+    font-size: 15px;
+    font-weight: bold;
+ </string>
+        </property>
+        <property name="text">
+         <string>Trier par</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="listpatient">
+        <property name="geometry">
+         <rect>
+          <x>947</x>
+          <y>119</y>
+          <width>181</width>
           <height>61</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">color : black;</string>
+         <string notr="true">QPushButton {
+    background-color: #2a2a2a   ;
+    color: #ffffff;
+    border: 2px solid #2a2a2a   ;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
         </property>
         <property name="text">
-         <string>PAGE MALLEK</string>
+         <string>liste des patients</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>:/icons/liste.png</normaloff>:/icons/liste.png</iconset>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="recherche">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>140</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2a2a2a   ;
+    color: #ffffff;
+    border: 2px solid #2a2a2a   ;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/icons/find_17252880.png</normaloff>:/icons/find_17252880.png</iconset>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="tri">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>100</y>
+          <width>125</width>
+          <height>56</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2a2a2a   ;
+    color: #ffffff;
+    border: 2px solid #2a2a2a   ;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/icons/find_17252880.png</normaloff>:/icons/find_17252880.png</iconset>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnpatient3_3">
+        <property name="geometry">
+         <rect>
+          <x>947</x>
+          <y>19</y>
+          <width>181</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2a2a2a   ;
+    color: #ffffff;
+    border: 2px solid #2a2a2a   ;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>📑   Rapports PDF</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>:/new/prefix1/icons/microscope_4131002.png</normaloff>:/new/prefix1/icons/microscope_4131002.png</iconset>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QStackedWidget" name="rapportettable">
+        <property name="geometry">
+         <rect>
+          <x>327</x>
+          <y>189</y>
+          <width>801</width>
+          <height>521</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="page_7">
+         <widget class="QTableWidget" name="tableau3_4">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>781</width>
+            <height>501</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>781</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>781</width>
+            <height>511</height>
+           </size>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LayoutDirection::LeftToRight</enum>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QTableWidget {
+    background-color: rgb(234, 251, 255);
+    border: 2px solid #2a2a2a;
+    border-radius: 8px;
+    gridline-color: #2a2a2a;
+    selection-background-color: #2a2a2a;
+    selection-color: white;
+}
+
+QHeaderView::section {
+    background-color: #2a2a2a;
+    color: white;
+    padding: 5px;
+    border: 1px solid #2a2a2a;
+    font-weight: bold;
+}
+
+QTableWidget QTableCornerButton::section {
+    background-color: #2a2a2a;
+    border: 1px solid #2a2a2a;
+}
+
+QTableWidget::item {
+    padding: 5px;
+}
+
+QTableWidget::item:selected {
+    background-color: #2a2a2a;
+    color: white;
+}
+
+QTableWidget::item:hover {
+    background-color: rgb(200, 240, 250);
+}
+</string>
+          </property>
+          <property name="lineWidth">
+           <number>144</number>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+          </property>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <row/>
+          <column>
+           <property name="text">
+            <string>Nom</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Prénom</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Date Naissance</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Genre</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Mail</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Adresse</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Group Sanguin</string>
+           </property>
+          </column>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="page_8"/>
+       </widget>
+       <widget class="QPushButton" name="btnpatient2_3">
+        <property name="geometry">
+         <rect>
+          <x>947</x>
+          <y>69</y>
+          <width>181</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2a2a2a   ;
+    color: #ffffff;
+    border: 2px solid #2a2a2a   ;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background-color: #606060;
+    border-color: #777777;
+}
+
+QPushButton:pressed {
+    background-color: #787878;
+    border-color: #909090;
+}
+
+QPushButton:disabled {
+    background-color: #353535;
+    color: #ffffff;
+    border-color: #444444;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>📊        Statistique</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>:/new/prefix1/icons/microscope_4131002.png</normaloff>:/new/prefix1/icons/microscope_4131002.png</iconset>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_240">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>20</y>
+          <width>341</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> color: rgb(220, 78, 78);
+    padding: 10px;
+    margin: 6px;
+    font-size: 30px;
+    font-weight: bold;
+background-color: rgb(234, 251, 255); 
+
+</string>
+        </property>
+        <property name="text">
+         <string>Liste des patients</string>
         </property>
        </widget>
       </widget>

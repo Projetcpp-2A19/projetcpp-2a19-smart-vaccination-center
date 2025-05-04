@@ -26,6 +26,7 @@ SOURCES += \
     mainwindow.cpp \
     Vaccin.cpp \
     rendezvous.cpp \
+    patient.cpp \
     sms1.cpp \
     src/emailaddress.cpp \
     src/mimeattachment.cpp \
@@ -46,6 +47,7 @@ SOURCES += \
     src/quotedprintable.cpp \
     src/sms.cpp \
     src/smtpclient.cpp
+    qrcode/qrcodegen.cpp
 
 HEADERS += \
     Login.h \
@@ -59,6 +61,7 @@ HEADERS += \
     mainwindow.h \
     Vaccin.h \
     rendezvous.h \
+    patient.h \
     sms1.h \
     src/emailaddress.h \
     src/mimeattachment.h \

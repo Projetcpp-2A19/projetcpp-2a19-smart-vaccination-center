@@ -116,6 +116,25 @@
 
 #include "markermodel.h"
 
+#include <cstdlib>  // Pour rand() et srand()
+#include <ctime>    // Pour time()
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
+#include <QChart>
+#include "connection.h"
+#include <QGraphicsOpacityEffect>
+#include <QTemporaryFile>
+#include <QBuffer>
+#include <QImage>
+#include <QFile>
+#include <QSslSocket>
+#include "patient.h"
+#include "qrcode/qrcodegen.hpp"
+#include "qrcode/qrcodegen.cpp"
+using qrcodegen::QrCode;
+using qrcodegen::QrSegment;
+
+
 
 void logToFile(const QString &event, const QString &details) {
     QFile file("app_log.txt");
@@ -307,7 +326,24 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_2009->setVisible(false);
     //connect(A.getserial(), SIGNAL(readyRead()), this, SLOT(update_fridge_status()));
 
+    //malek
+    connect(ui->tri, &QPushButton::clicked, this, &MainWindow::on_tri_clicked);
+    connect(ui->listpatient, &QPushButton::clicked, this, &MainWindow::on_listpatient_clicked);
+    connect(ui->recherche, &QPushButton::clicked, this, &MainWindow::on_recherche_clicked);
+    ui->tableau3_4->setColumnCount(8);
+    ui->tableau3_4->setHorizontalHeaderLabels({"ID", "Nom", "Prénom", "Date Naissance", "Email", "Genre", "Adresse", "Groupe Sanguin"});
+    ui->tableau3_4->setSelectionBehavior(QAbstractItemView::SelectRows);
 
+    /*Connection c;
+    c.createconnect();
+    int ret = A.connect_arduino();
+    switch (ret) {
+    case 0: qDebug() << "Arduino connecté sur :" << A.getarduino_port_name(); break;
+    case 1: qDebug() << "Arduino détecté mais non connecté !"; break;
+    case -1: qDebug() << "Arduino non disponible !"; break;
+    }
+
+    update_fridge_status();*/
 }
 
 
@@ -2993,4 +3029,444 @@ void MainWindow::update_fridge_status() {
             }
         }
     }
+}
+
+
+
+
+
+
+
+//pat
+void MainWindow::modifierPatient(int id)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * FROM PATIENTS WHERE ID_PAT = :id");
+    query.bindValue(":id", id);
+
+    if (query.exec() && query.next()) {
+        // Stocker l'ID du patient en modification
+        currentPatientId = id;
+
+        // Remplir le formulaire avec les données du patient sélectionné
+        ui->lineEdit_57->setText(query.value("NOM_PAT").toString());
+        ui->lineEdit_58->setText(query.value("PRENOM_PAT").toString());
+        ui->dateEdit_9->setDate(query.value("DATENAIS_PAT").toDate());
+        ui->lineEdit_59->setText(query.value("EMAIL").toString());
+        ui->comboBox_12->setCurrentText(query.value("GENRE").toString());
+        ui->lineEdit_60->setText(query.value("ADRESSE").toString());
+        ui->comboBox_7->setCurrentText(query.value("GROUPSANGUIN").toString());
+        ui->lineEdit_61->setText(query.value("TEL").toString());
+        // Changer le texte du bouton "Ajouter" en "Modifier"
+        ui->btnajouterpatient_2->setText("Modifier");
+        ui->btnajouterpatient_2->setStyleSheet("background-color: green; color: white; font-weight: bold; border-radius: 10px; padding: 8px;");
+    } else {
+        QMessageBox::critical(this, "Erreur","Impossible de récupérer les informations du patient." + QString::number(currentPatientId));
+    }
+}
+void MainWindow::supprimerPatient(int id)
+{
+    Patient p;
+    if (p.supprimerPatient(id)) {
+        QMessageBox::information(this, "Suppression réussie", "Le patient a été supprimé avec succès."+ QString::number(id));
+        p.afficher(ui->tableau3_4); // Rafraîchir la liste
+    }
+}
+void MainWindow::on_btnajouterpatient_2_clicked()
+{
+    // Génération d'un ID aléatoire
+    std::srand(std::time(0));
+    int min = 1, max = 100;
+    int id = min + std::rand() % (max - min + 1);
+
+    QString nom = ui->lineEdit_57->text().trimmed();
+    QString prenom = ui->lineEdit_58->text().trimmed();
+    QDate dateNaiss = ui->dateEdit_9->date();
+    QString email = ui->lineEdit_59->text().trimmed();
+    QString genre = ui->comboBox_12->currentText();
+    QString adresse = ui->lineEdit_60->text().trimmed();
+    QString groupeSanguin =ui->comboBox_7->currentText();
+    bool ok;
+    int tel = ui->lineEdit_61->text().trimmed().toInt(&ok);
+    qDebug() << tel;
+    if (!ok) {
+        QMessageBox::warning(this, "Entrée invalide", "Le numéro de téléphone doit être un entier valide.");
+        return;  // Or handle it accordingly
+    }
+
+
+
+    if (nom.isEmpty() || prenom.isEmpty() || email.isEmpty() || adresse.isEmpty() || groupeSanguin.isEmpty()) {
+        QMessageBox::warning(this, "Champ vide", "Tous les champs doivent être remplis !");
+        return;
+    }
+
+    // 🔹 Vérification : Nom & Prénom (doivent contenir uniquement des lettres)
+    QRegularExpression regexAlpha("^[A-Za-zÀ-ÿ]+$");
+    if (!regexAlpha.match(nom).hasMatch() || !regexAlpha.match(prenom).hasMatch()) {
+        QMessageBox::warning(this, "Format invalide", "Le nom et le prénom doivent contenir uniquement des lettres !");
+        return;
+    }
+
+    QRegularExpression regexEmail("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.(com|tn)$");
+
+    if (!regexEmail.match(email).hasMatch()) {
+        QMessageBox::warning(this, "Email invalide", "L'email doit être sous la forme exemple@domaine.com !");
+        return;
+    }
+    qDebug() << tel;
+    Patient patient(id,nom,prenom,dateNaiss,email,genre,adresse,groupeSanguin,tel);
+
+    if (currentPatientId == -1) {
+        if (patient.ajouter()) {
+            QMessageBox::information(this, "Succès", "Patient ajouté avec succès !");
+        } else {
+            QMessageBox::critical(this, "Erreur", "Échec de l'ajout du patient.");
+        }
+    } else {
+        // 🔹 Modification d'un patient existant
+        if (patient.modifierPatient(currentPatientId, nom, prenom, dateNaiss, email, genre, adresse, groupeSanguin,tel)) {
+            QMessageBox::information(this, "Succès", "Patient modifié avec succès !");
+        } else {
+            QMessageBox::critical(this, "Erreur", "Échec de la modification du patient.");
+        }
+
+        // Réinitialisation après modification
+        currentPatientId = -1;
+        ui->btnajouterpatient_2->setText("Ajouter");
+        ui->btnajouterpatient_2->setStyleSheet("QPushButton {background-color: rgb(173, 216, 230); color: #ffffff;border: 2px solid rgb(173, 216, 230);padding: 10px;margin: 6px; border-radius: 12px;font-size: 15px;font-weight: bold;transition: all 0.3s ease-in-out;}QPushButton:hover {background-color: #606060;border-color: #777777;}QPushButton:pressed { background-color: #787878;border-color: #909090;}QPushButton:disabled {background-color: #353535;color: #ffffff;border-color: #444444;}");
+    }
+
+    patient.afficher(ui->tableau3_4); // Rafraîchir la liste des patients
+    ui->rapportettable->setCurrentWidget(ui->page_7);
+}
+void MainWindow::on_recherche_clicked()
+{
+    QString rechercheNom = ui->lineEdit_62->text().trimmed();
+
+    Patient patient;
+    patient.afficherSpecifique(ui->tableau3_4, rechercheNom);
+}
+void MainWindow::on_tri_clicked()
+{
+    Patient patient;
+    patient.afficherTrieParAnneeNaissance(ui->tableau3_4);
+}
+void MainWindow::genererRapportPDF()
+{
+    QString filePath = QDir::homePath() + "/Desktop/c++/integ2/rapport_patient.pdf";
+    QPdfWriter pdfWriter(filePath);
+    pdfWriter.setPageSize(QPageSize(QPageSize::A4));
+    pdfWriter.setResolution(300);
+    QPainter painter(&pdfWriter);
+
+    // Marges
+    const int marginLeft = 40;
+    const int marginTop = 50;
+    const int pageWidth = pdfWriter.width() - 2 * marginLeft;
+
+    // Logo et titre
+    QPixmap logo("/mnt/data/44298757-c475-4d62-8415-e4d92b1b761b-removebg-preview.png");
+    painter.drawPixmap(marginLeft, marginTop, 80, 80, logo);
+    painter.setFont(QFont("Arial", 20, QFont::Bold));
+    painter.setPen(Qt::darkBlue);
+    painter.drawText(marginLeft + 100, marginTop + 40, "VaxNest - Rapport des Patients");
+
+    // Ligne séparatrice
+    painter.setPen(QPen(Qt::black, 2));
+    painter.drawLine(marginLeft, marginTop + 100, marginLeft + pageWidth, marginTop + 100);
+
+    // Titre tableau
+    painter.setFont(QFont("Arial", 14, QFont::Bold));
+    painter.drawText(marginLeft, marginTop + 130, "Liste des Patients");
+
+    // Coordonnées du tableau
+    int y = marginTop + 160;
+    int rowHeight = 45;
+
+    // Largeur totale à diviser
+    QVector<int> columnWidths = {
+        int(pageWidth * 0.08),  // ID
+        int(pageWidth * 0.20),  // Nom
+        int(pageWidth * 0.20),  // Prénom
+        int(pageWidth * 0.20),  // Date naissance
+        int(pageWidth * 0.32)   // Email
+    };
+
+    QStringList headers = {"ID", "Nom", "Prénom", "Date Naissance", "Email"};
+
+    // En-tête stylée
+    painter.setFont(QFont("Arial", 11, QFont::Bold));
+    painter.setPen(Qt::white);
+    painter.setBrush(QColor("#2E86C1"));  // Bleu foncé
+    int x = marginLeft;
+    for (int i = 0; i < headers.size(); ++i) {
+        painter.drawRect(x, y, columnWidths[i], rowHeight);
+        painter.drawText(x + 10, y + 30, headers[i]);
+        x += columnWidths[i];
+    }
+    y += rowHeight;
+
+    // Récupération des patients
+    QSqlQuery query;
+    if (!query.exec("SELECT ID_PAT, NOM_PAT, PRENOM_PAT, TO_CHAR(DATENAIS_PAT, 'YYYY-MM-DD'), EMAIL FROM PATIENTS ORDER BY ID_PAT")) {
+        QMessageBox::critical(this, "Erreur SQL", "Impossible de récupérer les patients: " + query.lastError().text());
+        return;
+    }
+
+    // Dessiner les lignes
+    painter.setFont(QFont("Arial", 10));
+    bool isAlternate = false;
+    while (query.next()) {
+        x = marginLeft;
+        painter.setPen(Qt::black);
+        painter.setBrush(isAlternate ? QColor("#f5f6fa") : Qt::white);  // Gris clair
+        isAlternate = !isAlternate;
+
+        for (int i = 0; i < headers.size(); ++i) {
+            painter.drawRect(x, y, columnWidths[i], rowHeight);
+            painter.drawText(x + 10, y + 28, query.value(i).toString());
+            x += columnWidths[i];
+        }
+
+        y += rowHeight;
+
+        // Saut de page si dépassement
+        if (y > pdfWriter.height() - 100) {
+            pdfWriter.newPage();
+            y = marginTop;
+        }
+    }
+
+    painter.end();
+    QMessageBox::information(this, "Succès", "Le rapport PDF a été généré avec succès !");
+}
+
+
+// Code du bouton pour générer le rapport
+void MainWindow::on_btnpatient3_3_clicked()
+{
+    genererRapportPDF();
+}
+void MainWindow::afficherStatistiques()
+{
+    // Récupérer les données d'âge des patients
+    QSqlQuery queryAge;
+    if (!queryAge.exec("SELECT DATENAIS_PAT FROM PATIENTS")) {
+        QMessageBox::critical(this, "Erreur SQL", "Impossible de récupérer les âges: " + queryAge.lastError().text());
+        return;
+    }
+
+    QLineSeries *ageSeries = new QLineSeries();
+    QDate currentDate = QDate::currentDate();
+    int index = 0;
+    while (queryAge.next()) {
+        QDate birthDate = queryAge.value(0).toDate();
+        int age = birthDate.daysTo(currentDate) / 365; // Calcul de l'âge
+        ageSeries->append(index++, age);
+    }
+
+    QChart *ageChart = new QChart();
+    ageChart->addSeries(ageSeries);
+    ageChart->setTitle("Courbe d'âge des patients");
+    ageChart->createDefaultAxes();
+    QChartView *ageChartView = new QChartView(ageChart);
+    ageChartView->setRenderHint(QPainter::Antialiasing);
+
+    // Récupérer les données des groupes sanguins
+    QSqlQuery queryBlood;
+    if (!queryBlood.exec("SELECT GROUPSANGUIN, COUNT(*) FROM PATIENTS GROUP BY GROUPSANGUIN")) {
+        QMessageBox::critical(this, "Erreur SQL", "Impossible de récupérer les groupes sanguins: " + queryBlood.lastError().text());
+        return;
+    }
+
+    QPieSeries *bloodSeries = new QPieSeries();
+    while (queryBlood.next()) {
+        bloodSeries->append(queryBlood.value(0).toString(), queryBlood.value(1).toInt());
+    }
+
+    QChart *bloodChart = new QChart();
+    bloodChart->addSeries(bloodSeries);
+    bloodChart->setTitle("Répartition des groupes sanguins");
+    QChartView *bloodChartView = new QChartView(bloodChart);
+    bloodChartView->setRenderHint(QPainter::Antialiasing);
+
+    // Ajouter les graphiques à la page_6 du stackedWidget
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->addWidget(ageChartView);
+    layout->addWidget(bloodChartView);
+    ui->page_8->setLayout(layout);
+}
+
+// Code du bouton pour afficher les statistiques
+void MainWindow::on_btnpatient2_3_clicked()
+{
+    afficherStatistiques();
+    ui->rapportettable->setCurrentWidget(ui->page_8);
+}
+void MainWindow::on_listpatient_clicked()
+{
+    Patient p;
+    p.afficher(ui->tableau3_4);
+    ui->rapportettable->setCurrentWidget(ui->page_7);
+}
+QString MainWindow::recupererVaccinsPatient(int patientID)
+{
+    QSqlQuery query;
+    query.prepare(R"(
+    SELECT VAC.NOM_VAC
+    FROM VACCINS VAC
+    JOIN INJECTIONS INJ ON VAC.ID_VAC = INJ.ID_VAC
+    WHERE INJ.ID_PAT = :id
+)");
+    query.bindValue(":id",patientID);
+
+    QStringList vaccins;
+    if (query.exec()) {
+        while (query.next()) {
+            vaccins << query.value(0).toString();
+        }
+    } else {
+        qDebug() << "❌ Erreur récupération vaccins : " << query.lastError().text();
+    }
+
+    return "Vaccins reçus : " + (vaccins.isEmpty() ? "Aucun" : vaccins.join(", "));
+}
+bool MainWindow::ajouterCertificatImageDansBDD(int patientID)
+{
+    // Chemin absolu vers le certificat généré
+    QString imagePath = "C:/Users/justmalek/Desktop/c++/integ2/certificat.jpg";
+
+    QFile file(imagePath);
+    if (!file.open(QIODevice::ReadOnly)) {
+        qDebug() << "❌ Impossible d’ouvrir le fichier certificat.jpg pour lecture.";
+        return false;
+    }
+
+    QByteArray imageData = file.readAll();
+    file.close();
+
+    QSqlQuery query;
+    query.prepare("UPDATE PATIENTS SET CERTIFICAT = :image WHERE ID_PAT = :id");
+    query.bindValue(":image", imageData);         // BLOB (image en binaire)
+    query.bindValue(":id", patientID);
+
+    if (!query.exec()) {
+        qDebug() << "❌ Erreur SQL lors de l'insertion du certificat :" << query.lastError().text();
+        return false;
+    }
+
+    qDebug() << "✅ Certificat enregistré avec succès pour le patient ID" << patientID;
+    return true;
+}
+void MainWindow::genererCertificatImage(const Patient &patient)
+{
+    int patientID = patient.getId();  // Ajoute un getter getId() si nécessaire
+    QString vaccinsText = recupererVaccinsPatient(patientID);
+
+    // Générer le QR code avec ce texte
+    using qrcodegen::QrCode;
+    QrCode qr = QrCode::encodeText(vaccinsText.toUtf8().constData(), QrCode::Ecc::LOW);
+
+    const int size = qr.getSize();
+    QImage qrImage(size, size, QImage::Format_RGB32);
+    qrImage.fill(Qt::white);
+    for (int y = 0; y < size; ++y)
+        for (int x = 0; x < size; ++x)
+            if (qr.getModule(x, y))
+                qrImage.setPixel(x, y, qRgb(0, 0, 0));
+    QPixmap qrPixmap = QPixmap::fromImage(qrImage.scaled(130, 130)); // QR redimensionné
+
+    // Création du certificat
+    QPixmap certificatPixmap(900, 600);
+    certificatPixmap.fill(Qt::white);
+
+    QPainter painter(&certificatPixmap);
+    painter.setRenderHint(QPainter::Antialiasing);
+
+    // En-tête
+    QRect headerRect(0, 0, certificatPixmap.width(), 80);
+    painter.fillRect(headerRect, QColor("#0d6efd"));
+    painter.setPen(Qt::white);
+    painter.setFont(QFont("Arial", 22, QFont::Bold));
+    painter.drawText(headerRect, Qt::AlignCenter, "Certificat de Fin de Vaccination");
+
+    // Bordure
+    painter.setPen(QPen(Qt::gray, 2));
+    painter.drawRect(10, 10, certificatPixmap.width() - 20, certificatPixmap.height() - 20);
+
+    // Logo
+    QPixmap logo("C:/Users/justmalek/Desktop/c++/vaxnestv2/icons/chahed_bhima-removebg-preview.png");
+    if (!logo.isNull())
+        painter.drawPixmap(30, 100, 100, 100, logo);
+
+    // Infos
+    painter.setPen(Qt::black);
+    painter.setFont(QFont("Arial", 14));
+    int leftMargin = 160;
+    int top = 120;
+    int lineSpacing = 40;
+
+    painter.drawText(leftMargin, top, QString("Nom : %1").arg(patient.getNom()));
+    painter.drawText(leftMargin, top + lineSpacing, QString("Prénom : %1").arg(patient.getPrenom()));
+    painter.drawText(leftMargin, top + 2 * lineSpacing, QString("Date de naissance : %1").arg(patient.getDateNaissance().toString("dd/MM/yyyy")));
+    painter.drawText(leftMargin, top + 3 * lineSpacing, QString("Vaccin complété le : %1").arg(QDate::currentDate().toString("dd/MM/yyyy")));
+
+    // Texte vaccins visible
+    painter.drawText(leftMargin, top + 5 * lineSpacing, vaccinsText);
+
+    // Signature
+    QFont font("Arial", 12, -1, true);
+    painter.setFont(font);
+    painter.drawText(certificatPixmap.width() - 300, certificatPixmap.height() - 100, "Signature du médecin");
+    painter.drawLine(certificatPixmap.width() - 300, certificatPixmap.height() - 95, certificatPixmap.width() - 100, certificatPixmap.height() - 95);
+
+    // QR code (en bas à gauche par exemple)
+    painter.drawPixmap(30, certificatPixmap.height() - 180, qrPixmap);
+
+    painter.end();
+
+    QString filePath = "C:/Users/justmalek/Desktop/c++/integ2/certificat.jpg";
+    if (!certificatPixmap.save(filePath, "JPG")) {
+        qDebug() << "❌ Échec de sauvegarde du certificat.";
+    } else {
+        qDebug() << "✅ Certificat sauvegardé avec succès.";
+    }
+}
+Patient MainWindow::getPatientById(int id)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * FROM PATIENTS WHERE ID_PAT = :id");
+    query.bindValue(":id", id);
+
+    if (query.exec() && query.next()) {
+        int id = query.value("ID_PAT").toInt();
+        QString nom = query.value("NOM_PAT").toString();
+        QString prenom = query.value("PRENOM_PAT").toString();
+        QDate dateNaissance = query.value("DATENAIS_PAT").toDate();
+        QString email = query.value("EMAIL").toString();
+        QString genre = query.value("GENRE").toString();
+        QString adresse = query.value("ADRESSE").toString();
+        QString groupeSanguin = query.value("GROUPSANGUIN").toString();
+        int tel = query.value("TEL").toInt();
+        return Patient(id, nom, prenom, dateNaissance, email, genre, adresse, groupeSanguin,tel);
+    } else {
+        qDebug() << "Erreur : patient non trouvé ou erreur SQL :" << query.lastError().text();
+        return Patient(); // patient vide
+    }
+}
+void MainWindow::envoyerCertificat(int patientID)
+{
+    qDebug() << "declaratient patient" ;
+    Patient patient = getPatientById(patientID); // récupérez l'objet Patient
+    qDebug() << "generation certificat";
+    genererCertificatImage(patient);
+    qDebug() << "Qrcode"  ;
+    /*uploadCertificatViaPython();*/
+    ajouterCertificatImageDansBDD(patient.getId());
+
+    qDebug() << "1:";
+
+
+    qDebug() << "mail envoyer!:" << patientID;
 }
