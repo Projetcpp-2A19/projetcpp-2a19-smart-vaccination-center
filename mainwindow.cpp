@@ -50,6 +50,7 @@
 #include "Vaccin.h"
 #include "Medecin.h"
 #include "arduino.h"
+#include "login.h"
 
 
 
@@ -262,7 +263,7 @@ MainWindow::MainWindow(QWidget *parent)
     A.connect_arduino();
 
     timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, &MainWindow::verifierIDDepuisArduino);
+    //connect(timer, &QTimer::timeout, this, &MainWindow::verifierIDDepuisArduino);     //arduino2
     timer->start(200);
 
 //*******************************************************************************
@@ -311,6 +312,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
+
     //----------------------------------------------------------------------------------------------------------------------------sadek
     ui->lineEdit_54->setPlaceholderText("Recherche");  // Set search hint
     connect(ui->lineEdit_54, &QLineEdit::textChanged, this, &MainWindow::on_lineEdit_54_textChanged);
@@ -324,15 +326,33 @@ MainWindow::MainWindow(QWidget *parent)
     ui->dateEdit_11->setEnabled(false);     // Disable user interaction
     ui->dateEdit_11->setVisible(false);
     ui->label_2009->setVisible(false);
-    //connect(A.getserial(), SIGNAL(readyRead()), this, SLOT(update_fridge_status()));
+    connect(ui->triersadek, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::on_triersadek_currentIndexChanged);
+    connect(A.getserial(), SIGNAL(readyRead()), this, SLOT(update_fridge_status()));  //arduino3
 
     //malek
-    connect(ui->tri, &QPushButton::clicked, this, &MainWindow::on_tri_clicked);
+    //connect(ui->tri, &QPushButton::clicked, this, &MainWindow::on_tri_clicked);
     connect(ui->listpatient, &QPushButton::clicked, this, &MainWindow::on_listpatient_clicked);
-    connect(ui->recherche, &QPushButton::clicked, this, &MainWindow::on_recherche_clicked);
+    //connect(ui->recherche, &QPushButton::clicked, this, &MainWindow::on_recherche_clicked);
+    connect(ui->lineEdit_62, &QLineEdit::textChanged, this, &MainWindow::on_lineEdit_62_TextChanged);
+    connect(ui->comboBox_13, &QComboBox::currentIndexChanged, this, &MainWindow::onTriChanged);
+
     ui->tableau3_4->setColumnCount(8);
     ui->tableau3_4->setHorizontalHeaderLabels({"ID", "Nom", "Prénom", "Date Naissance", "Email", "Genre", "Adresse", "Groupe Sanguin"});
     ui->tableau3_4->setSelectionBehavior(QAbstractItemView::SelectRows);
+    Patient p;
+    p.afficher(ui->tableau3_4);
+    /*connect(ui->tableau3_4, &QTableWidget::cellClicked, this, [=](int row, int){
+        idPatientSelectionne = ui->tableau3_4->item(row, 0)->text().toInt();
+
+        // Préremplir les champs du formulaire (exemple à adapter selon ton UI)
+        ui->lineEdit_45->setText(ui->tableau3_2->item(row, 1)->text());
+        ui->lineEdit_46->setText(ui->tableau3_2->item(row, 2)->text());
+        ui->dateEdit_7->setDate(QDate::fromString(ui->tableau3_2->item(row, 3)->text(), "yyyy-MM-dd"));
+        ui->lineEdit_47->setText(ui->tableau3_2->item(row, 4)->text());
+        ui->comboBox_9->setCurrentText(ui->tableau3_2->item(row, 5)->text());
+        ui->lineEdit_48->setText(ui->tableau3_2->item(row, 6)->text());
+        ui->lineEdit_49->setText(ui->tableau3_2->item(row, 7)->text());
+    });*/
 
     /*Connection c;
     c.createconnect();
@@ -342,8 +362,7 @@ MainWindow::MainWindow(QWidget *parent)
     case 1: qDebug() << "Arduino détecté mais non connecté !"; break;
     case -1: qDebug() << "Arduino non disponible !"; break;
     }
-
-    update_fridge_status();*/
+    */
 }
 
 
@@ -507,51 +526,90 @@ void MainWindow::afficherMedecins()
     }
 }
 
-
-void MainWindow::on_b_supp_clicked()
+void MainWindow::on_tabmedecins_clicked(const QModelIndex &index)
 {
-
-    Medecin med;
-    (med.setId(ui->suppID->text().toUInt()));
-    bool test = med.supprimer(med.getId());
-    QMessageBox msgBox;
-    if(test){
-        QMessageBox::information(nullptr, QObject::tr("OK"),QObject::tr("Suppression effectuée \n"),
-                                 QMessageBox::Cancel); ui->tabmedecins->setModel(med.afficher());
+    int row = index.row();
+    selectedMedecinId = ui->tabmedecins->model()->index(row, 0).data().toInt(); // Stocker l'ID
+}
 
 
+void MainWindow::on_supmed_clicked()
+{
+    if (selectedMedecinId == -1) {
+        QMessageBox::warning(this, "Erreur", "Veuillez sélectionner un médecin !");
+        return;
     }
-    else{ QMessageBox::critical(nullptr , QObject::tr("Not Ok "),QObject::tr("Suppression non effectuée\n"),
-                              QMessageBox::Cancel);
 
+    Medecin m;
 
+    if (QMessageBox::question(this, "Confirmation", "Supprimer ce médecin ?", QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes) {
+        if (m.supprimer(selectedMedecinId)) {
+            QMessageBox::information(this, "Succès", "Médecin supprimé !");
+            ui->tabmedecins->setModel(m.afficher());
+            selectedMedecinId = -1; // Réinitialiser
+
+            // Nettoyer le formulaire
+            ui->lineEdit_id->clear();
+            ui->lineEdit_21->clear();
+            ui->lineEdit_23->clear();
+            ui->lineEdit_27->clear();
+        } else {
+            QMessageBox::critical(this, "Erreur", "Échec de la suppression !");
+        }
     }
 }
 
 
+
+
+void MainWindow::on_modmed_clicked()
+{
+    if (selectedMedecinId == -1) {
+        QMessageBox::warning(this, "Erreur", "Veuillez sélectionner un médecin !");
+        return;
+    }
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM medecins WHERE id_med = :id");
+    query.bindValue(":id", selectedMedecinId);
+
+    if (query.exec() && query.next()) {
+        ui->lineEdit_id->setText(query.value("id_med").toString());
+        ui->lineEdit_21->setText(query.value("nom_med").toString());
+        ui->lineEdit_23->setText(query.value("prenom_med").toString());
+        ui->comboSpecialite->setCurrentText(query.value("specialite_med").toString());
+        ui->lineEdit_27->setText(query.value("contact_med").toString());
+        ui->lineEdit_mdp->setText(query.value("mdp").toString());
+        ui->comboBox_question->setCurrentText(query.value("question").toString());
+        ui->lineEdit_reponse->setText(query.value("reponse").toString());
+    } else {
+        QMessageBox::critical(this, "Erreur", "Impossible de charger les données du médecin !");
+    }
+}
 
 void MainWindow::on_pushButton_mod_clicked()
 {
-    int id = ui->lineEdit_id->text().toUInt();
-    std::string nom = ui->lineEdit_21->text().toStdString();
-    std::string prenom = ui->lineEdit_23->text().toStdString();
-    std::string specialite = ui->comboSpecialite->currentText().toStdString();
-    std::string contact = ui->lineEdit_27->text().toStdString();
-    std::string mdp = ui->lineEdit_mdp->text().toStdString();
-    std::string question = ui->comboBox_question->currentText().toStdString();
-    std::string reponse = ui->lineEdit_reponse->text().toStdString();
+    int id = ui->lineEdit_id->text().toInt();
+    QString nom = ui->lineEdit_21->text();
+    QString prenom = ui->lineEdit_23->text();
+    QString specialite = ui->comboSpecialite->currentText();
+    QString contact = ui->lineEdit_27->text();
+    QString mdp = ui->lineEdit_mdp->text();
+    QString question = ui->comboBox_question->currentText();
+    QString reponse = ui->lineEdit_reponse->text();
 
+    Medecin m(id, nom.toStdString(), prenom.toStdString(), specialite.toStdString(), contact.toStdString(),
+              mdp.toStdString(), question.toStdString(), reponse.toStdString());
 
-    Medecin med(id, nom, prenom, specialite, contact, mdp, question, reponse);
-    bool test = med.modifier();
-    if (test) {
-        ui->tabmedecins->setModel(med.afficher());
+    if (m.modifier()) {
+        QMessageBox::information(this, "Succès", "Médecin modifié !");
+        ui->tabmedecins->setModel(m.afficher());
+        selectedMedecinId = -1;
     } else {
-        QMessageBox::critical(nullptr, QObject::tr("Not Ok"), QObject::tr("Modification échouée.\n"
-                                                                          "Click Cancel to exit."),
-                              QMessageBox::Cancel);
+        QMessageBox::critical(this, "Erreur", "Échec de la modification !");
     }
 }
+
 
 
 
@@ -575,15 +633,20 @@ void MainWindow::on_comboBoxtri_currentIndexChanged(int index)
     }
 }
 
-void MainWindow::on_b_chercher_clicked()
+void MainWindow::on_rechmed_textChanged(const QString &text)
 {
-    int id_chercher = ui->id_chercher->text().toInt();
+    bool ok;
+    int id = text.toInt(&ok);
 
-    Medecin M;
-    QSqlQueryModel* result = M.chercher(id_chercher);
-
-    ui->tabmedecins->setModel(result);
+    if (ok) {
+        Medecin M;
+        ui->tabmedecins->setModel(M.chercher(id));
+    } else if (text.isEmpty()) {
+        Medecin M;
+        ui->tabmedecins->setModel(M.afficher()); // afficher tout si vide
+    }
 }
+
 
 
 
@@ -1957,7 +2020,7 @@ void MainWindow::on_pushButton_labo7_clicked() {
 
     // Vérification de l'ID
     if (id <= 0) {
-        QMessageBox::warning(this, tr("Erreur"), tr("L'ID doit être un entier positif."));
+        QMessageBox::warning(this, tr("Erreur"), tr("L'ID doit être un entier positif et non null."));
         return;
     }
 
@@ -2384,6 +2447,7 @@ void MainWindow::analyserCommande()
     } else {
         updateTableViewchat();  // Afficher tous par défaut
     }
+    updateTableView_labo();
 }
 
 
@@ -2972,64 +3036,7 @@ void MainWindow::on_btnvoice_4_clicked() {
     QString errors = QString::fromUtf8(process.readAllStandardError());
 }
 
-//------------------------------------------------------------------------------------------------------------------Arduino
 
-void MainWindow::update_fridge_status() {
-    static QByteArray buffer;
-    buffer += A.read_from_arduino();
-    int endIndex;
-
-    while ((endIndex = buffer.indexOf('\n')) != -1) {
-        QByteArray line = buffer.left(endIndex).trimmed();
-        buffer.remove(0, endIndex + 1);
-        QString text = QString::fromUtf8(line);
-
-        QString id;
-        float currentTemp = 0.0;
-        bool ok = false;
-
-        QRegularExpression re(R"(ID(\d+):TEMP:([\d.]+))");
-        QRegularExpressionMatch match = re.match(text);
-
-        if (match.hasMatch()) {
-            id = match.captured(1);               // "1" or "2"
-            currentTemp = match.captured(2).toFloat(&ok);
-
-            if (ok) {
-                QSqlQuery tempQuery;
-                tempQuery.prepare("SELECT temperature_conservation FROM VACCINS WHERE id_vac = :id");
-                tempQuery.bindValue(":id", id.toInt());
-                float conservationTemp = 0.0;
-
-                if (tempQuery.exec() && tempQuery.next()) {
-                    conservationTemp = tempQuery.value(0).toFloat(&ok);
-                }
-
-                if (id == "1") {
-                    ui->label_temperaturearduino->setText(QString::number(currentTemp) + " °C");
-                    ui->label_temperaturebase->setText(QString::number(conservationTemp) + " °C");
-                } else if (id == "2") {
-                    ui->label_temperaturearduino2->setText(QString::number(currentTemp) + " °C");
-                    ui->label_temperaturearduino2_2->setText(QString::number(conservationTemp) + " °C");
-                }
-
-                // Alert check
-                if (qAbs(currentTemp - conservationTemp) > 0.5) {
-
-                    QSqlQuery update;
-                    update.prepare("UPDATE EQUIPEMENTS SET statut_eqp = 'En panne' WHERE id_eqp = :id");
-                    update.bindValue(":id", id.toInt());
-                    if (!update.exec()) {
-                        qDebug() << "Update failed:" << update.lastError().text();
-                    }
-
-                    A.write_to_arduino("ALERTE\n");
-                    updateTableViewEquipement();
-                }
-            }
-        }
-    }
-}
 
 
 
@@ -3120,6 +3127,7 @@ void MainWindow::on_btnajouterpatient_2_clicked()
     if (currentPatientId == -1) {
         if (patient.ajouter()) {
             QMessageBox::information(this, "Succès", "Patient ajouté avec succès !");
+            afficherStatistiques();
         } else {
             QMessageBox::critical(this, "Erreur", "Échec de l'ajout du patient.");
         }
@@ -3127,6 +3135,7 @@ void MainWindow::on_btnajouterpatient_2_clicked()
         // 🔹 Modification d'un patient existant
         if (patient.modifierPatient(currentPatientId, nom, prenom, dateNaiss, email, genre, adresse, groupeSanguin,tel)) {
             QMessageBox::information(this, "Succès", "Patient modifié avec succès !");
+            afficherStatistiques();
         } else {
             QMessageBox::critical(this, "Erreur", "Échec de la modification du patient.");
         }
@@ -3140,21 +3149,26 @@ void MainWindow::on_btnajouterpatient_2_clicked()
     patient.afficher(ui->tableau3_4); // Rafraîchir la liste des patients
     ui->rapportettable->setCurrentWidget(ui->page_7);
 }
-void MainWindow::on_recherche_clicked()
+void MainWindow::on_lineEdit_62_TextChanged(const QString &text)
 {
-    QString rechercheNom = ui->lineEdit_62->text().trimmed();
-
+    QString rechercheNom = text.trimmed();
     Patient patient;
     patient.afficherSpecifique(ui->tableau3_4, rechercheNom);
 }
-void MainWindow::on_tri_clicked()
+
+void MainWindow::onTriChanged(int index)
 {
     Patient patient;
-    patient.afficherTrieParAnneeNaissance(ui->tableau3_4);
+    if (index == 1) {
+        patient.afficherTrieParAnneeNaissance(ui->tableau3_4, true);  // croissant
+    } else if (index == 2) {
+        patient.afficherTrieParAnneeNaissance(ui->tableau3_4, false); // décroissant
+    }
 }
+
 void MainWindow::genererRapportPDF()
 {
-    QString filePath = QDir::homePath() + "/Desktop/c++/integ2/rapport_patient.pdf";
+    QString filePath = QCoreApplication::applicationDirPath() + "/rapport_patient.pdf";
     QPdfWriter pdfWriter(filePath);
     pdfWriter.setPageSize(QPageSize(QPageSize::A4));
     pdfWriter.setResolution(300);
@@ -3250,7 +3264,23 @@ void MainWindow::on_btnpatient3_3_clicked()
 }
 void MainWindow::afficherStatistiques()
 {
-    // Récupérer les données d'âge des patients
+    // ✅ S'assurer qu'un layout existe déjà
+    QLayout *layout = ui->page_8->layout();
+    if (!layout) {
+        layout = new QVBoxLayout(ui->page_8);
+        ui->page_8->setLayout(layout);
+    } else {
+        // ✅ Nettoyer le layout existant (supprimer les anciens graphiques)
+        QLayoutItem *item;
+        while ((item = layout->takeAt(0)) != nullptr) {
+            if (item->widget()) {
+                delete item->widget();  // supprime le QChartView
+            }
+            delete item;
+        }
+    }
+
+    // 🔁 Graphique des âges
     QSqlQuery queryAge;
     if (!queryAge.exec("SELECT DATENAIS_PAT FROM PATIENTS")) {
         QMessageBox::critical(this, "Erreur SQL", "Impossible de récupérer les âges: " + queryAge.lastError().text());
@@ -3262,7 +3292,7 @@ void MainWindow::afficherStatistiques()
     int index = 0;
     while (queryAge.next()) {
         QDate birthDate = queryAge.value(0).toDate();
-        int age = birthDate.daysTo(currentDate) / 365; // Calcul de l'âge
+        int age = birthDate.daysTo(currentDate) / 365;
         ageSeries->append(index++, age);
     }
 
@@ -3273,7 +3303,7 @@ void MainWindow::afficherStatistiques()
     QChartView *ageChartView = new QChartView(ageChart);
     ageChartView->setRenderHint(QPainter::Antialiasing);
 
-    // Récupérer les données des groupes sanguins
+    // 🔁 Graphique des groupes sanguins
     QSqlQuery queryBlood;
     if (!queryBlood.exec("SELECT GROUPSANGUIN, COUNT(*) FROM PATIENTS GROUP BY GROUPSANGUIN")) {
         QMessageBox::critical(this, "Erreur SQL", "Impossible de récupérer les groupes sanguins: " + queryBlood.lastError().text());
@@ -3291,11 +3321,9 @@ void MainWindow::afficherStatistiques()
     QChartView *bloodChartView = new QChartView(bloodChart);
     bloodChartView->setRenderHint(QPainter::Antialiasing);
 
-    // Ajouter les graphiques à la page_6 du stackedWidget
-    QVBoxLayout *layout = new QVBoxLayout();
+    // ✅ Ajouter les nouveaux graphiques au layout
     layout->addWidget(ageChartView);
     layout->addWidget(bloodChartView);
-    ui->page_8->setLayout(layout);
 }
 
 // Code du bouton pour afficher les statistiques
@@ -3335,7 +3363,7 @@ QString MainWindow::recupererVaccinsPatient(int patientID)
 bool MainWindow::ajouterCertificatImageDansBDD(int patientID)
 {
     // Chemin absolu vers le certificat généré
-    QString imagePath = "C:/Users/justmalek/Desktop/c++/integ2/certificat.jpg";
+    QString imagePath = "C:/Users/sadekk/Desktop/VaxNest/malek/certificat.jpg";
 
     QFile file(imagePath);
     if (!file.open(QIODevice::ReadOnly)) {
@@ -3396,7 +3424,7 @@ void MainWindow::genererCertificatImage(const Patient &patient)
     painter.drawRect(10, 10, certificatPixmap.width() - 20, certificatPixmap.height() - 20);
 
     // Logo
-    QPixmap logo("C:/Users/justmalek/Desktop/c++/vaxnestv2/icons/chahed_bhima-removebg-preview.png");
+    QPixmap logo("C:/Users/sadekk/Desktop/VaxNest/malek/icons/sadeklogo.png");
     if (!logo.isNull())
         painter.drawPixmap(30, 100, 100, 100, logo);
 
@@ -3426,7 +3454,7 @@ void MainWindow::genererCertificatImage(const Patient &patient)
 
     painter.end();
 
-    QString filePath = "C:/Users/justmalek/Desktop/c++/integ2/certificat.jpg";
+    QString filePath = "C:/Users/sadekk/Desktop/VaxNest/malek/certificat.jpg";
     if (!certificatPixmap.save(filePath, "JPG")) {
         qDebug() << "❌ Échec de sauvegarde du certificat.";
     } else {
@@ -3493,3 +3521,283 @@ void MainWindow::envoyerCertificat(int patientID)
     afficherCertificatDepuisBDD(patientID);
     ui->rapportettable->setCurrentWidget(ui->page_5);
 }
+void MainWindow::on_modifpat_clicked()
+{
+    int row = ui->tableau3_4->currentRow();
+    if (row == -1) {
+        QMessageBox::warning(this, "Erreur", "Veuillez sélectionner une ligne !");
+        return;
+    }
+
+    selectedPatientId = ui->tableau3_4->item(row, 0)->text().toInt();  // variable globale
+
+    ui->lineEdit_57->setText(ui->tableau3_4->item(row, 1)->text());
+    ui->lineEdit_58->setText(ui->tableau3_4->item(row, 2)->text());
+    ui->dateEdit_9->setDate(QDate::fromString(ui->tableau3_4->item(row, 3)->text(), "yyyy-MM-dd"));
+    ui->lineEdit_59->setText(ui->tableau3_4->item(row, 4)->text());
+    ui->comboBox_12->setCurrentText(ui->tableau3_4->item(row, 5)->text());
+    ui->lineEdit_60->setText(ui->tableau3_4->item(row, 6)->text());
+    ui->comboBox_7->setCurrentText(ui->tableau3_4->item(row, 7)->text());
+    ui->lineEdit_61->setText(ui->tableau3_4->item(row, 8)->text());
+}
+void MainWindow::on_confmodpat_clicked()
+{
+    if (selectedPatientId == -1) {
+        QMessageBox::warning(this, "Erreur", "Aucun patient sélectionné !");
+        return;
+    }
+
+    QString nom = ui->lineEdit_57->text();
+    QString prenom = ui->lineEdit_58->text();
+    QDate dateNaiss = ui->dateEdit_9->date();
+    QString email = ui->lineEdit_59->text();
+    QString genre = ui->comboBox_12->currentText();
+    QString adresse = ui->lineEdit_60->text();
+    QString groupeSanguin = ui->comboBox_7->currentText();
+    QString telStr = ui->lineEdit_61->text();
+
+    bool ok;
+    int tel = telStr.toInt(&ok);
+    if (!ok) {
+        QMessageBox::warning(this, "Erreur", "Le champ téléphone n'est pas un nombre valide !");
+        return;
+    }
+
+    Patient p;
+    if (p.modifierPatient(selectedPatientId, nom, prenom, dateNaiss, email, genre, adresse, groupeSanguin, tel)) {
+        QMessageBox::information(this, "Succès", "Patient modifié !");
+        p.afficher(ui->tableau3_4);
+        selectedPatientId = -1;  // réinitialiser
+    } else {
+        QMessageBox::critical(this, "Erreur", "Échec de la modification !");
+    }
+}
+
+void MainWindow::on_suppat_clicked()
+{
+    int row = ui->tableau3_4->currentRow();
+    if (row == -1) {
+        QMessageBox::warning(this, "Erreur", "Veuillez sélectionner une ligne !");
+        return;
+    }
+
+    int id = ui->tableau3_4->item(row, 0)->text().toInt();
+
+    int confirm = QMessageBox::question(this, "Confirmation", "Supprimer ce patient ?", QMessageBox::Yes | QMessageBox::No);
+    if (confirm == QMessageBox::Yes) {
+        Patient p;
+        if (p.supprimerPatient(id)) {
+            QMessageBox::information(this, "Succès", "Patient supprimé !");
+            p.afficher(ui->tableau3_4);
+        } else {
+            QMessageBox::critical(this, "Erreur", "Échec de la suppression !");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void MainWindow::on_btnrendezv_2_clicked()
+{
+    this->close();
+
+    Login *mainWindow = new Login();
+    mainWindow->show();
+
+}
+
+
+void MainWindow::setMedecinId(const QString &id)
+{
+    this->medecinId = id;  // Store the ID
+    loadMedecinData();     // Then load data
+}
+
+void MainWindow::loadMedecinData()
+{
+    QSqlQuery query;
+    query.prepare("SELECT PRENOM_MED, NOM_MED, SPECIALITE_MED, CONTACT_MED, MDP FROM MEDECINS WHERE ID_MED = :id");
+    query.bindValue(":id", medecinId);
+
+    if (!query.exec()) {
+        // QMessageBox::critical(this, "Erreur SQL", query.lastError().text());
+        return;
+    }
+
+    if (query.next()) {
+        QString prenom = query.value("PRENOM_MED").toString();
+        QString nom = query.value("NOM_MED").toString();
+        QString specialite = query.value("SPECIALITE_MED").toString();
+        QString contact = query.value("CONTACT_MED").toString();
+        QString mdp = query.value("MDP").toString();
+
+        ui->label_1247->setText(prenom);
+        ui->label_1248->setText(nom);
+        ui->label_1249->setText(specialite);
+        ui->label_1250->setText(contact);
+        ui->label_1251->setText(mdp);
+
+        ui->lineEdit_350->setText(prenom);
+        ui->lineEdit_351->setText(nom);
+        ui->lineEdit_352->setText(specialite);
+        ui->lineEdit_353->setText(contact);
+        ui->lineEdit_357->setText(mdp);
+    }
+}
+
+void MainWindow::on_modifprofile9_clicked()
+{
+    QString id = medecinId;  // or use: ui->lineEdit_id->text();
+
+    QString prenom = ui->lineEdit_350->text();
+    QString nom = ui->lineEdit_351->text();
+    QString specialite = ui->lineEdit_352->text();
+    QString contact = ui->lineEdit_353->text();
+    QString mdp = ui->lineEdit_357->text();
+
+    QSqlQuery query;
+    query.prepare("UPDATE MEDECINS SET PRENOM_MED = :prenom, NOM_MED = :nom, SPECIALITE_MED = :specialite, CONTACT_MED = :contact, MDP = :mdp WHERE ID_MED = :id");
+    query.bindValue(":prenom", prenom);
+    query.bindValue(":nom", nom);
+    query.bindValue(":specialite", specialite);
+    query.bindValue(":contact", contact);
+    query.bindValue(":mdp", mdp);
+    query.bindValue(":id", id);
+
+    if (query.exec()) {
+        QMessageBox::information(this, "Succès", "Les informations ont été mises à jour.");
+        loadMedecinData();
+    } else {
+        QMessageBox::critical(this, "Erreur", "Échec de la mise à jour: " + query.lastError().text());
+    }
+}
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------Arduino
+
+void MainWindow::update_fridge_status() {
+    static QByteArray buffer;
+    buffer += A.read_from_arduino();
+    qDebug() << "[DEBUG] Raw buffer received:" << buffer;
+
+    int endIndex;
+
+    while ((endIndex = buffer.indexOf('\n')) != -1) {
+        QByteArray line = buffer.left(endIndex).trimmed();
+        buffer.remove(0, endIndex + 1);
+        QString text = QString::fromUtf8(line);
+        qDebug() << "[DEBUG] Processing line:" << text;
+
+        QString id;
+        float currentTemp = 0.0;
+        bool ok = false;
+
+        QRegularExpression re(R"(ID(\d+):TEMP:([\d.]+))");
+        QRegularExpressionMatch match = re.match(text);
+
+        if (match.hasMatch()) {
+            id = match.captured(1);
+            currentTemp = match.captured(2).toFloat(&ok);
+
+            qDebug() << "[DEBUG] Extracted ID:" << id << ", Temp:" << currentTemp << ", Conversion OK:" << ok;
+
+            if (ok) {
+                QSqlQuery tempQuery;
+                tempQuery.prepare("SELECT temperature_conservation FROM VACCINS WHERE id_vac = :id");
+                tempQuery.bindValue(":id", id.toInt());
+
+                float conservationTemp = 0.0;
+
+                if (tempQuery.exec()) {
+                    if (tempQuery.next()) {
+                        conservationTemp = tempQuery.value(0).toFloat(&ok);
+                        qDebug() << "[DEBUG] Conservation Temp from DB:" << conservationTemp << ", Conversion OK:" << ok;
+                    } else {
+                        qDebug() << "[ERROR] No record found for id_vac =" << id;
+                    }
+                } else {
+                    qDebug() << "[ERROR] Query failed:" << tempQuery.lastError().text();
+                }
+
+                if (id == "1") {
+                    ui->labelsadek1->setText(QString::number(currentTemp) + " °C");
+                    ui->labelsadek2->setText(QString::number(conservationTemp) + " °C");
+                } else if (id == "2") {
+                    ui->labelsadek3->setText(QString::number(currentTemp) + " °C");
+                    ui->labelsadek4->setText(QString::number(conservationTemp) + " °C");
+                }
+
+                if (qAbs(currentTemp - conservationTemp) > 0.5) {
+                    qDebug() << "[ALERT] Temperature deviation too high!";
+
+                    QSqlQuery update;
+                    update.prepare("UPDATE EQUIPEMENTS SET statut_eqp = 'En panne' WHERE id_eqp = :id");
+                    update.bindValue(":id", id.toInt());
+
+                    if (!update.exec()) {
+                        qDebug() << "[ERROR] Equipment status update failed:" << update.lastError().text();
+                    } else {
+                        qDebug() << "[DEBUG] Equipment marked as 'En panne' for ID:" << id;
+                    }
+
+                    A.write_to_arduino("ALERTE\n");
+                    qDebug() << "[DEBUG] Sent alert to Arduino.";
+                    updateTableViewEquipement();
+                } else {
+                    qDebug() << "[DEBUG] Temperature within acceptable range.";
+                }
+            } else {
+                qDebug() << "[ERROR] Failed to convert temperature to float.";
+            }
+        } else {
+            qDebug() << "[ERROR] Line does not match expected format.";
+        }
+    }
+}
+
+
+void MainWindow::on_triersadek_currentIndexChanged(int index) {
+    QString orderClause;
+
+    switch (index) {
+    case 0: // Par défaut
+        orderClause = "ORDER BY id_eqp ASC";
+        break;
+    case 1: // Nom ⬇️
+        orderClause = "ORDER BY nom_eqp ASC";
+        break;
+    case 2: // Nom ⬆️
+        orderClause = "ORDER BY nom_eqp DESC";
+        break;
+    case 3: // Date de maintenance ⬇️
+        orderClause = "ORDER BY date_maintenance_eqp ASC";
+        break;
+    case 4: // Date de maintenance ⬆️
+        orderClause = "ORDER BY date_maintenance_eqp DESC";
+        break;
+    default:
+        orderClause = "ORDER BY id_eqp ASC";
+        break;
+    }
+
+    QSqlQueryModel* model = new QSqlQueryModel();
+    QString queryStr = "SELECT id_eqp, nom_eqp, type_eqp, statut_eqp, TO_CHAR(date_maintenance_eqp, 'DD-MM-YYYY'), description_eqp FROM EQUIPEMENTS " + orderClause;
+    model->setQuery(queryStr);
+    ui->tableauEquipements->setModel(model);
+}
+

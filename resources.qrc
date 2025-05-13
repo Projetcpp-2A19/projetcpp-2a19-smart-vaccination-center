@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/new/prefix1"/>
     <qresource prefix="/">
-        <file>icons/chahed_bhima-removebg-preview.png</file>
         <file>icons/2a45218d-5797-44e8-91e0-6ff25d4750e2.jpg</file>
         <file>icons/2c1e1daf-2d12-4852-b501-32de6e89d393.jpg</file>
         <file>icons/44298757-c475-4d62-8415-e4d92b1b761b.jpg</file>
@@ -21,6 +20,7 @@
         <file>icons/pin_6218489.png</file>
         <file>icons/pngegg.png</file>
         <file>map.qml</file>
+        <file>icons/sadeklogo.png</file>
     </qresource>
     <qresource prefix="/new/prefix2"/>
 </RCC>

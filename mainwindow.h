@@ -116,9 +116,13 @@ private slots:
     void on_pushButton_mod_clicked();
     void on_b_supp_clicked();
     void on_comboBoxtri_currentIndexChanged(int);
-    void on_b_chercher_clicked();
+    void on_rechmed_textChanged(const QString &text);
     void afficherStat();
     void exporterPDF();
+    void on_tabmedecins_clicked(const QModelIndex &index);
+    void on_supmed_clicked();
+    void on_modmed_clicked();
+    //void on_confirmermodmed_clicked();
 
     void on_submit_clicked();
     void on_del_clicked();
@@ -168,6 +172,10 @@ private slots:
     void showPanneNotification(const QString &equipementNom); // Display scrolling notification
     void on_btnvoice_4_clicked();
     void update_fridge_status();
+    void loadMedecinData();
+    void on_modifprofile9_clicked();
+    void on_btnrendezv_2_clicked();
+    void on_triersadek_currentIndexChanged(int index);
 
     //pat
     void on_btnajouterpatient_2_clicked();
@@ -183,10 +191,24 @@ private slots:
     void genererCertificatImage(const Patient &patient);
     Patient getPatientById(int id);
     void afficherCertificatDepuisBDD(int patientID);
+    void on_modifpat_clicked();
+    void on_suppat_clicked();
+    void on_confmodpat_clicked();
+    void on_lineEdit_62_TextChanged(const QString &text);
+    void onTriChanged(int index);
 
 
 public:
     void updateTableViewEquipement();
+    void setMedecinId(const QString &id);
+
+private:
+    int selectedPatientId = -1;
+    int selectedMedecinId = -1;
+    QString selectedNom, selectedPrenom, selectedSpecialite, selectedContact;
+    QString selectedMDP, selectedQuestion, selectedReponse;    // Stocke l'ID du médecin sélectionné
+
+    QString medecinId;
 
 private:
     QByteArray data;

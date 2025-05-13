@@ -67,89 +67,25 @@ void Patient::afficher(QTableWidget* tableWidget)
 
     tableWidget->clearContents();
     tableWidget->setRowCount(0);
-    tableWidget->setColumnCount(11);
+    tableWidget->setColumnCount(10);
     tableWidget->setHorizontalHeaderLabels({
-        "ID", "Nom", "Prénom", "Date Naissance", "Email", "Genre", "Adresse", "Groupe Sanguin", "Téléphone", "Actions", "Certificat"
+        "ID", "Nom", "Prénom", "Date Naissance", "Email", "Genre", "Adresse", "Groupe Sanguin", "Téléphone", "Certificat"
     });
 
-
     QSqlQuery query;
-    if (!query.exec("SELECT * FROM PATIENTS ORDER BY ID_PAT")) {
-        QMessageBox::critical(nullptr, "Erreur SQL", "Impossible de récupérer les patients !");
+    if (!query.exec("SELECT ID_PAT, NOM_PAT, PRENOM_PAT, DATENAIS_PAT, EMAIL, GENRE, ADRESSE, GROUPSANGUIN, TEL FROM PATIENTS ORDER BY ID_PAT")) {
+        //QMessageBox::critical(nullptr, "Erreur SQL", "Impossible de récupérer les patients !");
         return;
     }
 
     int row = 0;
     while (query.next()) {
         tableWidget->insertRow(row);
-        tableWidget->setItem(row, 0, new QTableWidgetItem(query.value("ID_PAT").toString()));
-        tableWidget->setItem(row, 1, new QTableWidgetItem(query.value("NOM_PAT").toString()));
-        tableWidget->setItem(row, 2, new QTableWidgetItem(query.value("PRENOM_PAT").toString()));
-        tableWidget->setItem(row, 3, new QTableWidgetItem(query.value("DATENAIS_PAT").toString()));
-        tableWidget->setItem(row, 4, new QTableWidgetItem(query.value("EMAIL").toString()));
-        tableWidget->setItem(row, 5, new QTableWidgetItem(query.value("GENRE").toString()));
-        tableWidget->setItem(row, 6, new QTableWidgetItem(query.value("ADRESSE").toString()));
-        tableWidget->setItem(row, 7, new QTableWidgetItem(query.value("GROUPSANGUIN").toString()));
-        tableWidget->setItem(row, 8, new QTableWidgetItem(query.value("TEL").toString()));
-        // ---------- BOUTONS MODIFIER & SUPPRIMER ----------
-        QWidget* widget = new QWidget();
-        QPushButton* btnModifier = new QPushButton("✏ Modifier");
-        QPushButton* btnSupprimer = new QPushButton("🗑 Supprimer");
-
-        btnModifier->setFixedSize(80, 25);
-        btnSupprimer->setFixedSize(80, 25);
-
-        QString buttonStyle = R"(
-            QPushButton {
-                background-color: green;
-                color: #ffffff;
-                border: 2px solid rgb(173, 216, 230);
-                padding: 5px;
-                margin: 3px;
-                border-radius: 8px;
-                font-size: 12px;
-                font-weight: bold;
-            }
-            QPushButton:hover {
-                background-color: #606060;
-                border-color: #777777;
-            }
-            QPushButton:pressed {
-                background-color: #787878;
-                border-color: #909090;
-            }
-        )";
-        QString buttonStyle2 = buttonStyle;
-        buttonStyle2.replace("green", "red");
-
-        btnModifier->setStyleSheet(buttonStyle);
-        btnSupprimer->setStyleSheet(buttonStyle2);
-
-        int patientID = query.value("ID_PAT").toInt();
-        btnModifier->setProperty("id", patientID);
-        btnSupprimer->setProperty("id", patientID);
-
-        QObject* parentWidget = tableWidget->window();
-        MainWindow* mainWindow = qobject_cast<MainWindow*>(parentWidget);
-        if (mainWindow) {
-            QObject::connect(btnModifier, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
-                mainWindow->modifierPatient(patientID);
-            });
-
-            QObject::connect(btnSupprimer, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
-                mainWindow->supprimerPatient(patientID);
-            });
+        for (int col = 0; col <= 8; ++col) {
+            tableWidget->setItem(row, col, new QTableWidgetItem(query.value(col).toString()));
         }
 
-        QHBoxLayout* layout = new QHBoxLayout();
-        layout->addWidget(btnModifier);
-        layout->addWidget(btnSupprimer);
-        layout->setContentsMargins(3, 1, 3, 1);
-        layout->setAlignment(Qt::AlignCenter);
-        widget->setLayout(layout);
-        tableWidget->setCellWidget(row, 9, widget);
-
-        // ---------- BOUTON CERTIFICAT ----------
+        // Bouton certificat seulement
         QPushButton* btnCertificat = new QPushButton("📩 Certificat");
         btnCertificat->setFixedSize(100, 25);
         btnCertificat->setStyleSheet(R"(
@@ -172,20 +108,24 @@ void Patient::afficher(QTableWidget* tableWidget)
                 border-color: #3498db;
             }
         )");
+
+        int patientID = query.value("ID_PAT").toInt();
         btnCertificat->setProperty("id", patientID);
 
+        MainWindow* mainWindow = qobject_cast<MainWindow*>(tableWidget->window());
         if (mainWindow) {
             QObject::connect(btnCertificat, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
-                mainWindow->envoyerCertificat(patientID);  // Crée cette fonction
+                mainWindow->envoyerCertificat(patientID);
             });
         }
 
-        tableWidget->setCellWidget(row, 10, btnCertificat); // Nouvelle colonne "Certificat"
+        tableWidget->setCellWidget(row, 9, btnCertificat);
         row++;
     }
 
     tableWidget->resizeColumnsToContents();
 }
+
 
 void Patient::afficherSpecifique(QTableWidget* tableWidget, const QString& filtreNom)
 {
@@ -194,11 +134,13 @@ void Patient::afficherSpecifique(QTableWidget* tableWidget, const QString& filtr
     tableWidget->clearContents();
     tableWidget->setRowCount(0);
     tableWidget->setColumnCount(10);
-    tableWidget->setHorizontalHeaderLabels({"ID", "Nom", "Prénom", "Date Naissance", "Email", "Genre", "Adresse", "Groupe Sanguin","Telephone", "Actions"});
+    tableWidget->setHorizontalHeaderLabels({
+        "ID", "Nom", "Prénom", "Date Naissance", "Email", "Genre", "Adresse", "Groupe Sanguin", "Téléphone", "Certificat"
+    });
 
     QSqlQuery query;
-    query.prepare("SELECT * FROM PATIENTS WHERE NOM_PAT LIKE :nom ORDER BY ID_PAT");
-    query.bindValue(":nom", "%" + filtreNom + "%");  // Recherche partielle sur le nom
+    query.prepare("SELECT ID_PAT, NOM_PAT, PRENOM_PAT, DATENAIS_PAT, EMAIL, GENRE, ADRESSE, GROUPSANGUIN, TEL FROM PATIENTS WHERE NOM_PAT LIKE :nom ORDER BY ID_PAT");
+    query.bindValue(":nom", "%" + filtreNom + "%");
 
     if (!query.exec()) {
         QMessageBox::critical(nullptr, "Erreur SQL", "Impossible de récupérer les patients recherchés !");
@@ -208,73 +150,45 @@ void Patient::afficherSpecifique(QTableWidget* tableWidget, const QString& filtr
     int row = 0;
     while (query.next()) {
         tableWidget->insertRow(row);
-        tableWidget->setItem(row, 0, new QTableWidgetItem(query.value("ID_PAT").toString()));
-        tableWidget->setItem(row, 1, new QTableWidgetItem(query.value("NOM_PAT").toString()));
-        tableWidget->setItem(row, 2, new QTableWidgetItem(query.value("PRENOM_PAT").toString()));
-        tableWidget->setItem(row, 3, new QTableWidgetItem(query.value("DATENAIS_PAT").toString()));
-        tableWidget->setItem(row, 4, new QTableWidgetItem(query.value("EMAIL").toString()));
-        tableWidget->setItem(row, 5, new QTableWidgetItem(query.value("GENRE").toString()));
-        tableWidget->setItem(row, 6, new QTableWidgetItem(query.value("ADRESSE").toString()));
-        tableWidget->setItem(row, 7, new QTableWidgetItem(query.value("GROUPSANGUIN").toString()));
-        tableWidget->setItem(row, 8, new QTableWidgetItem(query.value("TEL").toString()));
+        for (int col = 0; col <= 8; ++col) {
+            tableWidget->setItem(row, col, new QTableWidgetItem(query.value(col).toString()));
+        }
 
-
-        QWidget* widget = new QWidget();
-        QPushButton* btnModifier = new QPushButton("✏ Modifier");
-        QPushButton* btnSupprimer = new QPushButton("🗑 Supprimer");
-
-
-        btnModifier->setFixedSize(80, 25);
-        btnSupprimer->setFixedSize(80, 25);
-
-        btnModifier->setStyleSheet("QPushButton {"
-                                   "background-color: #27ae60;"
-                                   "color: white;"
-                                   "border: 1px solid #1e8449;"
-                                   "border-radius: 6px;"
-                                   "padding: 3px 8px;"
-                                   "}"
-                                   "QPushButton:hover {"
-                                   "background-color: #2ecc71;"
-                                   "}");
-        btnSupprimer->setStyleSheet("QPushButton {"
-                                    "background-color: #c0392b;"
-                                    "color: white;"
-                                    "border: 1px solid #922b21;"
-                                    "border-radius: 6px;"
-                                    "padding: 3px 8px;"
-                                    "}"
-                                    "QPushButton:hover {"
-                                    "background-color: #e74c3c;"
-                                    "}");
+        // Bouton Certificat uniquement
+        QPushButton* btnCertificat = new QPushButton("📩 Certificat");
+        btnCertificat->setFixedSize(100, 25);
+        btnCertificat->setStyleSheet(R"(
+            QPushButton {
+                background-color: #2980b9;
+                color: white;
+                border: 2px solid rgb(173, 216, 230);
+                padding: 5px;
+                margin: 3px;
+                border-radius: 8px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: #1f618d;
+                border-color: #5dade2;
+            }
+            QPushButton:pressed {
+                background-color: #154360;
+                border-color: #3498db;
+            }
+        )");
 
         int patientID = query.value("ID_PAT").toInt();
-        btnModifier->setProperty("id", patientID);
-        btnSupprimer->setProperty("id", patientID);
+        btnCertificat->setProperty("id", patientID);
 
-        QObject* parentWidget = tableWidget->window();
-        MainWindow* mainWindow = qobject_cast<MainWindow*>(parentWidget);
+        MainWindow* mainWindow = qobject_cast<MainWindow*>(tableWidget->window());
         if (mainWindow) {
-            // Connexion du bouton Modifier
-            QObject::connect(btnModifier, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
-                mainWindow->modifierPatient(patientID);
-            });
-
-            // Connexion du bouton Supprimer
-            QObject::connect(btnSupprimer, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
-                mainWindow->supprimerPatient(patientID);
+            QObject::connect(btnCertificat, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
+                mainWindow->envoyerCertificat(patientID);
             });
         }
 
-
-        QHBoxLayout* layout = new QHBoxLayout();
-        layout->addWidget(btnModifier);
-        layout->addWidget(btnSupprimer);
-        layout->setContentsMargins(3, 1, 3, 1);
-        layout->setAlignment(Qt::AlignCenter);
-        widget->setLayout(layout);
-
-        tableWidget->setCellWidget(row, 9, widget);
+        tableWidget->setCellWidget(row, 9, btnCertificat);
         row++;
     }
 
@@ -282,18 +196,38 @@ void Patient::afficherSpecifique(QTableWidget* tableWidget, const QString& filtr
 }
 
 
+
 bool Patient::supprimerPatient(int id)
 {
     QSqlQuery query;
+
+    // Supprimer les injections liées
+    query.prepare("DELETE FROM INJECTIONS WHERE ID_PAT = :id");
+    query.bindValue(":id", id);
+    if (!query.exec()) {
+        qDebug() << "Erreur suppression INJECTIONS:" << query.lastError().text();
+        return false;
+    }
+
+    // Supprimer les rendez-vous liés
+    query.prepare("DELETE FROM RENDEZ_VOUS WHERE ID_PAT = :id");
+    query.bindValue(":id", id);
+    if (!query.exec()) {
+        qDebug() << "Erreur suppression RENDEZ_VOUS:" << query.lastError().text();
+        return false;
+    }
+
+
+    // Enfin, supprimer le patient
     query.prepare("DELETE FROM PATIENTS WHERE ID_PAT = :id");
     query.bindValue(":id", id);
-
-    if (query.exec()) {
-        return true; // Suppression réussie
-    } else {
-        QMessageBox::critical(nullptr, "Erreur de suppression", "Impossible de supprimer le patient !");
-        return false; // Échec
+    if (!query.exec()) {
+        qDebug() << "Erreur suppression PATIENTS:" << query.lastError().text();
+        return false;
     }
+
+    qDebug() << "Patient supprimé avec succès.";
+    return true;
 }
 bool Patient::modifierPatient(int id, const QString& nom, const QString& prenom, const QDate& dateNaiss, const QString& email, const QString& genre, const QString& adresse, const QString& groupeSanguin,int tel)
 {
@@ -318,16 +252,20 @@ bool Patient::modifierPatient(int id, const QString& nom, const QString& prenom,
     }
 }
 
-void Patient::afficherTrieParAnneeNaissance(QTableWidget* tableWidget)
+void Patient::afficherTrieParAnneeNaissance(QTableWidget* tableWidget, bool croissant)
 {
     if (!tableWidget) return;
 
     tableWidget->clearContents();
     tableWidget->setRowCount(0);
-    tableWidget->setColumnCount(9);
-    tableWidget->setHorizontalHeaderLabels({"ID", "Nom", "Prénom", "Date Naissance", "Email", "Genre", "Adresse", "Groupe Sanguin", "Actions"});
+    tableWidget->setColumnCount(10); // +1 colonne pour le bouton
+    tableWidget->setHorizontalHeaderLabels({
+        "ID", "Nom", "Prénom", "Date Naissance", "Email", "Genre", "Adresse", "Groupe Sanguin", "Téléphone", "Certificat"
+    });
 
-    QString sqlQuery = "SELECT * FROM PATIENTS ORDER BY EXTRACT(YEAR FROM DATENAIS_PAT) ASC";
+    QString ordre = croissant ? "ASC" : "DESC";
+    QString sqlQuery = "SELECT ID_PAT, NOM_PAT, PRENOM_PAT, DATENAIS_PAT, EMAIL, GENRE, ADRESSE, GROUPSANGUIN, TEL FROM PATIENTS ORDER BY EXTRACT(YEAR FROM DATENAIS_PAT) " + ordre;
+
     QSqlQuery query;
     if (!query.exec(sqlQuery)) {
         QMessageBox::critical(nullptr, "Erreur SQL", "Impossible de trier les patients !");
@@ -337,77 +275,47 @@ void Patient::afficherTrieParAnneeNaissance(QTableWidget* tableWidget)
     int row = 0;
     while (query.next()) {
         tableWidget->insertRow(row);
-        tableWidget->setItem(row, 0, new QTableWidgetItem(query.value("ID_PAT").toString()));
-        tableWidget->setItem(row, 1, new QTableWidgetItem(query.value("NOM_PAT").toString()));
-        tableWidget->setItem(row, 2, new QTableWidgetItem(query.value("PRENOM_PAT").toString()));
-        tableWidget->setItem(row, 3, new QTableWidgetItem(query.value("DATENAIS_PAT").toString()));
-        tableWidget->setItem(row, 4, new QTableWidgetItem(query.value("EMAIL").toString()));
-        tableWidget->setItem(row, 5, new QTableWidgetItem(query.value("GENRE").toString()));
-        tableWidget->setItem(row, 6, new QTableWidgetItem(query.value("ADRESSE").toString()));
-        tableWidget->setItem(row, 7, new QTableWidgetItem(query.value("GROUPSANGUIN").toString()));
+        for (int i = 0; i < 9; ++i)
+            tableWidget->setItem(row, i, new QTableWidgetItem(query.value(i).toString()));
 
-
-        QWidget* widget = new QWidget();
-        QPushButton* btnModifier = new QPushButton("✏ Modifier");
-        QPushButton* btnSupprimer = new QPushButton("🗑 Supprimer");
-
-
-        btnModifier->setFixedSize(80, 25);
-        btnSupprimer->setFixedSize(80, 25);
-
-
-        btnModifier->setStyleSheet("QPushButton {"
-                                   "background-color: #27ae60;"
-                                   "color: white;"
-                                   "border: 1px solid #1e8449;"
-                                   "border-radius: 6px;"
-                                   "padding: 3px 8px;"
-                                   "}"
-                                   "QPushButton:hover {"
-                                   "background-color: #2ecc71;"
-                                   "}");
-        btnSupprimer->setStyleSheet("QPushButton {"
-                                    "background-color: #c0392b;"
-                                    "color: white;"
-                                    "border: 1px solid #922b21;"
-                                    "border-radius: 6px;"
-                                    "padding: 3px 8px;"
-                                    "}"
-                                    "QPushButton:hover {"
-                                    "background-color: #e74c3c;"
-                                    "}");
+        // Bouton Certificat
+        QPushButton* btnCertificat = new QPushButton("📩 Certificat");
+        btnCertificat->setFixedSize(100, 25);
+        btnCertificat->setStyleSheet(R"(
+            QPushButton {
+                background-color: #2980b9;
+                color: white;
+                border: 2px solid rgb(173, 216, 230);
+                padding: 5px;
+                margin: 3px;
+                border-radius: 8px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: #1f618d;
+                border-color: #5dade2;
+            }
+            QPushButton:pressed {
+                background-color: #154360;
+                border-color: #3498db;
+            }
+        )");
 
         int patientID = query.value("ID_PAT").toInt();
-        btnModifier->setProperty("id", patientID);
-        btnSupprimer->setProperty("id", patientID);
-
+        btnCertificat->setProperty("id", patientID);
 
         QObject* parentWidget = tableWidget->window();
         MainWindow* mainWindow = qobject_cast<MainWindow*>(parentWidget);
         if (mainWindow) {
-            // Connexion du bouton Modifier
-            QObject::connect(btnModifier, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
-                mainWindow->modifierPatient(patientID);
-            });
-
-            // Connexion du bouton Supprimer
-            QObject::connect(btnSupprimer, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
-                mainWindow->supprimerPatient(patientID);
+            QObject::connect(btnCertificat, &QPushButton::clicked, mainWindow, [mainWindow, patientID]() {
+                mainWindow->envoyerCertificat(patientID);
             });
         }
 
-
-        QHBoxLayout* layout = new QHBoxLayout();
-        layout->addWidget(btnModifier);
-        layout->addWidget(btnSupprimer);
-        layout->setContentsMargins(3, 1, 3, 1);
-        layout->setAlignment(Qt::AlignCenter);
-        widget->setLayout(layout);
-
-        tableWidget->setCellWidget(row, 8, widget);
+        tableWidget->setCellWidget(row, 9, btnCertificat);
         row++;
     }
 
     tableWidget->resizeColumnsToContents();
 }
-

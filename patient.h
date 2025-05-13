@@ -40,7 +40,7 @@ public:
     void afficherSpecifique(QTableWidget* tableWidget, const QString& filtreNom);
     bool supprimerPatient(int row);
     bool modifierPatient(int id, const QString& nom, const QString& prenom, const QDate& dateNaiss, const QString& email, const QString& genre, const QString& adresse, const QString& groupeSanguin,int tel);
-    void afficherTrieParAnneeNaissance(QTableWidget* tableWidget);
+    void afficherTrieParAnneeNaissance(QTableWidget* tableWidget, bool croissant);
 private:
     int id;
     QString nom;

@@ -2,7 +2,7 @@
 #define LOGIN_H
 
 #include <QDialog>
-#include "arduino.h";
+#include "arduino.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Login; }
@@ -23,6 +23,7 @@ private slots:
 private:
     Ui::Login *ui;
     Arduino A;
+    bool hasProcessed = false;
 };
 
 #endif // LOGIN_H

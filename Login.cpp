@@ -21,7 +21,10 @@ Login::Login(QWidget *parent) :
     }
 
     // Connexion signal série à notre slot
-    QObject::connect(A.getserial(), SIGNAL(readyRead()), this, SLOT(readRFID()));
+    if (!hasProcessed){
+        QObject::connect(A.getserial(), SIGNAL(readyRead()), this, SLOT(readRFID()));
+    }
+
 }
 
 Login::~Login()
@@ -31,15 +34,18 @@ Login::~Login()
 
 void Login::readRFID()
 {
-    static QByteArray fullUID;  // Utilisation d'une variable statique pour accumuler les données
+    static QByteArray fullUID;  // To accumulate RFID data
+    //static bool hasProcessed = false;  // Ensure function runs only once
+
+    if (hasProcessed)
+        return;  // Exit early if already processed
 
     QByteArray uid_data = A.read_from_arduino();
     qDebug() << "[DEBUG UID brut depuis Arduino]:" << uid_data;
 
-    fullUID.append(uid_data);  // Ajout des nouvelles données à l'UID complet
+    fullUID.append(uid_data);  // Append incoming data
 
-    // Cherche à savoir si la fin de l'UID est atteinte (fin de ligne typique des messages Arduino)
-    if (fullUID.contains("\r\n")) {  // Vérifie la fin de l'UID
+    if (fullUID.contains("\r\n")) {
         QString uid = QString(fullUID).trimmed().replace(" ", "").toUpper();
         qDebug() << "[DEBUG UID nettoyé]:" << uid;
 
@@ -49,27 +55,30 @@ void Login::readRFID()
         }
 
         QSqlQuery query;
-        query.prepare("SELECT NOM_MED, PRENOM_MED FROM MEDECINS WHERE RFID_UID = :uid");
+        query.prepare("SELECT NOM_MED, PRENOM_MED, ID_MED FROM MEDECINS WHERE RFID_UID = :uid");
         query.bindValue(":uid", uid);
 
         if (query.exec() && query.next()) {
             QString nom = query.value(0).toString();
             QString prenom = query.value(1).toString();
+            QString  idbase = query.value(2).toString();  // Store ID_MED
             QString nom_complet = nom + " " + prenom;
 
             A.write_to_arduino(nom_complet.toUtf8() + "\n");
 
             QMessageBox::information(this, "Connexion RFID", "Bonjour " + nom_complet);
             MainWindow *mainWindow = new MainWindow();
+            mainWindow->setMedecinId(idbase);
             mainWindow->show();
             this->close();
+            hasProcessed = true;    // Prevent further processing
         } else {
             QMessageBox::warning(this, "Erreur RFID", "UID non reconnu.");
             A.write_to_arduino("Acces refuse\n");
         }
 
-        // Réinitialiser pour le prochain UID
-        fullUID.clear();
+        fullUID.clear();        // Reset buffer
+
     }
 }
 
@@ -88,10 +97,12 @@ void Login::on_pushButton_login_clicked()
         query.bindValue(":password", password);
 
         if (query.exec() && query.next()) {
-            QMessageBox::information(this, "Connexion", "Connexion réussie !");
+            //QMessageBox::information(this, "Connexion", "Connexion réussie !");
             MainWindow *mainWindow = new MainWindow();
+            mainWindow->setMedecinId(login);  // NEW: Pass login to MainWindow
             mainWindow->show();
             this->close();
+            hasProcessed = true;
         } else {
             QMessageBox::warning(this, "Erreur", "Identifiants incorrects.");
         }

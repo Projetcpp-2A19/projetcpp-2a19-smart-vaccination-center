@@ -7,18 +7,22 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
     Connection c;
+    MainWindow w;
     Login l;
+
+
+
+
 
     bool test=c.createconnect();
     if(test)
     {l.show();
         QSqlQueryModel * afficherEquipements();
         w.updateTableViewEquipement();
-        QMessageBox::information(nullptr, QObject::tr("database is open"),
+        /*QMessageBox::information(nullptr, QObject::tr("database is open"),
                                  QObject::tr("connection successful.\n"
-                                             "Click Cancel to exit."), QMessageBox::Cancel);
+                                             "Click Cancel to exit."), QMessageBox::Cancel);*/
 
     }
     else
